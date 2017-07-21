@@ -15,7 +15,7 @@ import com.rrenpin.util.JsonResult;
 
 @Controller
 @RequestMapping("/job")
-public class JobController {
+public class JobController extends ExceptionController{
 
 	@Resource
 	private JobService jobService;
