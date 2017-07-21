@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rrenpin.dao.JobMapper">
+
+  <resultMap id="BaseResultMap" type="com.rrenpin.entity.Job">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="job_no" jdbcType="VARCHAR" property="jobNo" />
+    <result column="job_name" jdbcType="VARCHAR" property="jobName" />
+    <result column="parent_no" jdbcType="VARCHAR" property="parentNo" />
+    <result column="parent_name" jdbcType="VARCHAR" property="parentName" />
+    <result column="grand_no" jdbcType="VARCHAR" property="grandNo" />
+    <result column="grand_name" jdbcType="VARCHAR" property="grandName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, job_no, job_name, parent_no, parent_name, grand_no, grand_name
+  </sql>
+ 
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from job
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from job
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rrenpin.entity.Job">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into job (id, job_no, job_name, 
+      parent_no, parent_name, grand_no, 
+      grand_name)
+    values (#{id,jdbcType=INTEGER}, #{jobNo,jdbcType=VARCHAR}, #{jobName,jdbcType=VARCHAR}, 
+      #{parentNo,jdbcType=VARCHAR}, #{parentName,jdbcType=VARCHAR}, #{grandNo,jdbcType=VARCHAR}, 
+      #{grandName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rrenpin.entity.Job">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into job
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      id,
+      <if test="jobNo != null">
+        job_no,
+      </if>
+      <if test="jobName != null">
+        job_name,
+      </if>
+      <if test="parentNo != null">
+        parent_no,
+      </if>
+      <if test="parentName != null">
+        parent_name,
+      </if>
+      <if test="grandNo != null">
+        grand_no,
+      </if>
+      <if test="grandName != null">
+        grand_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=INTEGER},
+      <if test="jobNo != null">
+        #{jobNo,jdbcType=VARCHAR},
+      </if>
+      <if test="jobName != null">
+        #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNo != null">
+        #{parentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="parentName != null">
+        #{parentName,jdbcType=VARCHAR},
+      </if>
+      <if test="grandNo != null">
+        #{grandNo,jdbcType=VARCHAR},
+      </if>
+      <if test="grandName != null">
+        #{grandName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rrenpin.entity.Job">
+    update job
+    <set>
+      <if test="jobNo != null">
+        job_no = #{jobNo,jdbcType=VARCHAR},
+      </if>
+      <if test="jobName != null">
+        job_name = #{jobName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNo != null">
+        parent_no = #{parentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="parentName != null">
+        parent_name = #{parentName,jdbcType=VARCHAR},
+      </if>
+      <if test="grandNo != null">
+        grand_no = #{grandNo,jdbcType=VARCHAR},
+      </if>
+      <if test="grandName != null">
+        grand_name = #{grandName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rrenpin.entity.Job">
+    update job
+    set job_no = #{jobNo,jdbcType=VARCHAR},
+      job_name = #{jobName,jdbcType=VARCHAR},
+      parent_no = #{parentNo,jdbcType=VARCHAR},
+      parent_name = #{parentName,jdbcType=VARCHAR},
+      grand_no = #{grandNo,jdbcType=VARCHAR},
+      grand_name = #{grandName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="listAllJob" resultMap="BaseResultMap">
+  	select * from job
+  </select>
+</mapper>

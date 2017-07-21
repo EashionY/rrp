@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rrenpin.dao.PostMapper">
+
+  <resultMap id="BaseResultMap" type="com.rrenpin.entity.Post">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="salary" jdbcType="VARCHAR" property="salary" />
+    <result column="region" jdbcType="VARCHAR" property="region" />
+    <result column="work_exp" jdbcType="VARCHAR" property="workExp" />
+    <result column="degree" jdbcType="VARCHAR" property="degree" />
+    <result column="work_type" jdbcType="VARCHAR" property="workType" />
+    <result column="post_time" jdbcType="TIMESTAMP" property="postTime" />
+    <result column="benefits" jdbcType="VARCHAR" property="benefits" />
+    <result column="duty" jdbcType="VARCHAR" property="duty" />
+    <result column="requirement" jdbcType="VARCHAR" property="requirement" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, company_id, name, salary, region, work_exp, degree, work_type, post_time, benefits, 
+    duty, requirement, status
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from post
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from post
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rrenpin.entity.Post">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into post (id, company_id, name, 
+      salary, region, work_exp, 
+      degree, work_type, post_time, 
+      benefits, duty, requirement, 
+      status)
+    values (#{id,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{salary,jdbcType=VARCHAR}, #{region,jdbcType=VARCHAR}, #{workExp,jdbcType=VARCHAR}, 
+      #{degree,jdbcType=VARCHAR}, #{workType,jdbcType=VARCHAR}, #{postTime,jdbcType=TIMESTAMP}, 
+      #{benefits,jdbcType=VARCHAR}, #{duty,jdbcType=VARCHAR}, #{requirement,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rrenpin.entity.Post">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into post
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      id,
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+      <if test="region != null">
+        region,
+      </if>
+      <if test="workExp != null">
+        work_exp,
+      </if>
+      <if test="degree != null">
+        degree,
+      </if>
+      <if test="workType != null">
+        work_type,
+      </if>
+      <if test="postTime != null">
+        post_time,
+      </if>
+      <if test="benefits != null">
+        benefits,
+      </if>
+      <if test="duty != null">
+        duty,
+      </if>
+      <if test="requirement != null">
+        requirement,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=INTEGER},
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="workExp != null">
+        #{workExp,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null">
+        #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="postTime != null">
+        #{postTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="benefits != null">
+        #{benefits,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null">
+        #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="requirement != null">
+        #{requirement,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rrenpin.entity.Post">
+    update post
+    <set>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="workExp != null">
+        work_exp = #{workExp,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null">
+        degree = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="workType != null">
+        work_type = #{workType,jdbcType=VARCHAR},
+      </if>
+      <if test="postTime != null">
+        post_time = #{postTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="benefits != null">
+        benefits = #{benefits,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null">
+        duty = #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="requirement != null">
+        requirement = #{requirement,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rrenpin.entity.Post">
+    update post
+    set company_id = #{companyId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=VARCHAR},
+      region = #{region,jdbcType=VARCHAR},
+      work_exp = #{workExp,jdbcType=VARCHAR},
+      degree = #{degree,jdbcType=VARCHAR},
+      work_type = #{workType,jdbcType=VARCHAR},
+      post_time = #{postTime,jdbcType=TIMESTAMP},
+      benefits = #{benefits,jdbcType=VARCHAR},
+      duty = #{duty,jdbcType=VARCHAR},
+      requirement = #{requirement,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
