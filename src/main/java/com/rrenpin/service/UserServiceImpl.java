@@ -60,6 +60,26 @@ public class UserServiceImpl implements UserService {
 			throw new ModifyUserInfoException("修改失败");
 		}
 	}
+
+	public void modifyPsd(int userId, String oldPsd, String newPsd) {
+		User user = userMapper.selectByPrimaryKey(userId);
+		if(user == null){
+			throw new NoUserFindException("userId无效");
+		}
+		if(!user.getPassword().equals(Util.md5(oldPsd))){
+			throw new PasswordException("密码错误");
+		}
+		user.setPassword(Util.md5(newPsd));
+		int i;
+		try {
+			i = userMapper.updateByPrimaryKeySelective(user);
+		} catch (Exception e) {
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i!=1){
+			throw new PasswordException("修改密码失败");
+		}
+	}
 	
 	
 

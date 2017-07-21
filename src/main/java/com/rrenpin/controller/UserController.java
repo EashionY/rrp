@@ -22,9 +22,9 @@ public class UserController extends ExceptionController{
 	@ResponseBody
 	public JsonResult login(String phone,String password,HttpServletResponse resp){
 //		System.out.println("phone:"+phone+",psd:"+password);
-		resp.setHeader("Access-Control-Allow-Origin", "*");
+//		resp.setHeader("Access-Control-Allow-Origin", "*");
 		User user = userService.login(phone, password);
-		return new JsonResult(user);
+		return new JsonResult(0,user,"登录成功");
 	}
 	
 	@RequestMapping("/modifyUserInfo")
@@ -32,9 +32,15 @@ public class UserController extends ExceptionController{
 	public JsonResult modifyUserInfo(int userId,String nickname,String sex,String job,String degree,String selfIntro,HttpServletResponse resp){
 		resp.setHeader("Access-Control-Allow-Origin", "*");
 		userService.modifyUserInfo(userId, nickname, sex, job, degree, selfIntro);
-		return new JsonResult("");
+		return new JsonResult(0,"","个人资料修改成功");
 	}
 	
+	@RequestMapping("/modifyPsd")
+	@ResponseBody
+	public JsonResult modifyPsd(int userId,String oldPsd,String newPsd){
+		userService.modifyPsd(userId, oldPsd, newPsd);
+		return new JsonResult(0,"","密码修改成功");
+	}
 	
 	
 }

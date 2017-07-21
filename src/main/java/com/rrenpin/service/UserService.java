@@ -29,9 +29,14 @@ public interface UserService {
 	 * @param job
 	 * @param degree
 	 * @param selfIntro
-	 * @return
 	 */
 	public void modifyUserInfo(int userId,String nickname,String sex,String job,String degree,String selfIntro);
 	
-	
+	/**
+	 * ÐÞ¸ÄÃÜÂë
+	 * @param userId
+	 * @param oldPsd
+	 * @param newPsd
+	 */
+	public void modifyPsd(int userId,String oldPsd,String newPsd);
 }
