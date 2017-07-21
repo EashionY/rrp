@@ -20,10 +20,12 @@ public class Resume implements Serializable{
     private String empName;
     //应聘人地区
     private String empRegion;
-    //工作年限
+    //工作年限()
     private String workExp;
     //性别
     private String sex;
+    //出生日期
+    private String birth;
     //应聘人目前状态（在职/离职）
     private String status;
     //应聘人手机号码
@@ -167,7 +169,15 @@ public class Resume implements Serializable{
         this.sex = sex;
     }
 
-    public String getStatus() {
+    public String getBirth() {
+		return birth;
+	}
+
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+
+	public String getStatus() {
         return status;
     }
 
@@ -514,20 +524,20 @@ public class Resume implements Serializable{
 	@Override
 	public String toString() {
 		return "Resume [id=" + id + ", resumeName=" + resumeName + ", updateTime=" + updateTime + ", empName=" + empName
-				+ ", empRegion=" + empRegion + ", workExp=" + workExp + ", sex=" + sex + ", status=" + status
-				+ ", phone=" + phone + ", email=" + email + ", userId=" + userId + ", salary=" + salary + ", job=" + job
-				+ ", workType=" + workType + ", workArea=" + workArea + ", work3Description=" + work3Description
-				+ ", company1=" + company1 + ", work1=" + work1 + ", work1Time=" + work1Time + ", work1Description="
-				+ work1Description + ", company2=" + company2 + ", work2=" + work2 + ", work2Time=" + work2Time
-				+ ", work2Description=" + work2Description + ", company3=" + company3 + ", work3=" + work3
-				+ ", work3Time=" + work3Time + ", project1=" + project1 + ", project1Time=" + project1Time
-				+ ", project1Description=" + project1Description + ", duty1=" + duty1 + ", project2=" + project2
-				+ ", project2Time=" + project2Time + ", project2Description=" + project2Description + ", duty2=" + duty2
-				+ ", project3=" + project3 + ", project3Time=" + project3Time + ", project3Description="
-				+ project3Description + ", duty3=" + duty3 + ", school1=" + school1 + ", major1=" + major1
-				+ ", education1=" + education1 + ", school1Time=" + school1Time + ", school2=" + school2 + ", major2="
-				+ major2 + ", education2=" + education2 + ", school2Time=" + school2Time + ", skill=" + skill
-				+ ", selfEvaluation=" + selfEvaluation + ", headImg=" + headImg + "]";
+				+ ", empRegion=" + empRegion + ", workExp=" + workExp + ", sex=" + sex + ", birth=" + birth
+				+ ", status=" + status + ", phone=" + phone + ", email=" + email + ", userId=" + userId + ", salary="
+				+ salary + ", job=" + job + ", workType=" + workType + ", workArea=" + workArea + ", work3Description="
+				+ work3Description + ", company1=" + company1 + ", work1=" + work1 + ", work1Time=" + work1Time
+				+ ", work1Description=" + work1Description + ", company2=" + company2 + ", work2=" + work2
+				+ ", work2Time=" + work2Time + ", work2Description=" + work2Description + ", company3=" + company3
+				+ ", work3=" + work3 + ", work3Time=" + work3Time + ", project1=" + project1 + ", project1Time="
+				+ project1Time + ", project1Description=" + project1Description + ", duty1=" + duty1 + ", project2="
+				+ project2 + ", project2Time=" + project2Time + ", project2Description=" + project2Description
+				+ ", duty2=" + duty2 + ", project3=" + project3 + ", project3Time=" + project3Time
+				+ ", project3Description=" + project3Description + ", duty3=" + duty3 + ", school1=" + school1
+				+ ", major1=" + major1 + ", education1=" + education1 + ", school1Time=" + school1Time + ", school2="
+				+ school2 + ", major2=" + major2 + ", education2=" + education2 + ", school2Time=" + school2Time
+				+ ", skill=" + skill + ", selfEvaluation=" + selfEvaluation + ", headImg=" + headImg + "]";
 	}
 
 	@Override
