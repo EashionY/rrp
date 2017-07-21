@@ -10,6 +10,7 @@
     <result column="emp_region" jdbcType="VARCHAR" property="empRegion" />
     <result column="work_exp" jdbcType="VARCHAR" property="workExp" />
     <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="birth" jdbcType="VARCHAR" property="birth"/>
     <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
@@ -55,8 +56,8 @@
     <result column="head_img" jdbcType="VARCHAR" property="headImg" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, resume_name, update_time, emp_name, emp_region, work_exp, sex, status, phone, 
-    mail, user_id, salary, job, work_type, work_area, work3_description, company1, work1, 
+    id, resume_name, update_time, emp_name, emp_region, work_exp, sex, birth, status, phone, 
+    email, user_id, salary, job, work_type, work_area, work3_description, company1, work1, 
     work1_time, work1_description, company2, work2, work2_time, work2_description, company3, 
     work3, work3_time, project1, project1_time, project1_description, duty1, project2, 
     project2_time, project2_description, duty2, project3, project3_time, project3_description, 
@@ -80,8 +81,8 @@
     </selectKey>
     insert into resume (id, resume_name, update_time, 
       emp_name, emp_region, work_exp, 
-      sex, status, phone, 
-      mail, user_id, salary, 
+      sex, birth, status, phone, 
+      email, user_id, salary, 
       job, work_type, work_area, 
       work3_description, company1, work1, 
       work1_time, work1_description, company2, 
@@ -97,8 +98,8 @@
       self_evaluation, head_img)
     values (#{id,jdbcType=INTEGER}, #{resumeName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{empName,jdbcType=VARCHAR}, #{empRegion,jdbcType=VARCHAR}, #{workExp,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{mail,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{salary,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birth,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{salary,jdbcType=VARCHAR}, 
       #{job,jdbcType=VARCHAR}, #{workType,jdbcType=VARCHAR}, #{workArea,jdbcType=VARCHAR}, 
       #{work3Description,jdbcType=VARCHAR}, #{company1,jdbcType=VARCHAR}, #{work1,jdbcType=VARCHAR}, 
       #{work1Time,jdbcType=VARCHAR}, #{work1Description,jdbcType=VARCHAR}, #{company2,jdbcType=VARCHAR}, 
@@ -138,14 +139,17 @@
       <if test="sex != null">
         sex,
       </if>
+      <if test="birth != null">
+        birth,
+      </if>
       <if test="status != null">
         status,
       </if>
       <if test="phone != null">
         phone,
       </if>
-      <if test="mail != null">
-        mail,
+      <if test="email != null">
+        email,
       </if>
       <if test="userId != null">
         user_id,
@@ -288,14 +292,17 @@
       <if test="sex != null">
         #{sex,jdbcType=VARCHAR},
       </if>
+      <if test="birth != null">
+        #{birth,jdbcType=VARCHAR},
+      </if>
       <if test="status != null">
         #{status,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="mail != null">
-        #{mail,jdbcType=VARCHAR},
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
@@ -440,14 +447,17 @@
       <if test="sex != null">
         sex = #{sex,jdbcType=VARCHAR},
       </if>
+      <if test="birth != null">
+        birth = #{birth,jdbcType=VARCHAR},
+      </if>
       <if test="status != null">
         status = #{status,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="mail != null">
-        mail = #{mail,jdbcType=VARCHAR},
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="userId != null">
         user_id = #{userId,jdbcType=INTEGER},
@@ -580,9 +590,10 @@
       emp_region = #{empRegion,jdbcType=VARCHAR},
       work_exp = #{workExp,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
-      mail = #{mail,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=INTEGER},
       salary = #{salary,jdbcType=VARCHAR},
       job = #{job,jdbcType=VARCHAR},
@@ -625,4 +636,11 @@
       head_img = #{headImg,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="findByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from resume
+    where user_id=#{userId,jdbcType=INTEGER} 
+  </select>
 </mapper>
