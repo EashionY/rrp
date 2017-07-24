@@ -1,6 +1,8 @@
 /**
  * Created by Administrator on 2017/7/13.
  */
+
+
 $(".my_edit").on("click",function(){
     $(".my_rightmain1").css("display","none");
     $(".my_rightmain2").css("display","block")

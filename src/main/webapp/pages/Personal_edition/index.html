@@ -28,17 +28,7 @@
             <!--<a href="message/message.html"><li class="xx">消息 <div class="xxNum">1</div></li></a>-->
             <a href="resume/resume.html"><li>我的简历</li></a>
             <a href="delivery_box/delivery_success.html"><li>投递箱</li></a>
-            <!--<a href="#"><li><span id="head_logbtn">登录</span>&nbsp;/&nbsp;<span id="head_regbtn">注册</span></li></a>-->
-            <a href="#">
-                <li id="head_person">
-                    二狗子<span class="myfont myfont_xia">&#xe60b;</span>
-                    <ul id="head_person_ul">
-                        <li id="head_zh">&nbsp;账号设置&nbsp;</li>
-                        <li id="head_qy">&nbsp;去企业版&nbsp;</li>
-                        <li id="head_exit">&nbsp;安全退出&nbsp;</li>
-                    </ul>
-                </li>
-            </a>
+            <a href="#" id="header_last"><li><span id="head_logbtn">登录</span>&nbsp;/&nbsp;<span id="head_regbtn">注册</span></li></a>   
         </ul>
     </nav>
 </header>
@@ -831,10 +821,14 @@
 </footer>
 </body>
 <script src="../../js/jquery-1.11.3.js"></script>
+<script src="../../js/ip.js"></script>
 <script src="../../js/slider.js"></script>
 <script src="../../js/header.js"></script>
 <script>
-
+	$(function() { 
+		myonload2("my/pers_infor.html","../Enterprise_edition/talent_recom.html","index.html");
+	});
+		
 
     var comNameList=$(".comName");
     $.each(comNameList,function(key,val){
