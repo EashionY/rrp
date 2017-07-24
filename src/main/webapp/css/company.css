@@ -1,0 +1,140 @@
+.company_body{
+    width: 1024px;
+    margin: 0 auto;
+}
+.company_topBox{
+    width: 100%;
+    margin-top: 30px;
+    border-top: 2px #3eb39d solid;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.comtop_main{
+    width: 944px;
+    margin: 30px auto;
+    display: flex;
+}
+.comtop_logbox{
+    width: 150px;
+    height: 150px;
+}
+.comtop_logbox>img{width: 100%;height: 100%}
+.comtop_right{
+    margin-left: 20px;
+    color: #333333;
+}
+.company_name{
+    font-size: 24px;
+}
+.comtop_right>ul{
+    font-size: 18px;
+    display: flex;
+    margin-top: 20px;
+}
+.comtop_right>ul>li{
+    margin-left: 40px;
+    position: relative;
+}
+.comtop_right>ul>li:nth-of-type(1){margin-left: 0}
+.comtop_right>ul>li:before{
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 4px;
+    background-color: #333333;
+    width: 1px;
+    height: 70%;
+}
+.comtop_right>ul>li:nth-of-type(1){height: 0}
+.company_wz{
+    font-size: 14px;
+    margin-top: 20px;
+}
+.company_downBox{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    background-color: #fafafa;
+    width: 100%;
+    overflow: hidden;
+}
+.comdown_main{
+    width: 944px;
+    margin: 30px auto;
+}
+.company_jianjie{
+    font-size: 14px;
+    margin-top: 20px;
+    color: #333333;
+    letter-spacing: 1px;
+    line-height: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px #dddddd solid;
+}
+.company_address{
+    margin-top: 30px;
+    font-size: 14px;
+    color: #333333;
+}
+.add_font{
+    color: #3eb39d;
+}
+.company_addresstext{
+    display: inline-block;
+    margin-left: 10px;
+}
+.company_mapbox{
+    margin-top: 20px;
+    width: 100%;
+    height: 270px;
+    padding-bottom: 30px;
+    border-bottom: 1px #dddddd solid;
+}
+.company_map{
+    width: 100%;
+    height: 100%;
+    /*border: 1px red solid;*/
+}
+.company_zhiweibox{
+    border-bottom: 1px #dddddd solid;
+}
+.com_zhiwei{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333333;
+}
+.com_zhiwei span{
+    display: inline-block;
+    margin-left: 10px;
+    color: #3eb39d;
+}
+.com_zhiwei>div:nth-last-of-type(1){
+    font-size: 14px;
+    color: #666666;
+}
+.company_zhiweibox>ul{
+    display: flex;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.company_zhiweibox>ul>li{
+    color: #666666;
+    font-size: 14px;
+}
+.company_zhiweibox>ul>li:nth-of-type(1){
+    color: #fa6041;
+    font-size: 16px;
+}
+.company_zhiweibox>ul>li:nth-of-type(2){
+    margin-left: 50px;
+}
+.company_zhiweibox>ul>li:nth-of-type(3){
+    margin-left: 30px;
+}
+.company_zhiweiBox>.company_zhiweibox:nth-last-of-type(1){
+    border-bottom: none;
+}
+.company_zhiweiBox>.company_zhiweibox:nth-of-type(1){
+    margin-top: 30px;
+}

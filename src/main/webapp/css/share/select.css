@@ -1,0 +1,18 @@
+/*下拉选择框*/
+.divselect{width:305px;margin-top: 10px; position:relative; z-index:10000;}
+.divselect cite{width:305px; height:43px;line-height:43px; display:block; cursor:pointer;font-style:normal;
+    border:1px solid #dddddd;background-color: #ffffff;text-indent: 10px}
+.divselect ul{width:305px;border:1px solid #dddddd; background-color:#ffffff;
+    position:absolute; z-index:20000; margin-top:-1px;display: none;}
+.divselect ul li{height:43px; line-height:43px;}
+.divselect ul li a{display:block; height:43px; color:#333333; text-decoration:none;
+    padding-left:10px; padding-right:10px;}
+.divselect ul li a:hover{background-color:#CCC;}
+.texterea_box{position: relative;width: 640px;}
+.texterea_tips{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    color: #888888;
+}

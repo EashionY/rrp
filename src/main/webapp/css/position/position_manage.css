@@ -1,0 +1,72 @@
+.poma_divtop{
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.poma_divtop .divselect{width:200px; margin-top:3px;position:relative;}
+.poma_divtop .divselect cite{width:200px; height:50px;line-height:50px; display:block; cursor:pointer;font-style:normal;
+    border:1px solid #dddddd;background-color: #ffffff;text-indent: 30px}
+.poma_divtop .divselect ul{width:200px;border:1px solid #dddddd; background-color:#ffffff;
+    position:absolute; z-index:999; margin-top:-1px;display: none;}
+.poma_divtop .divselect ul li{height:50px; line-height:50px;}
+.poma_divtop .divselect ul li a{display:block; height:50px; color:#888888; text-decoration:none;
+    padding-left:30px; padding-right:10px;font-size: 14px;}
+.poma_divtop .divselect ul li a:hover{background-color:#CCC;}
+.poma_divtop .input_icon{
+    position: absolute;
+    right: 20px;
+    top: 3px;
+    font-size: 20px;
+    color: #dddddd;
+}
+.poma_divtop .input_text{
+    font-size: 14px;
+    color: #888888;
+}
+#poma_fabubtn{
+    width: 200px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #3eb39d;
+}
+#poma_fabubtn:hover{cursor: pointer}
+.btn_text{position: relative;margin-left: 30px}
+.btn_text:before{
+    position: absolute;
+    top: 11px;
+    left: -34px;
+    content: "";
+    background-color: #ffffff;
+    width: 20px;
+    height: 2px;
+}
+.btn_text:after{
+    position: absolute;
+    top: 3px;
+    left: -25px;
+    content: "";
+    background-color: #ffffff;
+    height: 19px;
+    width : 2px;
+}
+.poma_divdown{background-color: #fafafa;margin-bottom: 50px}
+.poma_contbox{display: flex;justify-content: space-between;padding: 30px 0;margin-left:40px;
+    margin-right:40px;border-bottom: 1px #dddddd solid}
+.poma_divdown>.poma_contbox:nth-of-type(1){padding-top: 40px}
+.poma_divdown>.poma_contbox:nth-last-of-type(1){padding-bottom: 50px;border-bottom: none}
+.poma_left_div1>span{margin-left: 20px}
+.poma_left_div1>span:nth-of-type(1){margin-left: 0}
+.poma_zwname{font-size: 16px;color: #333333}
+.poma_fbtime{font-size: 14px;color: #666666}
+.poma_salary{font-size: 16px;color: #fa6041}
+.poma_jingyan{font-size: 14px;color: #666666;margin-left: 50px}
+.poma_xueli{font-size: 14px;color: #666666;margin-left: 30px}
+.poma_left_div2{margin-top: 30px}
+.poma_zwstate{font-size: 12px;color: #ffffff;background-color: #888888;
+    border-radius: 5px;text-align: center;display:inline-block;width: 50px;height: 20px;line-height: 20px}
+.poma_right{font-size: 14px;color: #666666;margin-top: 30px}
+.poma_edit{margin-right: 30px;color: #3eb39d}
+.poma_right>span:hover{cursor: pointer}

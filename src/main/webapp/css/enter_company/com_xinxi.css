@@ -1,0 +1,65 @@
+.comxx_right{margin-top: 30px;background-color: #fafafa;width: 725px;margin-bottom: 50px}
+.comxx_div1{  display: flex;  justify-content: space-between; padding: 30px 0;
+    margin-left: 40px;margin-right: 40px;  border-bottom: 1px #dddddd solid;  }
+.comxx_main{display: flex;}
+.comxx_logbox{  width: 150px;  height: 150px;  }
+.comxx_logbox>img{width: 100%;height: 100%}
+.comxxtop_right{
+    margin-left: 20px;
+    color: #333333;
+}
+.comxx_name{
+    font-size: 18px;
+}
+.comxxtop_right>ul{
+    font-size: 16px;
+    display: flex;
+    margin-top: 20px;
+}
+.comxxtop_right>ul>li{
+    margin-left: 40px;
+    position: relative;
+}
+.comxxtop_right>ul>li:nth-of-type(1){margin-left: 0}
+.comxxtop_right>ul>li:before{
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 4px;
+    background-color: #333333;
+    width: 1px;
+    height: 70%;
+}
+.comxxtop_right>ul>li:nth-of-type(1){height: 0}
+.comxx_wz{
+    font-size: 14px;
+    margin-top: 20px;
+}
+.comxx_eidtbtn{line-height: 145px;}
+.comxx_eidtbtn>span:hover{cursor: pointer;color: #3eb39d}
+#comxx_eidt{font-size: 20px}
+.comxx_div2{margin-left: 40px;margin-right: 40px;border-bottom: 1px #dddddd  solid }
+.comxx_detail{  padding-top: 20px;  padding-bottom: 30px;font-size: 14px;
+    color: #333333;line-height: 23px;  }
+.comxx_div3{border-bottom: none;padding-bottom: 50px}
+.comxx_address{
+    margin-top: 30px;
+    font-size: 14px;
+    color: #333333;
+}
+.comxx_font{
+    color: #3eb39d;
+}
+.comxx_addresstext{
+    display: inline-block;
+    margin-left: 10px;
+}
+.comxx_mapbox{
+    margin-top: 20px;
+    width: 100%;
+    height: 270px;
+}
+.comxx_map{
+    width: 100%;
+    height: 100%;
+}

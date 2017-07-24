@@ -1,0 +1,127 @@
+.comInfo_contbox{background-color: #fafafa;  margin-top: 30px;  margin-bottom: 50px;  padding: 0 40px;  }
+.comInfo_contdiv{display: flex;margin-top: 30px}
+.comInfo_contbox>.comInfo_contdiv:nth-of-type(1){padding-top: 50px}
+.comInfo_contbox>.comInfo_contdiv:nth-last-of-type(1){padding-bottom: 50px}
+.comInfo_contdiv>div:nth-of-type(1){font-size: 18px;color: #333333;line-height:50px;width: 95px;margin-right: 8px;}
+.comInfo_contdiv input{width: 835px;height: 50px;border: 1px #dddddd solid;
+    text-indent: 23px;font-size: 16px;color: #333333;outline-color:#3eb39d}
+.comInfo_logo{width: 180px;height: 180px;border: 1px #dddddd dashed;
+    background-color: #ffffff;position: relative}
+.comInfo_logo:hover{cursor: pointer}
+.logo_tips{position: absolute;bottom: 10px;left: 33px;font-size: 14px;color: #878789}
+.comInfo_logo:before{content: "";position: absolute;left:87px;top: 20px;background-color: #EEEEEE;
+    width: 5px;height: 90px;}
+.comInfo_logo:after{content: "";position: absolute;left:45px;top: 62px;background-color: #EEEEEE;
+    width: 90px;height: 5px;}
+.comInfo_textarea{position: relative;}
+.comInfo_textarea textarea{width: 831px;height: 281px;border: 1px #dddddd solid;
+    line-height: 25px;text-indent: 23px;font-size: 16px;color: #333333;outline-color:#3eb39d}
+.comInfo_textarea .texterea_tips{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    color: #888888;
+}
+.comInfo_addre{position: relative;}
+.comInfo_addre .input_icon{
+    position: absolute;
+    right: 15px;
+    top:18px;
+    font-size: 20px;
+    color: #dddddd;
+}
+.comInfo_addre .city-picker-span {
+    border: 1px solid #dddddd;
+    text-indent: 23px;
+    font-size: 16px;
+    color: #333333;
+}
+.comInfo_addre .city-picker-span > .arrow {
+    width: 0;
+}
+
+/*公司规模--下拉选择框*/
+.comInfo_contdiv .divselect{width:835px;position:relative; z-index:10000;}
+.comInfo_contdiv .divselect cite{width:835px; height:50px;line-height:50px; display:block; cursor:pointer;font-style:normal;
+    border:1px solid #dddddd;background-color: #ffffff;text-indent: 23px}
+.comInfo_contdiv .divselect ul{width:835px;border:1px solid #dddddd; background-color:#ffffff;
+    position:absolute; z-index:20000; margin-top:-1px;display: none;}
+.comInfo_contdiv .divselect ul li{height:30px; line-height:30px;}
+.comInfo_contdiv .divselect ul li a{display:block; height:30px; color:#333333; text-decoration:none;
+    padding-left:23px; padding-right:10px;}
+.comInfo_contdiv .divselect ul li a:hover{background-color:#CCC;}
+.comInfo_contdiv .input_icon{  position: absolute;  right: 15px;  top: 3px;  font-size: 20px;  color: #dddddd;  }
+.comInfo_contdiv .input_icon2{  top: 15px;  right: 17px;  }
+
+.comInfo_rongzi{font-size: 18px;color: #333333}
+.comInfo_rongzi>span{display:inline-block;border: 1px #dddddd solid;padding: 10px 30px;margin-left: 20px}
+.comInfo_rongzi>span:nth-of-type(1){margin-left: 0}
+.comInfo_rongzi>span:hover{cursor: pointer}
+.comInfo_rongzi2{margin-top: 20px}
+.comInfo_rzactiv{background-color: #3eb39d;color: #ffffff !important;border: 1px #3eb39d solid !important;}
+
+.comInfo_btnbox{margin-left: 105px;margin-top: 50px;padding-bottom: 50px}
+.comInfo_btnbox>span{display: inline-block;width: 115px;height: 45px;line-height: 45px;font-size: 14px;
+    text-align: center;margin-left: 30px;}
+.comInfo_btnbox>span:nth-of-type(1){margin-left: 0;border: 1px #3eb39d solid;color: #ffffff;background-color: #3eb39d;}
+.comInfo_btnbox>span:hover{cursor: pointer}
+
+/*公司账号设置页面css*/
+.com_body{
+    display: flex;
+    justify-content: space-between;
+}
+.com_left{
+    width: 280px;
+    height: 160px;
+    margin-top: 30px;
+    background-color: #fafafa;
+}
+.com_left_div{
+    padding: 30px 0;
+    padding-left: 30px;
+    border-bottom: 1px #dddddd solid;
+    font-size: 14px;
+    color: #333333;
+}
+.com_left_div:hover{cursor: pointer}
+.com_left>.com_left_div:nth-last-of-type(1){border-bottom: none}
+.com_left_div>span:nth-of-type(2){
+    margin-left: 20px;
+}
+.com_left_active{color: #3eb39d; position: relative;}
+.com_left_active:before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #3eb39d;
+    content: "";
+    height: 100%;
+    width: 2px;
+}
+.com_right{ width: 725px;  }
+.com_body .comInfo_contdiv input{width: 540px;}
+.com_body .comInfo_textarea textarea{width: 535px}
+
+/*公司规模--下拉选择框*/
+.com_body .comInfo_contdiv .divselect{width:540px;}
+.com_body .comInfo_contdiv .divselect cite{width:540px;}
+.com_body .comInfo_contdiv .divselect ul{width:540px;}
+.com_body .comInfo_rongzi>span{margin-left: 10px;padding: 10px 29px;}
+.com_body .comInfo_rongzi>span:nth-of-type(1){margin-left: 1px}
+.com_body .comInfo_addre>input{width: 538px}
+.comInfo_linyu>input{width: 540px}
+.com_exit{background-color: #fafafa;color: #333333;border: 1px #dddddd solid}
+
+
+.com_right2{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    height: 775px;
+    background-color: #fafafa;
+}
+.com_right2 .my_rightmain{
+    width: 645px;
+    margin: 0 auto;
+}

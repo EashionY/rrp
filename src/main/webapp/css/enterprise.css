@@ -1,0 +1,175 @@
+.enterp_body{
+    width: 770px;
+    margin: 0 auto;
+}
+.enterp_title{
+    width: 100%;
+    text-align: center;
+    padding: 50px 0;
+}
+.enterp_title_span1{
+    font-size: 24px;
+    color: #3eb39d;
+}
+.enterp_title_span2{
+    font-size: 18px;
+    color: #666666;
+    display: inline-block;
+    margin-left: 40px;
+    position: relative;
+}
+.enterp_title_span2:before{
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 0;
+    background-color: #dddddd;
+    width: 2px;
+    height: 100%;
+}
+.enterp_contentbox{
+    background-color: #fafafa;
+    width: 100%;
+    height: 575px;
+    margin-bottom: 150px;
+}
+.enterp_conmainbox{
+    width: 690px;
+    margin: 0 auto;
+}
+.enterp_shunxuBtn{
+    padding: 50px 0;
+    width: 100%;
+    display: flex;
+    font-size: 14px;
+    color: #333333;
+}
+.enterp_shunxuBtn>div{
+    width: 230px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-image: url("../images/enterprise/ic_ongoing.png");
+}
+.enterp_sxBtn_div1:hover,.enterp_sxBtn_div2:hover,.enterp_sxBtn_div3:hover{cursor: pointer}
+.enterp_sxBtn_div1{
+    background-image: url("../images/enterprise/ic_complete.png") !important;
+}
+.enterp_sxBtn_activ{
+    color: #ffffff;
+}
+.span2{
+    display: inline-block;
+    margin-left: 15px;
+}
+.enterp_inputbox{
+    /*border: 1px red solid;*/
+}
+.enterp_inputDiv{
+    width: 100%;
+    height: 60px;
+    margin-bottom: 50px;
+    border: 1px #E3E8EE solid;
+    display: flex;
+    overflow: hidden;
+}
+.enterp_inputDiv>input{
+    outline: none;
+    border: none;
+    height: 60px;
+    line-height: 58px;
+    margin-left: 20px;
+    background-color: transparent;
+    font-size: 18px;
+    width: 100%;
+}
+.enterp_tubiao{
+    margin-left: 20px;
+    margin-top: 13px;
+}
+
+.enter_qh{
+    margin-left: 20px;
+    font-size: 18px;
+    line-height: 60px;
+}
+.enterp_font{
+    font-size: 28px;
+    color: #dddddd;
+}
+.enterp_tips{
+    margin-top: -20px;
+    margin-bottom: 50px;
+    font-size: 14px;
+    color: #888888;
+}
+.enterp_nextBtn{
+    width: 420px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: #3eb39d;
+    color: #ffffff;
+    font-size: 18px;
+}
+.enterp_nextBtn:hover{cursor: pointer}
+.enterp_sxBtn_div22{
+    background-image: url("../images/enterprise/ic_complete_02.png") !important;
+}
+.enterp_yztips{
+    color: #3eb39d;
+}
+.enterp_yztips:hover{
+    cursor: pointer;
+}
+.enterp_yzdiv1>div:nth-of-type(1){
+    font-size: 18px;
+    color: #333333;
+}
+.enterp_yzdiv1>div:nth-of-type(1)>span{margin-left: 10px}
+.enterp_yzdiv1>div:nth-of-type(2){
+    font-size: 14px;
+    color: #888888;
+    margin-top: 30px;
+}
+.enterp_yzdiv2{
+    margin-top: 130px;
+}
+.enterp_yzdiv2>div{
+    font-size: 18px;
+    color: #333333;
+}
+.enterp_yzdiv2>ul{
+    font-size: 14px;
+    color: #888888;
+    margin-top: 10px;
+}
+.enterp_yzdiv2>ul>li{
+    margin-top: 20px;
+}
+.enterp_contentbox3_input{
+    width: 100%;
+    height: 60px;
+    margin-bottom: 50px;
+    border: 1px #E3E8EE solid;
+    overflow: hidden;
+}
+.enterp_contentbox3_input>input{
+    outline: none;
+    border: none;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 20px;
+    background-color: transparent;
+    font-size: 18px;
+    color: #888888;
+}
+#enterp_contentbox1{
+    /*display: none;*/
+}
+#enterp_contentbox2{
+    display: none;
+}
+#enterp_contentbox3{
+    display: none;
+}

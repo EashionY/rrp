@@ -1,0 +1,132 @@
+.our_body{
+    width: 1024px;
+    margin: 0 auto;
+    margin-top: 32px;
+    margin-bottom: 50px;
+}
+.our_menuBox{
+    height: 50px;
+    width: 100%;
+    border-bottom: 2px #3eb39d solid;
+    color: #333333;
+    font-size: 0;
+}
+.our_menuBox>span{
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    width: 151px;
+}
+.our_menu_active{
+    background-color: #3eb39d;
+    color: #ffffff;
+}
+.our_menuBox>span:hover{
+    cursor: pointer;
+}
+.our_contBox{
+    width: 100%;
+    background-color: #fafafa;
+}
+.our_contmain{
+    width: 944px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+.aour_imgbox{
+    width: 100%;
+    height: 350px;
+}
+.aour_imgbox>img{width: 100%;height: 100%}
+.aour_title{
+    font-size: 18px;
+    color: #333333;
+    margin-top: 30px;
+}
+.aour_detail{
+    font-size: 14px;
+    color: #333333;
+}
+.aour_detail>p:nth-of-type(1){
+    margin-top: 20px;
+}
+.aour_detail>p{
+    margin-top: 30px;
+    line-height: 23px;
+}
+/*加入我们*/
+.join_contmain{
+    width: 944px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+.join_contbox{
+    border-bottom: 1px #dddddd solid;
+}
+.join_contmain>.join_contbox:nth-last-of-type(1){
+    border: none;
+}
+.join_contmian_top{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.join_top_left{
+    font-size: 16px;
+    color: #333333;
+}
+.join_top_left>span:nth-last-of-type(1){
+    color: #3eb39d;
+    margin-left: 10px;
+}
+.join_top_right{
+    font-size: 14px;
+    color: #666666;
+}
+.join_contmian_down{
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.join_salary{
+    font-size: 16px;
+    color: #fa6041;
+}
+.join_jingyan{
+    font-size: 14px;
+    color: #666666;
+    margin-left: 50px;
+}
+.join_xueli{
+    font-size: 14px;
+    color: #666666;
+    margin-left: 30px;
+}
+/*联系我们*/
+.contact_contmain{
+    width: 944px;
+    height: 715px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.contact_main{
+    border-bottom: 1px #dddddd solid;
+}
+.contact_email{
+    margin-top: 30px;
+    font-size: 14px;
+    color: #333333;
+}
+.contact_email>span:nth-of-type(2){
+    margin-left: 50px;
+}
+.contact_addre{
+    margin-top: 20px;
+    padding-bottom: 30px;
+    font-size: 14px;
+    color: #333333;
+}
+.contact_contmain>.contact_main:nth-last-of-type(1){
+    border: none;
+}

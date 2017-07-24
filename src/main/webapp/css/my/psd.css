@@ -1,0 +1,33 @@
+.psd_div1{
+    margin-top: 50px;
+    padding-bottom: 30px;
+    font-size: 18px;
+    color: #333333;
+    border-bottom: 1px #dddddd solid;
+}
+.psd_inputbox{
+    margin-top: 30px;
+    height: 55px;
+}
+.psd_inputbox>input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 1px #dddddd solid;
+    background-color: transparent;
+    font-size: 14px;
+    color: #888888;
+    text-indent: 30px;
+}
+.psd_btn{
+    margin-top: 50px;
+    background-color: #3eb39d;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+}
+.psd_btn:hover{cursor: pointer}

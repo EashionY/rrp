@@ -1,0 +1,213 @@
+.my_body{
+    width: 1024px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.my_left{
+    width: 280px;
+    height: 240px;
+    background-color: #fafafa;
+}
+
+.my_left_div{
+    padding: 30px 0;
+    padding-left: 30px;
+    border-bottom: 1px #dddddd solid;
+    font-size: 14px;
+    color: #333333;
+}
+.my_left_div:hover{cursor: pointer}
+.my_left>.my_left_div:nth-last-of-type(1){border-bottom: none}
+.my_left_div>span:nth-of-type(2){
+    margin-left: 20px;
+}
+.my_left_active{color: #3eb39d; position: relative;}
+.my_left_active:before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #3eb39d;
+    content: "";
+    height: 100%;
+    width: 2px;
+}
+.my_right{
+    width: 725px;
+    height: 775px;
+    background-color: #fafafa;
+}
+.my_rightmain{
+    width: 645px;
+    margin: 0 auto;
+}
+.my_rightmian_div1{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.my_rightmian_div1left{
+    display: flex;
+    justify-content: space-between;
+}
+.my_touxiang{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px #3eb39d solid;
+}
+.my_touxiang>img{width: 100%;height: 100%}
+.my_xinxibox{
+    margin-left: 20px;
+    font-size: 18px;
+    color: #333333;
+}
+.my_zhiye{margin-left: 30px;color: #3eb39d}
+.my_namebox{margin-top: 15px}
+.my_sexbox{margin-top: 30px;font-size: 13px}
+.my_sexbox>span{margin-left: 20px}
+.my_sexbox>span:nth-of-type(1){margin-left: 0;font-size: 14px}
+.my_edit{
+    height: 40px;
+    padding-left: 10px;
+    line-height: 40px;
+    margin-top: 30px;
+}
+.my_edit:hover{cursor: pointer;color: #3eb39d}
+.my_editfont{font-size: 18px}
+.my_rightmian_div2{
+    width: 100%;
+    margin-top: 30px;
+    background-color: #ffffff;
+}
+.my_rightmian_div2>p{
+    padding: 30px;
+    font-size: 14px;
+    color: #333333;
+    line-height: 23px;
+    text-indent: 23px;
+}
+.my_rightmian_div3{
+    font-size: 14px;
+    color: #888888;
+    margin-top: 30px;
+}
+.my_rightmain1{
+    /*display: none;*/
+}
+.my_rightmain2{
+    display: none;
+}
+.myedit_touxiang{
+    margin: 0 auto;
+    margin-top: 40px;
+    position: relative;
+}
+.myedit_touxiang:hover{cursor: pointer}
+
+.myedit_touxiang:before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.6);
+    width: 100%;
+    height: 100%;
+}
+.myfont_xj{
+    display: inline-block;
+    position: absolute;
+    top: 25px;
+    left: 27px;
+    z-index: 999;
+    color: #ffffff;
+    font-size: 45px;
+    -webkit-transition: all .3s linear;
+}
+.myedit_touxiang:hover>.myfont_xj{color: #3eb39d}
+.myedit_namebox{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.myedit_namebox>div{width: 305px;}
+
+.myedit_label{
+    font-size: 14px;
+    color: #333333;
+}
+.myedit_input{
+    margin-top: 10px;
+}
+.myedit_input>input{
+    height: 41px;
+    width: 100%;
+    outline:none;
+    text-indent: 23px;
+    font-size: 14px;
+    color: #333333;
+    border: 1px #dddddd solid;
+}
+.myedit_zhiyebox{
+    width: 100%;
+    margin-top: 30px;
+}
+.myedit_sexbox{
+    width: 100%;
+    font-size: 0;
+    margin-top: 10px;
+}
+.myedit_sexbox>span{
+    font-size: 14px;
+    border: 1px #dddddd solid;
+    display: inline-block;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    width: 142px;
+    background-color: #ffffff;
+}
+.myedit_sexbox>span:nth-of-type(2){margin-left: 10px}
+.myedit_input>textarea{
+    width: 100%;
+    height: 150px;
+    outline: none;
+    text-indent: 23px;
+    font-size: 14px;
+    color: #333333;
+    border: 1px #dddddd solid;
+    line-height: 45px;
+}
+.myedit_btnbox{
+    margin-top: 30px;
+    font-size: 0;
+}
+.myedit_btnbox>span{
+    display: inline-block;
+    font-size: 14px;
+    width: 115px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border: 1px #dddddd solid;
+}
+.myedit_quitbtn{margin-left: 10px}
+.myedit_savebtn{
+    background-color: #3eb39d;
+    color: #ffffff;
+    border: 1px #3eb39d solid;
+}
+.myedit_savebtn:hover,.myedit_quitbtn:hover{cursor: pointer}
+#myedit_nan:hover,#myedit_nv:hover{cursor: pointer}
+.mysex{border: 1px #3eb39d solid !important;}
+.myedit_input{position: relative}
+.myedit_input .texterea_tips{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    color: #888888;
+}
