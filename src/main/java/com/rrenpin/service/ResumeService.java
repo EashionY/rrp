@@ -131,4 +131,11 @@ public interface ResumeService {
 	 * @return
 	 */
 	public Resume modifyHeadImg(int id,int userId,HttpServletRequest request);
+	
+	/**
+	 * 通过userId查找简历
+	 * @param userId
+	 * @return
+	 */
+	public Resume findByUserId(int userId);
 }

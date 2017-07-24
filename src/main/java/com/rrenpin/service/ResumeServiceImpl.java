@@ -240,6 +240,17 @@ public class ResumeServiceImpl implements ResumeService {
 		resume = resumeMapper.selectByPrimaryKey(id);
 		return resume;
 	}
+
+	public Resume findByUserId(int userId) {
+		Resume resume;
+		try {
+			resume = resumeMapper.findByUserId(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		return resume;
+	}
 	
 	
 }

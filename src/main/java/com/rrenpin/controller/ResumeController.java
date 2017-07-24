@@ -92,5 +92,10 @@ public class ResumeController extends ExceptionController {
 		return new JsonResult(SUCCESS,resume,"修改头像成功");
 	}
 	
-	
+	@RequestMapping("findByUserId.do")
+	@ResponseBody
+	public JsonResult findByUserId(int userId){
+		Resume resume = resumeService.findByUserId(userId);
+		return new JsonResult(resume);
+	}
 }
