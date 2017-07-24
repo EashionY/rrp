@@ -3,7 +3,6 @@ package com.rrenpin.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +19,9 @@ public class JobController extends ExceptionController{
 	@Resource
 	private JobService jobService;
 	
-	@RequestMapping("/listAllJobs")
+	@RequestMapping("/listAllJobs.do")
 	@ResponseBody
-	public JsonResult listAllJobs(HttpServletResponse resp){
-		resp.setHeader("Access-Control-Allow-Origin", "*");
+	public JsonResult listAllJobs(){
 		List<Job> jobs = jobService.listJobs();
 		return new JsonResult(jobs);
 	}

@@ -17,7 +17,7 @@ public class ResumeController extends ExceptionController {
 	@Resource
 	private ResumeService resumeService;
 	
-	@RequestMapping("/addBasicInfo")
+	@RequestMapping("/addBasicInfo.do")
 	@ResponseBody
 	public JsonResult addBasicInfo(int userId, String empName, String sex, String birth, String workexp, String status,
 			String phone, String email, String empRegion){
