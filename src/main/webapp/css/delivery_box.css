@@ -1,0 +1,218 @@
+.delivery_body{
+    width: 1024px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 45px;
+    display: flex;
+}
+.delivery_left{
+    width: 740px;
+    background-color: #fafafa;
+}
+
+.delivery_leftmain{
+    width: 656px;
+    margin: 0 auto;
+    color: #333333;
+}
+.delivery_lefttitle{
+    padding: 50px 0;
+    font-size: 24px;
+}
+.delivery_menubox{
+    font-size: 0;
+    border-bottom: 1px #dddddd solid;
+}
+.delivery_menu{
+    font-size: 18px;
+    color: #333333;
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.delivery_menu:hover{
+    cursor: pointer;
+}
+
+
+.delivery_menuactive{
+    position: relative;
+    padding: 0 20px;
+}
+.delivery_menuactive:after{
+    content: "";
+    position: absolute;
+    top: 43px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3eb39d;
+
+}
+
+.delivery_leftcontbox{
+    background-color: #ffffff;
+    margin-top: 20px;
+}
+.delivery_leftmain>.delivery_leftcontbox:nth-of-type(1){
+    margin-top: 30px;
+}
+.delivery_leftmain>.delivery_leftcontbox:nth-last-of-type(1){
+    margin-bottom: 50px;
+}
+.delivery_leftcontmain{
+    width: 616px;
+    margin: 0 auto;
+}
+.delivery_leftcontdiv1{
+    border-bottom: 1px #dddddd solid;
+    font-size: 16px;
+    color: #333333;
+    padding: 20px 0;
+}
+.delivery_leftcontdiv1>div{
+    margin-top: 20px;
+}
+.delivery_leftcontdiv1>div:nth-of-type(1){margin-top: 0}
+.delivery_leftadd{
+    color: #3eb39d;
+    display: inline-block;
+    margin-left: 10px;
+}
+.delivery_leftsala{
+    color: #fa6041;
+}
+.delivery_leftcontdiv2{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 16px;
+    color: #333333;
+}
+.delivery_div2_span1{
+    margin-left: 10px;
+}
+.delivery_div2_time{
+    margin-left: 20px;
+    color: #888888;
+}
+.delivery_div2_font{
+    margin-left: 10px;
+}
+.delivery_div2_font:hover{cursor: pointer}
+.delivery_leftcontdetail{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    display: none;
+}
+.delivery_number{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #dddddd;
+    color: #ffffff;
+    margin: 0 auto;
+}
+.delivery_numberactive{
+    background-color: #3eb39d;
+}
+
+.delivery_state{
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333333;
+}
+.delivery_time{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888888;
+}
+.delivery_tip{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #3eb39d;
+    margin-right: 5px;
+}
+.delivery_leftdet_div{
+    width: 125px;
+    position: relative;
+}
+.delivery_leftdet_div:before{
+    content: "";
+    position: absolute;
+    top: 15px;
+    left:-50px;
+    width: 70px;
+    height: 2px;
+    background-color: #dddddd;
+}
+.delivery_leftdet_div_0:before{
+    width: 0;
+}
+.delivery_leftcontdetail>.delivery_leftdet_div:nth-of-type(1):before{width: 0}
+.delivery_leftdet_divactiv>.delivery_number{
+    background-color: #3eb39d;
+    position: relative
+}
+.delivery_leftdet_divactiv:before{
+    content: "";
+    position: absolute;
+    top: 15px;
+    left:-50px;
+    width: 70px;
+    height: 2px;
+    background-color: #3eb39d;
+}
+.delivery_right{
+    width: 263px;
+    margin-left: 20px;
+}
+.delivery_rightmainbox{
+    width: 223px;
+    background-color: #fafafa;
+    padding: 0 20px;
+}
+.delivery_rightmainbox2{
+    overflow: hidden;
+}
+.delivery_xszhiwei{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.delivery_xsmain{
+    border-top: 1px #dddddd solid;
+    padding:20px 0;
+}
+.delivery_xs_zhiwei{
+    font-size: 16px;
+    color: #333333;
+}
+.delivery_xs_salary{
+    font-size: 16px ;
+    color: #fa6041;
+    padding: 20px 0;
+}
+.delivery_xs_comname{
+    font-size: 12px;
+    color: #333333;
+}
+.delivery_morezhiwei{
+    margin-top: 10px;
+    width: 263px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+    border: 1px #dddddd solid;
+    background-color: #fafafa;
+}
+.delivery_morezhiwei:hover{cursor: pointer}

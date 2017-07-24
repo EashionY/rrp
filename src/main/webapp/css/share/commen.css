@@ -1,0 +1,148 @@
+.zhiwei_box{
+    width: 100%;
+    background-color: #fafafa;
+    border-bottom: 1px #eeeeee solid;
+}
+.zhiwei_Box>.zhiwei_box:nth-last-of-type(1){  border-bottom: none}
+.zhiwei_mainbox{
+    padding:30px 30px;
+}
+
+.top{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #333333;
+}
+.top ul,.bottom ul{
+    display: flex;
+}
+.top ul>li:nth-of-type(1){margin-left: 0}
+.top ul>li:nth-of-type(2){color: #3eb39d;margin-left: 10px}
+.top ul>li:nth-of-type(3){margin-left: 20px}
+.bottom ul>li:nth-of-type(2){margin-left: 30px}
+.bottom{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #666666;
+    margin-top: 20px;
+}
+.salary_text{
+    color: #fa6041;
+    margin-top: 20px;
+}
+.comName{
+    margin-top: 20px;
+    /*border: 1px red solid;*/
+}
+.comName:hover{cursor: pointer}
+
+.job_title{
+    margin-top: 30px;
+    font-size: 18px;
+    color: #333333;
+    position: relative;
+    margin-left: 10px;
+}
+.job_title:before{
+    position: absolute;
+    left: -10px;
+    top: 3px;
+    background-color: #3eb39d;
+    width: 2px;
+    height: 80%;
+    content: "";
+}
+
+/*分页*/
+.appJob_pagesBox{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    /*border: 1px red solid;*/
+    width: 100%;
+    text-align: center;
+}
+.layui-laypage {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0;
+    font-size: 0;
+}
+.layui-laypage a, .layui-laypage span {
+    padding: 0 0;
+    border: 1px solid #dddddd;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 0 0 15px;
+    background-color: transparent;
+    color: #333333;
+    font-size: 14px;
+}
+
+.mybody{
+    width: 1024px;
+    margin: 0 auto;
+}
+/*遮罩*/
+.mymask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.4);
+    filter: alpha(opacity=40);
+    overflow: hidden;
+    display: none;
+    -webkit-transition: all .3s linear;
+}
+.mymask_maskmain{
+    width: 550px;
+    height: 494px;
+    background-color: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -275px;
+    margin-top: -247px;
+}
+/*搜索框*/
+
+.serch_Box{
+    width: 673px;
+    height: 55px;
+    margin-top: 30px;
+    display: flex;
+}
+.serch_inputbox{
+    width: 603px;
+    height: 53px;
+    background-color: #ffffff;
+    border: 1px #3EB49E solid;
+}
+.serch_input{
+    width: 573px;
+    height: 48px;
+    outline: none;
+    border: none;
+    margin-left: 30px;
+    color: #666666;
+    font-size: 14px;
+}
+.serch_tubox{
+    width: 70px;
+    height: 100%;
+    line-height: 55px;
+    background-color: #3EB49E;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+.serch_tubox:hover{cursor: pointer}
+.font_30{
+    font-size: 26px;
+}
+

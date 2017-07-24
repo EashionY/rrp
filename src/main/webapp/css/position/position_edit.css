@@ -1,0 +1,145 @@
+.posiEdi_mainbox{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 50px 40px;
+    padding-bottom: 0;
+    background-color: #fafafa;
+}
+.posiEdi_title{
+    margin-top: 0;
+}
+.posiEdi_inputdiv{
+    margin-top: 30px;
+    font-size: 18px;
+    color: #333333;
+}
+.posiEdi_inputdiv>input{
+    margin-left: 20px;
+    width: 500px;
+    height: 50px;
+    text-indent: 20px;
+    outline: none;
+    border: 1px #dddddd solid;
+    font-size: 18px;
+    color: #333333;
+}
+.posiEdi_inputdiv_ld>span{
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 16px;
+    color: #3eb39d;
+    padding: 0 20px;
+    margin-left: 20px;
+    border: 1px #3eb39d solid;
+}
+.posiEdi_inputdiv_xz>span{
+    display: inline-block;
+    width: 94px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color: #333333;
+    margin-left: 30px;
+    border: 1px #dddddd solid;
+}
+.posiEdi_inputdiv_xz>span:nth-of-type(1){margin-left: 20px}
+.xz_active{
+    background-color: #3eb39d;
+    color: #ffffff !important;
+    border: 1px #3eb39d solid !important;
+}
+.posiEdi_inputdiv_yx{position: relative}
+.span_k{
+    position: absolute;
+    left: 290px;
+    top: 14px;
+    color: #888888;
+}
+.span_k2{left: 540px}
+.posiEdi_inputdiv_yx>input{
+    width: 210px;
+}
+.posiEdi_inputdiv_yx>input:nth-of-type(2){
+    margin-left: 10px;
+}
+.span_zhi{
+    margin-left: 10px;
+}
+.span_tips{font-size: 14px;color: #888888;margin-left: 20px}
+.posiEdi_inputdiv_ms{display: flex;margin-top: 40px; }
+.posiEdi_inputdiv_ms>div:nth-of-type(1){width:90px;}
+.posiEdi_inputdiv_ms textarea{
+    width: 825px;
+    height: 270px;
+    margin-left: 20px;
+    outline: none;
+    border: 1px #dddddd solid;
+    font-size: 14px;
+    color: #333333;
+    line-height: 23px;
+    text-indent: 20px;
+}
+.posiEdi_btn{
+    margin-left: 110px;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+.posiEdi_btn>span{
+    display: inline-block;
+    width: 112px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #3eb39d;
+    color: #ffffff;
+}
+.posiEdi_btn>span:hover{cursor: pointer}
+.posiEdi_divbox2{margin-top: 50px}
+.posiEdi_body .input_icon{
+    position: absolute;
+    right: 15px;
+    top: 3px;
+    font-size: 20px;
+    color: #dddddd;
+}
+.posiEdi_body .input_icon2{
+    top: 18px;
+    right: 20px;
+}
+.posiEdi_inputdiv_cs{display: flex;}
+.posiEdi_inputdiv_cs>div:nth-of-type(1){width:90px;margin-right: 20px;line-height: 50px}
+.city_input{position: relative}
+.posiEdi_body .city-picker-span {
+    position: relative;
+    display: inline-block;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    border: 1px solid #dddddd;
+    background-color: #fff;
+    color: #ccc;
+    cursor: pointer;
+    text-indent: 20px;
+    height: 50px !important;
+    width: 500px !important;
+    line-height: 50px !important;
+}
+.posiEdi_body .city-picker-span.focus{
+    border-bottom-color: #dddddd !important;
+}
+.posiEdi_body .city-picker-span > .arrow {
+    width: 0 !important;
+}
+
+.posiEdi_body .divselect{width:500px;margin-top: 10px; position:relative;}
+.posiEdi_body .divselect cite{width:500px; height:50px;line-height:50px; display:block; cursor:pointer;font-style:normal;
+    border:1px solid #dddddd;background-color: #ffffff;text-indent: 20px}
+.posiEdi_body .divselect ul{width:500px;border:1px solid #dddddd; background-color:#ffffff;
+    position:absolute; z-index:999; margin-top:-1px;display: none;}
+.posiEdi_body .divselect ul li{height:50px; line-height:50px;}
+.posiEdi_body .divselect ul li a{display:block; height:50px; color:#333333; text-decoration:none;
+    padding-left:10px; padding-right:10px;}
+.posiEdi_body .divselect ul li a:hover{background-color:#CCC;}

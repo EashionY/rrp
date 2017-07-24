@@ -1,0 +1,69 @@
+.resu_top{  background-color: #fafafa;  margin-top: 30px;  }
+.resu_topdiv1{padding: 20px 40px;border-bottom: 1px #dddddd solid;font-size: 14px;color: #333333}
+.resu_topdiv2{padding: 20px 40px;padding-bottom: 30px;display: flex;justify-content: space-between}
+
+.resu_topdiv2 .divselect{width:200px; margin-top:25px;position:relative;}
+.resu_topdiv2 .divselect cite{width:200px; height:50px;line-height:50px; display:block; cursor:pointer;font-style:normal;
+    border:1px solid #dddddd;background-color: #ffffff;text-indent: 30px}
+.resu_topdiv2 .divselect ul{width:200px;border:1px solid #dddddd; background-color:#ffffff;
+    position:absolute; z-index:999; margin-top:-1px;display: none;}
+.resu_topdiv2 .divselect ul li{height:50px; line-height:50px;}
+.resu_topdiv2 .divselect ul li a{display:block; height:50px; color:#888888; text-decoration:none;
+    padding-left:30px; padding-right:10px;font-size: 14px;}
+.resu_topdiv2 .divselect ul li a:hover{background-color:#CCC;}
+.resu_topdiv2 .input_icon{
+    position: absolute;
+    right: 20px;
+    top: 3px;
+    font-size: 20px;
+    color: #dddddd;
+}
+.resu_topdiv2 .input_text{
+    font-size: 14px;
+    color: #888888;
+}
+.resu_topdiv2_left{display: flex;}
+.resu_img{width: 100px;height: 100px;border-radius: 50%;overflow: hidden;border: 1px red solid}
+.resu_img>img{width: 100%;height: 100%;}
+.resu_imgnext{margin-left: 20px;color: #333333;font-size: 14px}
+.resu_imgnext>div{margin-top: 20px}
+.resu_imgnext>div:nth-of-type(1){margin-top: 0}
+.resu_name{font-size: 18px}
+.resu_sex>span{margin-left: 20px}
+.resu_sex>span:nth-of-type(1){margin-left: 0}
+.resu_down{margin-top: 20px;margin-bottom:50px;background-color: #fafafa;border-bottom: 1px transparent solid}
+.resu_downdiv1{padding: 30px 40px;}
+.resu_downdiv1>.job_title{margin-top: 0}
+.resu_downmain{background-color: #ffffff;width: 944px;height: 1080px;margin: 0 auto;margin-bottom: 50px}
+
+.resuView_maskmain{
+    height: 330px;
+    margin-top: -165px;
+}
+.reView_maskdiv1{padding: 30px;font-size: 18px;border-bottom: 1px #dddddd solid }
+.reView_maskdiv2{padding: 50px 0;text-align: center;font-size: 18px}
+.reView_maskdiv2>span{color: #3eb39d}
+.reView_maskbtnbox{
+    width: 300px;
+    font-size: 0;
+    margin: 0 auto;
+}
+.reView_maskbtnbox>span{
+    display: inline-block;
+    font-size: 14px;
+    width: 133px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+}
+.reView_maskbtnbox>span:hover{cursor: pointer}
+.reView_savebtn{
+    background-color: #3eb39d;
+    color: #ffffff;
+    border: 1px #3eb39d solid;
+}
+.reView_quitbtn{
+    background-color: #fafafa;
+    margin-left: 30px;
+    border: 1px #dddddd solid;
+}

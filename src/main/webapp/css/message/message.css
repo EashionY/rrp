@@ -1,0 +1,119 @@
+.message_body{
+    width: 1024px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 45px;
+    background-color: #fafafa;
+}
+.message_mainBox{
+    width: 944px;
+    margin: 0 auto;
+}
+.message_title{
+    font-size: 24px;
+    color: #333333;
+    padding:50px 0;
+}
+.message_title2{
+    font-size: 24px;
+    color: #333333;
+    padding-top:50px;
+    padding-bottom: 0;
+}
+.message_menubox{
+    font-size: 0;
+    border-bottom: 1px #dddddd solid;
+}
+.message_menu{
+    font-size: 18px;
+    color: #333333;
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.message_menu:hover{
+    cursor: pointer;
+}
+.message_menuactive{
+    position: relative;
+    padding: 0 20px;
+}
+.message_menuactive:after{
+    content: "";
+    position: absolute;
+    top: 43px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3eb39d;
+
+}
+.message_contBox{
+    padding-bottom: 50px;
+}
+.message_contmainbox{
+    background-color: #ffffff;
+    margin-top: 30px;
+}
+.message_contmain{
+    width: 884px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+.message_conttitle{
+    font-size: 18px;
+    color: #333333;
+}
+.message_contxxbox{
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333333;
+    display: flex;
+    justify-content: space-between;
+}
+.message_contxxbox>div:nth-of-type(1){
+    width: 590px;
+    line-height: 25px;
+}
+.mesfeed_contmain{
+    width: 904px;
+    margin: 0 auto;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.mesfeed_imgbox{
+    width: 100px;
+    height: 100px;
+}
+.mesfeed_imgbox>img{width: 100%;height: 100%}
+.mesfeed_contdiv2{
+    margin-left: 30px;
+    color: #333333;
+    font-size: 14px;
+}
+.mesfeed_contleft{
+    display: flex;
+}
+.mesfeed_contright{
+    /*border: 1px red solid;*/
+    margin-top: 25px;
+    color: #333333;
+    font-size: 14px;
+}
+.mesfeed_contright>div:nth-last-of-type(1){
+    margin-top: 20px;
+}
+.mesfeed_contdiv2>div{
+    margin-top: 20px;
+}
+.mesfeed_contdiv2>div:nth-of-type(1){
+    font-size: 18px;
+    margin-top: 0;
+}
+.mesfeed_span{
+    color: #3eb39d;
+}
+.mesfeed_span:hover{cursor: pointer}

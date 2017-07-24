@@ -1,0 +1,40 @@
+.resumepre_body{
+    width: 1024px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.resume_main{
+    width: 100%;
+    background-color: #fafafa;
+
+}
+.resumepre_rdiv1{
+    width: 944px;
+    padding: 50px 0;
+    padding-bottom: 30px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px #dddddd solid;
+}
+.resumepre_rdiv2{
+    width: 944px;
+    padding: 30px 0;
+    padding-top: 0;
+    margin: 0 auto;
+    border-bottom: 1px #dddddd solid;
+}
+.detailpre_span{
+    float: right;
+    width: 854px;
+    margin-left: 20px;
+}
+.jinengpre{
+    display: inline-block;
+    width: 897px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+    position: relative;
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账号绑定</title>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../../../css/share/base.css"/>
+    <link rel="stylesheet" href="../../../css/share/header.css"/>
+    <link rel="stylesheet" href="../../../css/share/footer.css"/>
+    <link rel="stylesheet" href="../../../css/share/commen.css"/>
+    <link rel="stylesheet" href="../../../css/my/pers_infor.css"/>
+    <link rel="stylesheet" href="../../../css/my/account.css"/>
+</head>
+<body>
+<div id="acc_mask" class="mymask">
+    <div class="mymask_maskmain">
+        <div class="acc_masktitle">更改手机号码</div>
+        <div class="acc_maskinputbox">
+            <div class=""><span class="myfont acc_font">&#xe627;</span></div>
+            <select name="" id="">
+                <option value="0">+86</option>
+                <option value="1">+886</option>
+                <option value="2">+852</option>
+                <option value="3">+853</option>
+            </select>
+            <input id="acc_phone" type="text" name="phone" placeholder="手机号" maxlength="11"/>
+        </div>
+        <div class="accerr_tips">*手机号码不正确</div>
+        <div class="acc_maskinputbox">
+            <div class=""><span class="myfont acc_font">&#xe61e;</span></div>
+            <input id="acc_tpyzm" type="text" name="tpyzm" placeholder="验证码"/>
+            <div id="v_container" style="width: 115px;height: 48px;"></div>
+        </div>
+        <div class="accerr_tips">*验证码不正确</div>
+        <div class="acc_maskinputbox">
+            <div class=""><span class="myfont acc_font ">&#xe67f;</span></div>
+            <input id="acc_dxyzm" type="text" name="dxyzm" placeholder="短信验证码"/>
+            <a href="javascript:;" class="send1" id="acc_dxyzmbtn">发送验证码</a>
+        </div>
+        <div class="accerr_tips">*手机号码不正确</div>
+        <div class="acc_maskbtnbox">
+            <span class="acc_savebtn">保存</span>
+            <span class="acc_quitbtn">取消</span>
+        </div>
+    </div>
+</div>
+<header>
+    <nav>
+        <div class="nav_div1">
+            <div class="logo_imgbox"><img src="../../../images/index/ic_home_logo.png" alt=""/></div>
+            <ul class="left_ul">
+                <a href="../index.html"><li>首页</li></a>
+                <a href="../job/apply_job.html"><li>求职</li></a>
+                <a href="../news/newsList.html"><li>新闻</li></a>
+                <a href="../enterprise.html"><li>企业版</li></a>
+            </ul>
+        </div>
+        <ul class="nav_div2">
+            <a href="../message/message.html"><li class="xx">消息 <div class="xxNum">1</div></li></a>
+            <a href="../resume/resume.html"><li>我的简历</li></a>
+            <a href="../delivery_box/delivery_success.html"><li>投递箱</li></a>
+            <a href="pers_infor.html"><li>二狗子<span class="myfont myfont_xia">&#xe60b;</span></li></a>
+        </ul>
+    </nav>
+</header>
+<section class="my_body">
+    <div class="my_left">
+        <div id="pers" class="my_left_div"><span class="myfont">&#xe612;</span><span>个人信息</span></div>
+        <div id="acco" class="my_left_div my_left_active"><span class="myfont">&#xe622;</span><span>账号绑定</span></div>
+        <div id="chan" class="my_left_div"><span class="myfont">&#xe660;</span><span>修改密码</span></div>
+    </div>
+    <div class="my_right">
+        <div class="my_rightmain">
+            <div class="account_div1">登录账号：18328563586</div>
+            <div class="account_div2">
+                <div class="account_div2_div">
+                    <span class="myfont">&#xe627;</span>
+                    <span>已绑定手机账号：18328563586</span>
+                    <span class="account_active" id="account_changephone">更换手机号</span>
+                </div>
+                <div class="account_div2_div">
+                    <span class="myfont">&#xe600;</span>
+                    <span class="account_active">绑定QQ账号</span>
+                </div>
+                <div class="account_div2_div">
+                    <span class="myfont">&#xe607;</span>
+                    <span class="account_active">绑定微信账号</span>
+                </div>
+                <div class="account_div2_div">
+                    <span class="myfont">&#xe650;</span>
+                    <span class="account_active">绑定新浪账号</span>
+                </div>
+            </div>
+            <div class="account_div3">
+                (绑定后，你可以同时使用以下方式登录登录任人聘)
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer_mainBox">
+        <div class="footer_div1">
+            <div class="footer_left">
+                <ul>
+                    <a href="../our/about_us.html"><li>关于我们</li></a>
+                    <a href="../our/join_us.html"><li class="footer_li_2">加入我们</li></a>
+                    <a href="../our/contact_us.html"><li>联系我们</li></a>
+                </ul>
+                <div>服务热线：028-65231120</div>
+            </div>
+            <div class="footer_right">
+                <!--微博-->
+                <div><span class="myfont footer_sinafont">&#xe650;</span></div>
+                <!--微信-->
+                <div class="footer_wxbox"><span class="myfont footer_wxfont">&#xe607;</span></div>
+            </div>
+        </div>
+        <div class="footer_bei">Copyright c 2017 zhipin.com 北京华品博睿网络有限公司 京ICP备14013441号-5</div>
+    </div>
+</footer>
+</body>
+<script src="../../../js/jquery-1.11.3.js"></script>
+<script src="../../../js/my/my.js"></script>
+<script src="../../../js/log_reg/dxYzm.js"></script>
+<script src="../../../js/log_reg/gVerify.js"></script>
+<script>
+    $("#account_changephone").on("click",function(){
+        $("#acc_mask").css("display","block")
+    })
+    $(".acc_savebtn").on("click",function(){
+        console.log("保存")
+    });
+    $(".acc_quitbtn").on("click",function(){
+        $("#acc_mask").css("display","none")
+    });
+
+    function err_tips_false2(obj){
+        $(obj).parent().next().css("opacity",0);
+        $(obj).parent().css("border","1px #3eb39d solid");
+        $(obj).parent().children().children(".acc_font").css("color","#3eb39d");
+    }
+    $("#acc_tpyzm").on("focus",function(){
+        err_tips_false2(this)
+    });
+    $("#acc_phone").on("focus",function(){
+        err_tips_false2(this);
+    });
+    $("#acc_dxyzm").on("focus",function(){
+        err_tips_false2(this);
+    });
+
+    $("#acc_dxyzmbtn").on("click",function(){
+        sends2.send()
+    });
+    $("#acc_phone").on("blur",function(){
+        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        if(!myreg.test($(this).val())) {
+            $(this).parent().next().css("opacity",1);
+        }
+        $(this).parent().css("border","1px #dddddd solid");
+        $(this).parent().children().children(".acc_font").css("color","#dddddd")
+    });
+    $("#acc_dxyzm").on("blur",function(){
+        $(this).parent().css("border","1px #dddddd solid");
+        $(this).parent().children().children(".acc_font").css("color","#dddddd")
+    });
+    var verifyCode = new GVerify("v_container");
+    $("#acc_tpyzm").on("blur",function(){
+        var res = verifyCode.validate($("#acc_tpyzm").val());
+        if(res){
+            $(this).parent().css("border","1px #dddddd solid");
+            $(this).parent().children().children(".acc_font").css("color","#dddddd")
+        }else{
+            $("#acc_tpyzm").parent().next().css("opacity",1);
+        }
+    });
+
+</script>
+</html>
