@@ -6,7 +6,7 @@ body{
     margin: 0;
     padding: 0;
     font-size: 1.2rem;
-    font-family: "微软雅黑";
+    font-family: "寰蒋闆呴粦";
     background-color: #EEEEEE;
 }
 html, body, div, span, applet, object, iframe,
@@ -27,17 +27,16 @@ time, mark, audio, video {
     border: 0;
     vertical-align: baseline;
 }
-/*li标签*/
+/*li鏍囩*/
 ul li{
   list-style: none;
 }
-/*a标签*/
+/*a鏍囩*/
 a{
     color: #333333;
 }
 a:link {
     text-decoration: none;
-    color: #333333;
 }
 a:visited {
     text-decoration: none;
@@ -51,7 +50,7 @@ a:active {
     text-decoration: none;
 
 }
-/*按钮*/
+/*鎸夐挳*/
 .baseBtn{
 }
 .baseBtn:hover{}
@@ -59,7 +58,7 @@ a:active {
 .primaryBtn:hover{}
 .defaultBtn{}
 .defaultBtn:hover{}
-/*矢量图标*/
+/*鐭㈤噺鍥炬爣*/
 @font-face {
     src: url("../../font/iconfont.woff");
     font-family: "indexIcon";
@@ -68,7 +67,7 @@ a:active {
     font-family: "indexIcon";
     font-size: 16px;
 }
-/*媒体查询器*/
+/*濯掍綋鏌ヨ鍣�*/
 @media (max-width:768px) {}
 
 textarea{

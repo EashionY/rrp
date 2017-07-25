@@ -5,6 +5,7 @@
     <title>修改密码</title>
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="../../../plug/layer/skin/default/layer.css"/>
     <link rel="stylesheet" href="../../../css/share/base.css"/>
     <link rel="stylesheet" href="../../../css/share/header.css"/>
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
@@ -26,10 +27,13 @@
             </ul>
         </div>
         <ul class="nav_div2">
-            <a href="../message/message.html"><li class="xx">消息 <div class="xxNum">1</div></li></a>
+            <a href="../message/message.html"><li class="xx">消息 </li></a>
             <a href="../resume/resume.html"><li>我的简历</li></a>
             <a href="../delivery_box/delivery_success.html"><li>投递箱</li></a>
-            <a href="pers_infor.html"><li>二狗子<span class="myfont myfont_xia">&#xe60b;</span></li></a>
+            <a href="#" id="header_last" class="activ">
+            	<li><span id="head_logbtn">登录</span>&nbsp;/&nbsp;
+            	<span id="head_regbtn">注册</span></li>
+            </a> 
         </ul>
     </nav>
 </header>
@@ -41,10 +45,10 @@
     </div>
     <div class="my_right">
         <div class="my_rightmain">
-            <div class="psd_div1">账号：18328563586</div>
-            <div class="psd_inputbox"><input type="password" placeholder="请输入当前密码"/></div>
-            <div class="psd_inputbox"><input type="password" placeholder="请输入新密码"/></div>
-            <div class="psd_inputbox"><input type="password" placeholder="确认新密码"/></div>
+            <div class="psd_div1">账号：<span>18328563586</span></div>
+            <div class="psd_inputbox"><input id="oldpsd" type="password" placeholder="请输入当前密码"/></div>
+            <div class="psd_inputbox"><input id="newpsd" type="password" placeholder="请输入新密码"/></div>
+            <div class="psd_inputbox"><input id="newpsd2" type="password" placeholder="确认新密码"/></div>
             <div class="psd_btn">保存</div>
         </div>
     </div>
@@ -72,5 +76,50 @@
 </footer>
 </body>
 <script src="../../../js/jquery-1.11.3.js"></script>
+<script src="../../../js/ip.js"></script>
+<script src="../../../plug/layer/layer.js"></script>
 <script src="../../../js/my/my.js"></script>
+<script>
+	$(function() { 
+		myonload2("pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
+	    var uPhoneValue = getCookieValue("userPhone"); 
+	    console.log(uPhoneValue)
+	    $(".psd_div1 span").html(uPhoneValue)
+	});
+		
+	$(".psd_btn").click(function () {
+		var uid = getCookieValue("userId");
+		
+		var oldpsd=$("#oldpsd").val();
+		var newpsd=$("#newpsd").val();
+		var newpsd2=$("#newpsd2").val();
+		if(newpsd!=newpsd2){
+			layer.msg("两次密码不一致!")
+		}else{
+			console.log(oldpsd,newpsd);
+			$.ajax({
+	            type: "post",
+	            url: ip+"/rrp/user/modifyPsd.do",
+	            data: {userId:uid,oldPsd:oldpsd,newPsd:newpsd},
+	            dataType: "json",
+	            success: function(data){
+	          	    console.log(data);
+	                if(data.state==0){
+	                	layer.msg('修改成功！请重新登录!', {
+	                		  icon: 1,
+	                		  time: 1000 //2秒关闭（如果不配置，默认是3秒）
+	                		}, function(){
+	                		  deleteCookie("userName","/");
+	                		  window.location.href="../login.html";
+	                		});   
+	                }else{
+	                	layer.msg(data.message)
+	                }
+	            }
+	        });
+		}
+	
+	})
+	
+</script>
 </html>

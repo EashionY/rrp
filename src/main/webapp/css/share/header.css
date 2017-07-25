@@ -86,8 +86,8 @@ nav{
 #head_person_ul{
     position: absolute;
     top: 60px;
-    left: -15px;
-    width: 100%;
+    right: 0;
+    width: 75px;
     line-height: 35px;
     background-color: #ffffff;
     z-index: 10000;

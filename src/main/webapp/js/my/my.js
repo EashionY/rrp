@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2017/7/13.
  */
+
 $("#pers").on("click",function(){
     window.location.href="pers_infor.html"
 })

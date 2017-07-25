@@ -26,10 +26,13 @@
             </ul>
         </div>
         <ul class="nav_div2">
-            <a href="../message/message.html"><li class="xx">消息 <div class="xxNum">1</div></li></a>
+            <a href="../message/message.html"><li class="xx">消息 </li></a>
             <a href="resume.html" class="activ"><li>我的简历</li></a>
             <a href="../delivery_box/delivery_success.html"><li>投递箱</li></a>
-            <a href="../my/pers_infor.html"><li>二狗子<span class="myfont myfont_xia">&#xe60b;</span></li></a>
+            <a href="#" id="header_last">
+            	<li><span id="head_logbtn">登录</span>&nbsp;/&nbsp;
+            	<span id="head_regbtn">注册</span></li>
+            </a> 
         </ul>
     </nav>
 </header>
@@ -96,7 +99,7 @@
             <div class="resume_editbox">
                 <div class="resume_editbox_div1">
                     <div>姓名</div>
-                    <div><input type="text"/></div>
+                    <div><input type="text" id="uname"/></div>
                 </div>
                 <div class="resume_editbox_div2 ">
                     <div class="">性别</div>
@@ -120,7 +123,7 @@
                 <div class="resume_editbox_div1">
                     <div>求职状态</div>
                     <div id="divselect" class="divselect">
-                        <cite><span class="input_text"></span>
+                        <cite><span class="input_text" id="ustate"></span>
                             <span class="myfont input_icon">&#xe681;</span>
                         </cite>
                         <ul>
@@ -132,18 +135,18 @@
                 </div>
                 <div class="resume_editbox_div1">
                     <div>手机</div>
-                    <div><input type="text"/></div>
+                    <div><input type="text" id="uphone"/></div>
                 </div>
             </div>
             <div class="resume_editbox">
                 <div class="resume_editbox_div1">
                     <div>邮箱</div>
-                    <div><input type="email"/></div>
+                    <div><input type="email" id="uemail"/></div>
                 </div>
                 <div class="resume_editbox_div1">
                     <div>所在城市</div>
                     <div class="inputDiv">
-                        <input readonly type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
+                        <input readonly id="ucity" type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
                         <span class="myfont input_icon input_icon2">&#xe681;</span>
                     </div>
                 </div>
@@ -612,6 +615,7 @@
 </footer>
 </body>
 <script src="../../../js/jquery-1.11.3.js"></script>
+<script src="../../../js/ip.js"></script>
 <script src="../../../plug/layer/layer.js"></script>
 
 <script src ="../../../plug/city-picker-master/src/city-picker.data.js"></script>
@@ -621,4 +625,38 @@
 <script src="../../../plug/jquery.scrollTo.js"></script>
 <script src="../../../plug/laydate-v1.1/laydate/laydate.js"></script>
 <script src="../../../js/resume.js"></script>
+<script>
+	$(function() { 
+		myonload2("pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
+	    var userId = getCookieValue("userId"); 
+	    if(userId==""){//未登录，请先登录
+	       window.location.href="../login.html";
+	    }
+	});
+	 $("#resume_savexinxi").click(function(){
+		    var id = getCookieValue("userId"); 
+	        var empName=$("#uname").val();
+	        var sex=$(".resume_mysex").html();
+	        var birth=$("#birthday").val();
+	        var workexp=$("#startwork").val();
+	        var status=$("#ustate").html();
+	        var phone=$("#uphone").val();
+	        var email=$("#uemail").val();
+	        var empRegion=$("#ucity").val();
+	        $.ajax({
+	            type: "post",
+	            url: ip+"/rrp/resume/modifyBasicInfo.do",
+	            data: {id:id,empName:empName,sex:sex,birth:birth,workexp:workexp,status:status,phone:phone,email:email,empRegion:empRegion},
+	            dataType: "json",
+	            success: function(data){
+	          	    console.log(data);
+	                if(data.state==0){
+	                	window.location.href="resume.html";
+	                }else{
+	                	layer.msg(data.message)
+	                }
+	            }
+	        });
+	    })
+</script>
 </html>
