@@ -1,17 +1,25 @@
 package com.rrenpin.service;
 
+import java.util.Date;
+import java.util.Random;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rrenpin.dao.UserMapper;
 import com.rrenpin.entity.User;
+import com.rrenpin.util.Message;
 import com.rrenpin.util.Util;
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService {
-
+	//验证码的长度
+	private static final int NUM = 6;
+	
 	@Resource
 	private UserMapper userMapper;
 	
@@ -36,9 +44,51 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
-	public User regist(String phone, String password, String code) {
-		// TODO Auto-generated method stub
-		return null;
+	public User regist(HttpServletRequest request, String phone, String password, String code) {
+		HttpSession session = request.getSession();
+		String regCode = (String) session.getAttribute("regCode");
+		System.out.println(regCode);
+		if(regCode==null){
+			throw new CodeErrorException("验证码超时，请重新发送");
+		}else if(!code.equals(regCode)){
+			throw new CodeErrorException("验证码错误");
+		}
+		User user;
+		try {
+			user = userMapper.findByPhone(phone);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(user!=null){
+			throw new PhoneException("该手机已注册");
+		}
+		user = new User();
+		user.setPhone(phone);
+		user.setPassword(Util.md5(password));
+		//默认昵称
+		String nickname = phone.replace(phone.substring(3, 7), "****");
+		user.setNickname(nickname);
+		//默认头像
+		String headImg = "";
+		user.setHeadImg(headImg);
+		int i;
+		try {
+			i = userMapper.insert(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new RegistException("注册失败");
+		}
+		try {
+			user = userMapper.findByPhone(phone);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		return user;
 	}
 
 	public void modifyUserInfo(int userId, String nickname, String sex, String job, String degree, String selfIntro) {
@@ -79,6 +129,50 @@ public class UserServiceImpl implements UserService {
 		if(i!=1){
 			throw new PasswordException("修改密码失败");
 		}
+	}
+
+	public User findUserInfo(int userId) {
+		User user;
+		try {
+			user = userMapper.selectByPrimaryKey(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(user==null){
+			throw new NoUserFindException("未找到对应用户");
+		}
+		return user;
+	}
+
+	public boolean sendRegCode(HttpServletRequest request,String phone) {
+		User user = userMapper.findByPhone(phone);
+		if(user!=null){
+			throw new PhoneException("该手机号已注册");
+		}
+		//随机生成验证码
+		String code = "";
+		Random r = new Random(new Date().getTime());
+        for(int i=0;i<NUM;i++){
+            code = code+r.nextInt(10);
+        }
+        //注册码发送短信模板id
+        String templateCode = "SMS_68205025";
+        //签名
+        String signName = "注册验证";
+        boolean success = Message.sendCode(phone, code, templateCode, signName);
+        if(success){
+        	HttpSession session = request.getSession();	
+        	session.setAttribute("regCode", code);
+        	return success;
+        }else{
+        	throw new SendCodeException("验证码发送失败");
+        }
+	}
+
+	public void forgetPsd(String phone, String newPsd) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
