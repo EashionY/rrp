@@ -65,4 +65,21 @@ public interface UserService {
 	 */
 	public void forgetPsd(String phone,String newPsd);
 	
+	/**
+	 * 发送改密验证码
+	 * @param request
+	 * @param phone
+	 * @return
+	 */
+	public boolean sendPsdCode(HttpServletRequest request,String phone);
+	
+	/**
+	 * 核实改密验证码
+	 * @param request
+	 * @param phone
+	 * @param code
+	 * @return
+	 */
+	public boolean verifyCode(HttpServletRequest request,String code);
+	
 }

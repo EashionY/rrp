@@ -171,8 +171,57 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public void forgetPsd(String phone, String newPsd) {
-		// TODO Auto-generated method stub
-		
+		User user = userMapper.findByPhone(phone);
+		if(user==null){
+			throw new NoUserFindException("该手机号尚未注册");
+		}
+		user.setPassword(Util.md5(newPsd));
+		int i;
+		try {
+			i = userMapper.updateByPrimaryKeySelective(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new PasswordException("找回密码失败");
+		}
+	}
+
+	public boolean sendPsdCode(HttpServletRequest request, String phone) {
+		User user = userMapper.findByPhone(phone);
+		if(user==null){
+			throw new NoUserFindException("该手机号尚未注册");
+		}
+		//随机生成验证码
+		String code = "";
+		Random r = new Random(new Date().getTime());
+        for(int i=0;i<NUM;i++){
+            code = code+r.nextInt(10);
+        }
+        //注册码发送短信模板id
+        String templateCode = "SMS_68205023";
+        //签名
+        String signName = "变更验证";
+        boolean success = Message.sendCode(phone, code, templateCode, signName);
+        if(success){
+        	HttpSession session = request.getSession();	
+        	session.setAttribute("psdCode", code);
+        	return success;
+        }else{
+        	throw new SendCodeException("验证码发送失败");
+        }
+	}
+
+	public boolean verifyCode(HttpServletRequest request, String code) {
+		HttpSession session = request.getSession();
+		String psdCode = (String) session.getAttribute("psdCode");
+		if(psdCode==null){
+			throw new CodeErrorException("验证码超时，请重新发送");
+		}else if(!code.equals(psdCode)){
+			throw new CodeErrorException("验证码错误");
+		}
+		return code.equals(psdCode);
 	}
 	
 	

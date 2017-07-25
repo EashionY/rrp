@@ -63,5 +63,24 @@ public class UserController extends ExceptionController{
 		return new JsonResult(SUCCESS,user,"注册成功");
 	}
 	
+	@RequestMapping("/sendPsdCode.do")
+	@ResponseBody
+	public JsonResult sendPsdCode(HttpServletRequest request,String phone){
+		boolean result = userService.sendPsdCode(request, phone);
+		return new JsonResult(SUCCESS,result,"验证码发送成功");
+	}
 	
+	@RequestMapping("/verfyCode.do")
+	@ResponseBody
+	public JsonResult verfyCode(HttpServletRequest request,String code){
+		boolean result = userService.verifyCode(request, code);
+		return new JsonResult(SUCCESS,result,"验证通过");
+	}
+	
+	@RequestMapping("/forgetPsd.do")
+	@ResponseBody
+	public JsonResult forgetPsd(String phone,String newPsd){
+		userService.forgetPsd(phone, newPsd);
+		return new JsonResult(SUCCESS,"","找回密码成功");
+	}
 }
