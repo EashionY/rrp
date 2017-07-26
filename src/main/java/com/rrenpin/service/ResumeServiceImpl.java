@@ -1,5 +1,6 @@
 package com.rrenpin.service;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -16,8 +17,9 @@ public class ResumeServiceImpl implements ResumeService {
 	@Resource
 	private ResumeMapper resumeMapper;
 	
-	public Resume addBasicInfo(int userId, String empName, String sex, String birth, String workexp, String status,
-			String phone, String email, String empRegion) {
+	public Resume addBasicInfo(HttpServletRequest request, int userId, String empName, String sex, String birth, String workexp, String status,
+			String phone, String email, String empRegion) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		//简历名默认为“我的简历”
 		resume.setResumeName("我的简历");
@@ -44,8 +46,9 @@ public class ResumeServiceImpl implements ResumeService {
 		return resume;
 	}
 
-	public Resume modifyBasicInfo(int id, String empName, String sex, String birth, String workexp, String status,
-			String phone, String email, String empRegion) {
+	public Resume modifyBasicInfo(HttpServletRequest request, int id, String empName, String sex, String birth, String workexp, String status,
+			String phone, String email, String empRegion) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		resume.setId(id);
 		resume.setEmpName(empName);
@@ -70,7 +73,8 @@ public class ResumeServiceImpl implements ResumeService {
 		return resume;
 	}
 
-	public Resume modifyJobIntention(int id, String salary, String job, String workType, String workArea) {
+	public Resume modifyJobIntention(HttpServletRequest request, int id, String salary, String job, String workType, String workArea) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		resume.setId(id);
 		resume.setSalary(salary);
@@ -91,9 +95,10 @@ public class ResumeServiceImpl implements ResumeService {
 		return resume;
 	}
 
-	public Resume modifyWorkExp(int id, String company1, String work1, String work1Time, String work1Description,
+	public Resume modifyWorkExp(HttpServletRequest request, int id, String company1, String work1, String work1Time, String work1Description,
 			String company2, String work2, String work2Time, String work2Description, String company3, String work3,
-			String work3Time, String work3Description) {
+			String work3Time, String work3Description) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		resume.setId(id);
 		resume.setCompany1(company1);
@@ -122,9 +127,10 @@ public class ResumeServiceImpl implements ResumeService {
 		return resume;
 	}
 
-	public Resume modifyProjectExp(int id, String project1, String project1Time, String project1Description,
+	public Resume modifyProjectExp(HttpServletRequest request, int id, String project1, String project1Time, String project1Description,
 			String duty1, String project2, String project2Time, String project2Description, String duty2,
-			String project3, String project3Time, String project3Description, String duty3) {
+			String project3, String project3Time, String project3Description, String duty3) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		resume.setId(id);
 		resume.setProject1(project1);
@@ -153,7 +159,8 @@ public class ResumeServiceImpl implements ResumeService {
 		return resume;
 	}
 
-	public Resume modifySkill(int id, String skill) {
+	public Resume modifySkill(HttpServletRequest request, int id, String skill) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		resume.setId(id);
 		resume.setSkill(skill);
@@ -171,8 +178,9 @@ public class ResumeServiceImpl implements ResumeService {
 		return resume;
 	}
 
-	public Resume modifyEducationExp(int id, String school1, String major1, String education1, String school1Time,
-			String school2, String major2, String education2, String school2Time) {
+	public Resume modifyEducationExp(HttpServletRequest request, int id, String school1, String major1, String education1, String school1Time,
+			String school2, String major2, String education2, String school2Time) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		resume.setId(id);
 		resume.setSchool1(school1);
@@ -197,7 +205,8 @@ public class ResumeServiceImpl implements ResumeService {
 		return resume;
 	}
 
-	public Resume modifySelfEvaluation(int id, String selfEvaluation) {
+	public Resume modifySelfEvaluation(HttpServletRequest request, int id, String selfEvaluation) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		resume.setId(id);
 		resume.setSelfEvaluation(selfEvaluation);
@@ -248,6 +257,23 @@ public class ResumeServiceImpl implements ResumeService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DataBaseException("连接服务器超时");
+		}
+		return resume;
+	}
+
+	public Resume modifyResumeName(int id, String resumeName) {
+		Resume resume;
+		int i;
+		try {
+			resume = resumeMapper.selectByPrimaryKey(id);
+			resume.setResumeName(resumeName);
+			i = resumeMapper.updateByPrimaryKeySelective(resume);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("修改简历名失败");
 		}
 		return resume;
 	}
