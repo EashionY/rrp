@@ -1,6 +1,7 @@
 package com.rrenpin.service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Resource;
@@ -12,7 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rrenpin.dao.UserMapper;
 import com.rrenpin.entity.User;
-import com.rrenpin.util.Message;
+import com.rrenpin.util.AliSms;
+import com.rrenpin.util.Upload;
 import com.rrenpin.util.Util;
 @Service("userService")
 @Transactional
@@ -160,7 +162,7 @@ public class UserServiceImpl implements UserService {
         String templateCode = "SMS_68205025";
         //签名
         String signName = "注册验证";
-        boolean success = Message.sendCode(phone, code, templateCode, signName);
+        boolean success = AliSms.sendCode(phone, code, templateCode, signName);
         if(success){
         	HttpSession session = request.getSession();	
         	session.setAttribute("regCode", code);
@@ -203,7 +205,7 @@ public class UserServiceImpl implements UserService {
         String templateCode = "SMS_68205023";
         //签名
         String signName = "变更验证";
-        boolean success = Message.sendCode(phone, code, templateCode, signName);
+        boolean success = AliSms.sendCode(phone, code, templateCode, signName);
         if(success){
         	HttpSession session = request.getSession();	
         	session.setAttribute("psdCode", code);
@@ -222,6 +224,31 @@ public class UserServiceImpl implements UserService {
 			throw new CodeErrorException("验证码错误");
 		}
 		return code.equals(psdCode);
+	}
+
+	public User modifyHeadImg(HttpServletRequest request, int userId) {
+		String headImgPath;
+		try {
+			List<String> paths = Upload.uploadImg(request, ""+userId, "headImg");
+			headImgPath = paths.get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ImgUploadException("头像上传失败");
+		}
+		int i;
+		User user;
+		try {
+			user = userMapper.selectByPrimaryKey(userId);
+			user.setHeadImg(headImgPath);
+			i = userMapper.updateByPrimaryKeySelective(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ModifyUserInfoException("修改头像失败");
+		}
+		return user;
 	}
 	
 	

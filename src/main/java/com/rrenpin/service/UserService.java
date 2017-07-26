@@ -82,4 +82,11 @@ public interface UserService {
 	 */
 	public boolean verifyCode(HttpServletRequest request,String code);
 	
+	/**
+	 * 修改用户头像
+	 * @param request
+	 * @param userId
+	 * @return
+	 */
+	public User modifyHeadImg(HttpServletRequest request,int userId);
 }

@@ -70,9 +70,9 @@ public class UserController extends ExceptionController{
 		return new JsonResult(SUCCESS,result,"验证码发送成功");
 	}
 	
-	@RequestMapping("/verfyCode.do")
+	@RequestMapping("/verifyCode.do")
 	@ResponseBody
-	public JsonResult verfyCode(HttpServletRequest request,String code){
+	public JsonResult verifyCode(HttpServletRequest request,String code){
 		boolean result = userService.verifyCode(request, code);
 		return new JsonResult(SUCCESS,result,"验证通过");
 	}
@@ -82,5 +82,12 @@ public class UserController extends ExceptionController{
 	public JsonResult forgetPsd(String phone,String newPsd){
 		userService.forgetPsd(phone, newPsd);
 		return new JsonResult(SUCCESS,"","找回密码成功");
+	}
+	
+	@RequestMapping("/modifyHeadImg.do")
+	@ResponseBody
+	public JsonResult modifyHeadImg(HttpServletRequest request,int userId){
+		User user = userService.modifyHeadImg(request, userId);
+		return new JsonResult(SUCCESS,user,"头像修改成功");
 	}
 }
