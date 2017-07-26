@@ -1,5 +1,7 @@
 package com.rrenpin.service;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.rrenpin.entity.User;
@@ -32,8 +34,9 @@ public interface UserService {
 	 * @param job
 	 * @param degree
 	 * @param selfIntro
+	 * @throws UnsupportedEncodingException 
 	 */
-	public void modifyUserInfo(int userId,String nickname,String sex,String job,String degree,String selfIntro);
+	public void modifyUserInfo(HttpServletRequest request,int userId,String nickname,String sex,String job,String degree,String selfIntro) throws UnsupportedEncodingException;
 	
 	/**
 	 * ÐÞ¸ÄÃÜÂë

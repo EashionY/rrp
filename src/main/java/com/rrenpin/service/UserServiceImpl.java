@@ -1,5 +1,6 @@
 package com.rrenpin.service;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -93,7 +94,8 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
-	public void modifyUserInfo(int userId, String nickname, String sex, String job, String degree, String selfIntro) {
+	public void modifyUserInfo(HttpServletRequest request, int userId, String nickname, String sex, String job, String degree, String selfIntro) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("utf-8");
 		User user = new User();
 		user.setId(userId);
 		user.setNickname(nickname);
