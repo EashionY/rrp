@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.rrenpin.dao.CompanyMapper">
-
   <resultMap id="BaseResultMap" type="com.rrenpin.entity.Company">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -16,12 +15,13 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
     <result column="intro" jdbcType="VARCHAR" property="intro" />
+    <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
   </resultMap>
   <sql id="Base_Column_List">
     id, name, logo, email, info, address, industry, scale, website, financing, user_id, 
-    tel, intro
+    tel, intro, reg_time, status
   </sql>
-
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -40,12 +40,14 @@
       email, info, address, 
       industry, scale, website, 
       financing, user_id, tel, 
-      intro)
+      intro, reg_time, status
+      )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{industry,jdbcType=VARCHAR}, #{scale,jdbcType=VARCHAR}, #{website,jdbcType=VARCHAR}, 
       #{financing,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{tel,jdbcType=VARCHAR}, 
-      #{intro,jdbcType=VARCHAR})
+      #{intro,jdbcType=VARCHAR}, #{regTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.rrenpin.entity.Company">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
@@ -90,6 +92,12 @@
       <if test="intro != null">
         intro,
       </if>
+      <if test="regTime != null">
+        reg_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       #{id,jdbcType=INTEGER},
@@ -128,6 +136,12 @@
       </if>
       <if test="intro != null">
         #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="regTime != null">
+        #{regTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -170,6 +184,12 @@
       <if test="intro != null">
         intro = #{intro,jdbcType=VARCHAR},
       </if>
+      <if test="regTime != null">
+        reg_time = #{regTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -186,7 +206,9 @@
       financing = #{financing,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=INTEGER},
       tel = #{tel,jdbcType=VARCHAR},
-      intro = #{intro,jdbcType=VARCHAR}
+      intro = #{intro,jdbcType=VARCHAR},
+      reg_time = #{regTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

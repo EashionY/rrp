@@ -1,40 +1,44 @@
 package com.rrenpin.entity;
 
 import java.io.Serializable;
-/**
- * 公司
- * @author Eashion
- *
- */
-public class Company implements Serializable{
+import java.util.Date;
 
-	private static final long serialVersionUID = 7957627660842757016L;
-	//公司id
-    private Integer id;
-    //公司名称
+public class Company implements Serializable{
+	
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 9054408472169567154L;
+
+	private Integer id;
+
     private String name;
-    //公司logo
+
     private String logo;
-    //公司邮箱地址
+
     private String email;
-    //公司信息
+
     private String info;
-    //地址
+
     private String address;
-    //行业
+
     private String industry;
-    //公司规模
+
     private String scale;
-    //公司网址
+
     private String website;
-    //融资情况
+
     private String financing;
-    //用户id
+
     private Integer userId;
-    //公司电话
+
     private String tel;
-    //公司简介
+
     private String intro;
+
+    private Date regTime;
+
+    private String status;
 
     public Integer getId() {
         return id;
@@ -140,11 +144,28 @@ public class Company implements Serializable{
         this.intro = intro;
     }
 
+    public Date getRegTime() {
+        return regTime;
+    }
+
+    public void setRegTime(Date regTime) {
+        this.regTime = regTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 	@Override
 	public String toString() {
 		return "Company [id=" + id + ", name=" + name + ", logo=" + logo + ", email=" + email + ", info=" + info
 				+ ", address=" + address + ", industry=" + industry + ", scale=" + scale + ", website=" + website
-				+ ", financing=" + financing + ", userId=" + userId + ", tel=" + tel + ", intro=" + intro + "]";
+				+ ", financing=" + financing + ", userId=" + userId + ", tel=" + tel + ", intro=" + intro + ", regTime="
+				+ regTime + ", status=" + status + "]";
 	}
 
 	@Override
@@ -171,5 +192,6 @@ public class Company implements Serializable{
 			return false;
 		return true;
 	}
+    
     
 }
