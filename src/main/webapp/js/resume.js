@@ -134,6 +134,24 @@ $("#resume_quityx").click(function(){
 //    修改基本信息
 $("#editxxbtn").click(function(){
     mydisplay($("#xinxibox"),$("#xinxi_mask"));
+    var userId = getCookieValue("userId"); 
+    $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
+    	 $("#uname").val(data.data.empName);
+    	 if(data.data.sex=='女'){
+    		 $("#resume_nv").addClass("resume_mysex")
+    		  $("#resume_nan").removeClass("resume_mysex")
+    	 }else if(data.data.sex=='男'){
+    		 $("#resume_nan").addClass("resume_mysex")
+    		 $("#resume_nv").removeClass("resume_mysex") 
+    	 }
+    	 $("#birthday").val(data.data.birth);
+    	 $("#startwork").val(data.data.workExp);
+    	 $("#ustate").html(data.data.status);
+    	 $("#uphone").val(data.data.phone);
+    	 $("#uemail").val(data.data.email);
+         $("#ucity").val(data.data.empRegion);
+    },'json');
+
 });
 $("#resume_quitxinxi").click(function(){
     $("#xinxi_mask").css("display","none");
@@ -173,7 +191,3 @@ $.each(sex,function(key,val){
         })
     })
 });
-//    预览简历
-$("#to_preview_resume").click(function(){
-    window.location.href="resume_preview.html"
-})

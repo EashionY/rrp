@@ -40,8 +40,8 @@
     <div class="resume_left">
         <div class="resume_left_div1">
             <div class="resume_left_name">
-                <div class="resume_lname">二狗子-简历</div>
-                <div class="myfont" id="resume_left_editbtn">&#xe635;</div>
+                <div class="resume_lname">暂无简历</div>
+                <div class="myfont" id="resume_left_editbtn"></div>
             </div>
             <div class="resume_left_mask">
                 <div><input type="text"/></div>
@@ -50,7 +50,7 @@
                     <span class="resume_quit" id="resume_left_mask_quit">取消</span>
                 </div>
             </div>
-            <div class="resume_left_time">更新：2017-05-04</div>
+            <div class="resume_left_time"></div>
         </div>
         <div class="resume_left_div2" id="to_preview_resume"><span class="myfont">&#xe650;</span>预览简历</div>
         <div class="resume_left_div3">
@@ -68,22 +68,19 @@
         <div class="resume_rdiv1" id="xinxibox">
             <div class="resume_rdiv1_left">
                 <div class="resume_rdiv1_name">
-                    二狗子<span class="myfont" id="editxxbtn">&#xe635;</span>
+                    <span id="uName">我的名字</span><span class="myfont" id="editxxbtn">&#xe635;</span>
                 </div>
                 <div class="resume_rdiv1_addre">
-                    <span>成都</span>
-                    <span>2年工作经验</span>
-                    <span>女</span>
-                    <span>目前正在找工作</span>
+                    
                 </div>
                 <div class="resume_rdiv1_phone">
                     <div>
                         <span class="myfont phone_font">&#xe615;</span>
-                        <span>18253666386</span>
+                        <span id="phone"></span>
                     </div>
                     <div>
                         <span class="myfont email_font">&#xe60d;</span>
-                        <span>m18253666386@163.com</span>
+                        <span id="email"></span>
                     </div>
                 </div>
             </div>
@@ -153,20 +150,13 @@
             </div>
             <div class="resume_left_maskbtn resume_left_maskbtn2">
                 <span class="resume_save" id="resume_savexinxi">保存</span>
+                <span class="resume_save" id="resume_savexinxi2">修改</span>
                 <span class="resume_quit" id="resume_quitxinxi">取消</span>
             </div>
         </div>
         <!--求职意向-->
         <div class="resume_rdiv2" id="yixiangbox">
             <div class="job_title">求职意向<span class="edit_font" id="edityxbtn"><span class="myfont">&#xe635;</span></span></div>
-            <div class="resume_yixiang">
-                <span>期望薪资：4500-5999元/月</span>
-                <span>工作类型：全职</span>
-            </div>
-            <div class="resume_yixiang">
-                <span>期望职位：UI设计师/顾问 UI设计师/顾问</span>
-                <span>地点：成都</span>
-            </div>
         </div>
         <div class="resume_rdiv1_mask resume_rdiv2_mask" id="yixiang_mask">
             <div class="job_title">求职意向</div>
@@ -174,7 +164,7 @@
                 <div class="resume_editbox_div1">
                     <div>期望薪资</div>
                     <div id="divselect_xinzi" class="divselect" >
-                        <cite><span class="input_text"></span>
+                        <cite><span class="input_text" id="qwsalary"></span>
                             <span class="myfont input_icon">&#xe681;</span>
                         </cite>
                         <ul>
@@ -192,7 +182,7 @@
                 <div class="resume_editbox_div1">
                     <div>工作类型</div>
                     <div id="divselect_leixing" class="divselect" >
-                        <cite><span class="input_text"></span>
+                        <cite><span class="input_text" id="workType"></span>
                             <span class="myfont input_icon">&#xe681;</span>
                         </cite>
                         <ul>
@@ -207,12 +197,12 @@
             <div class="resume_editbox">
                 <div class="resume_editbox_div1">
                     <div>期望职位</div>
-                    <div><input type="text"/></div>
+                    <div><input type="text" id="qwjob"/></div>
                 </div>
                 <div class="resume_editbox_div1">
                     <div>地点</div>
                     <div class="inputDiv">
-                        <input readonly type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
+                        <input readonly id="workArea" type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
                         <span class="myfont input_icon input_icon2">&#xe681;</span>
                     </div>
                 </div>
@@ -236,46 +226,6 @@
                     <span class="myfont">&#xe602;</span>&nbsp;&nbsp;<span>添加</span>
                 </span>
             </div>
-            <div class="resume_workbox">
-                <div>
-                    <span>成都市科技有限公司</span>
-                    <span class="edit_font">
-                        <span class="myfont">&#xe635;</span>
-                        <span class="myfont workjlbox_dele">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="resume_workbox_div2">
-                    <span>UI设计师</span><span>2016.09-至今</span>
-                </div>
-                <div>任UI一职，主要负责公司内部的APP和网站设计，完成产品内的活动海报等。完整的参与了产品从开始到成型的每一步，受益匪浅。</div>
-            </div>
-            <div class="resume_workbox">
-                <div>
-                    <span>成都市科技有限公司</span>
-                    <span class="edit_font">
-                        <span class="myfont">&#xe635;</span>
-                        <span class="myfont workjlbox_dele">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="resume_workbox_div2">
-                    <span>UI设计师</span><span>2016.09-至今</span>
-                </div>
-                <div>任UI一职，主要负责公司内部的APP和网站设计，完成产品内的活动海报等。完整的参与了产品从开始到成型的每一步，受益匪浅。</div>
-            </div>
-            <div class="resume_workbox">
-                <div>
-                    <span>成都市科技有限公司</span>
-                    <span class="edit_font">
-                        <span class="myfont">&#xe635;</span>
-                        <span class="myfont workjlbox_dele">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="resume_workbox_div2">
-                    <span>UI设计师</span><span>2016.09-至今</span>
-                </div>
-                <div>任UI一职，主要负责公司内部的APP和网站设计，完成产品内的活动海报等。完整的参与了产品从开始到成型的每一步，受益匪浅。</div>
-            </div>
-
         </div>
         <div class="resume_rdiv1_mask resume_rdiv2_mask" id="workjl_mask">
             <div class="job_title">工作经历</div>
@@ -316,50 +266,6 @@
                 <span class="edit_font" id="editprojectjlbtn">
                     <span class="myfont">&#xe602;</span>&nbsp;&nbsp;<span>添加</span>
                 </span>
-            </div>
-            <div class="resume_workbox">
-                <div>
-                    <span>简阅</span>
-                    <span class="edit_font">
-                        <span class="myfont">&#xe635;</span>
-                        <span class="myfont workjlbox_dele">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="resume_workbox_div2">
-                    <span>2016.09-至今</span>
-                </div>
-                <div class="detail_div">
-                    <div>项目描述：</div>
-                    <div class="detail_span">任UI一职，主要负责公司内部的APP和网站设计，完成产品内的活动海报等。
-                        完整的参与了产品从开始到成型的每一步,受益匪浅。</div>
-                </div>
-                <div class="detail_div">
-                    <div>责任描述：</div>
-                    <div class="detail_span">任UI一职，主要负责公司内部的APP和网站设计，完成产品内的活动海报等。
-                        完整的参与了产品从开始到成型的每一步,受益匪浅。</div>
-                </div>
-            </div>
-            <div class="resume_workbox">
-                <div>
-                    <span>简阅</span>
-                    <span class="edit_font">
-                        <span class="myfont">&#xe635;</span>
-                        <span class="myfont workjlbox_dele">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="resume_workbox_div2">
-                    <span>2016.09-至今</span>
-                </div>
-                <div class="detail_div">
-                    <div>项目描述：</div>
-                    <div class="detail_span">任UI一职，主要负责公司内部的APP和网站设计，完成产品内的活动海报等。
-                        完整的参与了产品从开始到成型的每一步,受益匪浅。</div>
-                </div>
-                <div class="detail_div">
-                    <div>责任描述：</div>
-                    <div class="detail_span">任UI一职，主要负责公司内部的APP和网站设计，完成产品内的活动海报等。
-                        完整的参与了产品从开始到成型的每一步,受益匪浅。</div>
-                </div>
             </div>
         </div>
         <div class="resume_rdiv1_mask resume_rdiv2_mask" id="project_mask">
@@ -408,54 +314,6 @@
                     <span class="myfont">&#xe602;</span>&nbsp;&nbsp;<span>添加</span>
                 </span>
             </div>
-            <div class="resume_pingjiabox">
-                <div>
-                    <span>Photoshop</span>
-                    <span class="edit_font ">
-                        <span class="myfont edit_fontpingjia">&#xe635;</span>
-                        <span class="myfont workjlbox_dele2 edit_fontpingjia">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="">
-                    <span class="jineng jineng_jt"></span><span class="pingjia_text">精通</span>
-                </div>
-            </div>
-            <div class="resume_pingjiabox">
-                <div>
-                    <span>illustrator</span>
-                    <span class="edit_font ">
-                        <span class="myfont edit_fontpingjia">&#xe635;</span>
-                        <span class="myfont workjlbox_dele2 edit_fontpingjia">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="">
-                    <span class="jineng jineng_sl"></span><span class="pingjia_text">熟练</span>
-                </div>
-            </div>
-            <div class="resume_pingjiabox">
-                <div>
-                    <span>Axure</span>
-                    <span class="edit_font ">
-                        <span class="myfont edit_fontpingjia">&#xe635;</span>
-                        <span class="myfont workjlbox_dele2 edit_fontpingjia">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="">
-                    <span class="jineng jineng_lh"></span><span class="pingjia_text">良好</span>
-                </div>
-            </div>
-            <div class="resume_pingjiabox">
-                <div>
-                    <span>Axure</span>
-                    <span class="edit_font ">
-                        <span class="myfont edit_fontpingjia">&#xe635;</span>
-                        <span class="myfont workjlbox_dele2 edit_fontpingjia">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="">
-                    <span class="jineng jineng_yb"></span><span class="pingjia_text">一般</span>
-                </div>
-            </div>
         </div>
         <div class="resume_rdiv1_mask resume_rdiv2_mask" id="pingjia_mask">
             <div class="job_title">技能评价</div>
@@ -491,30 +349,6 @@
                 <span class="edit_font" id="editjiaoyubtn">
                     <span class="myfont">&#xe602;</span>&nbsp;&nbsp;<span>添加</span>
                 </span>
-            </div>
-            <div class="resume_workbox">
-                <div>
-                    <span>西南交通大学</span>
-                    <span class="edit_font">
-                        <span class="myfont">&#xe635;</span>
-                        <span class="myfont workjlbox_dele">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="resume_jiaoyubox_div2">
-                    <span>计算机应用</span><span>大专</span><span>2013/9-1017/6</span>
-                </div>
-            </div>
-            <div class="resume_workbox">
-                <div>
-                    <span>西南交通大学</span>
-                    <span class="edit_font">
-                        <span class="myfont">&#xe635;</span>
-                        <span class="myfont workjlbox_dele">&#xe60c;</span>
-                    </span>
-                </div>
-                <div class="resume_jiaoyubox_div2">
-                    <span>计算机应用</span><span>大专</span><span>2013/9-1017/6</span>
-                </div>
             </div>
         </div>
         <div class="resume_rdiv1_mask resume_rdiv2_mask" id="jiaoyu_mask">
@@ -563,15 +397,6 @@
                 <span class="edit_font" id="editzipingbtn">
                     <span class="myfont">&#xe635;</span>&nbsp;&nbsp;<span>编辑</span>
                 </span>
-            </div>
-            <div class="resume_zhipingbox">
-                <p>任UI一职，主要负责公司内部的APP和网站设计，完成产品内的活动海报等。完整的参与了产品从开始到
-                    成型的每一步，受益匪浅。</p>
-                <p>
-                    任UI一职，主要负责公司内部的APP和网站设计，完成产品内的活动海报等。完整的参与了产品从开始到
-                    成型的每一步，受益匪浅。任UI一职，主要负责公司内部的APP和网站设计，完成产品内的活动海报等。
-                    完整的参与了产品从开始到成型的每一步，受益匪浅。
-                </p>
             </div>
         </div>
         <div class="resume_rdiv1_mask resume_rdiv2_mask" id="ziping_mask">
@@ -625,16 +450,70 @@
 <script src="../../../plug/jquery.scrollTo.js"></script>
 <script src="../../../plug/laydate-v1.1/laydate/laydate.js"></script>
 <script src="../../../js/resume.js"></script>
+<script src="../../../js/dataMa.js"></script>
 <script>
+	var resumeId;
 	$(function() { 
-		myonload2("pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
+		myonload2("../my/pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
 	    var userId = getCookieValue("userId"); 
 	    if(userId==""){//未登录，请先登录
 	       window.location.href="../login.html";
+	    }else{
+	    	 $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
+	    		 if(data.data==null){//无简历
+	                }else{//有简历
+	                	resumeId=data.data.id;
+	                	//简历名称
+	                	$("#resume_left_editbtn").html("&#xe635;");
+	                	$(".resume_lname").html(data.data.resumeName);
+	                	$(".resume_left_time").html("更新："+new Date(data.data.updateTime).format("yyyy-MM-dd"));
+	                	//个人信息板块
+	                	$("#uName").html(data.data.empName);
+	                	$("#resume_savexinxi2").css("display","inline-block")
+	                	$("#resume_savexinxi").css("display","none");
+	                	var str='<span>'+data.data.empRegion+'</span>'+
+	                	'<span>'+data.data.workExp+'工作经验</span>'+
+	                	'<span>'+data.data.sex+'</span>'+
+	                	'<span>'+data.data.status+'</span>'
+	                	$(".resume_rdiv1_addre").html(str);
+	                	$("#phone").html(data.data.phone);
+	                	$("#email").html(data.data.email);
+	                	//求职意向板块
+	                	//TO-DO
+						// 预览简历
+	                	$("#to_preview_resume").click(function(){
+	                	    window.location.href="resume_preview.html"
+	                	})
+	                }
+	    	  },'json');
 	    }
 	});
-	 $("#resume_savexinxi").click(function(){
-		    var id = getCookieValue("userId"); 
+	
+	$("#resume_saveyx").click(function(){//修改求职意向
+		$.ajax({
+			type: "post",
+            url: ip+"/rrp/resume/modifyJobIntention.do",
+            data: {id:resumeId,salary:$("#qwsalary").html(),job:$("#workType").html(),workType:$("#workType").html(),workArea:$("#workArea").val()},
+            dataType: "json",
+            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+            success: function(data){
+            	if(data.state==0){
+                	window.location.href="resume.html";
+                }else{
+                	layer.msg(data.message)
+                }
+            }
+		})
+	})
+	
+	
+	
+	
+	
+	
+	
+	
+	$("#resume_savexinxi2").click(function(){//修改信息
 	        var empName=$("#uname").val();
 	        var sex=$(".resume_mysex").html();
 	        var birth=$("#birthday").val();
@@ -646,8 +525,9 @@
 	        $.ajax({
 	            type: "post",
 	            url: ip+"/rrp/resume/modifyBasicInfo.do",
-	            data: {id:id,empName:empName,sex:sex,birth:birth,workexp:workexp,status:status,phone:phone,email:email,empRegion:empRegion},
+	            data: {id:resumeId,empName:empName,sex:sex,birth:birth,workexp:workexp,status:status,phone:phone,email:email,empRegion:empRegion},
 	            dataType: "json",
+	            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 	            success: function(data){
 	          	    console.log(data);
 	                if(data.state==0){
@@ -657,6 +537,32 @@
 	                }
 	            }
 	        });
-	    })
+	})
+	 $("#resume_savexinxi").click(function(){//添加信息
+		    var id = getCookieValue("userId"); 
+	        var empName=$("#uname").val();
+	        var sex=$(".resume_mysex").html();
+	        var birth=$("#birthday").val();
+	        var workexp=$("#startwork").val();
+	        var status=$("#ustate").html();
+	        var phone=$("#uphone").val();
+	        var email=$("#uemail").val();
+	        var empRegion=$("#ucity").val();
+	        $.ajax({
+	            type: "post",
+	            url: ip+"/rrp/resume/addBasicInfo.do",
+	            data: {userId:id,empName:empName,sex:sex,birth:birth,workexp:workexp,status:status,phone:phone,email:email,empRegion:empRegion},
+	            dataType: "json",
+	            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+	            success: function(data){
+	          	    console.log(data);
+	                if(data.state==0){
+	                	window.location.href="resume.html";
+	                }else{
+	                	layer.msg(data.message)
+	                }
+	            }
+	        });
+	   })
 </script>
 </html>
