@@ -1,5 +1,7 @@
 package com.rrenpin.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,7 +32,8 @@ public class UserController extends ExceptionController{
 	
 	@RequestMapping("/modifyUserInfo.do")
 	@ResponseBody
-	public JsonResult modifyUserInfo(int userId,String nickname,String sex,String job,String degree,String selfIntro){
+	public JsonResult modifyUserInfo(HttpServletRequest request,int userId,String nickname,String sex,String job,String degree,String selfIntro) throws UnsupportedEncodingException{
+		request.setCharacterEncoding("utf-8");
 		userService.modifyUserInfo(userId, nickname, sex, job, degree, selfIntro);
 		return new JsonResult(SUCCESS,"","个人资料修改成功");
 	}
