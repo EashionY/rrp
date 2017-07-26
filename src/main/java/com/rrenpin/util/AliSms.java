@@ -10,7 +10,7 @@ import com.taobao.api.response.AlibabaAliqinFcSmsNumSendResponse;
  * @author Eashion
  *
  */
-public class Message {
+public class AliSms {
 
 	//短信固定参数，产品名
 	private final static String product = "任人聘";
