@@ -11,11 +11,10 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-
 public class SendEmail {
 
 	//服务器地址
-	public static final String HOST = "smtp.163.com";
+	public static final String HOST = "smtp.live.com";
 	//协议
 	public static final String PROTOCOL = "smtp";
 	//端口
@@ -35,6 +34,7 @@ public class SendEmail {
 		props.put("mail.store.protocol", PROTOCOL);
 		props.put("mail.smtp.port", PORT);
 		props.put("mail.smtp.auth", true);
+		props.put("mail.smtp.starttls.enable",true);
 		
 		Authenticator authenticator = new Authenticator(){
 			@Override
@@ -52,23 +52,20 @@ public class SendEmail {
 	 * 发送邮件
 	 * @param toEmail
 	 * @param content
+	 * @throws MessagingException 
 	 */
-	public static void send(String toEmail,String content){
+	public static void send(String toEmail,String content) throws MessagingException{
 		Session session = getSession();
-		try {
-			System.out.println("send:"+content);
-			//创建message
-			Message msg = new MimeMessage(session);
-			//设置msg的属性
-			msg.setFrom(new InternetAddress(FROM));
-			InternetAddress[] address = {new InternetAddress(toEmail)};
-			msg.setRecipients(Message.RecipientType.TO, address);
-			msg.setSubject("账号激活邮件");
-			msg.setContent(content, "text/html;charset=utf-8");
-			//发送消息
-			Transport.send(msg);
-		} catch (MessagingException e) {
-			e.printStackTrace();
-		}
+		System.out.println("send:"+content);
+		//创建message
+		Message msg = new MimeMessage(session);
+		msg.setFrom(new InternetAddress(FROM));
+		//设置发件人
+		InternetAddress[] address = {new InternetAddress(toEmail)};
+		msg.setRecipients(Message.RecipientType.TO, address);
+		msg.setSubject("账号激活邮件");
+		msg.setContent(content, "text/html;charset=utf-8");
+		//发送消息
+		Transport.send(msg);
 	}
 }
