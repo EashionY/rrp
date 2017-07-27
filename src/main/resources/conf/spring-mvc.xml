@@ -20,6 +20,11 @@
 	<context:component-scan base-package="com.rrenpin" />
 	<!-- 启用注解驱动 -->
 	<mvc:annotation-driven />
+	<!-- 配置ModelAndView -->
+	<bean id="ViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">    
+        <property name="prefix" value="/WEB-INF/jsp/"></property> <!-- 视图文件的前缀 -->     
+        <property name="suffix" value=".jsp"></property> <!-- 视图文件的后缀名 -->     
+    </bean>    
 </beans>
 
 
