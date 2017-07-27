@@ -11,14 +11,14 @@
     </commentGenerator>
     <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/rrp?useUnicode=true&amp;characterEncoding=utf8" 
     	driverClass="com.mysql.jdbc.Driver" 
-    	password="Izs112358" userId="root" />
+    	password="123456" userId="admin" />
    	<!-- 生成的实体类存放位置 -->
     <javaModelGenerator targetPackage="com.rrenpin.entity" targetProject="src/main/java" />
     <!-- 生成的mapper文件存放位置 -->
     <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" />
     <!-- 生成Dao类存放位置 -->
     <javaClientGenerator targetPackage="com.rrenpin.dao" targetProject="src/main/java" type="XMLMAPPER" />
-    <table schema="rrp" tableName="post" domainObjectName="Post" enableCountByExample="false" 
+    <table schema="rrp" tableName="company" domainObjectName="Company" enableCountByExample="false" 
     	enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
     	 selectByExampleQueryId="false">
       <generatedKey column="id" sqlStatement="Mysql"/>

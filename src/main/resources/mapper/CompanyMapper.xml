@@ -211,4 +211,12 @@
       status = #{status,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="findByUserId" resultMap="BaseResultMap">
+  	select * from company where user_id=#{userId}
+  </select>
+  
+  <select id="findByEmail" resultMap="BaseResultMap">
+  	select * from company where email=#{email}
+  </select>
 </mapper>
