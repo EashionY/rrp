@@ -50,7 +50,7 @@
 		refresh: function() {
 
 			this.options.code="";
-
+			
 			var canvas = document.getElementById(this.options.canvasId);
 			if(canvas.getContext) {
 				var ctx = canvas.getContext('2d');

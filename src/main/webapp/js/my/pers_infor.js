@@ -5,7 +5,22 @@
 
 $(".my_edit").on("click",function(){
     $(".my_rightmain1").css("display","none");
-    $(".my_rightmain2").css("display","block")
+    $(".my_rightmain2").css("display","block");
+    var userIdValue = getCookieValue("userId"); 
+    $.get(ip+"/rrp/user/findUserInfo.do",{userId:userIdValue},function(data){
+    	$("#uname").val(data.data.nickname);
+    	if(data.data.sex=='男'){
+    		$("#myedit_nan").addClass("mysex")
+     		$("#myedit_nv").removeClass("mysex") 
+      	 }else{
+      		$("#myedit_nv").addClass("mysex")
+     		$("#myedit_nan").removeClass("mysex")
+      	 }
+    	$("#ujob").val(data.data.job);
+    	$("#udegree").val(data.data.degree);
+    	$("#work_content").val(data.data.selfIntro);
+    },"json")
+    
 });
 var sex=$(".myedit_sexbox span");
 $.each(sex,function(key,val){

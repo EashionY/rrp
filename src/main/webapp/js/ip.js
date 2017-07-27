@@ -1,5 +1,5 @@
 //设置IP地址
-var ip='http://192.168.0.105:8080';
+var ip='http://192.168.0.102:8080';
 
 function addCookie(name,value,days,path){   /**添加设置cookie**/  
     var name = escape(name);  
@@ -48,10 +48,8 @@ function myonload2(zhurl,qyurl,exiturl){
     var userIdValue = getCookieValue("userId"); 
 	//console.log(userNameValue);
 	//console.log(userIdValue);
-	if(userNameValue==""){
-		
-	}else{ 
-		var str="<li id='head_person'>"+userNameValue+"<span class='myfont myfont_xia'>&#xe60b;</span>" +
+	if(userNameValue!=""){
+	   var str="<li id='head_person'>"+userNameValue+"<span class='myfont myfont_xia'>&#xe60b;</span>" +
        "<ul id='head_person_ul'><li id='head_zh'>&nbsp;账号设置&nbsp;</li> " +
        "<li id='head_qy'>&nbsp;去企业版&nbsp;</li> " +
        "<li id='head_exit'>&nbsp;安全退出&nbsp;</li></ul></li>";

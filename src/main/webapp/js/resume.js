@@ -92,6 +92,7 @@ function limit(obj,mynum,mask,box){
 //    技能评价
 $("#editpingjiabtn").click(function(){
     mydisplay($("#pingjiabox"),$("#pingjia_mask"));
+    
 });
 $("#resume_quitpingjia").click(function(){
     mydisplay($("#pingjia_mask"),$("#pingjiabox"));
@@ -106,6 +107,13 @@ $("#resume_quitjiaoyu").click(function(){
 //    自我描述
 $("#editzipingbtn").click(function(){
     mydisplay($("#zipingbox"),$("#ziping_mask"));
+    
+    var userId = getCookieValue("userId"); 
+    $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
+    	if(data.data!=null){
+    		$("#ziping_content").val(data.data.selfEvaluation)
+    	}
+    },'json')
 });
 $("#resume_quitziping").click(function(){
     mydisplay($("#ziping_mask"),$("#zipingbox"));
@@ -127,6 +135,14 @@ $("#resume_quitwork").click(function(){
 //    修改求职意向
 $("#edityxbtn").click(function(){
     mydisplay($("#yixiangbox"),$("#yixiang_mask"));
+    var userId = getCookieValue("userId"); 
+    $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
+    	if(data.data!=null){
+    		$("#qwsalary").html(data.data.salary);
+    		$("#qwjob").val(data.data.job);
+    		$("#workType").html(data.data.workType)
+    	}    	
+    },'json')
 });
 $("#resume_quityx").click(function(){
     mydisplay($("#yixiang_mask"),$("#yixiangbox"));
@@ -136,20 +152,21 @@ $("#editxxbtn").click(function(){
     mydisplay($("#xinxibox"),$("#xinxi_mask"));
     var userId = getCookieValue("userId"); 
     $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
+    	if(data.data!=null){
     	 $("#uname").val(data.data.empName);
-    	 if(data.data.sex=='女'){
-    		 $("#resume_nv").addClass("resume_mysex")
-    		  $("#resume_nan").removeClass("resume_mysex")
-    	 }else if(data.data.sex=='男'){
-    		 $("#resume_nan").addClass("resume_mysex")
-    		 $("#resume_nv").removeClass("resume_mysex") 
-    	 }
-    	 $("#birthday").val(data.data.birth);
-    	 $("#startwork").val(data.data.workExp);
-    	 $("#ustate").html(data.data.status);
-    	 $("#uphone").val(data.data.phone);
-    	 $("#uemail").val(data.data.email);
-         $("#ucity").val(data.data.empRegion);
+       	 if(data.data.sex=='女'){
+       		 $("#resume_nv").addClass("resume_mysex")
+       		  $("#resume_nan").removeClass("resume_mysex")
+       	 }else if(data.data.sex=='男'){
+       		 $("#resume_nan").addClass("resume_mysex")
+       		 $("#resume_nv").removeClass("resume_mysex") 
+       	 }
+       	 $("#birthday").val(data.data.birth);
+       	 $("#startwork").val(data.data.workExp);
+       	 $("#ustate").html(data.data.status);
+       	 $("#uphone").val(data.data.phone);
+       	 $("#uemail").val(data.data.email);
+    	}
     },'json');
 
 });

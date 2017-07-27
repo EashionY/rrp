@@ -46,15 +46,14 @@
                 <div class="my_rightmian_div1left">
                     <div class="my_touxiang"><img src="" alt="头像"/></div>
                     <div class="my_xinxibox">
-                        <div class="my_namebox"><span>二狗子</span><span class="my_zhiye">JAVA前端</span></div>
-                        <div class="my_sexbox"><span>男</span><span>大专</span><span>1-2年</span></div>
+                        <div class="my_namebox"><span id="uname1"> </span><span class="my_zhiye"> </span></div>
+                        <div class="my_sexbox"><span id="usex1"> </span><span id="udegree1"> </span></div>
                     </div>
                 </div>
                 <div class="my_edit"><span class="myfont my_editfont">&#xe635;</span></div>
             </div>
             <div class="my_rightmian_div2">
-                <p>个人介绍热机爱好的书法季后赛的房间啊啊是的发酵素打发时间话费单阿斯顿发生剪短发
-                    个人介绍热机爱好的书法季后赛的房间啊啊是的发酵素打发时间话费单阿斯顿发生剪短发</p>
+                <p id="uselfIntro1"> </p>
             </div>
             <div class="my_rightmian_div3">
                 (*此信息用于站内的沟通、社区等功能，不会同步修改简历)
@@ -125,12 +124,29 @@
 </body>
 <script src="../../../js/jquery-1.11.3.js"></script>
 <script src="../../../js/ip.js"></script>
-
 <script src="../../../js/my/pers_infor.js"></script>
 <script src="../../../js/my/my.js"></script>
 <script>
 	$(function() { 
 		myonload2("pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
+		var userIdValue = getCookieValue("userId"); 
+		console.log(userIdValue)
+		if(userIdValue==""){//未登录，请先登录
+		    window.location.href="../login.html";
+		}else{
+		    $.get(ip+"/rrp/user/findUserInfo.do",{userId:userIdValue},function(data){
+		    	if(data.state==0){
+		    		//console.log(data.data);
+		    		$("#uname1").html(data.data.nickname)
+		    		$(".my_zhiye").html(data.data.job)
+		    		$("#usex1").html(data.data.sex)
+		    		$("#udegree1").html(data.data.degree)
+		    		$("#uselfIntro1").html(data.data.selfIntro)
+		    	}else{
+		    		layer.msg(data.message)
+		    	}
+		    },'json')	
+		}
 	});
 	
 	$(".myedit_savebtn").click(function () {
