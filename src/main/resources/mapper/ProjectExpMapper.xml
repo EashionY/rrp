@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rrenpin.dao.ProjectExpMapper">
+  <resultMap id="BaseResultMap" type="com.rrenpin.entity.ProjectExp">
+    <id column="projectexp_id" jdbcType="INTEGER" property="projectexpId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="resume_id" jdbcType="INTEGER" property="resumeId" />
+    <result column="project" jdbcType="VARCHAR" property="project" />
+    <result column="project_time" jdbcType="VARCHAR" property="projectTime" />
+    <result column="project_description" jdbcType="VARCHAR" property="projectDescription" />
+    <result column="duty" jdbcType="VARCHAR" property="duty" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    projectexp_id, user_id, resume_id, project, project_time, project_description, duty
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from projectexp
+    where projectexp_id = #{projectexpId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from projectexp
+    where projectexp_id = #{projectexpId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rrenpin.entity.ProjectExp">
+    <selectKey keyProperty="projectexpId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into projectexp (projectexp_id, user_id, resume_id, 
+      project, project_time, project_description, 
+      duty)
+    values (#{projectexpId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, 
+      #{project,jdbcType=VARCHAR}, #{projectTime,jdbcType=VARCHAR}, #{projectDescription,jdbcType=VARCHAR}, 
+      #{duty,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rrenpin.entity.ProjectExp">
+    <selectKey keyProperty="projectexpId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into projectexp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      projectexp_id,
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="resumeId != null">
+        resume_id,
+      </if>
+      <if test="project != null">
+        project,
+      </if>
+      <if test="projectTime != null">
+        project_time,
+      </if>
+      <if test="projectDescription != null">
+        project_description,
+      </if>
+      <if test="duty != null">
+        duty,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{projectexpId,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="project != null">
+        #{project,jdbcType=VARCHAR},
+      </if>
+      <if test="projectTime != null">
+        #{projectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="projectDescription != null">
+        #{projectDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null">
+        #{duty,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rrenpin.entity.ProjectExp">
+    update projectexp
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        resume_id = #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="project != null">
+        project = #{project,jdbcType=VARCHAR},
+      </if>
+      <if test="projectTime != null">
+        project_time = #{projectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="projectDescription != null">
+        project_description = #{projectDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null">
+        duty = #{duty,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where projectexp_id = #{projectexpId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rrenpin.entity.ProjectExp">
+    update projectexp
+    set user_id = #{userId,jdbcType=INTEGER},
+      resume_id = #{resumeId,jdbcType=INTEGER},
+      project = #{project,jdbcType=VARCHAR},
+      project_time = #{projectTime,jdbcType=VARCHAR},
+      project_description = #{projectDescription,jdbcType=VARCHAR},
+      duty = #{duty,jdbcType=VARCHAR}
+    where projectexp_id = #{projectexpId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="findByUserId" parameterType="java.lang.Integer" resultType="java.util.Map">
+  	select
+  	<include refid="Base_Column_List" />
+  	from projectexp where user_id=#{userId}
+  </select>
+</mapper>
