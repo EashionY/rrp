@@ -5,7 +5,7 @@
     <title>修改密码</title>
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="../../../plug/layer/skin/default/layer.css"/>
+    <link rel="stylesheet" href="../../../plug/layer/skin/default/layer.css"/>
     <link rel="stylesheet" href="../../../css/share/base.css"/>
     <link rel="stylesheet" href="../../../css/share/header.css"/>
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
@@ -47,7 +47,7 @@
         <div class="my_rightmain">
             <div class="psd_div1">账号：<span>18328563586</span></div>
             <div class="psd_inputbox"><input id="oldpsd" type="password" placeholder="请输入当前密码"/></div>
-            <div class="psd_inputbox"><input id="newpsd" type="password" placeholder="请输入新密码"/></div>
+            <div class="psd_inputbox"><input id="newpsd" type="password" placeholder="请输入新密码(6-16位字母/数字/符号组合)"/></div>
             <div class="psd_inputbox"><input id="newpsd2" type="password" placeholder="确认新密码"/></div>
             <div class="psd_btn">保存</div>
         </div>
@@ -79,47 +79,6 @@
 <script src="../../../js/ip.js"></script>
 <script src="../../../plug/layer/layer.js"></script>
 <script src="../../../js/my/my.js"></script>
-<script>
-	$(function() { 
-		myonload2("pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
-	    var uPhoneValue = getCookieValue("userPhone"); 
-	    console.log(uPhoneValue)
-	    $(".psd_div1 span").html(uPhoneValue)
-	});
-		
-	$(".psd_btn").click(function () {
-		var uid = getCookieValue("userId");
-		
-		var oldpsd=$("#oldpsd").val();
-		var newpsd=$("#newpsd").val();
-		var newpsd2=$("#newpsd2").val();
-		if(newpsd!=newpsd2){
-			layer.msg("两次密码不一致!")
-		}else{
-			console.log(oldpsd,newpsd);
-			$.ajax({
-	            type: "post",
-	            url: ip+"/rrp/user/modifyPsd.do",
-	            data: {userId:uid,oldPsd:oldpsd,newPsd:newpsd},
-	            dataType: "json",
-	            success: function(data){
-	          	    console.log(data);
-	                if(data.state==0){
-	                	layer.msg('修改成功！请重新登录!', {
-	                		  icon: 1,
-	                		  time: 1000 //2秒关闭（如果不配置，默认是3秒）
-	                		}, function(){
-	                		  deleteCookie("userName","/");
-	                		  window.location.href="../login.html";
-	                		});   
-	                }else{
-	                	layer.msg(data.message)
-	                }
-	            }
-	        });
-		}
-	
-	})
-	
-</script>
+<script src="../../../js/my/change_psd.js"></script>
+
 </html>

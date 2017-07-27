@@ -157,6 +157,7 @@
         <!--求职意向-->
         <div class="resume_rdiv2" id="yixiangbox">
             <div class="job_title">求职意向<span class="edit_font" id="edityxbtn"><span class="myfont">&#xe635;</span></span></div>
+        	
         </div>
         <div class="resume_rdiv1_mask resume_rdiv2_mask" id="yixiang_mask">
             <div class="job_title">求职意向</div>
@@ -320,12 +321,12 @@
             <div class="resume_editbox">
                 <div class="resume_editbox_div1">
                     <div>技能/语言</div>
-                    <div><input type="text"/></div>
+                    <div><input type="text" id="skillName"/></div>
                 </div>
                 <div class="resume_editbox_div1">
                     <div>掌握程度</div>
                     <div id="divselect_jineng" class="divselect" >
-                        <cite><span class="input_text"></span>
+                        <cite><span class="input_text" id="skillcd"></span>
                             <span class="myfont input_icon">&#xe681;</span>
                         </cite>
                         <ul>
@@ -462,6 +463,7 @@
 	    	 $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
 	    		 if(data.data==null){//无简历
 	                }else{//有简历
+	                	console.log(data.data)
 	                	resumeId=data.data.id;
 	                	//简历名称
 	                	$("#resume_left_editbtn").html("&#xe635;");
@@ -479,7 +481,18 @@
 	                	$("#phone").html(data.data.phone);
 	                	$("#email").html(data.data.email);
 	                	//求职意向板块
-	                	//TO-DO
+	                	var yxstr1='<div class="resume_yixiang">'+
+	                	           '<span>期望薪资：'+data.data.salary+'/月</span>'+
+	                               '<span>工作类型：'+data.data.workType+'</span></div>';
+	                    var yxstr2='<div class="resume_yixiang">'+
+	                	           '<span>期望职位：'+data.data.job+'</span>'+
+	                               '<span>地点：'+data.data.workArea+'</span></div>'
+	                	$("#yixiangbox").append(yxstr1)
+	                	$("#yixiangbox").append(yxstr2)
+	                	//自我描述模块
+	                	if(data.data.selfEvaluation!=""){
+	                		$("#zipingbox").append('<div class="resume_zhipingbox"><p>'+data.data.selfEvaluation+'</p></div>')
+	                	}
 						// 预览简历
 	                	$("#to_preview_resume").click(function(){
 	                	    window.location.href="resume_preview.html"
@@ -489,11 +502,47 @@
 	    }
 	});
 	
-	$("#resume_saveyx").click(function(){//修改求职意向
+	$("#resume_savework").click(function(){//修改工作经验========TO-DO
 		$.ajax({
 			type: "post",
-            url: ip+"/rrp/resume/modifyJobIntention.do",
-            data: {id:resumeId,salary:$("#qwsalary").html(),job:$("#workType").html(),workType:$("#workType").html(),workArea:$("#workArea").val()},
+            url: ip+"/rrp/resume/modifyWorkExp.do",
+            data: {id:resumeId,company1,work1,work1Time,work1Description},
+            dataType: "json",
+            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+            success: function(data){
+            	if(data.state==0){
+                	//window.location.href="resume.html";
+                }else{
+                	layer.msg(data.message)
+                }
+            }
+		})
+	})
+	
+	$("#resume_saveziping").click(function(){//添加技能   TO-DO
+		console.log($("#skillName").val());
+		console.log($("#skillcd").html());
+		var skill=$("#skillName").val()+$("#skillcd").html()
+		$.ajax({
+			type: "post",
+            url: ip+"/rrp/resume/modifySkill.do",
+            data: {id:resumeId,skill:skill},
+            dataType: "json",
+            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+            success: function(data){
+            	if(data.state==0){
+                	window.location.href="resume.html";
+                }else{
+                	layer.msg(data.message)
+                }
+            }
+		})
+	})
+	$("#resume_saveziping").click(function(){//修改自我描述
+		$.ajax({
+			type: "post",
+            url: ip+"/rrp/resume/modifySelfEvaluation.do",
+            data: {id:resumeId,selfEvaluation:$("#ziping_content").val()},
             dataType: "json",
             contentType:'application/x-www-form-urlencoded; charset=UTF-8',
             success: function(data){
@@ -506,12 +555,22 @@
 		})
 	})
 	
-	
-	
-	
-	
-	
-	
+	$("#resume_saveyx").click(function(){//修改求职意向
+		$.ajax({
+			type: "post",
+            url: ip+"/rrp/resume/modifyJobIntention.do",
+            data: {id:resumeId,salary:$("#qwsalary").html(),job:$("#qwjob").val(),workType:$("#workType").html(),workArea:$("#workArea").val()},
+            dataType: "json",
+            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+            success: function(data){
+            	if(data.state==0){
+                	window.location.href="resume.html";
+                }else{
+                	layer.msg(data.message)
+                }
+            }
+		})
+	})
 	
 	$("#resume_savexinxi2").click(function(){//修改信息
 	        var empName=$("#uname").val();

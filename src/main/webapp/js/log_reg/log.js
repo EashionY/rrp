@@ -16,13 +16,18 @@ $("#log_btn").on("click",function(){
             success: function(data){
             
                 if(data.state==0){
-                	console.log(data.data.id);
-                	console.log(data.data.nickname);
+                	//console.log(data.data.id);
+                	//console.log(data.data.nickname);
 //                	登陆成功保存昵称到cookie
                 	addCookie("userName",data.data.nickname,1,"/");  
                 	addCookie("userId",data.data.id,1,"/"); 
                 	addCookie("userPhone",data.data.phone,1,"/"); 
-                	window.location.href="index.html";
+                	layer.msg(data.message,{
+              		  icon: 1,
+              		  time: 1000 
+                	}, function(){
+                		window.location.href="index.html";
+                	}); 
                 }else{
                 	layer.msg(data.message)
                 }
