@@ -19,14 +19,15 @@ public class CompanyServiceImpl implements CompanyService {
 	private CompanyMapper companyMapper;
 	
 	public void sendEmail(HttpServletRequest request,int userId,String email) {
-		Company company = companyMapper.findByUserId(userId);
+		Company company = companyMapper.findByEmail(email);
 		if(company==null){
 			company = new Company();
 			company.setEmail(email);
 			company.setUserId(userId);
 			companyMapper.insertSelective(company);
 		}else{
-			company.setEmail(email);
+			company.setUserId(userId);
+			company.setStatus("0");
 			companyMapper.updateByPrimaryKeySelective(company);
 		}
 		String src = ""+System.currentTimeMillis();

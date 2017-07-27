@@ -63,7 +63,7 @@ public class SendEmail {
 		//设置发件人
 		InternetAddress[] address = {new InternetAddress(toEmail)};
 		msg.setRecipients(Message.RecipientType.TO, address);
-		msg.setSubject("账号激活邮件");
+		msg.setSubject("任人聘  企业验证邮箱");
 		msg.setContent(content, "text/html;charset=utf-8");
 		//发送消息
 		Transport.send(msg);
