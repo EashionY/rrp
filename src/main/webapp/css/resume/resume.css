@@ -150,11 +150,11 @@
 .resume_rdiv1_name{
     font-size: 24px;
 }
-.resume_rdiv1_name>span{
+#editxxbtn{
     margin-left: 50px;
     font-size: 19px !important;
 }
-.resume_rdiv1_name>span:hover{cursor: pointer;color: #3eb39d}
+#editxxbtn:hover{cursor: pointer;color: #3eb39d}
 .resume_rdiv1_addre{
     font-size: 14px;
     color: #333333;
@@ -416,7 +416,7 @@
     top: 13px;
     right: 13px;
 }
-/*城市*/
+/*鍩庡競*/
 .city-picker-span {
     position: relative;
     display: block;
@@ -442,7 +442,7 @@
 .inputDiv:hover{cursor: pointer}
 .inputDiv>input:hover{cursor: pointer}
 
-/*下拉选择框*/
+/*涓嬫媺閫夋嫨妗�*/
 .divselect{width:305px;margin-top: 10px; position:relative; z-index:10000;}
 .divselect cite{width:305px; height:43px;line-height:43px; display:block; cursor:pointer;font-style:normal;
     border:1px solid #dddddd;background-color: #ffffff;text-indent: 10px}
@@ -464,5 +464,8 @@
 .laydate-icon{
     padding-right: 0 !important;
     background-position: 96% center !important;
+}
+#resume_savexinxi2{
+	display:none;
 }
 

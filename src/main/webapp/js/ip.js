@@ -1,5 +1,5 @@
 //设置IP地址
-var ip='http://192.168.0.102:8080';
+var ip='http://192.168.0.105:8080';
 
 function addCookie(name,value,days,path){   /**添加设置cookie**/  
     var name = escape(name);  
@@ -46,8 +46,8 @@ function deleteCookie(name,path){   /**根据cookie的键，删除cookie，其�
 function myonload2(zhurl,qyurl,exiturl){    
     var userNameValue = getCookieValue("userName");  
     var userIdValue = getCookieValue("userId"); 
-	console.log(userNameValue);
-	console.log(userIdValue);
+	//console.log(userNameValue);
+	//console.log(userIdValue);
 	if(userNameValue==""){
 		
 	}else{ 
@@ -72,6 +72,8 @@ function myonload2(zhurl,qyurl,exiturl){
        });
        $("#head_exit").click(function(){
        	  deleteCookie("userName","/");
+       	  deleteCookie("userId","/");
+       	  deleteCookie("userPhone","/");
        	  window.location.href=exiturl;
        });
 	}
