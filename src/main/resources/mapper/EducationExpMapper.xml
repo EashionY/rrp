@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rrenpin.dao.EducationExpMapper">
+  <resultMap id="BaseResultMap" type="com.rrenpin.entity.EducationExp">
+    <id column="educationexp_id" jdbcType="INTEGER" property="educationexpId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="resume_id" jdbcType="INTEGER" property="resumeId" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="school_time" jdbcType="VARCHAR" property="schoolTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    educationexp_id, user_id, resume_id, school, major, education, school_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from educationexp
+    where educationexp_id = #{educationexpId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from educationexp
+    where educationexp_id = #{educationexpId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rrenpin.entity.EducationExp">
+    <selectKey keyProperty="educationexpId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into educationexp (educationexp_id, user_id, resume_id, 
+      school, major, education, 
+      school_time)
+    values (#{educationexpId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, 
+      #{school,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, 
+      #{schoolTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rrenpin.entity.EducationExp">
+    <selectKey keyProperty="educationexpId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into educationexp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      educationexp_id,
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="resumeId != null">
+        resume_id,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="major != null">
+        major,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="schoolTime != null">
+        school_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{educationexpId,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolTime != null">
+        #{schoolTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rrenpin.entity.EducationExp">
+    update educationexp
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        resume_id = #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null">
+        major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolTime != null">
+        school_time = #{schoolTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where educationexp_id = #{educationexpId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rrenpin.entity.EducationExp">
+    update educationexp
+    set user_id = #{userId,jdbcType=INTEGER},
+      resume_id = #{resumeId,jdbcType=INTEGER},
+      school = #{school,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      school_time = #{schoolTime,jdbcType=VARCHAR}
+    where educationexp_id = #{educationexpId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="findByUserId" parameterType="java.lang.Integer" resultType="java.util.Map">
+  	select
+  	<include refid="Base_Column_List" />
+  	from educationexp where user_id=#{userId}
+  </select>
+</mapper>
