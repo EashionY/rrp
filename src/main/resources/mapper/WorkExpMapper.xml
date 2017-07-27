@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rrenpin.dao.WorkExpMapper">
+  <resultMap id="BaseResultMap" type="com.rrenpin.entity.WorkExp">
+    <id column="workexp_id" jdbcType="INTEGER" property="workexpId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="resume_id" jdbcType="INTEGER" property="resumeId" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="work" jdbcType="VARCHAR" property="work" />
+    <result column="work_time" jdbcType="VARCHAR" property="workTime" />
+    <result column="work_description" jdbcType="VARCHAR" property="workDescription" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    workexp_id, user_id, resume_id, company, work, work_time, work_description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from workexp
+    where workexp_id = #{workexpId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from workexp
+    where workexp_id = #{workexpId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rrenpin.entity.WorkExp">
+    <selectKey keyProperty="workexpId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into workexp (workexp_id, user_id, resume_id, 
+      company, work, work_time, 
+      work_description)
+    values (#{workexpId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, 
+      #{company,jdbcType=VARCHAR}, #{work,jdbcType=VARCHAR}, #{workTime,jdbcType=VARCHAR}, 
+      #{workDescription,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rrenpin.entity.WorkExp">
+    <selectKey keyProperty="workexpId" order="BEFORE" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into workexp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      workexp_id,
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="resumeId != null">
+        resume_id,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="work != null">
+        work,
+      </if>
+      <if test="workTime != null">
+        work_time,
+      </if>
+      <if test="workDescription != null">
+        work_description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{workexpId,jdbcType=INTEGER},
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="work != null">
+        #{work,jdbcType=VARCHAR},
+      </if>
+      <if test="workTime != null">
+        #{workTime,jdbcType=VARCHAR},
+      </if>
+      <if test="workDescription != null">
+        #{workDescription,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rrenpin.entity.WorkExp">
+    update workexp
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        resume_id = #{resumeId,jdbcType=INTEGER},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="work != null">
+        work = #{work,jdbcType=VARCHAR},
+      </if>
+      <if test="workTime != null">
+        work_time = #{workTime,jdbcType=VARCHAR},
+      </if>
+      <if test="workDescription != null">
+        work_description = #{workDescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where workexp_id = #{workexpId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rrenpin.entity.WorkExp">
+    update workexp
+    set user_id = #{userId,jdbcType=INTEGER},
+      resume_id = #{resumeId,jdbcType=INTEGER},
+      company = #{company,jdbcType=VARCHAR},
+      work = #{work,jdbcType=VARCHAR},
+      work_time = #{workTime,jdbcType=VARCHAR},
+      work_description = #{workDescription,jdbcType=VARCHAR}
+    where workexp_id = #{workexpId,jdbcType=INTEGER}
+  </update>
+  
+  <select id="findByUserId" parameterType="java.lang.Integer" resultType="java.util.Map">
+  	select
+  	<include refid="Base_Column_List" />
+  	from workexp where user_id=#{userId}
+  </select>
+  
+</mapper>
