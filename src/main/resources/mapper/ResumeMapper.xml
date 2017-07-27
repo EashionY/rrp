@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.rrenpin.dao.ResumeMapper">
-
   <resultMap id="BaseResultMap" type="com.rrenpin.entity.Resume">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="resume_name" jdbcType="VARCHAR" property="resumeName" />
@@ -10,7 +9,7 @@
     <result column="emp_region" jdbcType="VARCHAR" property="empRegion" />
     <result column="work_exp" jdbcType="VARCHAR" property="workExp" />
     <result column="sex" jdbcType="VARCHAR" property="sex" />
-    <result column="birth" jdbcType="VARCHAR" property="birth"/>
+    <result column="birth" jdbcType="VARCHAR" property="birth" />
     <result column="status" jdbcType="VARCHAR" property="status" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
@@ -19,52 +18,13 @@
     <result column="job" jdbcType="VARCHAR" property="job" />
     <result column="work_type" jdbcType="VARCHAR" property="workType" />
     <result column="work_area" jdbcType="VARCHAR" property="workArea" />
-    <result column="work3_description" jdbcType="VARCHAR" property="work3Description" />
-    <result column="company1" jdbcType="VARCHAR" property="company1" />
-    <result column="work1" jdbcType="VARCHAR" property="work1" />
-    <result column="work1_time" jdbcType="VARCHAR" property="work1Time" />
-    <result column="work1_description" jdbcType="VARCHAR" property="work1Description" />
-    <result column="company2" jdbcType="VARCHAR" property="company2" />
-    <result column="work2" jdbcType="VARCHAR" property="work2" />
-    <result column="work2_time" jdbcType="VARCHAR" property="work2Time" />
-    <result column="work2_description" jdbcType="VARCHAR" property="work2Description" />
-    <result column="company3" jdbcType="VARCHAR" property="company3" />
-    <result column="work3" jdbcType="VARCHAR" property="work3" />
-    <result column="work3_time" jdbcType="VARCHAR" property="work3Time" />
-    <result column="project1" jdbcType="VARCHAR" property="project1" />
-    <result column="project1_time" jdbcType="VARCHAR" property="project1Time" />
-    <result column="project1_description" jdbcType="VARCHAR" property="project1Description" />
-    <result column="duty1" jdbcType="VARCHAR" property="duty1" />
-    <result column="project2" jdbcType="VARCHAR" property="project2" />
-    <result column="project2_time" jdbcType="VARCHAR" property="project2Time" />
-    <result column="project2_description" jdbcType="VARCHAR" property="project2Description" />
-    <result column="duty2" jdbcType="VARCHAR" property="duty2" />
-    <result column="project3" jdbcType="VARCHAR" property="project3" />
-    <result column="project3_time" jdbcType="VARCHAR" property="project3Time" />
-    <result column="project3_description" jdbcType="VARCHAR" property="project3Description" />
-    <result column="duty3" jdbcType="VARCHAR" property="duty3" />
-    <result column="school1" jdbcType="VARCHAR" property="school1" />
-    <result column="major1" jdbcType="VARCHAR" property="major1" />
-    <result column="education1" jdbcType="VARCHAR" property="education1" />
-    <result column="school1_time" jdbcType="VARCHAR" property="school1Time" />
-    <result column="school2" jdbcType="VARCHAR" property="school2" />
-    <result column="major2" jdbcType="VARCHAR" property="major2" />
-    <result column="education2" jdbcType="VARCHAR" property="education2" />
-    <result column="school2_time" jdbcType="VARCHAR" property="school2Time" />
-    <result column="skill" jdbcType="VARCHAR" property="skill" />
     <result column="self_evaluation" jdbcType="VARCHAR" property="selfEvaluation" />
     <result column="head_img" jdbcType="VARCHAR" property="headImg" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, resume_name, update_time, emp_name, emp_region, work_exp, sex, birth, status, phone, 
-    email, user_id, salary, job, work_type, work_area, work3_description, company1, work1, 
-    work1_time, work1_description, company2, work2, work2_time, work2_description, company3, 
-    work3, work3_time, project1, project1_time, project1_description, duty1, project2, 
-    project2_time, project2_description, duty2, project3, project3_time, project3_description, 
-    duty3, school1, major1, education1, school1_time, school2, major2, education2, school2_time, 
-    skill, self_evaluation, head_img
+    id, resume_name, update_time, emp_name, emp_region, work_exp, sex, birth, status, 
+    phone, email, user_id, salary, job, work_type, work_area, self_evaluation, head_img
   </sql>
-
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
@@ -81,38 +41,18 @@
     </selectKey>
     insert into resume (id, resume_name, update_time, 
       emp_name, emp_region, work_exp, 
-      sex, birth, status, phone, 
-      email, user_id, salary, 
-      job, work_type, work_area, 
-      work3_description, company1, work1, 
-      work1_time, work1_description, company2, 
-      work2, work2_time, work2_description, 
-      company3, work3, work3_time, 
-      project1, project1_time, project1_description, 
-      duty1, project2, project2_time, 
-      project2_description, duty2, project3, 
-      project3_time, project3_description, duty3, 
-      school1, major1, education1, 
-      school1_time, school2, major2, 
-      education2, school2_time, skill, 
-      self_evaluation, head_img)
+      sex, birth, status, 
+      phone, email, user_id, 
+      salary, job, work_type, 
+      work_area, self_evaluation, head_img
+      )
     values (#{id,jdbcType=INTEGER}, #{resumeName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{empName,jdbcType=VARCHAR}, #{empRegion,jdbcType=VARCHAR}, #{workExp,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=VARCHAR}, #{birth,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{salary,jdbcType=VARCHAR}, 
-      #{job,jdbcType=VARCHAR}, #{workType,jdbcType=VARCHAR}, #{workArea,jdbcType=VARCHAR}, 
-      #{work3Description,jdbcType=VARCHAR}, #{company1,jdbcType=VARCHAR}, #{work1,jdbcType=VARCHAR}, 
-      #{work1Time,jdbcType=VARCHAR}, #{work1Description,jdbcType=VARCHAR}, #{company2,jdbcType=VARCHAR}, 
-      #{work2,jdbcType=VARCHAR}, #{work2Time,jdbcType=VARCHAR}, #{work2Description,jdbcType=VARCHAR}, 
-      #{company3,jdbcType=VARCHAR}, #{work3,jdbcType=VARCHAR}, #{work3Time,jdbcType=VARCHAR}, 
-      #{project1,jdbcType=VARCHAR}, #{project1Time,jdbcType=VARCHAR}, #{project1Description,jdbcType=VARCHAR}, 
-      #{duty1,jdbcType=VARCHAR}, #{project2,jdbcType=VARCHAR}, #{project2Time,jdbcType=VARCHAR}, 
-      #{project2Description,jdbcType=VARCHAR}, #{duty2,jdbcType=VARCHAR}, #{project3,jdbcType=VARCHAR}, 
-      #{project3Time,jdbcType=VARCHAR}, #{project3Description,jdbcType=VARCHAR}, #{duty3,jdbcType=VARCHAR}, 
-      #{school1,jdbcType=VARCHAR}, #{major1,jdbcType=VARCHAR}, #{education1,jdbcType=VARCHAR}, 
-      #{school1Time,jdbcType=VARCHAR}, #{school2,jdbcType=VARCHAR}, #{major2,jdbcType=VARCHAR}, 
-      #{education2,jdbcType=VARCHAR}, #{school2Time,jdbcType=VARCHAR}, #{skill,jdbcType=VARCHAR}, 
-      #{selfEvaluation,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR})
+      #{sex,jdbcType=VARCHAR}, #{birth,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{salary,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, #{workType,jdbcType=VARCHAR}, 
+      #{workArea,jdbcType=VARCHAR}, #{selfEvaluation,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.rrenpin.entity.Resume">
     <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
@@ -165,105 +105,6 @@
       </if>
       <if test="workArea != null">
         work_area,
-      </if>
-      <if test="work3Description != null">
-        work3_description,
-      </if>
-      <if test="company1 != null">
-        company1,
-      </if>
-      <if test="work1 != null">
-        work1,
-      </if>
-      <if test="work1Time != null">
-        work1_time,
-      </if>
-      <if test="work1Description != null">
-        work1_description,
-      </if>
-      <if test="company2 != null">
-        company2,
-      </if>
-      <if test="work2 != null">
-        work2,
-      </if>
-      <if test="work2Time != null">
-        work2_time,
-      </if>
-      <if test="work2Description != null">
-        work2_description,
-      </if>
-      <if test="company3 != null">
-        company3,
-      </if>
-      <if test="work3 != null">
-        work3,
-      </if>
-      <if test="work3Time != null">
-        work3_time,
-      </if>
-      <if test="project1 != null">
-        project1,
-      </if>
-      <if test="project1Time != null">
-        project1_time,
-      </if>
-      <if test="project1Description != null">
-        project1_description,
-      </if>
-      <if test="duty1 != null">
-        duty1,
-      </if>
-      <if test="project2 != null">
-        project2,
-      </if>
-      <if test="project2Time != null">
-        project2_time,
-      </if>
-      <if test="project2Description != null">
-        project2_description,
-      </if>
-      <if test="duty2 != null">
-        duty2,
-      </if>
-      <if test="project3 != null">
-        project3,
-      </if>
-      <if test="project3Time != null">
-        project3_time,
-      </if>
-      <if test="project3Description != null">
-        project3_description,
-      </if>
-      <if test="duty3 != null">
-        duty3,
-      </if>
-      <if test="school1 != null">
-        school1,
-      </if>
-      <if test="major1 != null">
-        major1,
-      </if>
-      <if test="education1 != null">
-        education1,
-      </if>
-      <if test="school1Time != null">
-        school1_time,
-      </if>
-      <if test="school2 != null">
-        school2,
-      </if>
-      <if test="major2 != null">
-        major2,
-      </if>
-      <if test="education2 != null">
-        education2,
-      </if>
-      <if test="school2Time != null">
-        school2_time,
-      </if>
-      <if test="skill != null">
-        skill,
       </if>
       <if test="selfEvaluation != null">
         self_evaluation,
@@ -318,105 +159,6 @@
       </if>
       <if test="workArea != null">
         #{workArea,jdbcType=VARCHAR},
-      </if>
-      <if test="work3Description != null">
-        #{work3Description,jdbcType=VARCHAR},
-      </if>
-      <if test="company1 != null">
-        #{company1,jdbcType=VARCHAR},
-      </if>
-      <if test="work1 != null">
-        #{work1,jdbcType=VARCHAR},
-      </if>
-      <if test="work1Time != null">
-        #{work1Time,jdbcType=VARCHAR},
-      </if>
-      <if test="work1Description != null">
-        #{work1Description,jdbcType=VARCHAR},
-      </if>
-      <if test="company2 != null">
-        #{company2,jdbcType=VARCHAR},
-      </if>
-      <if test="work2 != null">
-        #{work2,jdbcType=VARCHAR},
-      </if>
-      <if test="work2Time != null">
-        #{work2Time,jdbcType=VARCHAR},
-      </if>
-      <if test="work2Description != null">
-        #{work2Description,jdbcType=VARCHAR},
-      </if>
-      <if test="company3 != null">
-        #{company3,jdbcType=VARCHAR},
-      </if>
-      <if test="work3 != null">
-        #{work3,jdbcType=VARCHAR},
-      </if>
-      <if test="work3Time != null">
-        #{work3Time,jdbcType=VARCHAR},
-      </if>
-      <if test="project1 != null">
-        #{project1,jdbcType=VARCHAR},
-      </if>
-      <if test="project1Time != null">
-        #{project1Time,jdbcType=VARCHAR},
-      </if>
-      <if test="project1Description != null">
-        #{project1Description,jdbcType=VARCHAR},
-      </if>
-      <if test="duty1 != null">
-        #{duty1,jdbcType=VARCHAR},
-      </if>
-      <if test="project2 != null">
-        #{project2,jdbcType=VARCHAR},
-      </if>
-      <if test="project2Time != null">
-        #{project2Time,jdbcType=VARCHAR},
-      </if>
-      <if test="project2Description != null">
-        #{project2Description,jdbcType=VARCHAR},
-      </if>
-      <if test="duty2 != null">
-        #{duty2,jdbcType=VARCHAR},
-      </if>
-      <if test="project3 != null">
-        #{project3,jdbcType=VARCHAR},
-      </if>
-      <if test="project3Time != null">
-        #{project3Time,jdbcType=VARCHAR},
-      </if>
-      <if test="project3Description != null">
-        #{project3Description,jdbcType=VARCHAR},
-      </if>
-      <if test="duty3 != null">
-        #{duty3,jdbcType=VARCHAR},
-      </if>
-      <if test="school1 != null">
-        #{school1,jdbcType=VARCHAR},
-      </if>
-      <if test="major1 != null">
-        #{major1,jdbcType=VARCHAR},
-      </if>
-      <if test="education1 != null">
-        #{education1,jdbcType=VARCHAR},
-      </if>
-      <if test="school1Time != null">
-        #{school1Time,jdbcType=VARCHAR},
-      </if>
-      <if test="school2 != null">
-        #{school2,jdbcType=VARCHAR},
-      </if>
-      <if test="major2 != null">
-        #{major2,jdbcType=VARCHAR},
-      </if>
-      <if test="education2 != null">
-        #{education2,jdbcType=VARCHAR},
-      </if>
-      <if test="school2Time != null">
-        #{school2Time,jdbcType=VARCHAR},
-      </if>
-      <if test="skill != null">
-        #{skill,jdbcType=VARCHAR},
       </if>
       <if test="selfEvaluation != null">
         #{selfEvaluation,jdbcType=VARCHAR},
@@ -474,105 +216,6 @@
       <if test="workArea != null">
         work_area = #{workArea,jdbcType=VARCHAR},
       </if>
-      <if test="work3Description != null">
-        work3_description = #{work3Description,jdbcType=VARCHAR},
-      </if>
-      <if test="company1 != null">
-        company1 = #{company1,jdbcType=VARCHAR},
-      </if>
-      <if test="work1 != null">
-        work1 = #{work1,jdbcType=VARCHAR},
-      </if>
-      <if test="work1Time != null">
-        work1_time = #{work1Time,jdbcType=VARCHAR},
-      </if>
-      <if test="work1Description != null">
-        work1_description = #{work1Description,jdbcType=VARCHAR},
-      </if>
-      <if test="company2 != null">
-        company2 = #{company2,jdbcType=VARCHAR},
-      </if>
-      <if test="work2 != null">
-        work2 = #{work2,jdbcType=VARCHAR},
-      </if>
-      <if test="work2Time != null">
-        work2_time = #{work2Time,jdbcType=VARCHAR},
-      </if>
-      <if test="work2Description != null">
-        work2_description = #{work2Description,jdbcType=VARCHAR},
-      </if>
-      <if test="company3 != null">
-        company3 = #{company3,jdbcType=VARCHAR},
-      </if>
-      <if test="work3 != null">
-        work3 = #{work3,jdbcType=VARCHAR},
-      </if>
-      <if test="work3Time != null">
-        work3_time = #{work3Time,jdbcType=VARCHAR},
-      </if>
-      <if test="project1 != null">
-        project1 = #{project1,jdbcType=VARCHAR},
-      </if>
-      <if test="project1Time != null">
-        project1_time = #{project1Time,jdbcType=VARCHAR},
-      </if>
-      <if test="project1Description != null">
-        project1_description = #{project1Description,jdbcType=VARCHAR},
-      </if>
-      <if test="duty1 != null">
-        duty1 = #{duty1,jdbcType=VARCHAR},
-      </if>
-      <if test="project2 != null">
-        project2 = #{project2,jdbcType=VARCHAR},
-      </if>
-      <if test="project2Time != null">
-        project2_time = #{project2Time,jdbcType=VARCHAR},
-      </if>
-      <if test="project2Description != null">
-        project2_description = #{project2Description,jdbcType=VARCHAR},
-      </if>
-      <if test="duty2 != null">
-        duty2 = #{duty2,jdbcType=VARCHAR},
-      </if>
-      <if test="project3 != null">
-        project3 = #{project3,jdbcType=VARCHAR},
-      </if>
-      <if test="project3Time != null">
-        project3_time = #{project3Time,jdbcType=VARCHAR},
-      </if>
-      <if test="project3Description != null">
-        project3_description = #{project3Description,jdbcType=VARCHAR},
-      </if>
-      <if test="duty3 != null">
-        duty3 = #{duty3,jdbcType=VARCHAR},
-      </if>
-      <if test="school1 != null">
-        school1 = #{school1,jdbcType=VARCHAR},
-      </if>
-      <if test="major1 != null">
-        major1 = #{major1,jdbcType=VARCHAR},
-      </if>
-      <if test="education1 != null">
-        education1 = #{education1,jdbcType=VARCHAR},
-      </if>
-      <if test="school1Time != null">
-        school1_time = #{school1Time,jdbcType=VARCHAR},
-      </if>
-      <if test="school2 != null">
-        school2 = #{school2,jdbcType=VARCHAR},
-      </if>
-      <if test="major2 != null">
-        major2 = #{major2,jdbcType=VARCHAR},
-      </if>
-      <if test="education2 != null">
-        education2 = #{education2,jdbcType=VARCHAR},
-      </if>
-      <if test="school2Time != null">
-        school2_time = #{school2Time,jdbcType=VARCHAR},
-      </if>
-      <if test="skill != null">
-        skill = #{skill,jdbcType=VARCHAR},
-      </if>
       <if test="selfEvaluation != null">
         self_evaluation = #{selfEvaluation,jdbcType=VARCHAR},
       </if>
@@ -599,48 +242,16 @@
       job = #{job,jdbcType=VARCHAR},
       work_type = #{workType,jdbcType=VARCHAR},
       work_area = #{workArea,jdbcType=VARCHAR},
-      work3_description = #{work3Description,jdbcType=VARCHAR},
-      company1 = #{company1,jdbcType=VARCHAR},
-      work1 = #{work1,jdbcType=VARCHAR},
-      work1_time = #{work1Time,jdbcType=VARCHAR},
-      work1_description = #{work1Description,jdbcType=VARCHAR},
-      company2 = #{company2,jdbcType=VARCHAR},
-      work2 = #{work2,jdbcType=VARCHAR},
-      work2_time = #{work2Time,jdbcType=VARCHAR},
-      work2_description = #{work2Description,jdbcType=VARCHAR},
-      company3 = #{company3,jdbcType=VARCHAR},
-      work3 = #{work3,jdbcType=VARCHAR},
-      work3_time = #{work3Time,jdbcType=VARCHAR},
-      project1 = #{project1,jdbcType=VARCHAR},
-      project1_time = #{project1Time,jdbcType=VARCHAR},
-      project1_description = #{project1Description,jdbcType=VARCHAR},
-      duty1 = #{duty1,jdbcType=VARCHAR},
-      project2 = #{project2,jdbcType=VARCHAR},
-      project2_time = #{project2Time,jdbcType=VARCHAR},
-      project2_description = #{project2Description,jdbcType=VARCHAR},
-      duty2 = #{duty2,jdbcType=VARCHAR},
-      project3 = #{project3,jdbcType=VARCHAR},
-      project3_time = #{project3Time,jdbcType=VARCHAR},
-      project3_description = #{project3Description,jdbcType=VARCHAR},
-      duty3 = #{duty3,jdbcType=VARCHAR},
-      school1 = #{school1,jdbcType=VARCHAR},
-      major1 = #{major1,jdbcType=VARCHAR},
-      education1 = #{education1,jdbcType=VARCHAR},
-      school1_time = #{school1Time,jdbcType=VARCHAR},
-      school2 = #{school2,jdbcType=VARCHAR},
-      major2 = #{major2,jdbcType=VARCHAR},
-      education2 = #{education2,jdbcType=VARCHAR},
-      school2_time = #{school2Time,jdbcType=VARCHAR},
-      skill = #{skill,jdbcType=VARCHAR},
       self_evaluation = #{selfEvaluation,jdbcType=VARCHAR},
       head_img = #{headImg,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-  <select id="findByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="findByUserId" parameterType="java.lang.Integer" resultType="java.util.Map">
   	select 
     <include refid="Base_Column_List" />
     from resume
     where user_id=#{userId,jdbcType=INTEGER} 
   </select>
+  
 </mapper>

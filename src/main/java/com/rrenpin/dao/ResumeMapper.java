@@ -1,5 +1,7 @@
 package com.rrenpin.dao;
 
+import java.util.Map;
+
 import com.rrenpin.entity.Resume;
 
 public interface ResumeMapper {
@@ -15,5 +17,7 @@ public interface ResumeMapper {
 
     int updateByPrimaryKey(Resume record);
     
-    Resume findByUserId(Integer userId);
+    Map<String, Object> findByUserId(Integer userId);
+    
+    
 }

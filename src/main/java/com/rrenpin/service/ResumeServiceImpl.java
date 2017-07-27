@@ -2,14 +2,21 @@ package com.rrenpin.service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
+import com.rrenpin.dao.EducationExpMapper;
+import com.rrenpin.dao.ProjectExpMapper;
 import com.rrenpin.dao.ResumeMapper;
+import com.rrenpin.dao.SkillsMapper;
+import com.rrenpin.dao.WorkExpMapper;
+import com.rrenpin.entity.ProjectExp;
 import com.rrenpin.entity.Resume;
+import com.rrenpin.entity.WorkExp;
 import com.rrenpin.util.Upload;
 @Service("resumeService")
 public class ResumeServiceImpl implements ResumeService {
@@ -17,7 +24,19 @@ public class ResumeServiceImpl implements ResumeService {
 	@Resource
 	private ResumeMapper resumeMapper;
 	
-	public Resume addBasicInfo(HttpServletRequest request, int userId, String empName, String sex, String birth, String workexp, String status,
+	@Resource
+	private EducationExpMapper educationExpMapper;
+	
+	@Resource
+	private ProjectExpMapper projectExpMapper;
+	
+	@Resource
+	private SkillsMapper skillsMapper;
+	
+	@Resource
+	private WorkExpMapper workExpMapper;
+	
+	public Map<String,Object> addBasicInfo(HttpServletRequest request, int userId, String empName, String sex, String birth, String workexp, String status,
 			String phone, String email, String empRegion) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
@@ -42,11 +61,11 @@ public class ResumeServiceImpl implements ResumeService {
 		if(i != 1){
 			throw new ResumeException("添加简历基本信息失败");
 		}
-		resume = resumeMapper.findByUserId(userId);
-		return resume;
+		Map<String,Object> result = findByUserId(userId);
+		return result;
 	}
 
-	public Resume modifyBasicInfo(HttpServletRequest request, int id, String empName, String sex, String birth, String workexp, String status,
+	public Map<String, Object> modifyBasicInfo(HttpServletRequest request, int id, int userId, String empName, String sex, String birth, String workexp, String status,
 			String phone, String email, String empRegion) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
@@ -69,11 +88,11 @@ public class ResumeServiceImpl implements ResumeService {
 		if(i != 1){
 			throw new ResumeException("修改简历基本信息失败");
 		}
-		resume = resumeMapper.selectByPrimaryKey(id);
-		return resume;
+		Map<String,Object> result = findByUserId(userId);
+		return result;
 	}
 
-	public Resume modifyJobIntention(HttpServletRequest request, int id, String salary, String job, String workType, String workArea) throws UnsupportedEncodingException {
+	public Map<String, Object> modifyJobIntention(HttpServletRequest request, int id, int userId, String salary, String job, String workType, String workArea) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		resume.setId(id);
@@ -91,121 +110,11 @@ public class ResumeServiceImpl implements ResumeService {
 		if(i != 1){
 			throw new ResumeException("修改求职意向失败");
 		}
-		resume = resumeMapper.selectByPrimaryKey(id);
-		return resume;
+		Map<String,Object> result = findByUserId(userId);
+		return result;
 	}
 
-	public Resume modifyWorkExp(HttpServletRequest request, int id, String company1, String work1, String work1Time, String work1Description,
-			String company2, String work2, String work2Time, String work2Description, String company3, String work3,
-			String work3Time, String work3Description) throws UnsupportedEncodingException {
-		request.setCharacterEncoding("utf-8");
-		Resume resume = new Resume();
-		resume.setId(id);
-		resume.setCompany1(company1);
-		resume.setWork1(work1);
-		resume.setWork1Time(work1Time);
-		resume.setWork1Description(work1Description);
-		resume.setCompany2(company2);
-		resume.setWork2(work2);
-		resume.setWork2Time(work2Time);
-		resume.setWork2Description(work2Description);
-		resume.setCompany3(company3);
-		resume.setWork3(work3);
-		resume.setWork3Time(work3Time);
-		resume.setWork3Description(work3Description);
-		int i;
-		try {
-			i = resumeMapper.updateByPrimaryKeySelective(resume);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new DataBaseException("连接服务器超时");
-		}
-		if(i != 1){
-			throw new ResumeException("修改工作经验失败");
-		}
-		resume = resumeMapper.selectByPrimaryKey(id);
-		return resume;
-	}
-
-	public Resume modifyProjectExp(HttpServletRequest request, int id, String project1, String project1Time, String project1Description,
-			String duty1, String project2, String project2Time, String project2Description, String duty2,
-			String project3, String project3Time, String project3Description, String duty3) throws UnsupportedEncodingException {
-		request.setCharacterEncoding("utf-8");
-		Resume resume = new Resume();
-		resume.setId(id);
-		resume.setProject1(project1);
-		resume.setProject1Time(project1Time);
-		resume.setProject1Description(project1Description);
-		resume.setDuty1(duty1);
-		resume.setProject2(project2);
-		resume.setProject2Time(project2Time);
-		resume.setProject2Description(project2Description);
-		resume.setDuty2(duty2);
-		resume.setProject3(project3);
-		resume.setProject3Time(project3Time);
-		resume.setProject3Description(project3Description);
-		resume.setDuty3(duty3);
-		int i;
-		try {
-			i = resumeMapper.updateByPrimaryKeySelective(resume);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new DataBaseException("连接服务器超时");
-		}
-		if(i != 1){
-			throw new ResumeException("修改项目经验失败");
-		}
-		resume = resumeMapper.selectByPrimaryKey(id);
-		return resume;
-	}
-
-	public Resume modifySkill(HttpServletRequest request, int id, String skill) throws UnsupportedEncodingException {
-		request.setCharacterEncoding("utf-8");
-		Resume resume = new Resume();
-		resume.setId(id);
-		resume.setSkill(skill);
-		int i;
-		try {
-			i = resumeMapper.updateByPrimaryKeySelective(resume);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new DataBaseException("连接服务器超时");
-		}
-		if(i != 1){
-			throw new ResumeException("修改技能评价失败");
-		}
-		resume = resumeMapper.selectByPrimaryKey(id);
-		return resume;
-	}
-
-	public Resume modifyEducationExp(HttpServletRequest request, int id, String school1, String major1, String education1, String school1Time,
-			String school2, String major2, String education2, String school2Time) throws UnsupportedEncodingException {
-		request.setCharacterEncoding("utf-8");
-		Resume resume = new Resume();
-		resume.setId(id);
-		resume.setSchool1(school1);
-		resume.setMajor1(major1);
-		resume.setEducation1(education1);
-		resume.setSchool1Time(school1Time);
-		resume.setSchool2(school2);
-		resume.setMajor2(major2);
-		resume.setEducation2(education2);
-		resume.setSchool2Time(school2Time);
-		int i;
-		try {
-			i = resumeMapper.updateByPrimaryKeySelective(resume);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new DataBaseException("连接服务器超时");
-		}
-		if(i != 1){
-			throw new ResumeException("修改技能评价失败");
-		}
-		resume = resumeMapper.selectByPrimaryKey(id);
-		return resume;
-	}
-
-	public Resume modifySelfEvaluation(HttpServletRequest request, int id, String selfEvaluation) throws UnsupportedEncodingException {
+	public Map<String, Object> modifySelfEvaluation(HttpServletRequest request, int id, int userId, String selfEvaluation) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		resume.setId(id);
@@ -220,11 +129,11 @@ public class ResumeServiceImpl implements ResumeService {
 		if(i != 1){
 			throw new ResumeException("修改自我描述失败");
 		}
-		resume = resumeMapper.selectByPrimaryKey(id);
-		return resume;
+		Map<String,Object> result = findByUserId(userId);
+		return result;
 	}
 
-	public Resume modifyHeadImg(int id, int userId, HttpServletRequest request){
+	public Map<String, Object> modifyHeadImg(int id, int userId, HttpServletRequest request){
 		String headImgPath;
 		try {
 			List<String> paths = Upload.uploadImg(request, ""+userId, "headImg");
@@ -246,26 +155,33 @@ public class ResumeServiceImpl implements ResumeService {
 		if(i != 1){
 			throw new ResumeException("修改头像失败");
 		}
-		resume = resumeMapper.selectByPrimaryKey(id);
-		return resume;
+		Map<String,Object> result = findByUserId(userId);
+		return result;
 	}
 
-	public Resume findByUserId(int userId) {
-		Resume resume;
+	public Map<String, Object> findByUserId(int userId) {
+		Map<String, Object> result;
 		try {
-			resume = resumeMapper.findByUserId(userId);
+			result = resumeMapper.findByUserId(userId);
+			List<Map<String,Object>> workExprience = workExpMapper.findByUserId(userId);
+			result.put("workExprience", workExprience);
+			List<Map<String,Object>> projectExp = projectExpMapper.findByUserId(userId);
+			result.put("projectExp", projectExp);
+			List<Map<String,Object>> skills = skillsMapper.findByUserId(userId);
+			result.put("skills", skills);
+			List<Map<String,Object>> educationExp = educationExpMapper.findByUserId(userId);
+			result.put("educationExp", educationExp);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DataBaseException("连接服务器超时");
 		}
-		return resume;
+		return result;
 	}
 
-	public Resume modifyResumeName(int id, String resumeName) {
-		Resume resume;
+	public Map<String,Object> modifyResumeName(int id, int userId, String resumeName) {
 		int i;
 		try {
-			resume = resumeMapper.selectByPrimaryKey(id);
+			Resume resume = resumeMapper.selectByPrimaryKey(id);
 			resume.setResumeName(resumeName);
 			i = resumeMapper.updateByPrimaryKeySelective(resume);
 		} catch (Exception e) {
@@ -275,7 +191,136 @@ public class ResumeServiceImpl implements ResumeService {
 		if(i != 1){
 			throw new ResumeException("修改简历名失败");
 		}
-		return resume;
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> addWorkExp(HttpServletRequest req, int resumeId, int userId, String company, String work, String workTime,
+			String workDescription) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		WorkExp workExp = new WorkExp();
+		workExp.setResumeId(resumeId);
+		workExp.setUserId(userId);
+		workExp.setCompany(company);
+		workExp.setWork(work);
+		workExp.setWorkTime(workTime);
+		workExp.setWorkDescription(workDescription);
+		int i;
+		try {
+			i = workExpMapper.insertSelective(workExp);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("工作经验添加失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> modifyWorkExp(HttpServletRequest req, int workexpId, int userId, String company, String work, String workTime,
+			String workDescription) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		WorkExp workExp = workExpMapper.selectByPrimaryKey(workexpId);
+		if(workExp==null){
+			throw new ResumeException("无对应的工作经验");
+		}
+		workExp.setCompany(company);
+		workExp.setWork(work);
+		workExp.setWorkTime(workTime);
+		workExp.setWorkDescription(workDescription);
+		int i;
+		try {
+			i = workExpMapper.updateByPrimaryKeySelective(workExp);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("工作经验修改失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> deleteWorkExp(int workexpId, int userId) {
+		int i;
+		try {
+			i = workExpMapper.deleteByPrimaryKey(workexpId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("工作经验删除失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> addProjectExp(HttpServletRequest req, int resumeId, int userId, String project,
+			String projectTime, String projectDescription, String duty) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		ProjectExp projectExp = new ProjectExp();
+		projectExp.setResumeId(resumeId);
+		projectExp.setUserId(userId);
+		projectExp.setProject(project);
+		projectExp.setProjectTime(projectTime);
+		projectExp.setProjectDescription(projectDescription);
+		projectExp.setDuty(duty);
+		int i;
+		try {
+			i = projectExpMapper.insertSelective(projectExp);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("项目经验添加失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> modifyProjectExp(HttpServletRequest req, int projectexpId, int userId, String project,
+			String projectTime, String projectDescription, String duty) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		ProjectExp projectExp = projectExpMapper.selectByPrimaryKey(projectexpId);
+		if(projectExp==null){
+			throw new ResumeException("无对应的项目经验");
+		}
+		projectExp.setProject(project);
+		projectExp.setProjectTime(projectTime);
+		projectExp.setProjectDescription(projectDescription);
+		projectExp.setDuty(duty);
+		int i;
+		try {
+			i = projectExpMapper.updateByPrimaryKeySelective(projectExp);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("项目经验修改失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> deleteProjectExp(int projectexpId, int userId) {
+		int i;
+		try {
+			i = projectExpMapper.deleteByPrimaryKey(projectexpId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("项目经验删除失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
 	}
 	
 	
