@@ -122,7 +122,7 @@
     position: absolute;
     top: 25px;
     left: 27px;
-    z-index: 999;
+    z-index: 100;
     color: #ffffff;
     font-size: 45px;
     -webkit-transition: all .3s linear;

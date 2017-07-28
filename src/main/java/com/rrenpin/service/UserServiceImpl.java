@@ -236,7 +236,7 @@ public class UserServiceImpl implements UserService {
 			User user;
 			try {
 				user = userMapper.selectByPrimaryKey(userId);
-				user.setHeadImg("http://192.168.0.20:8080/img/userHeadImg.jpg");
+				user.setHeadImg("http://192.168.0.103:8080/img/userHeadImg.jpg");
 				i = userMapper.updateByPrimaryKeySelective(user);
 			} catch (Exception e) {
 				e.printStackTrace();
