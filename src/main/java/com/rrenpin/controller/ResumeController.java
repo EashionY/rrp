@@ -62,6 +62,7 @@ public class ResumeController extends ExceptionController {
 	@RequestMapping("/findByUserId.do")
 	@ResponseBody
 	public JsonResult findByUserId(int userId){
+		System.out.println(userId);
 		Map<String, Object> result = resumeService.findByUserId(userId);
 		return new JsonResult(result);
 	}
