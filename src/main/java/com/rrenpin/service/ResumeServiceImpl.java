@@ -14,6 +14,7 @@ import com.rrenpin.dao.ProjectExpMapper;
 import com.rrenpin.dao.ResumeMapper;
 import com.rrenpin.dao.SkillsMapper;
 import com.rrenpin.dao.WorkExpMapper;
+import com.rrenpin.entity.EducationExp;
 import com.rrenpin.entity.ProjectExp;
 import com.rrenpin.entity.Resume;
 import com.rrenpin.entity.Skills;
@@ -379,6 +380,70 @@ public class ResumeServiceImpl implements ResumeService {
 		}
 		if(i != 1){
 			throw new ResumeException("技能评价删除失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> addEducationExp(HttpServletRequest req, int userId, int resumeId, String school,
+			String major, String education, String schoolTime) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		EducationExp educationExp = new EducationExp();
+		educationExp.setUserId(userId);
+		educationExp.setResumeId(resumeId);
+		educationExp.setSchool(school);
+		educationExp.setMajor(major);
+		educationExp.setEducation(education);
+		educationExp.setSchoolTime(schoolTime);
+		int i;
+		try {
+			i = educationExpMapper.insert(educationExp);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("教育经历添加失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> modifyEducationExp(HttpServletRequest req, int userId, int educationexpId, String school,
+			String major, String education, String schoolTime) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		EducationExp educationExp = educationExpMapper.selectByPrimaryKey(educationexpId);
+		if(educationExp==null){
+			throw new ResumeException("无对应的教育经历");
+		}
+		educationExp.setSchool(school);
+		educationExp.setSchoolTime(schoolTime);
+		educationExp.setEducation(education);
+		educationExp.setMajor(major);
+		int i;
+		try {
+			i = educationExpMapper.updateByPrimaryKeySelective(educationExp);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("教育经历修改失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> deleteEducationExp(int educationexpId, int userId) {
+		int i;
+		try {
+			i = educationExpMapper.deleteByPrimaryKey(educationexpId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("教育经历删除失败");
 		}
 		Map<String,Object> result = findByUserId(userId);
 		return result;
