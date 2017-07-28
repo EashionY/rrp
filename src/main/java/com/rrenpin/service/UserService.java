@@ -92,5 +92,5 @@ public interface UserService {
 	 * @return
 	 * @throws UnsupportedEncodingException 
 	 */
-	public User modifyHeadImg(HttpServletRequest request,String headImg,int userId) throws UnsupportedEncodingException;
+	public User modifyHeadImg(HttpServletRequest request,String base64,int userId) throws UnsupportedEncodingException;
 }

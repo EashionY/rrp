@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.rrenpin.dao.UserMapper;
 import com.rrenpin.entity.User;
 import com.rrenpin.util.AliSms;
+import com.rrenpin.util.Image;
 import com.rrenpin.util.Util;
 @Service("userService")
 @Transactional
@@ -226,22 +227,28 @@ public class UserServiceImpl implements UserService {
 		return code.equals(psdCode);
 	}
 
-	public User modifyHeadImg(HttpServletRequest request, String headImg, int userId) throws UnsupportedEncodingException {
+	public User modifyHeadImg(HttpServletRequest request, String base64, int userId) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
-		int i;
-		User user;
-		try {
-			user = userMapper.selectByPrimaryKey(userId);
-			user.setHeadImg(headImg);
-			i = userMapper.updateByPrimaryKeySelective(user);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new DataBaseException("连接服务器超时");
+		String path = "D:\\userHeadImg.jpg";
+		boolean tf = Image.base64ToImage(base64, path);
+		if(tf){
+			int i;
+			User user;
+			try {
+				user = userMapper.selectByPrimaryKey(userId);
+				user.setHeadImg("http://192.168.0.20:8080/img/userHeadImg.jpg");
+				i = userMapper.updateByPrimaryKeySelective(user);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new DataBaseException("连接服务器超时");
+			}
+			if(i != 1){
+				throw new ModifyUserInfoException("修改头像失败");
+			}
+			return user;
+		}else{
+			throw new ImgUploadException("图片上传失败");
 		}
-		if(i != 1){
-			throw new ModifyUserInfoException("修改头像失败");
-		}
-		return user;
 	}
 	
 	
