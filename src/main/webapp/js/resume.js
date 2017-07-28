@@ -107,11 +107,10 @@ $("#resume_quitjiaoyu").click(function(){
 //    自我描述
 $("#editzipingbtn").click(function(){
     mydisplay($("#zipingbox"),$("#ziping_mask"));
-    
     var userId = getCookieValue("userId"); 
     $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
     	if(data.data!=null){
-    		$("#ziping_content").val(data.data.selfEvaluation)
+    		$("#ziping_content").val(data.data.self_evaluation)
     	}
     },'json')
 });
@@ -140,7 +139,8 @@ $("#edityxbtn").click(function(){
     	if(data.data!=null){
     		$("#qwsalary").html(data.data.salary);
     		$("#qwjob").val(data.data.job);
-    		$("#workType").html(data.data.workType)
+    		$("#workType").html(data.data.work_type)
+    		$("#workArea").val(data.data.work_area)
     	}    	
     },'json')
 });
@@ -153,7 +153,7 @@ $("#editxxbtn").click(function(){
     var userId = getCookieValue("userId"); 
     $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
     	if(data.data!=null){
-    	 $("#uname").val(data.data.empName);
+    	 $("#uname").val(data.data.emp_name);
        	 if(data.data.sex=='女'){
        		 $("#resume_nv").addClass("resume_mysex")
        		  $("#resume_nan").removeClass("resume_mysex")
@@ -162,13 +162,15 @@ $("#editxxbtn").click(function(){
        		 $("#resume_nv").removeClass("resume_mysex") 
        	 }
        	 $("#birthday").val(data.data.birth);
-       	 $("#startwork").val(data.data.workExp);
+       	 $("#startwork").val(data.data.work_exp);
        	 $("#ustate").html(data.data.status);
        	 $("#uphone").val(data.data.phone);
        	 $("#uemail").val(data.data.email);
+       	 $("#ucity").val(data.data.emp_region)
     	}
     },'json');
-
+    
+    
 });
 $("#resume_quitxinxi").click(function(){
     $("#xinxi_mask").css("display","none");
