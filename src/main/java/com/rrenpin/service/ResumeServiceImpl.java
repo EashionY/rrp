@@ -16,6 +16,7 @@ import com.rrenpin.dao.SkillsMapper;
 import com.rrenpin.dao.WorkExpMapper;
 import com.rrenpin.entity.ProjectExp;
 import com.rrenpin.entity.Resume;
+import com.rrenpin.entity.Skills;
 import com.rrenpin.entity.WorkExp;
 import com.rrenpin.util.Upload;
 @Service("resumeService")
@@ -318,6 +319,66 @@ public class ResumeServiceImpl implements ResumeService {
 		}
 		if(i != 1){
 			throw new ResumeException("项目经验删除失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> addSkill(HttpServletRequest req, int userId, int resumeId, String skillName,
+			String skillLevel) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		Skills skill = new Skills();
+		skill.setUserId(userId);
+		skill.setResumeId(resumeId);
+		skill.setSkillName(skillName);
+		skill.setSkillLevel(skillLevel);
+		int i;
+		try {
+			i = skillsMapper.insert(skill);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("技能评价添加失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> modifySkill(HttpServletRequest req, int userId, int skillId, String skillName,
+			String skillLevel) throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
+		Skills skill = skillsMapper.selectByPrimaryKey(skillId);
+		if(skill==null){
+			throw new ResumeException("无对应的技能评价");
+		}
+		skill.setSkillName(skillName);
+		skill.setSkillLevel(skillLevel);
+		int i;
+		try {
+			i = skillsMapper.updateByPrimaryKeySelective(skill);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("技能评价添加失败");
+		}
+		Map<String,Object> result = findByUserId(userId);
+		return result;
+	}
+
+	public Map<String, Object> deleteSkill(int skillId, int userId) {
+		int i;
+		try {
+			i = skillsMapper.deleteByPrimaryKey(skillId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ResumeException("技能评价删除失败");
 		}
 		Map<String,Object> result = findByUserId(userId);
 		return result;
