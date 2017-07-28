@@ -1,5 +1,6 @@
 package com.rrenpin.service;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Random;
@@ -229,14 +230,17 @@ public class UserServiceImpl implements UserService {
 
 	public User modifyHeadImg(HttpServletRequest request, String base64, int userId) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
-		String path = "D:\\userHeadImg.jpg";
+		String path = request.getContextPath();
+		System.out.println(path);
+		path += File.separator+userId+File.separator+"userHeadImg.png";
+		System.out.println(path);
 		boolean tf = Image.base64ToImage(base64, path);
 		if(tf){
 			int i;
 			User user;
 			try {
 				user = userMapper.selectByPrimaryKey(userId);
-				user.setHeadImg("http://192.168.0.103:8080/img/userHeadImg.jpg");
+				user.setHeadImg(userId+File.separator+"userHeadImg.png");
 				i = userMapper.updateByPrimaryKeySelective(user);
 			} catch (Exception e) {
 				e.printStackTrace();

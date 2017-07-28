@@ -209,7 +209,7 @@ public class ResumeServiceImpl implements ResumeService {
 		workExp.setWorkDescription(workDescription);
 		int i;
 		try {
-			i = workExpMapper.insertSelective(workExp);
+			i = workExpMapper.insert(workExp);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DataBaseException("连接服务器超时");
@@ -273,7 +273,7 @@ public class ResumeServiceImpl implements ResumeService {
 		projectExp.setDuty(duty);
 		int i;
 		try {
-			i = projectExpMapper.insertSelective(projectExp);
+			i = projectExpMapper.insert(projectExp);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DataBaseException("连接服务器超时");

@@ -1,5 +1,6 @@
 package com.rrenpin.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -53,13 +54,19 @@ public class Image {
 	                bytes[i] += 256;
 	            }
 	        }
+	        File localFile = new File(path);
+	        //判断路径是否存在，若不存在，则新建文件夹
+    		if(!localFile.exists()){
+                localFile.mkdirs();
+            }
 	        // 生成jpeg图片
-	        OutputStream out = new FileOutputStream(path);
+	        OutputStream out = new FileOutputStream(localFile);
 	        out.write(bytes);
 	        out.flush();
 	        out.close();
 	        return true;
 	    } catch (Exception e) {
+	    	e.printStackTrace();
 	        return false;
 	    }
 	}
