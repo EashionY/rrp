@@ -461,7 +461,9 @@
 	       window.location.href="../login.html";
 	    }else{
 	    	 $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
-	    		 if(data.data==null){//无简历
+	    		 console.log(data)
+	    		// if(){}else{}}
+	    		 if(data.data==""){//无简历
 	                }else{//有简历
 	                	console.log(data.data)
 	                	resumeId=data.data.id;

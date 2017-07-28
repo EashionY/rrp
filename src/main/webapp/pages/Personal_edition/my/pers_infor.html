@@ -10,8 +10,36 @@
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
     <link rel="stylesheet" href="../../../css/share/commen.css"/>
     <link rel="stylesheet" href="../../../css/my/pers_infor.css"/>
+    <link rel="stylesheet" href="../../../plug/touxiang/css/style.css"/>
 </head>
 <body>
+<div id="img_mask" class="mymask">
+    <div id="toucontDiv">
+        <div class="container">
+            <div class="imageBox">
+                <div class="thumbBox"></div>
+                <div class="spinner" style="display: none">Loading...</div>
+            </div>
+            <div class="action">
+                <div class="new-contentarea tc">
+                    <a href="javascript:void(0)" class="upload-img">
+                        <label for="upload-file">选择图片</label>
+                    </a>
+                    <input type="file" class="" name="upload-file" id="upload-file" />
+                </div>
+                <input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切">
+                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
+                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
+            </div>
+            <div class="cropped">
+                <div id="imgtext">图片预览区</div>
+                <div id="imgDiv"></div>
+                <div id="imgbtn">确认上传</div>
+                <div id="imgbtn_quit">取消上传</div>
+            </div>
+        </div>
+    </div>
+</div>
 <header>
     <nav>
         <div class="nav_div1">
@@ -44,7 +72,7 @@
         <div class="my_rightmain my_rightmain1">
             <div class="my_rightmian_div1">
                 <div class="my_rightmian_div1left">
-                    <div class="my_touxiang"><img src="" alt="头像"/></div>
+                    <div class="my_touxiang"><img id="my_headimg" src="" alt=""/></div>
                     <div class="my_xinxibox">
                         <div class="my_namebox"><span id="uname1"> </span><span class="my_zhiye"> </span></div>
                         <div class="my_sexbox"><span id="usex1"> </span><span id="udegree1"> </span></div>
@@ -61,7 +89,7 @@
         </div>
         <div class="my_rightmain my_rightmain2">
             <div class="my_touxiang myedit_touxiang">
-                <img src="" alt=""/>
+                <img id="my_headImg2" src="" alt=""/>
                 <span class="myfont myfont_xj">&#xe634;</span>
             </div>
             <div class="myedit_namebox">
@@ -124,8 +152,10 @@
 </body>
 <script src="../../../js/jquery-1.11.3.js"></script>
 <script src="../../../js/ip.js"></script>
+<script src="../../../plug/layer/layer.js"></script>
 <script src="../../../js/my/pers_infor.js"></script>
 <script src="../../../js/my/my.js"></script>
+<script src="../../../plug/touxiang/js/cropbox.js"></script>
 <script>
 	$(function() { 
 		myonload2("pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
@@ -136,17 +166,65 @@
 		}else{
 		    $.get(ip+"/rrp/user/findUserInfo.do",{userId:userIdValue},function(data){
 		    	if(data.state==0){
-		    		//console.log(data.data);
+		    		console.log(data.data);
+		    		$("#my_headimg").attr("src",data.data.headImg)
 		    		$("#uname1").html(data.data.nickname)
 		    		$(".my_zhiye").html(data.data.job)
 		    		$("#usex1").html(data.data.sex)
 		    		$("#udegree1").html(data.data.degree)
 		    		$("#uselfIntro1").html(data.data.selfIntro)
+		    		//头像处理
+					var options =
+			        {
+			            thumbBox: '.thumbBox',
+			            spinner: '.spinner',
+			            imgSrc: data.data.headImg//TO-DO
+			        };
+			        var cropper = $('.imageBox').cropbox(options);
+			        $('#upload-file').on('change', function(){
+			            var reader = new FileReader();
+			            reader.onload = function(e) {
+			                options.imgSrc = e.target.result;
+			                cropper = $('.imageBox').cropbox(options);
+			            }
+			            reader.readAsDataURL(this.files[0]);
+			            this.files = [];
+			        })
+			        var imgMain
+			        $('#btnCrop').on('click', function(){
+			            imgMain= cropper.getDataURL();
+			
+			            $('#imgDiv').html('');
+			            $('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:100px;margin-top:30px;border-radius:50%;box-shadow:0px 0px 12px #7E7E7E;" ><p>100px*100px</p>');
+			        })
+			        $('#btnZoomIn').on('click', function(){
+			            cropper.zoomIn();
+			        })
+			        $('#btnZoomOut').on('click', function(){
+			            cropper.zoomOut();
+			        })
+			        $("#imgbtn").click(function(){
+			            if(imgMain==undefined){
+			                layer.msg("没有剪切图片")
+			            }else{
+			                //console.log(imgMain)
+			                $.post(ip+"/rrp/user/modifyHeadImg.do",{userId:userIdValue,base64:imgMain},function(data){
+			                	console.log(data)
+			                })
+			            }
+			        })
+			        $("#imgbtn_quit").click(function(){
+			            $("#img_mask").css("display","none")
+			        })
+			        
 		    	}else{
 		    		layer.msg(data.message)
 		    	}
 		    },'json')	
 		}
+		
+		
+		
 	});
 	
 	$(".myedit_savebtn").click(function () {
@@ -172,6 +250,9 @@
             }
         });
 	})
+	$(".myedit_touxiang").click(function(){
+        $("#img_mask").css("display","block")
+    })
 	$(".myedit_quitbtn").click(function () {
 		$(".my_rightmain1").css("display","block");
 	    $(".my_rightmain2").css("display","none")
