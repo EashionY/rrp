@@ -141,4 +141,26 @@ public class ResumeController extends ExceptionController {
 		return new JsonResult(SUCCESS,resume,"技能评价删除成功");
 	}
 	
+	@RequestMapping("/addEducationExp.do")
+	@ResponseBody
+	public JsonResult addEducationExp(HttpServletRequest req, int userId, int resumeId, String school,
+			String major, String education, String schoolTime) throws UnsupportedEncodingException {
+		Map<String,Object> resume = resumeService.addEducationExp(req, userId, resumeId, school, major, education, schoolTime);
+		return new JsonResult(SUCCESS,resume,"教育经历添加成功");
+	}
+	
+	@RequestMapping("/modifyEducationExp.do")
+	@ResponseBody
+	public JsonResult modifyEducationExp(HttpServletRequest req, int userId, int educationexpId, String school,
+			String major, String education, String schoolTime) throws UnsupportedEncodingException {
+		Map<String,Object> resume = resumeService.modifyEducationExp(req, userId, educationexpId, school, major, education, schoolTime);
+		return new JsonResult(SUCCESS,resume,"教育经历修改成功");
+	}
+	
+	@RequestMapping("/deleteEducationExp.do")
+	@ResponseBody
+	public JsonResult deleteEducationExp(int educationexpId, int userId) {
+		Map<String,Object> resume = resumeService.deleteEducationExp(educationexpId, userId);
+		return new JsonResult(SUCCESS,resume,"教育经历删除成功");
+	}
 }

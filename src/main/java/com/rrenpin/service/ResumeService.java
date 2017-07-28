@@ -189,4 +189,40 @@ public interface ResumeService {
 	 * @return
 	 */
 	public Map<String,Object> deleteSkill(int skillId,int userId);
+	
+	/**
+	 * 添加教育经历
+	 * @param req
+	 * @param userId
+	 * @param resumeId
+	 * @param school
+	 * @param major
+	 * @param education
+	 * @param schoolTime
+	 * @return
+	 * @throws UnsupportedEncodingException 
+	 */
+	public Map<String,Object> addEducationExp(HttpServletRequest req,int userId,int resumeId,String school,String major,String education,String schoolTime) throws UnsupportedEncodingException;
+	
+	/**
+	 * 修改教育经历
+	 * @param req
+	 * @param userId
+	 * @param educationexpId
+	 * @param school
+	 * @param major
+	 * @param education
+	 * @param schoolTime
+	 * @return
+	 * @throws UnsupportedEncodingException
+	 */
+	public Map<String,Object> modifyEducationExp(HttpServletRequest req,int userId,int educationexpId,String school,String major,String education,String schoolTime) throws UnsupportedEncodingException;
+	
+	/**
+	 * 删除教育经历
+	 * @param educationexpId
+	 * @param userId
+	 * @return
+	 */
+	public Map<String,Object> deleteEducationExp(int educationexpId,int userId);
 }
