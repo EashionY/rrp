@@ -86,10 +86,11 @@ public interface UserService {
 	public boolean verifyCode(HttpServletRequest request,String code);
 	
 	/**
-	 * 修改用户头像
+	 * 修改用户头像(接收base64字符串)
 	 * @param request
 	 * @param userId
 	 * @return
+	 * @throws UnsupportedEncodingException 
 	 */
-	public User modifyHeadImg(HttpServletRequest request,int userId);
+	public User modifyHeadImg(HttpServletRequest request,String headImg,int userId) throws UnsupportedEncodingException;
 }

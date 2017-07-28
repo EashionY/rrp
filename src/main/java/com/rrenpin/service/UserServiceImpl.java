@@ -2,7 +2,6 @@ package com.rrenpin.service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
-import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Resource;
@@ -15,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.rrenpin.dao.UserMapper;
 import com.rrenpin.entity.User;
 import com.rrenpin.util.AliSms;
-import com.rrenpin.util.Upload;
 import com.rrenpin.util.Util;
 @Service("userService")
 @Transactional
@@ -228,20 +226,13 @@ public class UserServiceImpl implements UserService {
 		return code.equals(psdCode);
 	}
 
-	public User modifyHeadImg(HttpServletRequest request, int userId) {
-		String headImgPath;
-		try {
-			List<String> paths = Upload.uploadImg(request, ""+userId, "headImg");
-			headImgPath = paths.get(0);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new ImgUploadException("Í·ÏñÉÏ´«Ê§°Ü");
-		}
+	public User modifyHeadImg(HttpServletRequest request, String headImg, int userId) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
 		int i;
 		User user;
 		try {
 			user = userMapper.selectByPrimaryKey(userId);
-			user.setHeadImg(headImgPath);
+			user.setHeadImg(headImg);
 			i = userMapper.updateByPrimaryKeySelective(user);
 		} catch (Exception e) {
 			e.printStackTrace();

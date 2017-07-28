@@ -88,8 +88,8 @@ public class UserController extends ExceptionController{
 	
 	@RequestMapping("/modifyHeadImg.do")
 	@ResponseBody
-	public JsonResult modifyHeadImg(HttpServletRequest request,int userId){
-		User user = userService.modifyHeadImg(request, userId);
+	public JsonResult modifyHeadImg(HttpServletRequest request,String headImg,int userId) throws UnsupportedEncodingException{
+		User user = userService.modifyHeadImg(request, headImg, userId);
 		return new JsonResult(SUCCESS,user,"头像修改成功");
 	}
 }
