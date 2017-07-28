@@ -40,11 +40,11 @@
     <div class="resume_left">
         <div class="resume_left_div1">
             <div class="resume_left_name">
-                <div class="resume_lname">暂无简历</div>
+                <div class="resume_lname"></div>
                 <div class="myfont" id="resume_left_editbtn"></div>
             </div>
             <div class="resume_left_mask">
-                <div><input type="text"/></div>
+                <div><input id="new_reName" type="text"/></div>
                 <div class="resume_left_maskbtn">
                     <span class="resume_save" id="resume_left_mask_save">保存</span>
                     <span class="resume_quit" id="resume_left_mask_quit">取消</span>
@@ -209,12 +209,7 @@
                 </div>
 
             </div>
-            <div class="resume_editbox">
-                <!--<div class="resume_editbox_div1">-->
-                <!--<div>行业</div>-->
-                <!--<div><input type="text"/></div>-->
-                <!--</div>-->
-            </div>
+            
             <div class="resume_left_maskbtn resume_left_maskbtn2">
                 <span class="resume_save" id="resume_saveyx">保存</span>
                 <span class="resume_quit" id="resume_quityx">取消</span>
@@ -233,11 +228,11 @@
             <div class="resume_editbox">
                 <div class="resume_editbox_div1">
                     <div>公司</div>
-                    <div><input type="text"/></div>
+                    <div><input type="text" id="re_company"/></div>
                 </div>
                 <div class="resume_editbox_div1">
                     <div>职位</div>
-                    <div><input type="text"/></div>
+                    <div><input type="text" id="re_work"/></div>
                 </div>
             </div>
             <div class="resume_editbox">
@@ -443,7 +438,6 @@
 <script src="../../../js/jquery-1.11.3.js"></script>
 <script src="../../../js/ip.js"></script>
 <script src="../../../plug/layer/layer.js"></script>
-
 <script src ="../../../plug/city-picker-master/src/city-picker.data.js"></script>
 <script src ="../../../plug/city-picker-master/src/city-picker.js"></script>
 <script src="../../../plug/jquery.js"></script>
@@ -461,59 +455,100 @@
 	       window.location.href="../login.html";
 	    }else{
 	    	 $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
-	    		 console.log(data)
-	    		// if(){}else{}}
-	    		 if(data.data==""){//无简历
-	                }else{//有简历
-	                	console.log(data.data)
+	    		 console.log(data.data)
+	    		 if(data.state==0){//有简历
 	                	resumeId=data.data.id;
 	                	//简历名称
 	                	$("#resume_left_editbtn").html("&#xe635;");
-	                	$(".resume_lname").html(data.data.resumeName);
-	                	$(".resume_left_time").html("更新："+new Date(data.data.updateTime).format("yyyy-MM-dd"));
+	                	$(".resume_lname").html(data.data.resume_name);
+	                	$(".resume_left_time").html("更新："+new Date(data.data.update_time).format("yyyy-MM-dd"));
 	                	//个人信息板块
-	                	$("#uName").html(data.data.empName);
+	                	$("#uName").html(data.data.emp_name);
 	                	$("#resume_savexinxi2").css("display","inline-block")
 	                	$("#resume_savexinxi").css("display","none");
-	                	var str='<span>'+data.data.empRegion+'</span>'+
-	                	'<span>'+data.data.workExp+'工作经验</span>'+
+	                	var str='<span>'+data.data.emp_region+'</span>'+
+	                	'<span>'+data.data.work_exp+'工作经验</span>'+
 	                	'<span>'+data.data.sex+'</span>'+
 	                	'<span>'+data.data.status+'</span>'
 	                	$(".resume_rdiv1_addre").html(str);
 	                	$("#phone").html(data.data.phone);
 	                	$("#email").html(data.data.email);
 	                	//求职意向板块
-	                	var yxstr1='<div class="resume_yixiang">'+
-	                	           '<span>期望薪资：'+data.data.salary+'/月</span>'+
-	                               '<span>工作类型：'+data.data.workType+'</span></div>';
-	                    var yxstr2='<div class="resume_yixiang">'+
-	                	           '<span>期望职位：'+data.data.job+'</span>'+
-	                               '<span>地点：'+data.data.workArea+'</span></div>'
-	                	$("#yixiangbox").append(yxstr1)
-	                	$("#yixiangbox").append(yxstr2)
+	                	if(data.data.salary!=""&&data.data.work_type!=null&&data.data.job!=""&&data.data.work_area!=null){
+	                		var yxstr1='<div class="resume_yixiang">'+
+             	           				'<span>期望薪资：'+data.data.salary+'/月</span>'+
+                            			'<span>工作类型：'+data.data.work_type+'</span></div>';
+                			 var yxstr2='<div class="resume_yixiang">'+
+             	           				'<span>期望职位：'+data.data.job+'</span>'+
+                            			'<span>地点：'+data.data.work_area+'</span></div>'
+             				$("#yixiangbox").append(yxstr1)
+             				$("#yixiangbox").append(yxstr2)
+	                	}
 	                	//自我描述模块
-	                	if(data.data.selfEvaluation!=""){
-	                		$("#zipingbox").append('<div class="resume_zhipingbox"><p>'+data.data.selfEvaluation+'</p></div>')
+	                	if(data.data.self_evaluation!=null){
+	                		$("#zipingbox").append('<div class="resume_zhipingbox"><p>'+data.data.self_evaluation+'</p></div>')
+	                	}
+	                	//工作经验模块  TO-DO
+	                	if(data.data.workExprience.length!=0){
+	                		var workExp=data.data.workExprience;
+	                        $.each(workExp,function(k,v){
+	                        	var str='<div class="resume_workbox"><div>'+
+	                        	'<span style="display:none" class="workID">'+workExp[k].workexp_id+'</span>'+
+		                		'<span>'+workExp[k].company+'</span>'+
+		                        '<span class="edit_font">'+
+		                        '<span class="myfont work_modify">&#xe635;</span>'+
+		                        '<span class="myfont workjlbox_dele">&#xe60c;</span></span></div>'+
+		                        '<div class="resume_workbox_div2">'+
+		                        '<span>'+workExp[k].work+'</span><span>'+workExp[k].work_time+'</span></div>'+
+		                        '<div>'+workExp[k].work_description+'</div></div>'
+	                        	$("#workjlbox").append(str)
+	                        })
+	                        //TO-DO
+	                		$(".work_modify").click(function(){
+	                			console.log("修改工作经历");
+	                			var workexpId=$(this).parent().siblings(".workID").html();
+	                			console.log(workexpId)
+	                		})
+	                		$(".workjlbox_dele").click(function(){
+	                			console.log("删除工作经历")
+	                			var workexpId=$(this).parent().siblings(".workID").html();
+	                			console.log(workexpId);
+	                			//layer.confirm('is not?', {icon: 3, title:'提示'}, function(index){
+	                				  //do something
+	                				  
+	                				  //layer.close(index);
+	                			//});
+	                			//$.get(ip+'/rrp/resume/deleteWorkExp.do',{userId:getCookieValue("userId"),workexpId:workexpId},function(data){
+	                				
+	                			//},"json")
+	                		})
 	                	}
 						// 预览简历
 	                	$("#to_preview_resume").click(function(){
 	                	    window.location.href="resume_preview.html"
-	                	})
-	                }
+	                	}) 	
+	    		 }else{//无简历
+	    			 $(".resume_lname").html("暂无简历");
+	    		 }
 	    	  },'json');
 	    }
 	});
 	
-	$("#resume_savework").click(function(){//修改工作经验========TO-DO
+	$("#resume_savework").click(function(){//添加工作经验
+		var re_company=$("#re_company").val();
+		var re_work=$("#re_work").val();
+		var zizhitime=$("#zizhitime1").val()+" 至 "+$("#zizhitime2").val();
+		var work_content=$("#work_content").val();
 		$.ajax({
 			type: "post",
-            url: ip+"/rrp/resume/modifyWorkExp.do",
-            data: {id:resumeId,company1,work1,work1Time,work1Description},
+            url: ip+"/rrp/resume/addWorkExp.do",
+            data: {userId:getCookieValue("userId"),resumeId:resumeId,company:re_company,work:re_work,workTime:zizhitime,workDescription:work_content},
             dataType: "json",
             contentType:'application/x-www-form-urlencoded; charset=UTF-8',
             success: function(data){
+            	console.log(data)
             	if(data.state==0){
-                	//window.location.href="resume.html";
+                	window.location.href="resume.html";
                 }else{
                 	layer.msg(data.message)
                 }
@@ -544,7 +579,7 @@
 		$.ajax({
 			type: "post",
             url: ip+"/rrp/resume/modifySelfEvaluation.do",
-            data: {id:resumeId,selfEvaluation:$("#ziping_content").val()},
+            data: {id:resumeId,userId:getCookieValue("userId"),selfEvaluation:$("#ziping_content").val()},
             dataType: "json",
             contentType:'application/x-www-form-urlencoded; charset=UTF-8',
             success: function(data){
@@ -556,25 +591,46 @@
             }
 		})
 	})
-	
-	$("#resume_saveyx").click(function(){//修改求职意向
-		$.ajax({
-			type: "post",
-            url: ip+"/rrp/resume/modifyJobIntention.do",
-            data: {id:resumeId,salary:$("#qwsalary").html(),job:$("#qwjob").val(),workType:$("#workType").html(),workArea:$("#workArea").val()},
-            dataType: "json",
-            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
-            success: function(data){
-            	if(data.state==0){
-                	window.location.href="resume.html";
-                }else{
-                	layer.msg(data.message)
-                }
-            }
+	function is_null(arr){
+		var bool=true;
+		$.each(arr,function(k,v){
+			if(arr[k]==""){
+				bool=false;
+			}
 		})
+		return bool;
+	}
+	$("#resume_saveyx").click(function(){//修改求职意向
+		var sala=$("#qwsalary").html();
+		var qwjob=$("#qwjob").val();
+		var workType=$("#workType").html();
+		var workArea=$("#workArea").val();
+		var yxList=new Array();
+		yxList.push(sala)
+		yxList.push(qwjob)
+		yxList.push(workType)
+		if(is_null(yxList)){
+			$.ajax({
+				type: "post",
+	            url: ip+"/rrp/resume/modifyJobIntention.do",
+	            data: {id:resumeId,userId:getCookieValue("userId"),salary:sala,job:qwjob,workType:workType,workArea:workArea},
+	            dataType: "json",
+	            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+	            success: function(data){
+	            	if(data.state==0){
+	                	window.location.href="resume.html";
+	                }else{
+	                	layer.msg(data.message)
+	                }
+	            }
+			})
+		}else{
+			layer.msg("未填写全面")
+		}
 	})
 	
 	$("#resume_savexinxi2").click(function(){//修改信息
+		 	var userId = getCookieValue("userId"); 
 	        var empName=$("#uname").val();
 	        var sex=$(".resume_mysex").html();
 	        var birth=$("#birthday").val();
@@ -586,7 +642,7 @@
 	        $.ajax({
 	            type: "post",
 	            url: ip+"/rrp/resume/modifyBasicInfo.do",
-	            data: {id:resumeId,empName:empName,sex:sex,birth:birth,workexp:workexp,status:status,phone:phone,email:email,empRegion:empRegion},
+	            data: {userId:userId,id:resumeId,empName:empName,sex:sex,birth:birth,workexp:workexp,status:status,phone:phone,email:email,empRegion:empRegion},
 	            dataType: "json",
 	            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 	            success: function(data){
@@ -609,6 +665,9 @@
 	        var phone=$("#uphone").val();
 	        var email=$("#uemail").val();
 	        var empRegion=$("#ucity").val();
+	        //var xinxi=new Array();
+	        //xinxi.push(empName),xinxi.push(sex),xinxi.push(birth),xinxi.push(workexp);
+	        //xinxi.push(status),xinxi.push(phone),xinxi.push(email),xinxi.push(empRegion);
 	        $.ajax({
 	            type: "post",
 	            url: ip+"/rrp/resume/addBasicInfo.do",
@@ -624,6 +683,18 @@
 	                }
 	            }
 	        });
+	   })
+	   //修改简历名
+	   $("#resume_left_mask_save").click(function(){
+		   var uid = getCookieValue("userId"); 
+		   var reName=$("#new_reName").val();
+		   $.get(ip+"/rrp/resume/modifyResumeName.do",{id:resumeId,userId:uid,resumeName:reName},function(data){
+			   if(data.state==0){
+               		window.location.href="resume.html";
+               }else{
+               		layer.msg(data.message)
+               }
+		   },'json')
 	   })
 </script>
 </html>
