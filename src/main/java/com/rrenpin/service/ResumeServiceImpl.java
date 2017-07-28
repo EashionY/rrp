@@ -175,7 +175,7 @@ public class ResumeServiceImpl implements ResumeService {
 			result.put("educationExp", educationExp);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DataBaseException("连接服务器超时");
+			throw new DataBaseException("无对应的简历");
 		}
 		return result;
 	}
