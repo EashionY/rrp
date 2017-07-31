@@ -14,6 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rrenpin.dao.UserMapper;
 import com.rrenpin.entity.User;
+import com.rrenpin.exception.CodeErrorException;
+import com.rrenpin.exception.DataBaseException;
+import com.rrenpin.exception.ImgUploadException;
+import com.rrenpin.exception.LoginException;
+import com.rrenpin.exception.ModifyUserInfoException;
+import com.rrenpin.exception.NoUserFindException;
+import com.rrenpin.exception.PasswordException;
+import com.rrenpin.exception.PhoneException;
+import com.rrenpin.exception.RegistException;
+import com.rrenpin.exception.SendCodeException;
 import com.rrenpin.util.AliSms;
 import com.rrenpin.util.Image;
 import com.rrenpin.util.Util;

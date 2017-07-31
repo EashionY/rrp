@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.rrenpin.dao.CompanyMapper;
 import com.rrenpin.entity.Company;
+import com.rrenpin.exception.EmailException;
 import com.rrenpin.util.SendEmail;
 import com.rrenpin.util.Util;
 
