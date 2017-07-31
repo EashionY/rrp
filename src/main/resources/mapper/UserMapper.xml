@@ -27,24 +27,19 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.rrenpin.entity.User">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into user (id, phone, password, 
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id"
+       parameterType="com.rrenpin.entity.User">
+    insert into user (phone, password, 
       nickname, head_img, sex, job, 
       degree, self_intro)
-    values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{nickname,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
       #{degree,jdbcType=VARCHAR}, #{selfIntro,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.rrenpin.entity.User">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
+      parameterType="com.rrenpin.entity.User">
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      id,
       <if test="phone != null">
         phone,
       </if>
@@ -71,7 +66,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{id,jdbcType=INTEGER},
       <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
       </if>

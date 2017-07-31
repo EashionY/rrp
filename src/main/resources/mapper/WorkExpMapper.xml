@@ -23,24 +23,19 @@
     delete from workexp
     where workexp_id = #{workexpId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.rrenpin.entity.WorkExp">
-    <selectKey keyProperty="workexpId" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into workexp (workexp_id, user_id, resume_id, 
+  <insert id="insert" useGeneratedKeys="true" keyProperty="workexp_id" 
+      parameterType="com.rrenpin.entity.WorkExp">
+    insert into workexp (user_id, resume_id, 
       company, work, work_time, 
       work_description)
-    values (#{workexpId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, 
+    values (#{userId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, 
       #{company,jdbcType=VARCHAR}, #{work,jdbcType=VARCHAR}, #{workTime,jdbcType=VARCHAR}, 
       #{workDescription,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.rrenpin.entity.WorkExp">
-    <selectKey keyProperty="workexpId" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="workexp_id"
+      parameterType="com.rrenpin.entity.WorkExp">
     insert into workexp
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      workexp_id,
       <if test="userId != null">
         user_id,
       </if>
@@ -61,7 +56,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{workexpId,jdbcType=INTEGER},
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>
