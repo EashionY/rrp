@@ -23,24 +23,19 @@
     delete from projectexp
     where projectexp_id = #{projectexpId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.rrenpin.entity.ProjectExp">
-    <selectKey keyProperty="projectexpId" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into projectexp (projectexp_id, user_id, resume_id, 
+  <insert id="insert" useGeneratedKeys="true" keyProperty="projectexp_id"
+      parameterType="com.rrenpin.entity.ProjectExp">
+    insert into projectexp (user_id, resume_id, 
       project, project_time, project_description, 
       duty)
-    values (#{projectexpId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, 
+    values (#{userId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, 
       #{project,jdbcType=VARCHAR}, #{projectTime,jdbcType=VARCHAR}, #{projectDescription,jdbcType=VARCHAR}, 
       #{duty,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.rrenpin.entity.ProjectExp">
-    <selectKey keyProperty="projectexpId" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="projectexp_id"
+      parameterType="com.rrenpin.entity.ProjectExp">
     insert into projectexp
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      projectexp_id,
       <if test="userId != null">
         user_id,
       </if>
@@ -61,7 +56,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{projectexpId,jdbcType=INTEGER},
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>

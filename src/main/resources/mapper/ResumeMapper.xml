@@ -36,18 +36,16 @@
     delete from resume
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.rrenpin.entity.Resume">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into resume (id, resume_name, update_time, 
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id"
+      parameterType="com.rrenpin.entity.Resume">
+    insert into resume (resume_name, update_time, 
       emp_name, emp_region, work_exp, 
       sex, birth, status, 
       phone, email, user_id, 
       salary, job, work_type, 
       work_area, self_evaluation, head_img
       )
-    values (#{id,jdbcType=INTEGER}, #{resumeName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+    values (#{resumeName,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{empName,jdbcType=VARCHAR}, #{empRegion,jdbcType=VARCHAR}, #{workExp,jdbcType=VARCHAR}, 
       #{sex,jdbcType=VARCHAR}, #{birth,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
@@ -55,13 +53,10 @@
       #{workArea,jdbcType=VARCHAR}, #{selfEvaluation,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.rrenpin.entity.Resume">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
+      parameterType="com.rrenpin.entity.Resume">
     insert into resume
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      id,
       <if test="resumeName != null">
         resume_name,
       </if>
@@ -115,7 +110,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{id,jdbcType=INTEGER},
       <if test="resumeName != null">
         #{resumeName,jdbcType=VARCHAR},
       </if>

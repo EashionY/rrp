@@ -23,22 +23,17 @@
     delete from delivery
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.rrenpin.entity.Delivery">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into delivery (id, resume_id, company_id, 
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" 
+      parameterType="com.rrenpin.entity.Delivery">
+    insert into delivery (resume_id, company_id, 
       status, delivery_time)
-    values (#{id,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, 
+    values (#{resumeId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, 
       #{status,jdbcType=VARCHAR}, #{deliveryTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.rrenpin.entity.Delivery">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
+      parameterType="com.rrenpin.entity.Delivery">
     insert into delivery
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      id,
       <if test="resumeId != null">
         resume_id,
       </if>
@@ -53,7 +48,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{id,jdbcType=INTEGER},
       <if test="resumeId != null">
         #{resumeId,jdbcType=INTEGER},
       </if>

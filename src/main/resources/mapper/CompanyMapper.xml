@@ -32,30 +32,25 @@
     delete from company
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.rrenpin.entity.Company">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into company (id, name, logo, 
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" 
+      parameterType="com.rrenpin.entity.Company">
+    insert into company (name, logo, 
       email, info, address, 
       industry, scale, website, 
       financing, user_id, tel, 
       intro, reg_time, status
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, 
+    values (#{name,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{industry,jdbcType=VARCHAR}, #{scale,jdbcType=VARCHAR}, #{website,jdbcType=VARCHAR}, 
       #{financing,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{tel,jdbcType=VARCHAR}, 
       #{intro,jdbcType=VARCHAR}, #{regTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.rrenpin.entity.Company">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" 
+      parameterType="com.rrenpin.entity.Company">
     insert into company
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      id,
       <if test="name != null">
         name,
       </if>
@@ -100,7 +95,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{id,jdbcType=INTEGER},
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>

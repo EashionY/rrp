@@ -21,22 +21,17 @@
     delete from skills
     where skill_id = #{skillId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.rrenpin.entity.Skills">
-    <selectKey keyProperty="skillId" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into skills (skill_id, user_id, resume_id, 
+  <insert id="insert" useGeneratedKeys="true" keyProperty="skill_id"
+      parameterType="com.rrenpin.entity.Skills">
+    insert into skills (user_id, resume_id, 
       skill_name, skill_level)
-    values (#{skillId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, 
+    values (#{userId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, 
       #{skillName,jdbcType=VARCHAR}, #{skillLevel,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.rrenpin.entity.Skills">
-    <selectKey keyProperty="skillId" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="skill_id"
+      parameterType="com.rrenpin.entity.Skills">
     insert into skills
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      skill_id,
       <if test="userId != null">
         user_id,
       </if>
@@ -51,7 +46,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{skillId,jdbcType=INTEGER},
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>

@@ -26,24 +26,19 @@
     delete from job
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.rrenpin.entity.Job">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into job (id, job_no, job_name, 
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id"
+      parameterType="com.rrenpin.entity.Job">
+    insert into job (job_no, job_name, 
       parent_no, parent_name, grand_no, 
       grand_name)
-    values (#{id,jdbcType=INTEGER}, #{jobNo,jdbcType=VARCHAR}, #{jobName,jdbcType=VARCHAR}, 
+    values (#{jobNo,jdbcType=VARCHAR}, #{jobName,jdbcType=VARCHAR}, 
       #{parentNo,jdbcType=VARCHAR}, #{parentName,jdbcType=VARCHAR}, #{grandNo,jdbcType=VARCHAR}, 
       #{grandName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.rrenpin.entity.Job">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
+      parameterType="com.rrenpin.entity.Job">
     insert into job
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      id,
       <if test="jobNo != null">
         job_no,
       </if>
@@ -64,7 +59,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{id,jdbcType=INTEGER},
       <if test="jobNo != null">
         #{jobNo,jdbcType=VARCHAR},
       </if>

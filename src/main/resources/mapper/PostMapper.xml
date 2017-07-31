@@ -33,28 +33,23 @@
     delete from post
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.rrenpin.entity.Post">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
-    insert into post (id, company_id, name, 
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id"
+      parameterType="com.rrenpin.entity.Post">
+    insert into post (company_id, name, 
       salary, region, work_exp, 
       degree, work_type, post_time, 
       benefits, duty, requirement, 
       status)
-    values (#{id,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+    values (#{companyId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{salary,jdbcType=VARCHAR}, #{region,jdbcType=VARCHAR}, #{workExp,jdbcType=VARCHAR}, 
       #{degree,jdbcType=VARCHAR}, #{workType,jdbcType=VARCHAR}, #{postTime,jdbcType=TIMESTAMP}, 
       #{benefits,jdbcType=VARCHAR}, #{duty,jdbcType=VARCHAR}, #{requirement,jdbcType=VARCHAR}, 
       #{status,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.rrenpin.entity.Post">
-    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Integer">
-      SELECT LAST_INSERT_ID()
-    </selectKey>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"
+      parameterType="com.rrenpin.entity.Post">
     insert into post
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      id,
       <if test="companyId != null">
         company_id,
       </if>
@@ -93,7 +88,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      #{id,jdbcType=INTEGER},
       <if test="companyId != null">
         #{companyId,jdbcType=INTEGER},
       </if>
