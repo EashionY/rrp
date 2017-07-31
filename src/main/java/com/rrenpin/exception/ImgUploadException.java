@@ -1,4 +1,4 @@
-package com.rrenpin.service;
+package com.rrenpin.exception;
 
 public class ImgUploadException extends RuntimeException {
 

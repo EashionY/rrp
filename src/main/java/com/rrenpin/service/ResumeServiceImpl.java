@@ -19,6 +19,9 @@ import com.rrenpin.entity.ProjectExp;
 import com.rrenpin.entity.Resume;
 import com.rrenpin.entity.Skills;
 import com.rrenpin.entity.WorkExp;
+import com.rrenpin.exception.DataBaseException;
+import com.rrenpin.exception.ImgUploadException;
+import com.rrenpin.exception.ResumeException;
 import com.rrenpin.util.Upload;
 @Service("resumeService")
 public class ResumeServiceImpl implements ResumeService {
