@@ -18,10 +18,10 @@
     <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" />
     <!-- 生成Dao类存放位置 -->
     <javaClientGenerator targetPackage="com.rrenpin.dao" targetProject="src/main/java" type="XMLMAPPER" />
-    <table schema="rrp" tableName="educationexp" domainObjectName="EducationExp" enableCountByExample="false" 
+    <table schema="rrp" tableName="authcode" domainObjectName="Authcode" enableCountByExample="false" 
     	enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
     	 selectByExampleQueryId="false">
-      <generatedKey column="educationexp_id" sqlStatement="Mysql"/>
+      <generatedKey column="id" sqlStatement="Mysql"/>
     </table>
   </context>
 </generatorConfiguration>
