@@ -267,7 +267,7 @@
 #editprojectjlbtn:hover
 {cursor: pointer;color: #3eb39d}
 
-.resumepre_rdiv2>.resume_workbox:nth-last-of-type(1){border-bottom: none;padding-bottom: 0}
+#zipingbox {}
 .resume_rdiv2>.resume_workbox:nth-last-of-type(1){border-bottom: none;padding-bottom: 0}
 #ziping_mask{border-bottom: none}
 .resume_workbox{
@@ -465,9 +465,7 @@
     padding-right: 0 !important;
     background-position: 96% center !important;
 }
-#resume_modixinxi,#resume_modiwork,
-#resume_modipingjia,#resume_modiproject,
-#resume_modijiaoyu{
+#resume_savexinxi2{
 	display:none;
 }
 

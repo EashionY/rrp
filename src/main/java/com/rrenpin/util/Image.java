@@ -41,7 +41,7 @@ public class Image {
 	 * @param path 图片路径
 	 * @return
 	 */
-	public static boolean base64ToImage(String base64, String path) {
+	public static boolean base64ToImage(String base64, String path, String filename) {
 	    if (base64 == null){ // 图像数据为空
 	        return false;
 	    }
@@ -59,8 +59,9 @@ public class Image {
     		if(!localFile.exists()){
                 localFile.mkdirs();
             }
+    		path += File.separator+filename;
 	        // 生成jpeg图片
-	        OutputStream out = new FileOutputStream(localFile);
+	        OutputStream out = new FileOutputStream(path);
 	        out.write(bytes);
 	        out.flush();
 	        out.close();

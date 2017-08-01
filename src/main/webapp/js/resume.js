@@ -88,6 +88,7 @@ function limit(obj,mynum,mask,box){
         layer.msg("最多"+mynum+"个！")
     }
 }
+
 //    技能评价
 $("#editpingjiabtn").click(function(){
     mydisplay($("#pingjiabox"),$("#pingjia_mask"));
@@ -95,10 +96,6 @@ $("#editpingjiabtn").click(function(){
 });
 $("#resume_quitpingjia").click(function(){
     mydisplay($("#pingjia_mask"),$("#pingjiabox"));
-    $("#resume_modipingjia").css("display","none");
- 	$("#resume_savepingjia").css("display","inline-block");
- 	$("#skillName").val("");
-	$("#skillcd").html("");
 });
 //    教育经历
 $("#editjiaoyubtn").click(function(){
@@ -106,13 +103,6 @@ $("#editjiaoyubtn").click(function(){
 });
 $("#resume_quitjiaoyu").click(function(){
     mydisplay($("#jiaoyu_mask"),$("#jiaoyubox"));
-    $("#resume_modijiaoyu").css("display","none");
-	$("#resume_savejiaoyu").css("display","inline-block");
-	$("#school").val("");
-	$("#major").val("");
-	$("#jiaoyutime1").val("")
-    $("#jiaoyutime2").val("");
-	$("#education").val("");
 });
 //    自我描述
 $("#editzipingbtn").click(function(){
@@ -129,17 +119,10 @@ $("#resume_quitziping").click(function(){
 });
 //    添加项目经验
 $("#editprojectjlbtn").click(function(){
-    limit(this,3,$("#project_mask"), $("#projectjlbox"));
+    limit(this,3,$("#project_mask"), $("#projectjlbox"))
 });
 $("#resume_quitproject").click(function(){
     mydisplay($("#project_mask"),$("#projectjlbox"));
-    $("#resume_modiproject").css("display","none");
-	$("#resume_saveproject").css("display","inline-block");
-    $("#projectName").val("");
-    $("#xiangmutime1").val("");
-    $("#xiangmutime2").val("");
-    $("#xiangmu_content").val("");
-    $("#zeren_content").val("");
 });
 //    添加工作经历
 $("#editworkjlbtn").click(function(){
@@ -147,13 +130,6 @@ $("#editworkjlbtn").click(function(){
 });
 $("#resume_quitwork").click(function(){
     mydisplay($("#workjl_mask"),$("#workjlbox"));
-    $("#re_company").val("");
-	$("#re_work").val("");
-	$("#zizhitime1").val("");
-	$("#zizhitime2").val("");
-	$("#work_content").val("");
-    $("#resume_modiwork").css("display","none")
-	$("#resume_savework").css("display","inline-block");
 });
 //    修改求职意向
 $("#edityxbtn").click(function(){
@@ -193,6 +169,7 @@ $("#editxxbtn").click(function(){
        	 $("#ucity").val(data.data.emp_region)
     	}
     },'json');
+    
     
 });
 $("#resume_quitxinxi").click(function(){
