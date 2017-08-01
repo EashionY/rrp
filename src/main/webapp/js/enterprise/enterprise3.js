@@ -24,13 +24,12 @@ $(function() {
         	$.get(ip+"/rrp/company/setCompanyName.do",{email:getCookieValue("email"),name:compaName},function(data){
         		if(data.state==0){
         			addCookie("companyName",compaName,1,"/");
-        			layer.confirm('开通企业版成功，是否前往企业版完善资料？', {icon: 3, title:'提示'}, function(index){
-        				window.location.href="../../Enterprise_edition/com_informa/com_informa.html"
-        			},function(){
-        				window.location.href="enterprise1.html"
-        			});
-        			
-        			
+        			layer.msg(data.message+",前往完善信息！",{
+                		  icon: 1,
+                		  time: 2000 
+                  	}, function(){
+                  		window.location.href="../../Enterprise_edition/com_informa/com_informa.html"
+                  	}); 
         		}else{
         			layer.msg(data.message);
         		}

@@ -42,7 +42,7 @@ function deleteCookie(name,path){   /**根据cookie的键，删除cookie，其�
     document.cookie = name + "="+ ";expires=" + expires.toUTCString() + path;  
 }  
 
-//页面加载时判断有没有登录
+//页面加载时判断有没有登录(个人版)
 function myonload2(zhurl,qyurl,exiturl){    
     var userNameValue = getCookieValue("userName");  
     var userIdValue = getCookieValue("userId"); 
@@ -52,6 +52,41 @@ function myonload2(zhurl,qyurl,exiturl){
 	   var str="<li id='head_person'>"+userNameValue+"<span class='myfont myfont_xia'>&#xe60b;</span>" +
        "<ul id='head_person_ul'><li id='head_zh'>&nbsp;账号设置&nbsp;</li> " +
        "<li id='head_qy'>&nbsp;去企业版&nbsp;</li> " +
+       "<li id='head_exit'>&nbsp;安全退出&nbsp;</li></ul></li>";
+		$("#header_last").html(str);
+		 //样式
+       $("#head_person").mouseover(function(){
+           $("#head_person_ul").css("display","block")
+       });
+       $("#head_person").mouseout(function(){
+           $("#head_person_ul").css("display","none")
+       });
+       //个人中心跳转
+       $("#head_zh").click(function(){
+           window.location.href=zhurl;
+       });
+       $("#head_qy").click(function(){
+           window.location.href=qyurl;
+       });
+       $("#head_exit").click(function(){
+       	  deleteCookie("userName","/");
+       	  deleteCookie("userId","/");
+       	  deleteCookie("userPhone","/");
+       	  window.location.href=exiturl;
+       });
+	}
+}
+//页面加载时判断有没有登录(企业版)
+function myonload1(zhurl,qyurl,exiturl){    
+    var userNameValue = getCookieValue("userName");  
+    var compaNameValue = getCookieValue("companyName");  
+    var userIdValue = getCookieValue("userId"); 
+	//console.log(compaNameValue);
+	//console.log(userIdValue);
+	if(userNameValue!=""){
+	   var str="<li id='head_person'>"+compaNameValue+"<span class='myfont myfont_xia'>&#xe60b;</span>" +
+       "<ul id='head_person_ul'><li id='head_zh'>&nbsp;公司信息&nbsp;</li> " +
+       "<li id='head_qy'>&nbsp;修改密码&nbsp;</li> " +
        "<li id='head_exit'>&nbsp;安全退出&nbsp;</li></ul></li>";
 		$("#header_last").html(str);
 		 //样式
