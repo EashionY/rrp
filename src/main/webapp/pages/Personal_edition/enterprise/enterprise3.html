@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>修改密码</title>
+    <title>企业版</title>
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="../../../plug/layer/skin/default/layer.css"/>
     <link rel="stylesheet" href="../../../css/share/base.css"/>
     <link rel="stylesheet" href="../../../css/share/header.css"/>
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
     <link rel="stylesheet" href="../../../css/share/commen.css"/>
-    <link rel="stylesheet" href="../../../css/my/pers_infor.css"/>
-    <link rel="stylesheet" href="../../../css/my/psd.css"/>
+    <link rel="stylesheet" href="../../../css/enterprise.css"/>
 
 </head>
 <body>
@@ -23,33 +21,34 @@
                 <a href="../index.html"><li>首页</li></a>
                 <a href="../job/apply_job.html"><li>求职</li></a>
                 <a href="../news/newsList.html"><li>新闻</li></a>
-                <a href="../enterprise/enterprise1.html"><li>企业版</li></a>
+                <a href="enterprise1.html"  class="activ"><li>企业版</li></a>
             </ul>
         </div>
         <ul class="nav_div2">
-            <a href="../message/message.html"><li class="xx">消息 </li></a>
+            <a href="../message/message.html"><li class="xx">消息</li></a>
             <a href="../resume/resume.html"><li>我的简历</li></a>
             <a href="../delivery_box/delivery_success.html"><li>投递箱</li></a>
-            <a href="#" id="header_last" class="activ">
-            	<li><span id="head_logbtn">登录</span>&nbsp;/&nbsp;
-            	<span id="head_regbtn">注册</span></li>
+            <a href="#" id="header_last">
+            	<li><span id="head_logbtn">登录</span>&nbsp;/&nbsp;<span id="head_regbtn">注册</span></li>
             </a> 
         </ul>
     </nav>
 </header>
-<section class="my_body">
-    <div class="my_left">
-        <div id="pers" class="my_left_div"><span class="myfont">&#xe612;</span><span>个人信息</span></div>
-        <div id="acco" class="my_left_div"><span class="myfont">&#xe622;</span><span>账号绑定</span></div>
-        <div id="chan" class="my_left_div my_left_active"><span class="myfont">&#xe660;</span><span>修改密码</span></div>
+<section class="enterp_body">
+    <div class="enterp_title">
+        <span class="enterp_title_span1">开通招聘</span>
+        <span class="enterp_title_span2">Open recruitment service</span>
     </div>
-    <div class="my_right">
-        <div class="my_rightmain">
-            <div class="psd_div1">账号：<span>18328563586</span></div>
-            <div class="psd_inputbox"><input id="oldpsd" type="password" placeholder="请输入当前密码"/></div>
-            <div class="psd_inputbox"><input id="newpsd" type="password" placeholder="请输入新密码(6-16位字母/数字/符号组合)"/></div>
-            <div class="psd_inputbox"><input id="newpsd2" type="password" placeholder="确认新密码"/></div>
-            <div class="psd_btn">保存</div>
+
+    <div class="enterp_contentbox" id="enterp_contentbox3">
+        <div class="enterp_conmainbox">
+            <div class="enterp_shunxuBtn">
+                <div class="enterp_sxBtn_div1 enterp_sxBtn_activ"><span>01</span><span class="span2">填写联系方式</span></div>
+                <div class="enterp_sxBtn_div2 enterp_sxBtn_div22 enterp_sxBtn_activ"><span>02</span><span class="span2">验证公司邮箱</span></div>
+                <div class="enterp_sxBtn_div3 enterp_sxBtn_div22 enterp_sxBtn_activ"><span>03</span><span class="span2">填写公司名称</span></div>
+            </div>
+            <div class="enterp_contentbox3_input"><input type="text" placeholder="输入你的公司名称"/></div>
+            <div class="enterp_nextBtn" id="enterp_nextBtn2">使用公司名称</div>
         </div>
     </div>
 </section>
@@ -78,7 +77,22 @@
 <script src="../../../js/jquery-1.11.3.js"></script>
 <script src="../../../js/ip.js"></script>
 <script src="../../../plug/layer/layer.js"></script>
-<script src="../../../js/my/my.js"></script>
-<script src="../../../js/my/change_psd.js"></script>
+<script src="../../../js/head/header2.js"></script>
+<script src="../../../js/enterprise.js"></script>
+<script>
+	$(function() { 
+		myonload2("../my/pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
+	})
 
+	
+    
+    $("#enterp_nextBtn2").on("click",function(){
+        var compaName=$(".enterp_contentbox3_input input").val();
+        if(compaName==""){
+        	layer.msg("请先输入公司名称")
+        }else{
+        	layer.msg(compaName)
+        }
+    })
+</script>
 </html>

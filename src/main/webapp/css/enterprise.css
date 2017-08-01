@@ -133,7 +133,7 @@
     margin-top: 30px;
 }
 .enterp_yzdiv2{
-    margin-top: 130px;
+    margin-top: 60px;
 }
 .enterp_yzdiv2>div{
     font-size: 18px;
@@ -164,12 +164,17 @@
     font-size: 18px;
     color: #888888;
 }
-#enterp_contentbox1{
-    /*display: none;*/
+#email_nextBtn{
+	margin-top: 30px;
+	width: 112px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #3eb39d;
+    color: #ffffff;
+    border: 1px #3eb39d solid;
 }
-#enterp_contentbox2{
-    display: none;
-}
-#enterp_contentbox3{
-    display: none;
+#email_nextBtn:hover{
+	cursor: pointer
 }

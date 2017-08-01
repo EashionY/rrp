@@ -6,7 +6,7 @@ body{
     margin: 0;
     padding: 0;
     font-size: 1.2rem;
-    font-family: "寰蒋闆呴粦";
+    font-family: "微软雅黑";
     background-color: #EEEEEE;
 }
 html, body, div, span, applet, object, iframe,
@@ -27,11 +27,11 @@ time, mark, audio, video {
     border: 0;
     vertical-align: baseline;
 }
-/*li鏍囩*/
+/*li閺嶅洨顒�*/
 ul li{
   list-style: none;
 }
-/*a鏍囩*/
+/*a閺嶅洨顒�*/
 a{
     color: #333333;
 }
@@ -50,7 +50,7 @@ a:active {
     text-decoration: none;
 
 }
-/*鎸夐挳*/
+/*閹稿鎸�*/
 .baseBtn{
 }
 .baseBtn:hover{}
@@ -58,7 +58,7 @@ a:active {
 .primaryBtn:hover{}
 .defaultBtn{}
 .defaultBtn:hover{}
-/*鐭㈤噺鍥炬爣*/
+/*閻垽鍣洪崶鐐垼*/
 @font-face {
     src: url("../../font/iconfont.woff");
     font-family: "indexIcon";
@@ -67,7 +67,7 @@ a:active {
     font-family: "indexIcon";
     font-size: 16px;
 }
-/*濯掍綋鏌ヨ鍣�*/
+/*婵帊缍嬮弻銉嚄閸ｏ拷*/
 @media (max-width:768px) {}
 
 textarea{
