@@ -41,7 +41,7 @@
         <div class="resumepre_rdiv1" id="xinxibox">
             <div class="resume_rdiv1_left">
                 <div class="resume_rdiv1_name">
-                                             
+                    <span id="uName"></span>
                 </div>
                 <div class="resume_rdiv1_addre">
                    
@@ -72,16 +72,10 @@
         <!--工作经验-->
         <div class="resumepre_rdiv2" id="workjlbox">
             <div class="job_title">工作经历</div>
-            
-            
-            
-
         </div>
         <!--项目经验-->
         <div class="resumepre_rdiv2" id="projectjlbox">
             <div class="job_title">项目经验</div>
-            
-           
         </div>
         <!--技能评价-->
         <div class="resumepre_rdiv2" id="pingjiabox">
@@ -121,33 +115,5 @@
 </body>
 <script src="../../../js/jquery-1.11.3.js"></script>
 <script src="../../../js/ip.js"></script>
-<script>
-$(function() { 
-	myonload2("../my/pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
-    var userId = getCookieValue("userId"); 
-    if(userId==""){//未登录，请先登录
-       window.location.href="../login.html";
-    }else{
-    	$.ajax({
-            type: "post",
-            url: ip+"/rrp/resume/findByUserId.do",
-            data: {userId:userId},
-            dataType: "json",
-            success: function(data){
-            	console.log(data.data)
-                $(".resume_rdiv1_name").html(data.data.empName);
-            	
-            	var str='<span>'+data.data.empRegion+'</span>'+
-            	'<span>'+data.data.workExp+'工作经验</span>'+
-            	'<span>'+data.data.sex+'</span>'+
-            	'<span>'+data.data.status+'</span>'
-            	$(".resume_rdiv1_addre").html(str);
-            	
-            	$("#phone").html(data.data.phone);
-            	$("#email").html(data.data.email);
-            }
-        });
-    }
-});
-</script>
+<script src="../../../js/resume/resume_pre.js"></script>
 </html>
