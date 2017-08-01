@@ -14,12 +14,14 @@ import com.rrenpin.dao.AuthcodeMapper;
 import com.rrenpin.dao.CompanyMapper;
 import com.rrenpin.entity.Authcode;
 import com.rrenpin.entity.Company;
+
 import com.rrenpin.exception.CompanyException;
 import com.rrenpin.exception.DataBaseException;
 import com.rrenpin.exception.EmailException;
 import com.rrenpin.exception.ImgUploadException;
 import com.rrenpin.exception.NoCompanyFindException;
 import com.rrenpin.util.Image;
+
 import com.rrenpin.util.SendEmail;
 import com.rrenpin.util.Util;
 

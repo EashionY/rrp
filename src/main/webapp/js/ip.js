@@ -1,6 +1,7 @@
 //设置IP地址
 var ip='http://192.168.0.20:8080';
 
+
 function addCookie(name,value,days,path){   /**添加设置cookie**/  
     var name = escape(name);  
     var value = escape(value);
