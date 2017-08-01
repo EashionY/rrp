@@ -14,6 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rrenpin.dao.UserMapper;
 import com.rrenpin.entity.User;
+import com.rrenpin.exception.CodeErrorException;
+import com.rrenpin.exception.DataBaseException;
+import com.rrenpin.exception.ImgUploadException;
+import com.rrenpin.exception.LoginException;
+import com.rrenpin.exception.ModifyUserInfoException;
+import com.rrenpin.exception.NoUserFindException;
+import com.rrenpin.exception.PasswordException;
+import com.rrenpin.exception.PhoneException;
+import com.rrenpin.exception.RegistException;
+import com.rrenpin.exception.SendCodeException;
 import com.rrenpin.util.AliSms;
 import com.rrenpin.util.Image;
 import com.rrenpin.util.Util;
@@ -229,18 +239,24 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public User modifyHeadImg(HttpServletRequest request, String base64, int userId) throws UnsupportedEncodingException {
-		request.setCharacterEncoding("UTF-8");
-		String path = request.getContextPath();
+//		request.setCharacterEncoding("UTF-8");
+		//去除数据头
+		String[] strBase64 = base64.split(",");
+		String headImg = strBase64[1];
+		System.out.println(headImg);
+		//windows系统本地路径
+//		String path = "D:\\workspace\\rrp\\src\\main\\webapp\\images\\upload\\"+userId;
+		//项目绝对路径
+		String path = request.getSession().getServletContext().getRealPath("/")+"images\\upload\\"+userId;
 		System.out.println(path);
-		path += File.separator+userId+File.separator+"userHeadImg.png";
-		System.out.println(path);
-		boolean tf = Image.base64ToImage(base64, path);
+		String filename = "userHeadImg.png";
+		boolean tf = Image.base64ToImage(headImg, path, filename);
 		if(tf){
 			int i;
 			User user;
 			try {
 				user = userMapper.selectByPrimaryKey(userId);
-				user.setHeadImg(userId+File.separator+"userHeadImg.png");
+				user.setHeadImg("images/upload/"+userId+File.separator+"userHeadImg.png");
 				i = userMapper.updateByPrimaryKeySelective(user);
 			} catch (Exception e) {
 				e.printStackTrace();
