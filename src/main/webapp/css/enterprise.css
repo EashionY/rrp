@@ -155,6 +155,7 @@
     overflow: hidden;
 }
 .enterp_contentbox3_input>input{
+	width:100%;
     outline: none;
     border: none;
     height: 60px;
