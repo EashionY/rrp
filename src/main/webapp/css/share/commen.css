@@ -55,7 +55,7 @@
     content: "";
 }
 
-/*分页*/
+/*鍒嗛〉*/
 .appJob_pagesBox{
     margin-top: 30px;
     margin-bottom: 50px;
@@ -85,7 +85,7 @@
     width: 1024px;
     margin: 0 auto;
 }
-/*遮罩*/
+/*閬僵*/
 .mymask {
     position: fixed;
     left: 0;
@@ -96,7 +96,7 @@
     background: rgba(0,0,0,.4);
     filter: alpha(opacity=40);
     overflow: hidden;
-    display: none;
+    /*display: none;*/
     -webkit-transition: all .3s linear;
 }
 .mymask_maskmain{
@@ -109,7 +109,7 @@
     margin-left: -275px;
     margin-top: -247px;
 }
-/*搜索框*/
+/*鎼滅储妗�*/
 
 .serch_Box{
     width: 673px;

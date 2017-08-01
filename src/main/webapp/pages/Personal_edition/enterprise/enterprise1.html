@@ -50,7 +50,7 @@
                 <div class="enterp_inputDiv">
                     <div class="enterp_tubiao"><span class="myfont enterp_font phone_font">&#xe627;</span></div>
                     <div class="enter_qh">+86</div>
-                    <input id="enterp_phone" type="text" name="phone" placeholder="请输入你的手机号码" maxlength="11"/>
+                    <input id="enterp_phone" readonly="readonly" type="text" name="phone" maxlength="11"/>
                 </div>
                 <div class="enterp_inputDiv">
                     <div class="enterp_tubiao"><span class="myfont enterp_font">&#xe67f;</span></div>
@@ -89,36 +89,6 @@
 <script src="../../../js/ip.js"></script>
 <script src="../../../plug/layer/layer.js"></script>
 <script src="../../../js/head/header2.js"></script>
-<script src="../../../js/enterprise.js"></script>
-<script>
-	var userId="";
-	$(function() { 
-		myonload2("../my/pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
-		userId=getCookieValue("userId");
-		if(userId==""){//未登录，请先登录
-		      window.location.href="../login.html";
-		}
-	})
-	$("#enterp_nextBtn").on("click",function(){
-		        var szReg=/^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/;
-		        var phoneReg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-		        var phone=$("#enterp_phone").val();
-		        var email=$("#enterp_email").val();
-		        if(email=="" || phone==""){
-		            layer.msg("请先填写内容")
-		        }else{
-		        	if(!phoneReg.test(phone)){
-		            	layer.msg("手机号码有错")
-		            }else{
-		            	if(!szReg.test(email)){
-		            		layer.msg("邮箱格式错误")
-		                }else{
-		                	$.post(ip+"/rrp/company/sendEmail.do",{userId:userId,email:email},function(data){},"json");
-		                	addCookie("email",email,1,"/");
-	                		window.location.href="enterprise2.html"
-		                }
-		            }
-		        }
-		})	
-</script>
+<script src="../../../js/enterprise/enterprise.js"></script>
+<script src="../../../js/enterprise/enterprise1.js"></script>
 </html>
