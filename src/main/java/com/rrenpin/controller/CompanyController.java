@@ -1,5 +1,7 @@
 package com.rrenpin.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.rrenpin.entity.Company;
 import com.rrenpin.service.CompanyService;
 import com.rrenpin.util.JsonResult;
 
@@ -41,4 +44,36 @@ public class CompanyController extends ExceptionController {
 		return mav;
 //		return new JsonResult(SUCCESS,"","邮箱已激活，请登录");
 	}
+	
+	@RequestMapping("/checkStatus.do")
+	@ResponseBody
+	public JsonResult checkStatus(String email){
+		boolean tf = companyService.checkStatus(email);
+		return new JsonResult(tf);
+	}
+	
+	@RequestMapping("/setCompanyName.do")
+	@ResponseBody
+	public JsonResult setCompanyName(String name,String email){
+		companyService.setCompanyName(name, email);
+		return new JsonResult(SUCCESS,"","公司名称设置成功");
+	}
+	
+	@RequestMapping("/findCompanyInfo.do")
+	@ResponseBody
+	public JsonResult findCompanyInfo(String email){
+		Company company = companyService.findCompanyInfo(email);
+		return new JsonResult(company);
+	}
+	
+	@RequestMapping("/addCompanyInfo.do")
+	@ResponseBody
+	public JsonResult addCompanyInfo(HttpServletRequest request, int id, String name, String logo, String address, String industry, String website, String scale,
+			String financing, String intro) throws UnsupportedEncodingException{
+		Company company = companyService.addCompanyInfo(request, id, name, logo, address, industry, website, scale, financing, intro);
+		return new JsonResult(SUCCESS,company,"完善公司信息成功");
+	}
+	
+	
+	
 }
