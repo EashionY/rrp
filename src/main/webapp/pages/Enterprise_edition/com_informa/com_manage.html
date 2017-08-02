@@ -11,8 +11,36 @@
     <link rel="stylesheet" href="../../../css/share/commen.css"/>
     <link rel="stylesheet" href="../../../plug/city-picker-master/src/css/city-picker.css"/>
     <link rel="stylesheet" href="../../../css/enter_company/com_infor.css"/>
+    <link rel="stylesheet" href="../../../plug/touxiang/css/style.css"/>
 </head>
 <body>
+<div id="img_mask" class="mymask">
+    <div id="toucontDiv">
+        <div class="container">
+            <div class="imageBox">
+                <div class="thumbBox"></div>
+                <div class="spinner" style="display: none">Loading...</div>
+            </div>
+            <div class="action">
+                <div class="new-contentarea tc">
+                    <a href="javascript:void(0)" class="upload-img">
+                        <label for="upload-file">选择图片</label>
+                    </a>
+                    <input type="file" class="" name="upload-file" id="upload-file" />
+                </div>
+                <input type="button" id="btnCrop"  class="Btnsty_peyton" value="裁切">
+                <input type="button" id="btnZoomIn" class="Btnsty_peyton" value="+"  >
+                <input type="button" id="btnZoomOut" class="Btnsty_peyton" value="-" >
+            </div>
+            <div class="cropped">
+                <div id="imgtext">图片预览区</div>
+                <div id="imgDiv" style="margin-top:10px"></div>
+                <div id="imgbtn">确认</div>
+                <div id="imgbtn_quit">取消</div>
+            </div>
+        </div>
+    </div>
+</div>
 <header>
     <nav>
         <div class="nav_div1">
@@ -40,31 +68,38 @@
     <div class="com_right">
         <div class="comInfo_contbox">
             <div class="comInfo_contdiv">
-                <div>公司名称：</div><div><input type="text"/></div>
+                <div>公司名称：</div><div><input type="text" id="com_moName"/></div>
             </div>
             <div class="comInfo_contdiv">
                 <div>公司logo：</div><div class="comInfo_logo"><span class="logo_tips">180*180 小于10M</span></div>
             </div>
             <div class="comInfo_contdiv">
-                <div>公司地址：</div>
+                <div>公司网址：</div><div><input type="text" id="com_moWz"/></div>
+            </div>
+             <div class="comInfo_contdiv">
+                <div>公司电话：</div><div><input type="text" id="com_moPhone"/></div>
+            </div>
+            <div class="comInfo_contdiv">
+                <div>所在地区：</div>
                 <div class="comInfo_addre">
-                    <input readonly type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
+                    <input id="com_moDq" readonly type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
                     <span class="myfont input_icon input_icon2">&#xe681;</span>
                 </div>
             </div>
             <div class="comInfo_contdiv">
+            	<div>详细地址：</div><div class="comInfo_addre"><input id="com_moDz" type="text"/></div>
+        	</div>
+            <div class="comInfo_contdiv">
                 <div>行业领域：</div>
                 <div class="comInfo_addre comInfo_linyu">
-                    <input type="text"/><span class="myfont input_icon input_icon2">&#xe681;</span>
+                    <input type="text" id="com_moLy"/><span class="myfont input_icon input_icon2">&#xe681;</span>
                 </div>
             </div>
-            <div class="comInfo_contdiv">
-                <div>公司网址：</div><div><input type="email"/></div>
-            </div>
+            
             <div class="comInfo_contdiv">
                 <div>公司规模：</div>
                 <div id="divselect" class="divselect">
-                    <cite><span class="input_text"></span>
+                    <cite><span class="input_text" id="com_moGm"></span>
                         <span class="myfont input_icon">&#xe681;</span>
                     </cite>
                     <ul>
@@ -81,8 +116,8 @@
             <div class="comInfo_contdiv">
                 <div>公司融资：</div>
                 <div>
-                    <div class="comInfo_rongzi"><span class="comInfo_rzactiv">未融资</span><span>天使轮</span><span>A轮</span><span>B轮</span><span>C轮</span></div>
-                    <div class="comInfo_rongzi comInfo_rongzi2"><span>D轮及以上</span><span>上市公司</span><span>不需要融资</span></div>
+                    <div class="comInfo_rongzi"><span class="rz comInfo_rzactiv">未融资</span><span class="rz">天使轮</span><span class="rz">A轮</span><span class="rz">B轮</span><span class="rz">C轮</span></div>
+                    <div class="comInfo_rongzi comInfo_rongzi2"><span class="rz">D轮及以上</span><span class="rz">上市公司</span><span class="rz">不需要融资</span></div>
                 </div>
             </div>
             <div class="comInfo_contdiv">
@@ -93,7 +128,15 @@
                     <div class="texterea_tips"><span class="red" id="cost_tpl_title_length">0</span>/1000字</div>
                 </div>
             </div>
-            <div class="comInfo_btnbox"><span>提交</span><span class="com_exit" id="com_exit">取消</span></div>
+            <div class="comInfo_contdiv">
+                <div>公司信息：</div>
+                <div class="comInfo_textarea">
+                  <textarea name="" id="work_content2" cols="30" rows="10"  maxlength="1000"
+                            onkeyup="javascript:setShowLength(this, 1000, 'cost_tpl_title_length2');"></textarea>
+                    <div class="texterea_tips"><span class="red" id="cost_tpl_title_length2">0</span>/1000字</div>
+                </div>
+            </div>
+            <div class="comInfo_btnbox"><span id="com_commit">提交</span><span class="com_exit" id="com_exit">取消</span></div>
         </div>
     </div>
 
@@ -121,10 +164,11 @@
 </footer>
 </body>
 <script src="../../../js/jquery-1.11.3.js"></script>
+<script src ="../../../js/ip.js"></script>
+<script src="../../../plug/layer/layer.js"></script>
 <script src ="../../../plug/city-picker-master/src/city-picker.data.js"></script>
 <script src ="../../../plug/city-picker-master/src/city-picker.js"></script>
-<script src="../../../plug/jquery.js"></script>
-<script src="../../../plug/divselect.js"></script>
 <script src="../../../js/com_informa/com_infor.js"></script>
-
+<script src="../../../plug/touxiang/js/cropbox.js"></script>
+<script src="../../../js/com_informa/com_xxmodify.js"></script>
 </html>
