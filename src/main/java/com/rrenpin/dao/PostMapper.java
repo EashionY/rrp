@@ -39,4 +39,10 @@ public interface PostMapper {
 	 */
 	List<Map<String,Object>> searchPostCompany(@Param("keyword")String keyword,@Param("offset")int offset,@Param("pageSize")int pageSize);
 	
+	/**
+	 * 热门职位(10个)
+	 * @return
+	 */
+	List<Map<String,Object>> popularJob();
+	
 }

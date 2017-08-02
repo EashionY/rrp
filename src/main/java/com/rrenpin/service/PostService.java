@@ -2,6 +2,7 @@ package com.rrenpin.service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -68,4 +69,20 @@ public interface PostService {
 	 * @return 
 	 */
 	public List<Post> listPostJob(int companyId,String status,int page,int pageSize);
+	
+	/**
+	 * 搜索职位/公司
+	 * @param keyword
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+	public List<Map<String,Object>> searchPostCompany(String keyword,int page,int pageSize);
+	
+	/**
+	 * 10个热门职位
+	 * @return
+	 */
+	public List<Map<String,Object>> popularJob();
+	
 }

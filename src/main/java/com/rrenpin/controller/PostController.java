@@ -2,6 +2,7 @@ package com.rrenpin.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -61,5 +62,18 @@ public class PostController extends ExceptionController{
 		return new JsonResult(result);
 	}
 	
+	@RequestMapping("/searchPostCompany.do")
+	@ResponseBody
+	public JsonResult searchPostCompany(String keyword, int page, int pageSize){
+		List<Map<String,Object>> result = postService.searchPostCompany(keyword, page, pageSize);
+		return new JsonResult(result);
+	}
+	
+	@RequestMapping("/popularJob.do")
+	@ResponseBody
+	public JsonResult popularJob(){
+		List<Map<String,Object>> result = postService.popularJob();
+		return new JsonResult(result);
+	}
 	
 }

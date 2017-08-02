@@ -202,7 +202,14 @@
   <select id="searchPostCompany" resultType="java.util.Map">
   	select ps.*,cpy.name,cpy.industry,cpy.financing 
   	from post ps join company cpy on ps.company_id=cpy.id
-  	where ps.post_name like #{keyword} or cpy.name like #{keyword}
+  	where ps.post_name like #{keyword} or cpy.name like #{keyword} and ps.post_status='1'
   	limit #{offset},#{pageSize}
+  </select>
+  
+  <select id="popularJob" resultType="java.util.Map">
+  	select post_name,count(*) as num
+  	from post group by post_name
+  	order by num desc
+  	limit 10
   </select>
 </mapper>

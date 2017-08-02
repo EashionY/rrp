@@ -2,6 +2,7 @@ package com.rrenpin.service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -117,6 +118,30 @@ public class PostServiceImpl implements PostService {
 		List<Post> result;
 		try {
 			result = postMapper.listPostJob(companyId, status, offset, pageSize);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		return result;
+	}
+
+	public List<Map<String, Object>> searchPostCompany(String keyword, int page, int pageSize) {
+		keyword = "%"+keyword+"%";
+		int offset = (page-1)*pageSize;
+		List<Map<String, Object>> result;
+		try {
+			result = postMapper.searchPostCompany(keyword, offset, pageSize);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		return result;
+	}
+
+	public List<Map<String, Object>> popularJob() {
+		List<Map<String, Object>> result;
+		try {
+			result = postMapper.popularJob();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DataBaseException("连接服务器超时");
