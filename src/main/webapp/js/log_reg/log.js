@@ -14,12 +14,14 @@ $("#log_btn").on("click",function(){
             data: {phone:phone, password:psd},
             dataType: "json",
             success: function(data){
-            
+            	//console.log(data)
                 if(data.state==0){
 //                	登陆成功保存昵称到cookie
                 	addCookie("userName",data.data.nickname,1,"/");  
                 	addCookie("userId",data.data.id,1,"/"); 
                 	addCookie("userPhone",data.data.phone,1,"/"); 
+                	addCookie("companyName",data.data.name,1,"/"); 
+                	addCookie("email",data.data.email,1,"/"); 
                 	layer.msg(data.message,{
               		  icon: 1,
               		  time: 1000 
@@ -51,3 +53,16 @@ $("#to_regBtn span").on("click",function(){
 $("#to_forgotBtn").on("click",function(){
     window.location.href="forgot_psd.html"
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
