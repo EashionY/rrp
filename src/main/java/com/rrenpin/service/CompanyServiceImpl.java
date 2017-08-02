@@ -152,7 +152,7 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	public Company addCompanyInfo(HttpServletRequest request, int id, String name, String logo, String address, String industry, String website, String scale,
-			String financing, String intro) throws UnsupportedEncodingException {
+			String financing, String intro, String tel, String info) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 		Company company = companyMapper.selectByPrimaryKey(id);
 		if(company==null){
@@ -174,6 +174,8 @@ public class CompanyServiceImpl implements CompanyService {
 		company.setScale(scale);
 		company.setFinancing(financing);
 		company.setIntro(intro);
+		company.setTel(tel);
+		company.setInfo(info);
 		int i;
 		try {
 			i = companyMapper.updateByPrimaryKeySelective(company);

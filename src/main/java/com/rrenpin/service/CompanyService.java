@@ -57,5 +57,5 @@ public interface CompanyService {
 	 * @throws UnsupportedEncodingException 
 	 */
 	public Company addCompanyInfo(HttpServletRequest request,int id,String name,String logo,String address,String industry,String website,
-			String scale,String financing,String intro) throws UnsupportedEncodingException;
+			String scale,String financing,String intro,String tel,String info) throws UnsupportedEncodingException;
 }

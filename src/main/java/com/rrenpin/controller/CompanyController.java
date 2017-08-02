@@ -69,8 +69,8 @@ public class CompanyController extends ExceptionController {
 	@RequestMapping("/addCompanyInfo.do")
 	@ResponseBody
 	public JsonResult addCompanyInfo(HttpServletRequest request, int id, String name, String logo, String address, String industry, String website, String scale,
-			String financing, String intro) throws UnsupportedEncodingException{
-		Company company = companyService.addCompanyInfo(request, id, name, logo, address, industry, website, scale, financing, intro);
+			String financing, String intro, String tel, String info) throws UnsupportedEncodingException{
+		Company company = companyService.addCompanyInfo(request, id, name, logo, address, industry, website, scale, financing, intro, tel, info);
 		return new JsonResult(SUCCESS,company,"完善公司信息成功");
 	}
 	
