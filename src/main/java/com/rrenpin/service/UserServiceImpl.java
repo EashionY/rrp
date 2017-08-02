@@ -88,6 +88,7 @@ public class UserServiceImpl implements UserService {
 				result.put("intro", company.getIntro());
 				result.put("regTime", company.getRegTime());
 				result.put("status", company.getStatus());
+				result.put("email", company.getEmail());
 				return result;
 			}
 		}else{
