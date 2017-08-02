@@ -67,5 +67,5 @@ public interface PostService {
 	 * @param status ְλ״̬
 	 * @return 
 	 */
-	public List<Post> listPostJob(int companyId,String status);
+	public List<Post> listPostJob(int companyId,String status,int page,int pageSize);
 }

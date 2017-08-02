@@ -4,42 +4,44 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Post implements Serializable{
-
-	private static final long serialVersionUID = -2771145349656056619L;
 	
-	//记录id
-    private Integer id;
-    //公司id
-    private Integer companyId;
-    //职位名称
-    private String name;
-    //薪酬待遇
-    private String salary;
-    //工作地点
-    private String region;
-    //工作经验
-    private String workExp;
-    //学历要求
-    private String degree;
-    //职位类型
-    private String workType;
-    //发布时间
-    private Date postTime;
-    //职位诱惑
-    private String benefits;
-    //岗位职责
-    private String duty;
-    //任职要求
-    private String requirement;
-    //状态("1"招聘中，"0"招聘结束)
-    private String status;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7456506486828224823L;
 
-    public Integer getId() {
-        return id;
+	private Integer postId;
+
+    private Integer companyId;
+
+    private String postName;
+
+    private String salary;
+
+    private String region;
+
+    private String workExp;
+
+    private String degree;
+
+    private String workType;
+
+    private Date postTime;
+
+    private String benefits;
+
+    private String duty;
+
+    private String requirement;
+
+    private String postStatus;
+
+    public Integer getPostId() {
+        return postId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setPostId(Integer postId) {
+        this.postId = postId;
     }
 
     public Integer getCompanyId() {
@@ -50,12 +52,12 @@ public class Post implements Serializable{
         this.companyId = companyId;
     }
 
-    public String getName() {
-        return name;
+    public String getPostName() {
+        return postName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPostName(String postName) {
+        this.postName = postName;
     }
 
     public String getSalary() {
@@ -130,27 +132,27 @@ public class Post implements Serializable{
         this.requirement = requirement;
     }
 
-    public String getStatus() {
-        return status;
+    public String getPostStatus() {
+        return postStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setPostStatus(String postStatus) {
+        this.postStatus = postStatus;
     }
 
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", companyId=" + companyId + ", name=" + name + ", salary=" + salary + ", region="
-				+ region + ", workExp=" + workExp + ", degree=" + degree + ", workType=" + workType + ", postTime="
-				+ postTime + ", benefits=" + benefits + ", duty=" + duty + ", requirement=" + requirement + ", status="
-				+ status + "]";
+		return "Post [postId=" + postId + ", companyId=" + companyId + ", postName=" + postName + ", salary=" + salary
+				+ ", region=" + region + ", workExp=" + workExp + ", degree=" + degree + ", workType=" + workType
+				+ ", postTime=" + postTime + ", benefits=" + benefits + ", duty=" + duty + ", requirement="
+				+ requirement + ", postStatus=" + postStatus + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((postId == null) ? 0 : postId.hashCode());
 		return result;
 	}
 
@@ -163,13 +165,12 @@ public class Post implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Post other = (Post) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (postId == null) {
+			if (other.postId != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!postId.equals(other.postId))
 			return false;
 		return true;
 	}
-    
     
 }

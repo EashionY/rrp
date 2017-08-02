@@ -24,7 +24,7 @@ public class PostServiceImpl implements PostService {
 		req.setCharacterEncoding("UTF-8");
 		Post post = new Post();
 		post.setCompanyId(companyId);
-		post.setName(name);
+		post.setPostName(name);
 		post.setSalary(salary);
 		post.setRegion(region);
 		post.setWorkExp(workExp);
@@ -52,7 +52,7 @@ public class PostServiceImpl implements PostService {
 		if(post==null){
 			throw new PostException("无对应的职位");
 		}
-		post.setName(name);
+		post.setPostName(name);
 		post.setSalary(salary);
 		post.setRegion(region);
 		post.setWorkExp(workExp);
@@ -79,7 +79,7 @@ public class PostServiceImpl implements PostService {
 		if(post==null){
 			throw new PostException("无对应的职位");
 		}
-		post.setStatus("1");
+		post.setPostStatus("1");
 		int i;
 		try {
 			i = postMapper.updateByPrimaryKeySelective(post);
@@ -98,7 +98,7 @@ public class PostServiceImpl implements PostService {
 		if(post==null){
 			throw new PostException("无对应的职位");
 		}
-		post.setStatus("0");
+		post.setPostStatus("0");
 		int i;
 		try {
 			i = postMapper.updateByPrimaryKeySelective(post);
@@ -112,10 +112,11 @@ public class PostServiceImpl implements PostService {
 		return "0";
 	}
 
-	public List<Post> listPostJob(int companyId, String status) {
+	public List<Post> listPostJob(int companyId, String status, int page, int pageSize) {
+		int offset = (page-1)*pageSize;
 		List<Post> result;
 		try {
-			result = postMapper.listPostJob(companyId, status);
+			result = postMapper.listPostJob(companyId, status, offset, pageSize);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DataBaseException("连接服务器超时");
