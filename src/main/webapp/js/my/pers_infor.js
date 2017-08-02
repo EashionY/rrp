@@ -8,7 +8,7 @@ $(".my_edit").on("click",function(){
     $(".my_rightmain2").css("display","block");
     var userIdValue = getCookieValue("userId"); 
     $.get(ip+"/rrp/user/findUserInfo.do",{userId:userIdValue},function(data){
-    	$("#my_headImg2").attr("src",data.data.headImg)
+    	$("#my_headImg2").attr("src",'../../../'+data.data.headImg)
     	$("#uname").val(data.data.nickname);
     	if(data.data.sex=='男'){
     		$("#myedit_nan").addClass("mysex")

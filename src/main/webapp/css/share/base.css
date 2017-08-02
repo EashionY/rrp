@@ -27,11 +27,11 @@ time, mark, audio, video {
     border: 0;
     vertical-align: baseline;
 }
-/*li閺嶅洨顒�*/
+/*li闁哄秴娲ㄩ锟�*/
 ul li{
   list-style: none;
 }
-/*a閺嶅洨顒�*/
+/*a闁哄秴娲ㄩ锟�*/
 a{
     color: #333333;
 }
@@ -50,7 +50,7 @@ a:active {
     text-decoration: none;
 
 }
-/*閹稿鎸�*/
+/*闁圭顦甸幐锟�*/
 .baseBtn{
 }
 .baseBtn:hover{}
@@ -58,7 +58,7 @@ a:active {
 .primaryBtn:hover{}
 .defaultBtn{}
 .defaultBtn:hover{}
-/*閻垽鍣洪崶鐐垼*/
+/*闁活厹鍨介崳娲炊閻愵剛鍨�*/
 @font-face {
     src: url("../../font/iconfont.woff");
     font-family: "indexIcon";
@@ -67,7 +67,7 @@ a:active {
     font-family: "indexIcon";
     font-size: 16px;
 }
-/*婵帊缍嬮弻銉嚄閸ｏ拷*/
+/*濠殿垱甯婄紞瀣蓟閵夘煈鍤勯柛锝忔嫹*/
 @media (max-width:768px) {}
 
 textarea{

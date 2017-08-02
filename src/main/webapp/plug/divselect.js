@@ -5,9 +5,11 @@ jQuery.divselect = function(divselectid,inputselectid) {
 		var ul = $(divselectid+" ul");
 
 		if(ul.css("display")=="none"){
-			ul.slideDown("fast");
+			//ul.slideDown("fast");
+			ul.css("display","block")
 		}else{
-			ul.slideUp("fast");
+			ul.css("display","none")
+			//ul.slideUp("fast");
 		}
 	});
 	$(divselectid+" ul li a").click(function(){
@@ -16,9 +18,9 @@ jQuery.divselect = function(divselectid,inputselectid) {
 		var value = $(this).attr("selectid");
 		console.log(value)
 		inputselect.val(value);
-		$(divselectid+" ul").hide();
+		$(divselectid+" ul").css("display","none");
 	});
 	$(document).click(function(){
-		$(divselectid+" ul").hide();
+		$(divselectid+" ul").css("display","none");
 	});
 };

@@ -6,7 +6,7 @@
 .comInfo_contdiv input{width: 835px;height: 50px;border: 1px #dddddd solid;
     text-indent: 23px;font-size: 16px;color: #333333;outline-color:#3eb39d}
 .comInfo_logo{width: 180px;height: 180px;border: 1px #dddddd dashed;
-    background-color: #ffffff;position: relative}
+    background-color: #ffffff;position: relative;overflow:hidden;}
 .comInfo_logo:hover{cursor: pointer}
 .logo_tips{position: absolute;bottom: 10px;left: 33px;font-size: 14px;color: #878789}
 .comInfo_logo:before{content: "";position: absolute;left:87px;top: 20px;background-color: #EEEEEE;
@@ -41,12 +41,12 @@
     width: 0;
 }
 
-/*鍏徃瑙勬ā--涓嬫媺閫夋嫨妗�*/
+/*下拉*/
 .comInfo_contdiv .divselect{width:835px;position:relative; z-index:100;}
 .comInfo_contdiv .divselect cite{width:835px; height:50px;line-height:50px; display:block; cursor:pointer;font-style:normal;
     border:1px solid #dddddd;background-color: #ffffff;text-indent: 23px}
 .comInfo_contdiv .divselect ul{width:835px;border:1px solid #dddddd; background-color:#ffffff;
-    position:absolute; z-index:20000; margin-top:-1px;display: none;}
+    position:absolute; z-index:200; margin-top:-1px;display:none;}
 .comInfo_contdiv .divselect ul li{height:30px; line-height:30px;}
 .comInfo_contdiv .divselect ul li a{display:block; height:30px; color:#333333; text-decoration:none;
     padding-left:23px; padding-right:10px;}
