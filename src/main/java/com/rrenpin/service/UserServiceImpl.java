@@ -284,9 +284,9 @@ public class UserServiceImpl implements UserService {
 		String headImg = strBase64[1];
 		System.out.println(headImg);
 		//windows系统本地路径
-//		String path = "D:\\workspace\\rrp\\src\\main\\webapp\\images\\upload\\"+userId;
-		//项目绝对路径
-		String path = request.getSession().getServletContext().getRealPath("/")+"images\\upload\\"+userId;
+		String path = "D:\\rrpUpload\\"+userId;
+		//linux系统路径（路径改动之后需要相应的更改server.xml中的context标签）
+//		String path = "";
 		System.out.println(path);
 		String filename = "userHeadImg.png";
 		boolean tf = Image.base64ToImage(headImg, path, filename);
@@ -295,7 +295,7 @@ public class UserServiceImpl implements UserService {
 			User user;
 			try {
 				user = userMapper.selectByPrimaryKey(userId);
-				user.setHeadImg("images/upload/"+userId+File.separator+"userHeadImg.png");
+				user.setHeadImg("images/"+userId+File.separator+filename);
 				i = userMapper.updateByPrimaryKeySelective(user);
 			} catch (Exception e) {
 				e.printStackTrace();

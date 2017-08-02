@@ -160,14 +160,20 @@ public class CompanyServiceImpl implements CompanyService {
 		}
 		company.setName(name);
 		int userId = company.getUserId();
-		//上传logo图片
-		String path = request.getSession().getServletContext().getRealPath("/")+"images\\upload\\"+userId;;
+		//去除数据头
+		String[] strBase64 = logo.split(",");
+		String logoImg = strBase64[1];
+		//windows系统本地路径
+		String path = "D:\\rrpUpload\\"+userId;
+		//linux系统路径（路径改动之后需要相应的更改server.xml中的context标签）
+//		String path = "";
 		String filename = "companyLogo.png";
-		boolean success = Image.base64ToImage(logo, path, filename);
+		//上传logo图片
+		boolean success = Image.base64ToImage(logoImg, path, filename);
 		if(!success){
 			throw new ImgUploadException("Logo上传失败");
 		}
-		company.setLogo("images/upload/"+userId+File.separator+filename);
+		company.setLogo("images/"+userId+File.separator+filename);
 		company.setAddress(address);
 		company.setIndustry(industry);
 		company.setWebsite(website);
