@@ -135,8 +135,10 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-  <select id="findByPhone" resultType="com.rrenpin.entity.User">
-  	select * from user where phone=#{phone}
+  <select id="findByPhone" resultMap="BaseResultMap">
+  	select 
+  	<include refid="Base_Column_List" /> 
+  	from user where phone=#{phone,jdbcType=VARCHAR}
   </select>
   
 </mapper>

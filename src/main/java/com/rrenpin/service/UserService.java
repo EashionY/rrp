@@ -1,6 +1,7 @@
 package com.rrenpin.service;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,9 +13,9 @@ public interface UserService {
 	 * 用户登录
 	 * @param phone
 	 * @param password
-	 * @return User
+	 * @return 个人及公司信息
 	 */
-	public User login(String phone,String password);
+	public Map<String, Object> login(String phone,String password);
 	
 	/**
 	 * 用户注册

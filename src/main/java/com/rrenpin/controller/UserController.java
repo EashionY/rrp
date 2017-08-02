@@ -1,6 +1,7 @@
 package com.rrenpin.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +27,8 @@ public class UserController extends ExceptionController{
 	@ResponseBody
 	public JsonResult login(String phone,String password){
 //		System.out.println("phone:"+phone+",psd:"+password);
-		User user = userService.login(phone, password);
-		return new JsonResult(SUCCESS,user,"登录成功");
+		Map<String, Object> result = userService.login(phone, password);
+		return new JsonResult(SUCCESS,result,"登录成功");
 	}
 	
 	@RequestMapping("/modifyUserInfo.do")

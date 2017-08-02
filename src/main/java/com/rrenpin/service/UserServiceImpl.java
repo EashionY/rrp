@@ -3,6 +3,8 @@ package com.rrenpin.service;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import javax.annotation.Resource;
@@ -12,7 +14,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.rrenpin.dao.CompanyMapper;
 import com.rrenpin.dao.UserMapper;
+import com.rrenpin.entity.Company;
 import com.rrenpin.entity.User;
 import com.rrenpin.exception.CodeErrorException;
 import com.rrenpin.exception.DataBaseException;
@@ -36,7 +40,10 @@ public class UserServiceImpl implements UserService {
 	@Resource
 	private UserMapper userMapper;
 	
-	public User login(String phone, String password) {
+	@Resource
+	private CompanyMapper companyMapper;
+	
+	public Map<String,Object> login(String phone, String password) {
 		if(phone==null || phone.trim().isEmpty()){
 			throw new LoginException("手机号不能为空");
 		}
@@ -45,13 +52,44 @@ public class UserServiceImpl implements UserService {
 		}
 		//检测手机号
 		User user = userMapper.findByPhone(phone);
+		System.out.println(user);
 		if(user==null){
 			throw new LoginException("手机号或密码错误");
 		}
 		//检测密码
 		String md5Password = Util.md5(password);
 		if(user.getPassword().equals(md5Password)){
-			return user;
+			Map<String,Object> result = new HashMap<String,Object>();
+			int userId = user.getId();
+			//返回个人信息
+			result.put("id", userId);
+			result.put("phone", user.getPhone());
+			result.put("nickname", user.getNickname());
+			result.put("headImg", user.getHeadImg());
+			result.put("sex", user.getSex());
+			result.put("job", user.getJob());
+			result.put("degree", user.getDegree());
+			result.put("selfIntro", user.getSelfIntro());
+			//返回公司信息
+			Company company = companyMapper.findByUserId(userId);
+			if(company==null){
+				return result;
+			}else{
+				result.put("companyId", company.getId());
+				result.put("name", company.getName());
+				result.put("logo", company.getLogo());
+				result.put("info", company.getInfo());
+				result.put("address", company.getAddress());
+				result.put("industry", company.getIndustry());
+				result.put("scale", company.getIndustry());
+				result.put("website", company.getWebsite());
+				result.put("financing", company.getFinancing());
+				result.put("tel", company.getTel());
+				result.put("intro", company.getIntro());
+				result.put("regTime", company.getRegTime());
+				result.put("status", company.getStatus());
+				return result;
+			}
 		}else{
 			throw new LoginException("手机号或密码错误");
 		}
