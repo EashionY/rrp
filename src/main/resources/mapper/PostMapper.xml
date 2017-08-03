@@ -194,7 +194,7 @@
     from post
     where company_id=#{companyId}
     <if test="status != null">
-    AND status = #{status}
+    AND post_status = #{status}
     </if>
     LIMIT #{offset},#{pageSize}
   </select>
