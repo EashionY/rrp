@@ -8,9 +8,14 @@
     <result column="post_id" jdbcType="INTEGER" property="postId" />
     <result column="delivery_status" jdbcType="VARCHAR" property="deliveryStatus" />
     <result column="delivery_time" jdbcType="TIMESTAMP" property="deliveryTime" />
+    <result column="check_time" jdbcType="TIMESTAMP" property="checkTime" />
+    <result column="intend_time" jdbcType="TIMESTAMP" property="intendTime" />
+    <result column="invite_time" jdbcType="TIMESTAMP" property="inviteTime" />
+    <result column="unfit_time" jdbcType="TIMESTAMP" property="unfitTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    delivery_id, resume_id, company_id, post_id, delivery_status, delivery_time
+    delivery_id, resume_id, company_id, post_id, delivery_status, delivery_time, check_time, 
+    intend_time, invite_time, unfit_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -27,11 +32,13 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into delivery (delivery_id, resume_id, company_id, 
-      post_id, delivery_status, delivery_time
-      )
+      post_id, delivery_status, delivery_time, 
+      check_time, intend_time, invite_time, 
+      unfit_time)
     values (#{deliveryId,jdbcType=INTEGER}, #{resumeId,jdbcType=INTEGER}, #{companyId,jdbcType=INTEGER}, 
-      #{postId,jdbcType=INTEGER}, #{deliveryStatus,jdbcType=VARCHAR}, #{deliveryTime,jdbcType=TIMESTAMP}
-      )
+      #{postId,jdbcType=INTEGER}, #{deliveryStatus,jdbcType=VARCHAR}, #{deliveryTime,jdbcType=TIMESTAMP}, 
+      #{checkTime,jdbcType=TIMESTAMP}, #{intendTime,jdbcType=TIMESTAMP}, #{inviteTime,jdbcType=TIMESTAMP}, 
+      #{unfitTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.rrenpin.entity.Delivery">
     <selectKey keyProperty="deliveryId" order="BEFORE" resultType="java.lang.Integer">
@@ -55,6 +62,18 @@
       <if test="deliveryTime != null">
         delivery_time,
       </if>
+      <if test="checkTime != null">
+        check_time,
+      </if>
+      <if test="intendTime != null">
+        intend_time,
+      </if>
+      <if test="inviteTime != null">
+        invite_time,
+      </if>
+      <if test="unfitTime != null">
+        unfit_time,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       #{deliveryId,jdbcType=INTEGER},
@@ -72,6 +91,18 @@
       </if>
       <if test="deliveryTime != null">
         #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checkTime != null">
+        #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intendTime != null">
+        #{intendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inviteTime != null">
+        #{inviteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unfitTime != null">
+        #{unfitTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -93,6 +124,18 @@
       <if test="deliveryTime != null">
         delivery_time = #{deliveryTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="checkTime != null">
+        check_time = #{checkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="intendTime != null">
+        intend_time = #{intendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inviteTime != null">
+        invite_time = #{inviteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unfitTime != null">
+        unfit_time = #{unfitTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where delivery_id = #{deliveryId,jdbcType=INTEGER}
   </update>
@@ -102,7 +145,11 @@
       company_id = #{companyId,jdbcType=INTEGER},
       post_id = #{postId,jdbcType=INTEGER},
       delivery_status = #{deliveryStatus,jdbcType=VARCHAR},
-      delivery_time = #{deliveryTime,jdbcType=TIMESTAMP}
+      delivery_time = #{deliveryTime,jdbcType=TIMESTAMP},
+      check_time = #{checkTime,jdbcType=TIMESTAMP},
+      intend_time = #{intendTime,jdbcType=TIMESTAMP},
+      invite_time = #{inviteTime,jdbcType=TIMESTAMP},
+      unfit_time = #{unfitTime,jdbcType=TIMESTAMP}
     where delivery_id = #{deliveryId,jdbcType=INTEGER}
   </update>
   
@@ -111,5 +158,12 @@
     <include refid="Base_Column_List" />
     from delivery
     where resume_id=#{resumeId} and company_id=#{companyId} and post_id=#{postId}
+  </select>
+  
+  <select id="findByResumeId" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from delivery
+    where resume_id=#{resumeId} and delivery_status=#{deliveryStatus}
   </select>
 </mapper>

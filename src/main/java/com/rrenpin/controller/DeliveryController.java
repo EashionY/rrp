@@ -1,5 +1,8 @@
 package com.rrenpin.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -25,5 +28,11 @@ public class DeliveryController {
 		return new JsonResult(SUCCESS,"","Í¶µÝ³É¹¦");
 	}
 	
+	@RequestMapping("/viewDeliveried.do")
+	@ResponseBody
+	public JsonResult viewDeliveried(int resumeId, String deliveryStatus){
+		List<Map<String,Object>> result = deliveryService.viewDeliveried(resumeId, deliveryStatus);
+		return new JsonResult(result);
+	}
 	
 }
