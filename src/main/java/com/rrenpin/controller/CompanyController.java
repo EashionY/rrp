@@ -74,6 +74,11 @@ public class CompanyController extends ExceptionController {
 		return new JsonResult(SUCCESS,company,"完善公司信息成功");
 	}
 	
-	
+	@RequestMapping("/companyDetail.do")
+	@ResponseBody
+	public JsonResult companyDetail(int companyId){
+		Company company = companyService.companyDetail(companyId);
+		return new JsonResult(company);
+	}
 	
 }

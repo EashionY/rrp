@@ -58,4 +58,11 @@ public interface CompanyService {
 	 */
 	public Company addCompanyInfo(HttpServletRequest request,int id,String name,String logo,String address,String industry,String website,
 			String scale,String financing,String intro,String tel,String info) throws UnsupportedEncodingException;
+	
+	/**
+	 * ¹«Ë¾ÏêÇé
+	 * @param companyId
+	 * @return
+	 */
+	public Company companyDetail(int companyId);
 }

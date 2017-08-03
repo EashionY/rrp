@@ -199,5 +199,16 @@ public class CompanyServiceImpl implements CompanyService {
 		return companyMapper.selectByPrimaryKey(id);
 	}
 
+	public Company companyDetail(int companyId) {
+		Company company;
+		try {
+			company = companyMapper.selectByPrimaryKey(companyId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		return company;
+	}
+
 	
 }
