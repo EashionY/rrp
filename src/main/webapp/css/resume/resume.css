@@ -119,9 +119,9 @@
     height: 80px;
     border-radius: 50%;
     overflow: hidden;
-    border: 1px red solid;
+    border: 1px #dddddd solid;
 }
-.resume_touxiang>img{width: 100%;height: 100%}
+.resume_touxiang>img{width: 100%;height: 100%;line-height:80px;text-align:center;}
 .resedit_touxiang{
     margin: 0 auto;
     position: relative;
@@ -142,7 +142,7 @@
     position: absolute;
     top: 25px;
     left: 25px;
-    z-index: 999;
+    z-index: 100;
     color: #ffffff;
     font-size: 30px;
     -webkit-transition: all .3s linear;
@@ -416,7 +416,7 @@
     top: 13px;
     right: 13px;
 }
-/*鍩庡競*/
+/*閸╁骸绔�*/
 .city-picker-span {
     position: relative;
     display: block;
@@ -442,7 +442,7 @@
 .inputDiv:hover{cursor: pointer}
 .inputDiv>input:hover{cursor: pointer}
 
-/*涓嬫媺閫夋嫨妗�*/
+/*娑撳濯洪柅澶嬪濡楋拷*/
 .divselect{width:305px;margin-top: 10px; position:relative; z-index:10000;}
 .divselect cite{width:305px; height:43px;line-height:43px; display:block; cursor:pointer;font-style:normal;
     border:1px solid #dddddd;background-color: #ffffff;text-indent: 10px}

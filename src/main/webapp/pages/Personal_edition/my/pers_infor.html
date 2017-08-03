@@ -167,7 +167,7 @@
 		    $.get(ip+"/rrp/user/findUserInfo.do",{userId:userIdValue},function(data){
 		    	if(data.state==0){
 		    		console.log(data.data);
-		    		$("#my_headimg").attr("src",'../../../'+data.data.headImg)
+		    		$("#my_headimg").attr("src",'../../../../'+data.data.headImg)
 		    		$("#uname1").html(data.data.nickname)
 		    		$(".my_zhiye").html(data.data.job)
 		    		$("#usex1").html(data.data.sex)
@@ -178,7 +178,7 @@
 			        {
 			            thumbBox: '.thumbBox',
 			            spinner: '.spinner',
-			            imgSrc: '../../../'+data.data.headImg
+			            imgSrc: '../../../../'+data.data.headImg
 			        };
 			        var cropper = $('.imageBox').cropbox(options);
 			        $('#upload-file').on('change', function(){
@@ -188,7 +188,7 @@
 			                cropper = $('.imageBox').cropbox(options);
 			            }
 			            reader.readAsDataURL(this.files[0]);
-			            this.files = [];
+			          //  this.files = [];
 			        })
 			        var imgMain
 			        $('#btnCrop').on('click', function(){
@@ -211,7 +211,7 @@
 			                $.post(ip+"/rrp/user/modifyHeadImg.do",{userId:userIdValue,base64:imgMain},function(res){
 			                	if(res.state==0){
 			                		layer.msg("上传成功")//TO-DO
-			                		$("#my_headImg2").attr("src",'../../../'+res.data.headImg);
+			                		$("#my_headImg2").attr("src",'../../../../'+res.data.headImg);
 			                		$("#img_mask").css("display","none");
 			                	}else{
 			                		layer.msg(res.message)

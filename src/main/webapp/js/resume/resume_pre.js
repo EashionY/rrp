@@ -11,6 +11,10 @@ $(function() {
             dataType: "json",
             success: function(data){
             	console.log(data.data)
+            	//头像
+            	if(data.data.head_img!=null){
+            		$("#re_headImg").attr("src","../../../../"+data.data.head_img)
+            	}
             	//基本信息
             	$("#uName").html(data.data.emp_name);
             	var str='<span>'+data.data.emp_region+'</span>'+
