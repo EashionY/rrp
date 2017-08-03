@@ -156,3 +156,44 @@ $(".comlogo_Box>ul>li").on("mouseover",function(){
 $(".comlogo_Box>ul>li").on("mouseout",function(){
     $(this).children(".com_name").css("bottom", "-30px")
 });
+//热门职位
+$(function(){
+	$.get(ip+"/rrp/post/popularJob.do",{},function(data){
+		if(data.state==0){
+			var list=data.data;
+			var str="";
+			$.each(list,function(k,v){//显示全部
+				str+='<li>'+list[k].post_name+'</li>'
+			})
+			$(".remen_ul").html(str)
+			
+			
+			
+			var li=$(".remen_ul li");//判断第几个超出范围
+			var length=30;
+			var num=0;
+			$.each(li,function(k,v){
+				length+=parseInt($(li[k]).css("width"))+20
+				if(length>673){
+					num=k;
+					return false;
+				}else{
+					num=10;
+				}
+			})
+		//	console.log(num)
+			$.each(li,function(k,v){//删除超出的节点
+				if(k>=num){
+					$(".remen_ul li:eq("+k+")").remove();
+					
+				}
+			})
+			
+			
+		}else{
+			layer.msg(data.message)
+		}
+	},'json')
+})
+
+
