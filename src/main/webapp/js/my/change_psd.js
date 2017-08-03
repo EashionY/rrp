@@ -3,7 +3,7 @@ $(function() {
 	    var uPhoneValue = getCookieValue("userPhone"); 
 	    console.log(uPhoneValue)
 	    $(".psd_div1 span").html(uPhoneValue)
-	});
+});
 	$(".psd_btn").click(function () {
 		var uid = getCookieValue("userId");
 		var oldpsd=$("#oldpsd").val();
@@ -14,7 +14,6 @@ $(function() {
 		}else if(newpsd!=newpsd2){
 			layer.msg("两次密码不一致!")
 		}else{
-			console.log(oldpsd,newpsd);
 			var num=0;
 		    var zm=false,sz=false,fh=false;
 		    if(newpsd.search(/[A-Za-z]/)!=-1) {num+=1;}else{zm=true}
