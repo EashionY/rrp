@@ -125,12 +125,15 @@ public class PostServiceImpl implements PostService {
 		return result;
 	}
 
-	public List<Map<String, Object>> searchPostCompany(String keyword, int page, int pageSize) {
-		keyword = "%"+keyword+"%";
+	public List<Map<String, Object>> searchPostCompany(String keyword, String region, String workExp, String degree,
+			String scale, String salary, String industry, String financing, int page, int pageSize) {
+		if(keyword != null){
+			keyword = "%"+keyword+"%";
+		}
 		int offset = (page-1)*pageSize;
 		List<Map<String, Object>> result;
 		try {
-			result = postMapper.searchPostCompany(keyword, offset, pageSize);
+			result = postMapper.searchPostCompany(keyword, region, workExp, degree, scale, salary, industry, financing, offset, pageSize);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DataBaseException("连接服务器超时");

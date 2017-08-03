@@ -77,7 +77,8 @@ public interface PostService {
 	 * @param pageSize
 	 * @return
 	 */
-	public List<Map<String,Object>> searchPostCompany(String keyword,int page,int pageSize);
+	public List<Map<String,Object>> searchPostCompany(String keyword, String region, String workExp, String degree,
+			String scale, String salary, String industry, String financing, int page, int pageSize);
 	
 	/**
 	 * 10个热门职位
@@ -99,5 +100,7 @@ public interface PostService {
 	 * @return
 	 */
 	public List<Map<String, Object>> jobDetail(int postId); 
+	
+	
 	
 }

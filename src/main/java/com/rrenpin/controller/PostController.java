@@ -64,8 +64,9 @@ public class PostController extends ExceptionController{
 	
 	@RequestMapping("/searchPostCompany.do")
 	@ResponseBody
-	public JsonResult searchPostCompany(String keyword, int page, int pageSize){
-		List<Map<String,Object>> result = postService.searchPostCompany(keyword, page, pageSize);
+	public JsonResult searchPostCompany(String keyword, String region, String workExp, String degree,
+			String scale, String salary, String industry, String financing, int page, int pageSize){
+		List<Map<String,Object>> result = postService.searchPostCompany(keyword, region, workExp, degree, scale, salary, industry, financing, page, pageSize);
 		return new JsonResult(result);
 	}
 	
@@ -89,5 +90,6 @@ public class PostController extends ExceptionController{
 		List<Map<String,Object>> result = postService.jobDetail(postId);
 		return new JsonResult(result);
 	}
+	
 	
 }

@@ -37,7 +37,10 @@ public interface PostMapper {
 	 * @param pageSize
 	 * @return
 	 */
-	List<Map<String,Object>> searchPostCompany(@Param("keyword")String keyword,@Param("offset")int offset,@Param("pageSize")int pageSize);
+	List<Map<String,Object>> searchPostCompany(@Param("keyword")String keyword,@Param("region")String region,
+			@Param("workExp")String workExp,@Param("degree")String degree,@Param("scale")String scale,
+			@Param("salary")String salary,@Param("industry")String industry,@Param("financing")String financing,
+			@Param("offset")int offset,@Param("pageSize")int pageSize);
 	
 	/**
 	 * 热门职位(10个)

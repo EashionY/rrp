@@ -21,7 +21,7 @@ public class Post implements Serializable{
     private String region;
 
     private String workExp;
-
+    //学历（中专及以下=1，高中=2，大专=3，本科=4， 硕士=5，博士=6）
     private String degree;
 
     private String workType;
