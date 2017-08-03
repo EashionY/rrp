@@ -70,7 +70,7 @@ public interface ResumeService {
 	 * @param request
 	 * @return
 	 */
-	public Map<String, Object> modifyHeadImg(int id,int userId,HttpServletRequest request);
+	public Map<String, Object> modifyHeadImg(int id,int userId,String headImg);
 	
 	/**
 	 * 通过userId查找简历

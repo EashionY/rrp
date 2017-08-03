@@ -1,5 +1,6 @@
 package com.rrenpin.service;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,7 @@ import com.rrenpin.entity.WorkExp;
 import com.rrenpin.exception.DataBaseException;
 import com.rrenpin.exception.ImgUploadException;
 import com.rrenpin.exception.ResumeException;
-import com.rrenpin.util.Upload;
+import com.rrenpin.util.Image;
 @Service("resumeService")
 public class ResumeServiceImpl implements ResumeService {
 
@@ -138,18 +139,23 @@ public class ResumeServiceImpl implements ResumeService {
 		return result;
 	}
 
-	public Map<String, Object> modifyHeadImg(int id, int userId, HttpServletRequest request){
-		String headImgPath;
-		try {
-			List<String> paths = Upload.uploadImg(request, ""+userId, "headImg");
-			headImgPath = paths.get(0);
-		} catch (Exception e) {
-			e.printStackTrace();
+	public Map<String, Object> modifyHeadImg(int id, int userId, String headImg){
+		//去除数据头
+		String[] strBase64 = headImg.split(",");
+		String imgBase64 = strBase64[1];
+		//windows系统本地路径
+		String path = "D:\\rrpUpload\\"+userId;
+		//linux系统路径（路径改动之后需要相应的更改server.xml中的context标签）
+//	    String path = "";
+		String filename = "resumeHeadImg.png";
+		//上传logo图片
+		boolean success = Image.base64ToImage(imgBase64, path, filename);
+		if(!success){
 			throw new ImgUploadException("头像上传失败");
 		}
 		Resume resume = new Resume();
 		resume.setId(id);
-		resume.setHeadImg(headImgPath);
+		resume.setHeadImg("images/"+userId+File.separator+filename);
 		int i;
 		try {
 			i = resumeMapper.updateByPrimaryKeySelective(resume);

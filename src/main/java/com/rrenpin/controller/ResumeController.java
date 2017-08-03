@@ -54,8 +54,8 @@ public class ResumeController extends ExceptionController {
 	
 	@RequestMapping("/modifyHeadImg.do")
 	@ResponseBody
-	public JsonResult modifyHeadImg( int id,int userId,HttpServletRequest request) throws UnsupportedEncodingException{
-		Map<String, Object> resume = resumeService.modifyHeadImg(id, userId, request);
+	public JsonResult modifyHeadImg( int id,int userId,String headImg) throws UnsupportedEncodingException{
+		Map<String, Object> resume = resumeService.modifyHeadImg(id, userId, headImg);
 		return new JsonResult(SUCCESS,resume,"修改头像成功");
 	}
 	
