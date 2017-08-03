@@ -85,4 +85,19 @@ public interface PostService {
 	 */
 	public List<Map<String,Object>> popularJob();
 	
+	/**
+	 * 查看最近发布的职位
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+	public List<Map<String, Object>> latestPostJob(int page,int pageSize);
+	
+	/**
+	 * 职位详情
+	 * @param postId
+	 * @return
+	 */
+	public List<Map<String, Object>> jobDetail(int postId); 
+	
 }

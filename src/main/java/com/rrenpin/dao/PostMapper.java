@@ -45,4 +45,20 @@ public interface PostMapper {
 	 */
 	List<Map<String,Object>> popularJob();
 	
+	/**
+	 * 最近发布的职位
+	 * @param offset
+	 * @param pageSize
+	 * @return
+	 */
+	List<Map<String, Object>> latestPostJob(@Param("offset")int offset,@Param("pageSize")int pageSize);
+	
+	/**
+	 * 职位详情
+	 * @param postId
+	 * @return
+	 */
+	List<Map<String,Object>> jobDetail(int postId);
+	
+	
 }

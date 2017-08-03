@@ -203,6 +203,7 @@
   	select ps.*,cpy.name,cpy.industry,cpy.financing 
   	from post ps join company cpy on ps.company_id=cpy.id
   	where ps.post_name like #{keyword} or cpy.name like #{keyword} and ps.post_status='1'
+  	order by ps.post_time desc
   	limit #{offset},#{pageSize}
   </select>
   
@@ -211,5 +212,18 @@
   	from post group by post_name
   	order by num desc
   	limit 10
+  </select>
+  
+  <select id="latestPostJob" resultType="java.util.Map">
+  	select ps.*,cpy.name,cpy.industry,cpy.financing 
+  	from post ps join company cpy on ps.company_id=cpy.id
+  	where ps.post_status='1' order by post_time desc 
+  	limit #{offset},#{pageSize}
+  </select>
+  
+  <select id="jobDetail" resultType="java.util.Map">
+  	select ps.*,cpy.* 
+  	from post ps join company cpy on ps.company_id=cpy.id
+  	where ps.post_status='1' and ps.post_id=#{postId}
   </select>
 </mapper>

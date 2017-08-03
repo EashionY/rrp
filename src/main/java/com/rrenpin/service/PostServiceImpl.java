@@ -149,5 +149,28 @@ public class PostServiceImpl implements PostService {
 		return result;
 	}
 
+	public List<Map<String, Object>> latestPostJob(int page, int pageSize) {
+		int offset = (page-1)*pageSize;
+		List<Map<String, Object>> result;
+		try {
+			result = postMapper.latestPostJob(offset, pageSize);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		return result;
+	}
+
+	public List<Map<String, Object>> jobDetail(int postId) {
+		List<Map<String, Object>> result;
+		try {
+			result = postMapper.jobDetail(postId);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		return result;
+	}
+
 	
 }

@@ -76,4 +76,18 @@ public class PostController extends ExceptionController{
 		return new JsonResult(result);
 	}
 	
+	@RequestMapping("/latestPostJob.do")
+	@ResponseBody
+	public JsonResult latestPostJob(int page,int pageSize){
+		List<Map<String,Object>> result = postService.latestPostJob(page, pageSize);
+		return new JsonResult(result);
+	}
+	
+	@RequestMapping("/jobDetail.do")
+	@ResponseBody
+	public JsonResult jobDetail(int postId){
+		List<Map<String,Object>> result = postService.jobDetail(postId);
+		return new JsonResult(result);
+	}
+	
 }
