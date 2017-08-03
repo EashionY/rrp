@@ -5,6 +5,7 @@
 }
 .index_left{
     width: 320px;
+    margin-bottom: 50px;
 }
 .index_right{
 
@@ -140,14 +141,25 @@
     color: #666666;
     padding-top: 30px;
     padding-bottom: 30px;
+    width:673px;
+}
+.remen_Box>div{
+	width:70px;
+	white-space: nowrap;
 }
 .remen_ul{
     display: flex;
     margin-left: 30px;
+   
+    
 }
 .remen_ul>li{
     margin-left: 20px;
+    white-space: nowrap;
+   
 }
+.remen_ul>li:hover{cursor: pointer;color: #3eb39d;}
+
 .remen_ul>li:nth-of-type(1){margin-left: 0}
 
 .comlogo_Box{
@@ -194,6 +206,9 @@
     color: #ffffff;
     letter-spacing: 1px;
     background-color: #3eb39d;
+}
+.zhiwei_more2{
+	display:none;
 }
 .zhiwei_more:hover{
     cursor: pointer;
