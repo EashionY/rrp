@@ -48,14 +48,22 @@ function getData(offset,size){
 					   }else{
 						   showDate=new Date(data[i].post_time).format("yy年MM月dd日")
 					   }
-                    result +='<div class="zhiwei_box"><div class="zhiwei_mainbox"><div class="top">'+
+                    result +='<div class="zhiwei_box"><input style="display:none" value="'+data[i].post_id+'"/><div class="zhiwei_mainbox"><div class="top">'+
                     '<div><ul><li>'+data[i].post_name+'</li><li>['+data[i].region+']</li><li>'+showDate+' 发布</li></ul>'+
-                    '<div class="salary_text">'+data[i].salary+'</div></div><div class="comName">'+data[i].name+'</div>'+
+                    '<div class="salary_text">'+data[i].salary+'</div></div><div class="comName">'+data[i].name+'</div><input style="display:none" value="'+data[i].company_id+'"/>'+
                     '</div><div class="bottom"><ul><li>'+data[i].work_exp+'</li><li>'+data[i].degree+'</li></ul>'+
                     '<div>'+data[i].industry+'/'+data[i].financing+'</div></div></div></div>';
                 })
 
                 $('#zhiwei_main').append(result);
+                
+                $(".zhiwei_box").click(function(){
+                	window.location.href="job/job_detail.html?postId="+$(this).children("input").val();
+                })
+                $(".comName").click(function(event){
+                	window.location.href="company/company.html?companyId="+$(this).next().val();
+                	event.stopPropagation();//阻止事件冒泡
+                })
 
                 /*******************************************/
 

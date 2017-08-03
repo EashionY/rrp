@@ -3,6 +3,7 @@
     background-color: #fafafa;
     border-bottom: 1px #eeeeee solid;
 }
+.zhiwei_box:hover{cursor: pointer}
 .zhiwei_Box>.zhiwei_box:nth-last-of-type(1){  border-bottom: none}
 .zhiwei_mainbox{
     padding:30px 30px;
@@ -35,8 +36,10 @@
 .comName{
     margin-top: 20px;
     /*border: 1px red solid;*/
+    position:relative;
+    z-index:20;
 }
-.comName:hover{cursor: pointer}
+.comName:hover{color: #3eb39d;cursor: pointer}
 
 .job_title{
     margin-top: 30px;
