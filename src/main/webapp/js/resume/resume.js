@@ -25,6 +25,26 @@ $(function(){
         $.scrollTo('#zipingbox',600);
     });
 });
+function divselect(divselectid,inputselectid) {//下拉
+	var inputselect = $(inputselectid);
+	$(divselectid+" cite").click(function(){
+		var ul = $(divselectid+" ul");
+		//console.log(ul.css("display")=="none")
+		if(ul.css("display")=="none"){
+			ul.css("display","inline-block")
+		}else{
+			ul.css("display","none")
+		}
+	});
+	$(divselectid+" ul li a").click(function(){
+		var txt = $(this).text();
+		$(divselectid+" cite").children(".input_text").html(txt);
+		var value = $(this).attr("selectid");
+		console.log(value)
+		inputselect.val(value);
+		$(divselectid+" ul").css("display","none");
+	});
+};
 //console.log($(document).scrollTop())
 //    日期
 laydate({
@@ -68,11 +88,11 @@ function setShowLength(obj, maxlength, id) {
 
 //    选择求职状态
 $(function(){
-    $.divselect("#divselect","#inputselect");
-    $.divselect("#divselect_xinzi","#inputselect_xinzi");
-    $.divselect("#divselect_leixing","#inputselect_leixing");
-    $.divselect("#divselect_jineng","#inputselect_jineng");
-    $.divselect("#divselect_xueli","#inputselect_xueli");
+	divselect("#divselect","#inputselect");
+	divselect("#divselect_xinzi","#inputselect_xinzi")
+	divselect("#divselect_leixing","#inputselect_leixing")
+	divselect("#divselect_jineng","#inputselect_jineng")
+	divselect("#divselect_xueli","#inputselect_xueli")
 });
 //隐藏-显示
 function mydisplay(mask,box){
@@ -216,9 +236,7 @@ $(".resume_touxiang").mouseover(function(){
 $(".resume_touxiang").mouseout(function(){
     $(this).removeClass("resedit_touxiang");
 });
-$(".resume_touxiang").click(function(){
-    alert("更换头像")
-});
+
 //   选择性别
 var sex=$(".resume_spanbox span");
 $.each(sex,function(key,val){

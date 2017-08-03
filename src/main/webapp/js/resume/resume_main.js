@@ -18,13 +18,68 @@
 	       window.location.href="../login.html";
 	    }else{
 	    	 $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
-	    		// console.log(data.data)
+	    		 console.log(data.data)
 	    		 if(data.state==0){//有简历
 	                	resumeId=data.data.id;
 	                	//简历名称
 	                	$("#resume_left_editbtn").html("&#xe635;");
 	                	$(".resume_lname").html(data.data.resume_name);
 	                	$(".resume_left_time").html("更新："+new Date(data.data.update_time).format("yyyy-MM-dd"));
+	                	//头像
+	                	if(data.data.head_img!=null){
+	                		$("#re_headImg").attr("src","../../../../"+data.data.head_img)
+	                	}
+	                	//头像处理
+						var options =
+				        {
+				            thumbBox: '.thumbBox',
+				            spinner: '.spinner',
+				            imgSrc: '../../../../'+data.data.head_img
+				        };
+				        var cropper = $('.imageBox').cropbox(options);
+				        $('#upload-file').on('change', function(){
+				            var reader = new FileReader();
+				            reader.onload = function(e) {
+				                options.imgSrc = e.target.result;
+				                cropper = $('.imageBox').cropbox(options);
+				            }
+				            reader.readAsDataURL(this.files[0]);
+				           // this.files = [];
+				        })
+				        var imgMain
+				        $('#btnCrop').on('click', function(){
+				            imgMain= cropper.getDataURL();
+				            $('#imgDiv').html('');
+				            $('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:100px;margin-top:30px;border-radius:50%;box-shadow:0px 0px 12px #7E7E7E;" ><p>100px*100px</p>');
+				        })
+				        $('#btnZoomIn').on('click', function(){
+				            cropper.zoomIn();
+				        })
+				        $('#btnZoomOut').on('click', function(){
+				            cropper.zoomOut();
+				        })
+				        
+				        $("#imgbtn").click(function(){
+				            if(imgMain==undefined){
+				                layer.msg("没有剪切图片")
+				            }else{
+				                $.post(ip+"/rrp/resume/modifyHeadImg.do",{id:resumeId,userId:userId,headImg:imgMain},function(res){
+				                	if(res.state==0){
+				                		layer.msg("上传成功",{
+				                    		  icon: 1,
+				                    		  time: 1000 
+				                      	}, function(){
+				                      		window.location.href="resume.html";
+				                      	});
+				                	}else{
+				                		layer.msg(res.message)
+				                	}
+				                })
+				            }
+				        })
+				        $("#imgbtn_quit").click(function(){
+				            $("#img_mask").css("display","none");
+				        })
 	                	//个人信息板块
 	                	$("#uName").html(data.data.emp_name);
 	                	$("#resume_modixinxi").css("display","inline-block")
@@ -442,3 +497,7 @@
                }
 		   },'json')
 	   })
+	   //修改头像
+	   $(".resume_touxiang").click(function(){
+		   $(".mymask").css("display","block")
+	   });
