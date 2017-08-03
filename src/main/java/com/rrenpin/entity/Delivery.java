@@ -4,11 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Delivery implements Serializable{
-	
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 8430372177135861900L;
+	private static final long serialVersionUID = -5152989865901838081L;
 
 	private Integer deliveryId;
 
@@ -21,6 +20,14 @@ public class Delivery implements Serializable{
     private String deliveryStatus;
 
     private Date deliveryTime;
+
+    private Date checkTime;
+
+    private Date intendTime;
+
+    private Date inviteTime;
+
+    private Date unfitTime;
 
     public Integer getDeliveryId() {
         return deliveryId;
@@ -70,10 +77,44 @@ public class Delivery implements Serializable{
         this.deliveryTime = deliveryTime;
     }
 
+    public Date getCheckTime() {
+        return checkTime;
+    }
+
+    public void setCheckTime(Date checkTime) {
+        this.checkTime = checkTime;
+    }
+
+    public Date getIntendTime() {
+        return intendTime;
+    }
+
+    public void setIntendTime(Date intendTime) {
+        this.intendTime = intendTime;
+    }
+
+    public Date getInviteTime() {
+        return inviteTime;
+    }
+
+    public void setInviteTime(Date inviteTime) {
+        this.inviteTime = inviteTime;
+    }
+
+    public Date getUnfitTime() {
+        return unfitTime;
+    }
+
+    public void setUnfitTime(Date unfitTime) {
+        this.unfitTime = unfitTime;
+    }
+
 	@Override
 	public String toString() {
 		return "Delivery [deliveryId=" + deliveryId + ", resumeId=" + resumeId + ", companyId=" + companyId
-				+ ", postId=" + postId + ", deliveryStatus=" + deliveryStatus + ", deliveryTime=" + deliveryTime + "]";
+				+ ", postId=" + postId + ", deliveryStatus=" + deliveryStatus + ", deliveryTime=" + deliveryTime
+				+ ", checkTime=" + checkTime + ", intendTime=" + intendTime + ", inviteTime=" + inviteTime
+				+ ", unfitTime=" + unfitTime + "]";
 	}
 
 	@Override
