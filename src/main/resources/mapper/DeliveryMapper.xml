@@ -166,4 +166,11 @@
     from delivery
     where resume_id=#{resumeId} and delivery_status=#{deliveryStatus}
   </select>
+  
+  <select id="findByCompanyId" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from delivery
+    where company_id=#{companyId} and delivery_status=#{deliveryStatus}
+  </select>
 </mapper>

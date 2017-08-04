@@ -29,12 +29,18 @@ public interface DeliveryMapper {
 	Delivery findDelivery(@Param("resumeId")int resumeId, @Param("companyId")int companyId, @Param("postId")int postId);
 	
 	/**
-	 * 查看已投递简历
+	 * (用户)查看已投递简历状态
 	 * @param resumeId
 	 * @param deliveryStatus
 	 * @return
 	 */
 	List<Delivery> findByResumeId(@Param("resumeId")int resumeId,@Param("deliveryStatus")String deliveryStatus);
 	
-	
+	/**
+	 * (企业)查看收到的简历状态
+	 * @param companyId
+	 * @param deliveryStatus
+	 * @return
+	 */
+	List<Delivery> findByCompanyId(@Param("companyId")int companyId,@Param("deliveryStatus")String deliveryStatus);
 }

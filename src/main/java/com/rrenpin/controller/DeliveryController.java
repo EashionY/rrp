@@ -1,5 +1,6 @@
 package com.rrenpin.controller;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -34,5 +35,13 @@ public class DeliveryController extends ExceptionController{
 		List<Map<String,Object>> result = deliveryService.viewDeliveried(resumeId, deliveryStatus);
 		return new JsonResult(result);
 	}
+	
+	@RequestMapping("/viewNewResume.do")
+	@ResponseBody
+	public JsonResult viewNewResume(int companyId, String deliveryStatus) throws ParseException {
+		List<Map<String,Object>> result = deliveryService.viewNewResume(companyId, deliveryStatus);
+		return new JsonResult(result);
+	}
+	
 	
 }
