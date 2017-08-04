@@ -26,7 +26,14 @@ $("#log_btn").on("click",function(){
               		  icon: 1,
               		  time: 1000 
                 	}, function(){
-                		window.location.href="index.html";
+                		var oldUrl=document.referrer;//获取之前的url
+                		//console.log(oldUrl);
+                		if(oldUrl==""){
+                			window.location.href="index.html";
+                		}else{
+                			window.location.href=oldUrl;//登录成功回到之前页面
+                		}
+                		
                 	}); 
                 }else{
                 	layer.msg(data.message)

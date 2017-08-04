@@ -39,6 +39,7 @@
     text-align: center;
     font-size: 14px;
 }
+.collect:hover,.send:hover{cursor: pointer}
 .collect{
     color: #333333;
     border: 1px #dddddd solid;
