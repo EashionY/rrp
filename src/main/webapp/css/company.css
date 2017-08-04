@@ -97,6 +97,7 @@
 .company_zhiweibox{
     border-bottom: 1px #dddddd solid;
 }
+.company_zhiweibox:hover{cursor: pointer;}
 .com_zhiwei{
     display: flex;
     justify-content: space-between;

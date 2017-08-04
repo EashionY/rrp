@@ -19,13 +19,30 @@ $(function() {
 			layer.msg(data.message)
 		}
 	},'json')
-	//TO-DO
-	$.get(ip+"/rrp/post/listPostJob.do",{companyId:companyId,status:1,page:1,pageSize:4},function(data){
+	$.get(ip+"/rrp/post/listPostJob.do",{companyId:companyId,status:1,page:1,pageSize:5},function(data){
 		if(data.state==0){
 			var result=data.data;
+			$(".company_zhiweiBox").html("");
 			console.log(result);
-			
-			
+			var str='';
+			var myDate = new Date();
+			var nowDate=new Date(myDate.toLocaleDateString()).format("yyyy/MM/dd");
+			$.each(result,function(k,v){
+				var postDate=new Date(result[k].postTime).format("yyyy/MM/dd");
+				var showDate=''
+				if(nowDate==postDate){//当天发布
+					showDate=new Date(result[k].postTime).format("hh:mm")
+				}else{
+					showDate=new Date(result[k].postTime).format("yy年MM月dd日")
+				}
+				str+='<div class="company_zhiweibox"><input value="'+result[k].postId+'" class="myinput"/><div class="com_zhiwei">'+
+                     '<div>'+result[k].postName+'<span>['+result[k].region+']</span></div><div>'+showDate+'  发布</div>'+
+                     '</div><ul><li>'+result[k].salary+'</li><li>经验'+result[k].workExp+'</li><li>'+result[k].degree+'</li></ul></div>'
+			})
+			$(".company_zhiweiBox").html(str);
+			$(".company_zhiweibox").click(function(){
+				window.location.href="../job/job_detail.html?postId="+$(this).children("input").val();
+			})
 		}else{
 			layer.msg(data.message)
 		}
