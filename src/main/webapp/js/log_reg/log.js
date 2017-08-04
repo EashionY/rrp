@@ -21,6 +21,7 @@ $("#log_btn").on("click",function(){
                 	addCookie("userId",data.data.id,1,"/"); 
                 	addCookie("userPhone",data.data.phone,1,"/"); 
                 	addCookie("companyName",data.data.name,1,"/"); 
+                	addCookie("companyId",data.data.companyId,1,"/"); 
                 	addCookie("email",data.data.email,1,"/"); 
                 	layer.msg(data.message,{
               		  icon: 1,

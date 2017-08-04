@@ -46,7 +46,7 @@ function getData(offset,size){
 					   if(nowDate==postDate){//当天发布
 						   showDate=new Date(data[i].post_time).format("hh:mm")
 					   }else{
-						   showDate=new Date(data[i].post_time).format("yy年MM月dd日")
+						   showDate=new Date(data[i].post_time).format("yyyy/MM/dd")
 					   }
                     result +='<div class="zhiwei_box"><input style="display:none" value="'+data[i].post_id+'"/><div class="zhiwei_mainbox"><div class="top">'+
                     '<div><ul><li>'+data[i].post_name+'</li><li>['+data[i].region+']</li><li>'+showDate+' 发布</li></ul>'+
