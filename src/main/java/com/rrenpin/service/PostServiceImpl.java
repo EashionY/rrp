@@ -127,6 +127,30 @@ public class PostServiceImpl implements PostService {
 
 	public List<Map<String, Object>> searchPostCompany(String keyword, String region, String workExp, String degree,
 			String scale, String salary, String industry, String financing, int page, int pageSize) {
+		if("".equals(keyword)){
+			keyword = null;
+		}
+		if("".equals(region)){
+			region = null;
+		}
+		if("".equals(workExp)){
+			workExp = null;
+		}
+		if("".equals(degree)){
+			degree = null;
+		}
+		if("".equals(scale)){
+			scale = null;
+		}
+		if("".equals(salary)){
+			salary = null;
+		}
+		if("".equals(industry)){
+			industry = null;
+		}
+		if("".equals(financing)){
+			financing = null;
+		}
 		if(keyword != null){
 			keyword = "%"+keyword+"%";
 		}
