@@ -416,7 +416,7 @@
     top: 13px;
     right: 13px;
 }
-/*閸╁骸绔�*/
+/*城市*/
 .city-picker-span {
     position: relative;
     display: block;
@@ -442,7 +442,7 @@
 .inputDiv:hover{cursor: pointer}
 .inputDiv>input:hover{cursor: pointer}
 
-/*娑撳濯洪柅澶嬪濡楋拷*/
+/*下拉*/
 .divselect{width:305px;margin-top: 10px; position:relative; z-index:10000;}
 .divselect cite{width:305px; height:43px;line-height:43px; display:block; cursor:pointer;font-style:normal;
     border:1px solid #dddddd;background-color: #ffffff;text-indent: 10px}

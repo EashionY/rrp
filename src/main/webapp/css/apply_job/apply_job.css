@@ -24,20 +24,55 @@
     border-right: 1px #dddddd solid;
 }
 .appJob_seCity{
-    display: flex;
     width: 240px;
     height: 53px;
     line-height: 53px;
     color: #333333;
     font-size: 16px;
-    margin: 0 auto;
-    justify-content: space-between;
+	position: relative;    
 }
-.city_more{
-    color: #DDDDDD;
-    font-weight: bold;
-    font-size: 18px;
+.appJob_seCity>input{
+	border:none;
 }
+/*城市*/
+.city-picker-span {
+    position: relative;
+    display: block;
+    outline: 0;
+    margin-top: 10px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background-color: #fff;
+    color: #ccc;
+    cursor: pointer;
+    text-indent: 9px;
+    height: 43px !important;
+    width: 100% !important;
+    line-height: 38px !important;
+}
+.city-picker-span {
+    border-bottom: none;
+    padding-left:20px;
+}
+.city-picker-span.focus{
+    border-bottom-color: #dddddd !important;
+}
+.city-picker-span > .arrow {
+    width: 0 !important;
+}
+.input_icon2 {
+    top: 13px;
+    right: 13px;
+}
+.input_icon {
+    position: absolute;
+    right: -20px;
+    top: 3px;
+    font-size: 20px;
+    color: #dddddd;
+}
+.appJob_seCity:hover{cursor: pointer}
+.appJob_seCity>input:hover{cursor: pointer}
+/*城市结束*/
 .appJob_seCity:hover{cursor: pointer}
 .appJob_serch_tubox{
     width: 70px;
@@ -98,6 +133,8 @@
 .appJob_educBox{
     display: flex;
 }
+
+.appJob_expeBox{  padding-top: 30px;}  
 .appJob_expeBox ul{display: flex}
 .appJob_educBox ul{display: flex}
 .appJob_educBox ul>li{margin-left: 40px;  line-height: 25px;}

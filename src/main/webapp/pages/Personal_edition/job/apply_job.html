@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../css/share/header.css"/>
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
     <link rel="stylesheet" href="../../../css/share/commen.css"/>
+    <link rel="stylesheet" href="../../../plug/city-picker-master/src/css/city-picker.css"/>
     <link rel="stylesheet" href="../../../css/apply_job/pages.css"/>
     <link rel="stylesheet" href="../../../css/apply_job/apply_job.css"/>
 </head>
@@ -37,38 +38,18 @@
         <div class="appJob_serInpBox">
             <input class="appJob_serInp" type="text" placeholder="搜索职位/公司"/>
             <div class="appJob_seCity">
-                <div>成都</div>
-                <div><span class="myfont city_more">&#xe681;</span></div>
+                <input  id="ucity" type ="text" data-toggle ="city-picker" placeholder="城市" data-level="city">
+                <span class="myfont input_icon input_icon2">&#xe681;</span>
             </div>
         </div>
         <div class="appJob_serch_tubox"><span class="myfont font_30">&#xe636;</span></div>
     </div>
     <div class="appJob_condBox">
-        <div class="cond_city">
-            <ul><li class="cond_title">城市：</li><li class="cond_selected3">成都</li></ul>
-            <div class="cond_hotCitybox">
-                <div>热门城市：</div>
-                <ul class="cond_city_ul">
-                    <li>全国</li>
-                    <li>北京</li>
-                    <li>上海</li>
-                    <li>广州</li>
-                    <li>深圳</li>
-                    <li>杭州</li>
-                    <li>天津</li>
-                    <li>西安</li>
-                    <li>苏州</li>
-                    <li>重庆</li>
-                    <li>武汉</li>
-                    <li>厦门</li>
-                    <li>长沙</li>
-                </ul>
-            </div>
-        </div>
+        
         <div class="appJob_expeBox">
             <div class="cond_title">经验：</div>
-            <ul class="cond_ul">
-                <li  class="cond_selected">不限</li>
+            <ul class="cond_ul" id="app_jyul">
+                <li class="cond_selected">不限</li>
                 <li>应届生</li>
                 <li>1年以内</li>
                 <li>1-3年</li>
@@ -79,7 +60,7 @@
         </div>
         <div class="appJob_educBox">
             <div class="cond_title">学历：</div>
-            <ul class="cond_ul">
+            <ul class="cond_ul" id="app_xlul">
                 <li class="cond_selected">不限</li>
                 <li>中专及以下</li>
                 <li>高中</li>
@@ -91,7 +72,7 @@
         </div>
         <div class="appJob_educBox">
             <div class="cond_title">规模：</div>
-            <ul class="cond_ul">
+            <ul class="cond_ul" id="app_gmul">
                 <li class="cond_selected">不限</li>
                 <li>0-20人</li>
                 <li>20-99人</li>
@@ -103,7 +84,7 @@
         </div>
         <div class="appJob_educBox">
             <div class="cond_title">薪资：</div>
-            <ul class="cond_ul">
+            <ul class="cond_ul" id="app_xzul">
                 <li class="cond_selected">不限</li>
                 <li>3k以下</li>
                 <li>3-5k</li>
@@ -117,7 +98,7 @@
         </div>
         <div class="appJob_educBox">
             <div class="cond_title">行业：</div>
-            <ul class="cond_ul">
+            <ul class="cond_ul" id="app_hyul">
                 <li class="cond_selected">不限</li>
                 <li>健康医疗</li>
                 <li>生活服务</li>
@@ -132,7 +113,7 @@
         </div>
         <div class="appJob_educBox">
             <div class="cond_title">融资：</div>
-            <ul class="cond_ul">
+            <ul class="cond_ul" id="app_rzul">
                 <li class="cond_selected">不限</li>
                 <li>未融资</li>
                 <li>天使轮</li>
@@ -149,158 +130,6 @@
         <div class="appJob_conLeft">
             <div class="zhiwei_Box">
                 <!--循环体-->
-                <div class="zhiwei_box">
-                    <div class="zhiwei_mainbox">
-                        <div class="top">
-                            <div>
-                                <ul>
-                                    <li>ios开发工程师</li>
-                                    <li>[成都]</li>
-                                    <li>14:28发布</li>
-                                </ul>
-                                <div class="salary_text">10K-20K</div>
-                            </div>
-                            <div class="comName">凯利特网络</div>
-                        </div>
-                        <div class="bottom">
-                            <ul><li>经验1-3年</li><li>本科</li></ul>
-                            <div>电子商务/初创型(未融资)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="zhiwei_box">
-                    <div class="zhiwei_mainbox">
-                        <div class="top">
-                            <div>
-                                <ul>
-                                    <li>ios开发工程师</li>
-                                    <li>[成都]</li>
-                                    <li>14:28发布</li>
-                                </ul>
-                                <div class="salary_text">10K-20K</div>
-                            </div>
-                            <div class="comName">凯利特网络</div>
-                        </div>
-                        <div class="bottom">
-                            <ul><li>经验1-3年</li><li>本科</li></ul>
-                            <div>电子商务/初创型(未融资)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="zhiwei_box">
-                    <div class="zhiwei_mainbox">
-                        <div class="top">
-                            <div>
-                                <ul>
-                                    <li>ios开发工程师</li>
-                                    <li>[成都]</li>
-                                    <li>14:28发布</li>
-                                </ul>
-                                <div class="salary_text">10K-20K</div>
-                            </div>
-                            <div class="comName">凯利特网络</div>
-                        </div>
-                        <div class="bottom">
-                            <ul><li>经验1-3年</li><li>本科</li></ul>
-                            <div>电子商务/初创型(未融资)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="zhiwei_box">
-                    <div class="zhiwei_mainbox">
-                        <div class="top">
-                            <div>
-                                <ul>
-                                    <li>ios开发工程师</li>
-                                    <li>[成都]</li>
-                                    <li>14:28发布</li>
-                                </ul>
-                                <div class="salary_text">10K-20K</div>
-                            </div>
-                            <div class="comName">凯利特网络</div>
-                        </div>
-                        <div class="bottom">
-                            <ul><li>经验1-3年</li><li>本科</li></ul>
-                            <div>电子商务/初创型(未融资)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="zhiwei_box">
-                    <div class="zhiwei_mainbox">
-                        <div class="top">
-                            <div>
-                                <ul>
-                                    <li>ios开发工程师</li>
-                                    <li>[成都]</li>
-                                    <li>14:28发布</li>
-                                </ul>
-                                <div class="salary_text">10K-20K</div>
-                            </div>
-                            <div class="comName">凯利特网络</div>
-                        </div>
-                        <div class="bottom">
-                            <ul><li>经验1-3年</li><li>本科</li></ul>
-                            <div>电子商务/初创型(未融资)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="zhiwei_box">
-                    <div class="zhiwei_mainbox">
-                        <div class="top">
-                            <div>
-                                <ul>
-                                    <li>ios开发工程师</li>
-                                    <li>[成都]</li>
-                                    <li>14:28发布</li>
-                                </ul>
-                                <div class="salary_text">10K-20K</div>
-                            </div>
-                            <div class="comName">凯利特网络</div>
-                        </div>
-                        <div class="bottom">
-                            <ul><li>经验1-3年</li><li>本科</li></ul>
-                            <div>电子商务/初创型(未融资)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="zhiwei_box">
-                    <div class="zhiwei_mainbox">
-                        <div class="top">
-                            <div>
-                                <ul>
-                                    <li>ios开发工程师</li>
-                                    <li>[成都]</li>
-                                    <li>14:28发布</li>
-                                </ul>
-                                <div class="salary_text">10K-20K</div>
-                            </div>
-                            <div class="comName">凯利特网络</div>
-                        </div>
-                        <div class="bottom">
-                            <ul><li>经验1-3年</li><li>本科</li></ul>
-                            <div>电子商务/初创型(未融资)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="zhiwei_box">
-                    <div class="zhiwei_mainbox">
-                        <div class="top">
-                            <div>
-                                <ul>
-                                    <li>ios开发工程师</li>
-                                    <li>[成都]</li>
-                                    <li>14:28发布</li>
-                                </ul>
-                                <div class="salary_text">10K-20K</div>
-                            </div>
-                            <div class="comName">凯利特网络</div>
-                        </div>
-                        <div class="bottom">
-                            <ul><li>经验1-3年</li><li>本科</li></ul>
-                            <div>电子商务/初创型(未融资)</div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!--分页-->
             <div class="appJob_pagesBox">
@@ -352,6 +181,8 @@
 <script src="../../../js/ip.js"></script>
 <script src="../../../js/head/header2.js"></script>
 <script src="../../../plug/layer/layer.js"></script>
+<script src="../../../plug/city-picker-master/src/city-picker.data.js"></script>
+<script src="../../../plug/city-picker-master/src/city-picker.js"></script>
 <script src="../../../plug/layui-v1.0.9_rls/layui/layui.js" charset="utf-8"></script>
 <script src="../../../js/job/apply_job.js"></script>
 <script>
