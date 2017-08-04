@@ -43,7 +43,7 @@ public class ResumeServiceImpl implements ResumeService {
 	private WorkExpMapper workExpMapper;
 	
 	public Map<String,Object> addBasicInfo(HttpServletRequest request, int userId, String empName, String sex, String birth, String workexp, String status,
-			String phone, String email, String empRegion) throws UnsupportedEncodingException {
+			String phone, String email, String empRegion, String topDegree) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		//简历名默认为“我的简历”
@@ -57,6 +57,7 @@ public class ResumeServiceImpl implements ResumeService {
 		resume.setPhone(phone);
 		resume.setEmail(email);
 		resume.setEmpRegion(empRegion);
+		resume.setTopDegree(topDegree);
 		int i;
 		try {
 			i = resumeMapper.insert(resume);
@@ -72,7 +73,7 @@ public class ResumeServiceImpl implements ResumeService {
 	}
 
 	public Map<String, Object> modifyBasicInfo(HttpServletRequest request, int id, int userId, String empName, String sex, String birth, String workexp, String status,
-			String phone, String email, String empRegion) throws UnsupportedEncodingException {
+			String phone, String email, String empRegion, String topDegree) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("utf-8");
 		Resume resume = new Resume();
 		resume.setId(id);
@@ -84,6 +85,7 @@ public class ResumeServiceImpl implements ResumeService {
 		resume.setPhone(phone);
 		resume.setEmail(email);
 		resume.setEmpRegion(empRegion);
+		resume.setTopDegree(topDegree);
 		int i;
 		try {
 			i = resumeMapper.updateByPrimaryKeySelective(resume);

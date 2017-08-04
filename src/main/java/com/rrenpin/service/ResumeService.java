@@ -23,7 +23,7 @@ public interface ResumeService {
 	 * @throws UnsupportedEncodingException 
 	 */
 	public Map<String, Object> addBasicInfo(HttpServletRequest request,int userId,String empName,String sex,String birth,String workexp,String status,
-			String phone,String email,String empRegion) throws UnsupportedEncodingException;
+			String phone,String email,String empRegion,String topDegree) throws UnsupportedEncodingException;
 	
 	/**
 	 * 修改简历的基本信息
@@ -40,7 +40,7 @@ public interface ResumeService {
 	 * @throws UnsupportedEncodingException 
 	 */
 	public Map<String, Object> modifyBasicInfo(HttpServletRequest request,int id,int userId,String empName,String sex,String birth,String workexp,String status,
-			String phone,String email,String empRegion) throws UnsupportedEncodingException;
+			String phone,String email,String empRegion,String topDegree) throws UnsupportedEncodingException;
 	
 	/**
 	 * 修改简历的求职意向

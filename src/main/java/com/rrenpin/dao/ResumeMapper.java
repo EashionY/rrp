@@ -16,8 +16,6 @@ public interface ResumeMapper {
     int updateByPrimaryKeySelective(Resume record);
 
     int updateByPrimaryKey(Resume record);
-    
-    Map<String, Object> findByUserId(Integer userId);
-    
-    
+
+	Map<String, Object> findByUserId(int userId);
 }

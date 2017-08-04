@@ -7,7 +7,7 @@ public class Resume implements Serializable{
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -4134600007419172479L;
+	private static final long serialVersionUID = 4604598496073123344L;
 
 	private Integer id;
 
@@ -44,6 +44,8 @@ public class Resume implements Serializable{
     private String selfEvaluation;
 
     private String headImg;
+
+    private String topDegree;
 
     public Integer getId() {
         return id;
@@ -189,13 +191,21 @@ public class Resume implements Serializable{
         this.headImg = headImg;
     }
 
+    public String getTopDegree() {
+        return topDegree;
+    }
+
+    public void setTopDegree(String topDegree) {
+        this.topDegree = topDegree;
+    }
+
 	@Override
 	public String toString() {
 		return "Resume [id=" + id + ", resumeName=" + resumeName + ", updateTime=" + updateTime + ", empName=" + empName
 				+ ", empRegion=" + empRegion + ", workExp=" + workExp + ", sex=" + sex + ", birth=" + birth
 				+ ", status=" + status + ", phone=" + phone + ", email=" + email + ", userId=" + userId + ", salary="
 				+ salary + ", job=" + job + ", workType=" + workType + ", workArea=" + workArea + ", selfEvaluation="
-				+ selfEvaluation + ", headImg=" + headImg + "]";
+				+ selfEvaluation + ", headImg=" + headImg + ", topDegree=" + topDegree + "]";
 	}
 
 	@Override
@@ -222,5 +232,5 @@ public class Resume implements Serializable{
 			return false;
 		return true;
 	}
-    
+	
 }

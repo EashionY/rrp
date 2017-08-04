@@ -25,16 +25,16 @@ public class ResumeController extends ExceptionController {
 	@RequestMapping("/addBasicInfo.do")
 	@ResponseBody
 	public JsonResult addBasicInfo(HttpServletRequest request, int userId, String empName, String sex, String birth, String workexp, String status,
-			String phone, String email, String empRegion) throws UnsupportedEncodingException{
-		Map<String,Object> resume = resumeService.addBasicInfo(request, userId, empName, sex, birth, workexp, status, phone, email, empRegion);
+			String phone, String email, String empRegion, String topDegree) throws UnsupportedEncodingException{
+		Map<String,Object> resume = resumeService.addBasicInfo(request, userId, empName, sex, birth, workexp, status, phone, email, empRegion, topDegree);
 		return new JsonResult(SUCCESS,resume,"添加简历基本信息成功");
 	}
 	
 	@RequestMapping("/modifyBasicInfo.do")
 	@ResponseBody
 	public JsonResult modifyBasicInfo(HttpServletRequest request, int id, int userId, String empName, String sex, String birth, String workexp, String status,
-			String phone, String email, String empRegion) throws UnsupportedEncodingException{
-		Map<String, Object> resume = resumeService.modifyBasicInfo(request, id, userId, empName, sex, birth, workexp, status, phone, email, empRegion);
+			String phone, String email, String empRegion, String topDegree) throws UnsupportedEncodingException{
+		Map<String, Object> resume = resumeService.modifyBasicInfo(request, id, userId, empName, sex, birth, workexp, status, phone, email, empRegion, topDegree);
 		return new JsonResult(SUCCESS,resume,"修改简历基本信息成功");
 	}
 	
