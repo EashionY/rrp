@@ -82,6 +82,7 @@
     text-align: center;
     line-height: 55px;
 }
+.appJob_serch_tubox:hover{cursor: pointer}
 .font_30{
     font-size: 30px;
 }
