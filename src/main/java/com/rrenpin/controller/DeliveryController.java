@@ -14,7 +14,7 @@ import com.rrenpin.util.JsonResult;
 
 @Controller
 @RequestMapping("/delivery")
-public class DeliveryController {
+public class DeliveryController extends ExceptionController{
 
 	private static final int SUCCESS = 0;
 	
