@@ -202,7 +202,7 @@
   <select id="searchPostCompany" resultType="java.util.Map">
   	select ps.*,cpy.name,cpy.industry,cpy.financing,(select count(*) from post where post_status='1') as totalnum 
   	from post ps join company cpy on ps.company_id=cpy.id
-  	where ps.post_status='1'
+  	where ps.post_status='1' 
   	<if test="keyword != null">
   	and ps.post_name like #{keyword} or cpy.name like #{keyword}
   	</if>
