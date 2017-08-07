@@ -29,6 +29,7 @@ $(".posiEdi_btn").click(function(){
 			url:ip+'/rrp/post/pushJob.do',
 			data:{companyId:getCookieValue("companyId"),name:$("#po_name").val(),salary:$("#po_yx").html(),region:$("#po_city").val(),workExp:$("#po_workjy").html(),degree:$("#po_xl").html(),workType:$(".xz_active").html(),benefits:ld,duty:$("#work_content2").val(),requirement:$("#work_content").val()},
 			contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+			dataType:'json',
 			success:function(result){
 				console.log(result);
 				if(result.state==0){

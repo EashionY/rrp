@@ -2,31 +2,31 @@ function posMa_addDom(mydata){
 	$.get(ip+'/rrp/post/listPostJob.do',mydata,function(data){
 		if(data.state==0){
 			var result=data.data;
-			console.log(data)
+			console.log(result)
 			$(".poma_divdown").html("");
 			if(result.length!=0){
 				var str="";
 				var myDate = new Date();
 				var nowDate=new Date(myDate.toLocaleDateString()).format("yyyy/MM/dd");
 				$.each(result,function(k,v){
-					 var postDate=new Date(v.postTime).format("yyyy/MM/dd");
+					 var postDate=new Date(v.post_time).format("yyyy/MM/dd");
 					 var showDate=''
 					 if(nowDate==postDate){//当天发布
-						 showDate=new Date(v.postTime).format("hh:mm")
+						 showDate=new Date(v.post_time).format("hh:mm")
 					 }else{
-						 showDate=new Date(v.postTime).format("yyyy/MM/dd")
+						 showDate=new Date(v.post_time).format("yyyy/MM/dd")
 					 }
 					 var str1='<div class="poma_contbox"><div><div class="poma_left_div1">';
 					 var str2='<span class="poma_zwstate">已关闭</span>';
-					 var str3='<span class="poma_zwname">'+v.postName+'</span>'+
+					 var str3='<span class="poma_zwname">'+v.post_name+'</span>'+
 	                    '<span class="poma_fbtime">'+showDate+' 发布</span></div>'+
 	                    '<div class="poma_left_div2">'+
 	                    ' <span class="poma_salary">'+v.salary+'</span>'+
-	                    ' <span class="poma_jingyan">经验'+v.workExp+'</span>'+
+	                    ' <span class="poma_jingyan">经验 '+v.work_exp+'</span>'+
 	                    ' <span class="poma_xueli">'+v.degree+'</span></div></div>';
-					 var str4='<div class="poma_right"><input class="myinput" value="'+v.postId+'"/><span class="poma_edit">编辑</span><span class="c_o_btn close_btn">关闭</span></div></div>';
-					 var str5='<div class="poma_right"><input class="myinput" value="'+v.postId+'"/><span class="poma_edit">编辑</span><span class="c_o_btn open_btn">开启</span></div></div>';
-					if(v.postStatus==0){
+					 var str4='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><span class="poma_edit">编辑</span><span class="c_o_btn close_btn">关闭</span></div></div>';
+					 var str5='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><span class="poma_edit">编辑</span><span class="c_o_btn open_btn">开启</span></div></div>';
+					if(v.post_status==0){
 						str+=str1+str2+str3+str5;
 					}else{
 						str+=str1+str3+str4;
@@ -72,6 +72,58 @@ function posMa_addDom(mydata){
 	},'json')
 }
 
+function posMa_getTotal(mydata){//利用同步获取总条数
+	var totalNum=0;
+	$.ajax({
+		type:"get",
+		url:ip+"/rrp/post/listPostJob.do",
+		data:mydata,
+		async: false,
+		dataType:'json',
+		success:function(data) {
+			//console.log(data)
+			if(data.state==0){
+				var result=data.data;
+				if(result.length==0){
+					layer.msg("对不起，没有符合所选条件的结果！");
+				}else{
+					totalNum=result[0].totalnum;
+				}
+			}
+		}
+	})
+	return totalNum;
+}
+function posMaAdd_page(mydata){
+	posMa_addDom(mydata);//添加节点
+	var totalnum=posMa_getTotal(mydata);//总条数
+	//console.log(totalnum)
+	var totalPage=Math.ceil(totalnum/mydata.pageSize);//总页数(向上取整);
+	 //分页
+	layui.use(['laypage', 'layer'], function(){
+	     var laypage = layui.laypage,layer= layui.layer;
+	     laypage({
+	        cont: 'poma_pages',
+	        pages: totalPage,//总页数
+	        first: 1,//首页
+	        last: totalPage,//末页
+	        prev: '<em><</em>',
+	        next: '<em>></em>',
+	        groups: 3,//连续显示分页数
+	        skin: '#3eb39d',
+	        jump: function(obj,first){
+	        	if(!first){
+	        		mydata.page=obj.curr;
+	        		//console.log(mydata.page);
+	        		//console.log(mydata)
+	        		posMa_addDom(mydata);
+	        	}
+	        }
+	    });
+	});
+	
+}
+
 $(function() {
 	myonload1("../com_informa/com_xinxi.html","../com_informa/com_psd.html","../../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
@@ -79,7 +131,7 @@ $(function() {
 	     window.location.href="../../Personal_edition/login.html";
 	}else{
 		 var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:3};
-		 posMa_addDom(mydata);
+		 posMaAdd_page(mydata);
 	}
 })
 
@@ -88,11 +140,11 @@ $("#divselect ul li a").click(function(){//条件查询
 	if(mystatus==-1){
 		console.log("1")
 		var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:3};
-		posMa_addDom(mydata);
+		posMaAdd_page(mydata);
 	}else{
 		console.log("2")
 		var mydata={companyId:getCookieValue("companyId"),status:mystatus,page:1,pageSize:3};
-		posMa_addDom(mydata);
+		posMaAdd_page(mydata);
 	}
 })
 
