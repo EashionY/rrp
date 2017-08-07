@@ -28,7 +28,7 @@ public interface PostMapper {
      * @param pageSize
      * @return
      */
-	List<Post> listPostJob(@Param("companyId")int companyId, @Param("status")String status, @Param("offset")int offset, @Param("pageSize")int pageSize);
+	List<Map<String,Object>> listPostJob(@Param("companyId")int companyId, @Param("status")String status, @Param("offset")int offset, @Param("pageSize")int pageSize);
     
 	/**
 	 * 搜索职位/公司

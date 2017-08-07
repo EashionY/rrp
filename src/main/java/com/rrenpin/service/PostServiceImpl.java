@@ -49,6 +49,7 @@ public class PostServiceImpl implements PostService {
 	public Post editJob(HttpServletRequest req, int id, String name, String salary, String region, String workExp,
 			String degree, String workType, String benefits, String duty, String requirement)
 			throws UnsupportedEncodingException {
+		req.setCharacterEncoding("UTF-8");
 		Post post = postMapper.selectByPrimaryKey(id);
 		if(post==null){
 			throw new PostException("无对应的职位");
@@ -113,9 +114,9 @@ public class PostServiceImpl implements PostService {
 		return "0";
 	}
 
-	public List<Post> listPostJob(int companyId, String status, int page, int pageSize) {
+	public List<Map<String,Object>> listPostJob(int companyId, String status, int page, int pageSize) {
 		int offset = (page-1)*pageSize;
-		List<Post> result;
+		List<Map<String,Object>> result;
 		try {
 			result = postMapper.listPostJob(companyId, status, offset, pageSize);
 		} catch (Exception e) {

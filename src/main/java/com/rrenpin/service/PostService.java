@@ -68,7 +68,7 @@ public interface PostService {
 	 * @param status 职位状态
 	 * @return 
 	 */
-	public List<Post> listPostJob(int companyId,String status,int page,int pageSize);
+	public List<Map<String, Object>> listPostJob(int companyId,String status,int page,int pageSize);
 	
 	/**
 	 * 搜索职位/公司
