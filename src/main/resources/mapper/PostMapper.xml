@@ -190,7 +190,11 @@
   
   <select id="listPostJob" resultMap="BaseResultMap">
   	select 
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List" />,
+      (select count(*) from post where company_id=#{companyId}
+      <if test="status != null">
+      AND post_status = #{status}
+      </if>) as  totalnum
     from post
     where company_id=#{companyId}
     <if test="status != null">
@@ -200,7 +204,32 @@
   </select>
   
   <select id="searchPostCompany" resultType="java.util.Map">
-  	select ps.*,cpy.name,cpy.industry,cpy.financing,(select count(*) from post where post_status='1') as totalnum 
+  	select ps.*,cpy.name,cpy.industry,cpy.financing,(
+  		select count(*) from post where post_status='1'
+  			<if test="keyword != null">
+  			and ps.post_name like #{keyword} or cpy.name like #{keyword}
+  			</if>
+  			<if test="region != null">
+  			and ps.region=#{region}
+  			</if>
+  			<if test="workExp != null">
+		  	and ps.work_exp=#{workExp}
+		  	</if>
+		  	<if test="degree != null">
+		  	and ps.degree&lt;=#{degree}
+		  	</if>
+		  	<if test="scale != null">
+		  	and cpy.scale=#{scale}
+		  	</if>
+		  	<if test="salary != null">
+		  	and ps.salary=#{salary}
+		  	</if>
+		  	<if test="industry != null">
+		  	and cpy.industry=#{industry}
+		  	</if>
+		  	<if test="financing != null">
+		  	and cpy.financing=#{financing}
+		  	</if>) as totalnum 
   	from post ps join company cpy on ps.company_id=cpy.id
   	where ps.post_status='1' 
   	<if test="keyword != null">
@@ -248,6 +277,6 @@
   <select id="jobDetail" resultType="java.util.Map">
   	select ps.*,cpy.* 
   	from post ps join company cpy on ps.company_id=cpy.id
-  	where ps.post_status='1' and ps.post_id=#{postId}
+  	where ps.post_id=#{postId}
   </select>
 </mapper>
