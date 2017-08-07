@@ -90,6 +90,7 @@ $("#com_commit").click(function(){
 					url:ip+'/rrp/company/addCompanyInfo.do',
 					data:{id:com_id,name:$("#com_moName").val(),logo:$("#com_logo").attr("src"),address:$("#com_moDq").val()+$("#com_moDz").val(),industry:$("#com_moLy").val(),website:$("#com_moWz").val(),scale:$("#com_moGm").html(),financing:$(".comInfo_rzactiv").html(),intro:$("#work_content").val(),info:$("#work_content2").val(),tel:$("#com_moPhone").val()},
 					contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+					dataType:'json',
 					success:function(result){
 						if(result.state==0){
 							layer.msg("信息修改成功",{

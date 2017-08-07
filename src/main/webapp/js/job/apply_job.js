@@ -1,7 +1,7 @@
 function addDom(mydata){
 	$.get(ip+"/rrp/post/searchPostCompany.do",mydata,function(data){
 		if(data.state==0){
-			console.log(data.data);
+			//console.log(data.data);
 			var result=data.data;
 			$(".zhiwei_Box").html("");
 			if(result.length==0){
@@ -46,6 +46,7 @@ function getTotal(mydata){//利用同步获取总条数
 		url:ip+"/rrp/post/searchPostCompany.do",
 		data:mydata,
 		async: false,
+		dataType:'json',
 		success:function(data) {
 			if(data.state==0){
 				var result=data.data;
@@ -106,7 +107,7 @@ function shijian(obj1,obj2,obj3,obj4,obj5,obj6){
 function add_page(mydata){
 	addDom(mydata);//添加节点
 	var totalnum=getTotal(mydata);//总条数
-	console.log(totalnum)
+	//console.log(totalnum)
 	var totalPage=Math.ceil(totalnum/mydata.pageSize);//总页数(向上取整);
     //分页
 	layui.use(['laypage', 'layer'], function(){
@@ -134,7 +135,7 @@ function add_page(mydata){
 $(function() { 
 	myonload2("../my/pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
 	shijian($("#app_jyul li"),$("#app_xlul li"),$("#app_gmul li"),$("#app_xzul li"),$("#app_hyul li"),$("#app_rzul li"));
-	var mydata={keyword:null,region:null,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:2}
+	var mydata={keyword:null,region:null,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:3}
 	add_page(mydata);
 });
 

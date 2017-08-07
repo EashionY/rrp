@@ -76,6 +76,7 @@ $("#commit_btn").click(function(){
 					url:ip+'/rrp/company/addCompanyInfo.do',
 					data:{id:com_id,name:$("#com_name").val(),logo:$("#com_logo").attr("src"),address:$("#com_address").val()+$("#com_address2").val(),industry:$("#com_industry").val(),website:$("#com_website").val(),scale:$("#com_scale").html(),financing:$(".comInfo_rzactiv").html(),intro:$("#work_content").val(),info:$("#work_content2").val(),tel:$("#com_phone").val()},
 					contentType:'application/x-www-form-urlencoded; charset=UTF-8',
+					dataType:'json',
 					success:function(result){
 						console.log(result);
 						if(result.state==0){
