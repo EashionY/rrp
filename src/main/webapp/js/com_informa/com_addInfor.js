@@ -79,6 +79,7 @@ $("#commit_btn").click(function(){
 					success:function(result){
 						console.log(result);
 						if(result.state==0){
+							addCookie("companyId",result.data.id,1,"/"); 
 							layer.msg("信息完善成功",{
 			              		  icon: 1,
 			              		  time: 1000 
