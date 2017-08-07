@@ -23,8 +23,8 @@ function posMa_addDom(mydata){
 	                    ' <span class="poma_salary">'+v.salary+'</span>'+
 	                    ' <span class="poma_jingyan">经验'+v.workExp+'</span>'+
 	                    ' <span class="poma_xueli">'+v.degree+'</span></div></div>';
-					 var str4='<div class="poma_right"><input class="myinput" value="'+v.postId+'"/><span class="poma_edit">编辑</span><span class="close_btn">关闭</span></div></div>';
-					 var str5='<div class="poma_right"><input class="myinput" value="'+v.postId+'"/><span class="poma_edit">编辑</span><span class="open_btn">开启</span></div></div>';
+					 var str4='<div class="poma_right"><input class="myinput" value="'+v.postId+'"/><span class="poma_edit">编辑</span><span class="c_o_btn close_btn">关闭</span></div></div>';
+					 var str5='<div class="poma_right"><input class="myinput" value="'+v.postId+'"/><span class="poma_edit">编辑</span><span class="c_o_btn open_btn">开启</span></div></div>';
 					if(v.postStatus==0){
 						str+=str1+str2+str3+str5;
 					}else{
@@ -35,35 +35,31 @@ function posMa_addDom(mydata){
 				$(".poma_edit").click(function(){//编辑职位按钮
 			        window.location.href="position_edit.html?postId="+$(this).prev().val();
 			    });
-				$(".close_btn").click(function(){//关闭职位按钮
-					console.log("1")
+				$(".c_o_btn").click(function(){
 					var that=$(this);
-					$.get(ip+"/rrp/post/closeJob.do",{id:$(this).prev().prev().val()},function(data){
-						if(data.state==0){
-							//TO-DO
-							that.removeClass("close_btn").addClass("open_btn") 
-							that.html("开启");
-							that.parent().prev().children().eq(0).children(".poma_zwname").before('<span class="poma_zwstate">已关闭</span>')
-							layer.msg(data.message)
-						}else{
-							layer.msg(data.message)
-						}
-					},'json')
-				})
-				$(".open_btn").click(function(){//开启职位按钮
-					console.log("2")
-					var that=$(this);
-					$.get(ip+"/rrp/post/openJob.do",{id:$(this).prev().prev().val()},function(data){
-						if(data.state==0){
-							//TO-DO
-							that.removeClass("open_btn").addClass("close_btn") 
-							that.html("关闭");
-							that.parent().prev().children().eq(0).children(".poma_zwstate").remove();
-							layer.msg(data.message)
-						}else{
-							layer.msg(data.message)
-						}
-					},'json')
+					if($(this).attr("class")=="c_o_btn close_btn"){//关闭方法
+						$.get(ip+"/rrp/post/closeJob.do",{id:$(this).prev().prev().val()},function(data){
+							if(data.state==0){
+								that.removeClass("close_btn").addClass("open_btn") 
+								that.html("开启");
+								that.parent().prev().children().eq(0).children(".poma_zwname").before('<span class="poma_zwstate">已关闭</span>');
+								layer.msg(data.message)
+							}else{
+								layer.msg(data.message)
+							}
+						},'json')
+					}else{//开启方法
+						$.get(ip+"/rrp/post/openJob.do",{id:$(this).prev().prev().val()},function(data){
+							if(data.state==0){
+								that.parent().prev().children().eq(0).children(".poma_zwstate").remove();
+								that.html("关闭");
+								that.removeClass("open_btn").addClass("close_btn") 
+								layer.msg(data.message)
+							}else{
+								layer.msg(data.message)
+							}
+						},'json')
+					}
 				})
 				
 			}else{
