@@ -92,7 +92,8 @@ $(function(){
 	divselect("#divselect_xinzi","#inputselect_xinzi")
 	divselect("#divselect_leixing","#inputselect_leixing")
 	divselect("#divselect_jineng","#inputselect_jineng")
-	divselect("#divselect_xueli","#inputselect_xueli")
+	divselect("#divselect_xueli","#inputselect_xueli");
+	divselect("#divselect_highxl","#inputselect_highxl");
 });
 //隐藏-显示
 function mydisplay(mask,box){
@@ -210,7 +211,8 @@ $("#editxxbtn").click(function(){
        	 $("#ustate").html(data.data.status);
        	 $("#uphone").val(data.data.phone);
        	 $("#uemail").val(data.data.email);
-       	 $("#ucity").val(data.data.emp_region)
+       	 $("#ucity").val(data.data.emp_region);
+       	 $("#uhighxl").html(data.data.top_degree);
     	}
     },'json');
     

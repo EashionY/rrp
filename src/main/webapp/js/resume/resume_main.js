@@ -87,6 +87,7 @@
 	                	var str='<span>'+data.data.emp_region+'</span>'+
 	                	'<span>'+data.data.work_exp+'工作经验</span>'+
 	                	'<span>'+data.data.sex+'</span>'+
+	                	'<span>'+data.data.top_degree+'</span>'+
 	                	'<span>'+data.data.status+'</span>'
 	                	$(".resume_rdiv1_addre").html(str);
 	                	$("#phone").html(data.data.phone);
@@ -440,10 +441,11 @@
 	        var phone=$("#uphone").val();
 	        var email=$("#uemail").val();
 	        var empRegion=$("#ucity").val();
+	        var topDegree=$("#uhighxl").html();
 	        $.ajax({
 	            type: "post",
 	            url: ip+"/rrp/resume/modifyBasicInfo.do",
-	            data: {userId:userId,id:resumeId,empName:empName,sex:sex,birth:birth,workexp:workexp,status:status,phone:phone,email:email,empRegion:empRegion},
+	            data: {userId:userId,id:resumeId,empName:empName,sex:sex,birth:birth,workexp:workexp,status:status,phone:phone,email:email,empRegion:empRegion,topDegree:topDegree},
 	            dataType: "json",
 	            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 	            success: function(data){
@@ -466,13 +468,14 @@
 	        var phone=$("#uphone").val();
 	        var email=$("#uemail").val();
 	        var empRegion=$("#ucity").val();
+	        var topDegree=$("#uhighxl").html();
 	        //var xinxi=new Array();
 	        //xinxi.push(empName),xinxi.push(sex),xinxi.push(birth),xinxi.push(workexp);
 	        //xinxi.push(status),xinxi.push(phone),xinxi.push(email),xinxi.push(empRegion);
 	        $.ajax({
 	            type: "post",
 	            url: ip+"/rrp/resume/addBasicInfo.do",
-	            data: {userId:id,empName:empName,sex:sex,birth:birth,workexp:workexp,status:status,phone:phone,email:email,empRegion:empRegion},
+	            data: {userId:id,empName:empName,sex:sex,birth:birth,workexp:workexp,status:status,phone:phone,email:email,empRegion:empRegion,topDegree:topDegree},
 	            dataType: "json",
 	            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 	            success: function(data){

@@ -23,17 +23,28 @@
     font-size: 18px;
     color: #333333;
 }
-.posiEdi_inputdiv_ld>span{
+#po_ldBox>span,#po_addld{
     display: inline-block;
     height: 35px;
     line-height: 35px;
     text-align: center;
     font-size: 16px;
     color: #3eb39d;
-    padding: 0 20px;
+    padding: 0 30px;
+    padding-left:20px;
     margin-left: 20px;
     border: 1px #3eb39d solid;
 }
+#po_ldBox>span{
+	position: relative
+}
+.ld_dele{
+	position: absolute;
+	top:0;
+	right:10px;
+	display:none
+}
+#po_addld:hover,.ld_dele:hover,.posiEdi_inputdiv_xz>span:hover{cursor: pointer}
 .posiEdi_inputdiv_xz>span{
     display: inline-block;
     width: 94px;
@@ -143,3 +154,20 @@
 .posiEdi_body .divselect ul li a{display:block; height:50px; color:#333333; text-decoration:none;
     padding-left:10px; padding-right:10px;}
 .posiEdi_body .divselect ul li a:hover{background-color:#CCC;}
+
+
+
+.texterea_box{position: relative;width: 825px;}
+.texterea_tips{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 12px;
+    color: #888888;
+}
+
+
+.layui-layer-btn .layui-layer-btn0 {
+    border-color: #3eb39d !important;
+    background-color: #3eb39d !important;
+}

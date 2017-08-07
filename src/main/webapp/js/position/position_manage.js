@@ -2,6 +2,7 @@ function posMa_addDom(mydata){
 	$.get(ip+'/rrp/post/listPostJob.do',mydata,function(data){
 		if(data.state==0){
 			var result=data.data;
+			console.log(data)
 			$(".poma_divdown").html("");
 			if(result.length!=0){
 				var str="";
