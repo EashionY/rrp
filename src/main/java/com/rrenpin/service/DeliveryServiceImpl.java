@@ -137,4 +137,17 @@ public class DeliveryServiceImpl implements DeliveryService {
 		return result;
 	}
 
+	public void dealResume(int resumeId, int companyId, String deliveryStatus) {
+		int i;
+		try {
+			i = deliveryMapper.dealResume(resumeId, companyId, deliveryStatus);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i!=1){
+			throw new DeliveryException("处理失败");
+		}
+	}
+
 }

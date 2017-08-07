@@ -43,4 +43,13 @@ public interface DeliveryMapper {
 	 * @return
 	 */
 	List<Delivery> findByCompanyId(@Param("companyId")int companyId,@Param("deliveryStatus")String deliveryStatus);
+	
+	/**
+	 * (企业)处理简历投递
+	 * @param resumeId
+	 * @param companyId
+	 * @param deliveryStatus
+	 * @return
+	 */
+	int dealResume(@Param("resumeId")int resumeId,@Param("companyId")int companyId,@Param("deliveryStatus")String deliveryStatus);
 }

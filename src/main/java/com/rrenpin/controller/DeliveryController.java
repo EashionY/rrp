@@ -43,5 +43,12 @@ public class DeliveryController extends ExceptionController{
 		return new JsonResult(result);
 	}
 	
+	@RequestMapping("/dealResume.do")
+	@ResponseBody
+	public JsonResult dealResume(int resumeId, int companyId, String deliveryStatus){
+		deliveryService.dealResume(resumeId, companyId, deliveryStatus);
+		return new JsonResult(SUCCESS,"","处理成功");
+	}
+	
 	
 }

@@ -31,5 +31,10 @@ public interface DeliveryService {
 	 */
 	public List<Map<String,Object>> viewNewResume(int companyId,String deliveryStatus) throws ParseException;
 	
-	
+	/**
+	 * ²Ù×÷¼òÀúÍ¶µİ
+	 * @param resumeId
+	 * @param companyId
+	 */
+	public void dealResume(int resumeId,int companyId,String deliveryStatus);
 }
