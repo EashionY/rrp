@@ -1,6 +1,7 @@
 package com.rrenpin.service;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -225,4 +226,13 @@ public interface ResumeService {
 	 * @return
 	 */
 	public Map<String,Object> deleteEducationExp(int educationexpId,int userId);
+	
+	/**
+	 * 搜索简历（人才推荐）
+	 * @param keyword
+	 * @return
+	 */
+	public List<Map<String,Object>> searchResume(String keyword,int page,int pageSize);
+	
+	
 }

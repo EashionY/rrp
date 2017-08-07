@@ -459,6 +459,30 @@ public class ResumeServiceImpl implements ResumeService {
 		Map<String,Object> result = findByUserId(userId);
 		return result;
 	}
+
+	public List<Map<String, Object>> searchResume(String keyword,int page,int pageSize) {
+		keyword = "%"+keyword+"%";
+		int offset = (page-1)*pageSize;
+		List<Map<String, Object>> list;
+		try {
+			list = resumeMapper.searchResume(keyword, offset, pageSize);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+//		for(Map<String,Object> map : list){
+//			int userId = (Integer) map.get("user_id");
+//			List<Map<String,Object>> workExprience = workExpMapper.findByUserId(userId);
+//			map.put("workExprience", workExprience);
+//			List<Map<String,Object>> projectExp = projectExpMapper.findByUserId(userId);
+//			map.put("projectExp", projectExp);
+//			List<Map<String,Object>> skills = skillsMapper.findByUserId(userId);
+//			map.put("skills", skills);
+//			List<Map<String,Object>> educationExp = educationExpMapper.findByUserId(userId);
+//			map.put("educationExp", educationExp);
+//		}
+		return list;
+	}
 	
 	
 }

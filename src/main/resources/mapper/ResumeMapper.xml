@@ -266,4 +266,13 @@
     where user_id=#{userId,jdbcType=INTEGER} 
   </select>
   
+  <select id="searchResume" resultType="java.util.Map">
+    select 
+    *,(select count(*) from resume where emp_name like #{keyword} or job like #{keyword}) as totalnum
+    from resume
+    where emp_name like #{keyword} or job like #{keyword}
+    limit #{offset},#{pageSize}
+  </select>
+  
+  
 </mapper>

@@ -1,6 +1,7 @@
 package com.rrenpin.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -162,5 +163,12 @@ public class ResumeController extends ExceptionController {
 	public JsonResult deleteEducationExp(int educationexpId, int userId) {
 		Map<String,Object> resume = resumeService.deleteEducationExp(educationexpId, userId);
 		return new JsonResult(SUCCESS,resume,"教育经历删除成功");
+	}
+	
+	@RequestMapping("/searchResume.do")
+	@ResponseBody
+	public JsonResult searchResume(String keyword,int page,int pageSize){
+		List<Map<String, Object>> result = resumeService.searchResume(keyword, page, pageSize);
+		return new JsonResult(result);
 	}
 }
