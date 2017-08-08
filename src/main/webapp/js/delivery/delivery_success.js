@@ -42,7 +42,7 @@ $(function() {
 							    }
 							})
 					   }else{
-						   layer.msg("对不起，没有符合条件的数据！") 
+						   //layer.msg("对不起，没有符合条件的数据！") 
 					   }
 				   }else{
 					   layer.msg(result.message) 
