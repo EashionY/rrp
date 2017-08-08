@@ -210,7 +210,9 @@ public class PostServiceImpl implements PostService {
 		//获得期望职位
 		String job = (String) resume.get("job");
 		//模糊化处理
-		job = job.substring(0, job.length()/2);
+		if(job.length()>=4){
+			job = job.substring(0, job.length()/2);
+		}
 		job = "%"+job+"%";
 		List<Map<String, Object>> result;
 		try {
