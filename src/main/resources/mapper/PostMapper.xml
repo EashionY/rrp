@@ -31,7 +31,7 @@
     where post_id = #{postId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.rrenpin.entity.Post">
-    <selectKey keyProperty="postId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="postId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into post (post_id, company_id, post_name, 
@@ -46,7 +46,7 @@
       #{postStatus,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.rrenpin.entity.Post">
-    <selectKey keyProperty="postId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="postId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into post
@@ -279,5 +279,21 @@
   	select ps.*,cpy.* 
   	from post ps join company cpy on ps.company_id=cpy.id
   	where ps.post_id=#{postId}
+  </select>
+  
+  <select id="interestedJob" resultType="java.util.Map">
+  	select ps.*,cpy.name,cpy.industry,cpy.financing,
+  	(select count(*) from post ps join company cpy on ps.company_id=cpy.id
+  	where ps.post_status='1' 
+  	<if test="job != null">
+  	and ps.post_name like #{job}
+  	</if>) as totalnum
+  	from post ps join company cpy on ps.company_id=cpy.id
+  	where ps.post_status='1' 
+  	<if test="job != null">
+  	and ps.post_name like #{job}
+  	</if>
+  	order by ps.post_time desc 
+  	limit #{offset},#{pageSize}
   </select>
 </mapper>

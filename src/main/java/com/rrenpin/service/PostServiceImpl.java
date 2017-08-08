@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import com.rrenpin.dao.PostMapper;
+import com.rrenpin.dao.ResumeMapper;
 import com.rrenpin.entity.Post;
 import com.rrenpin.exception.DataBaseException;
 import com.rrenpin.exception.PostException;
@@ -18,6 +19,9 @@ public class PostServiceImpl implements PostService {
 
 	@Resource
 	private PostMapper postMapper;
+	
+	@Resource
+	private ResumeMapper resumeMapper;
 	
 	public void pushJob(HttpServletRequest req, int companyId, String name, String salary, String region,
 			String workExp, String degree, String workType, String benefits, String duty, String requirement)
@@ -200,5 +204,23 @@ public class PostServiceImpl implements PostService {
 		return result;
 	}
 
-	
+	public List<Map<String, Object>> interestedJob(int userId,int page,int pageSize) {
+		Map<String, Object> resume = resumeMapper.findByUserId(userId);
+		int offset = (page-1)*pageSize;
+		//获得期望职位
+		String job = (String) resume.get("job");
+		//模糊化处理
+		if(job.length()>=4){
+			job = job.substring(0, job.length()/2);
+		}
+		job = "%"+job+"%";
+		List<Map<String, Object>> result;
+		try {
+			result = postMapper.interestedJob(job,offset,pageSize);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		return result;
+	}
 }

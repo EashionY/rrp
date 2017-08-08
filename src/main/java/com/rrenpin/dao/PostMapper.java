@@ -62,6 +62,15 @@ public interface PostMapper {
 	 * @return
 	 */
 	List<Map<String,Object>> jobDetail(int postId);
+
+	/**
+	 * 感兴趣的职位
+	 * @param job
+	 * @param offset
+	 * @param pageSize
+	 * @return
+	 */
+	List<Map<String, Object>> interestedJob(@Param("job")String job, @Param("offset")int offset, @Param("pageSize")int pageSize);
 	
 	
 }

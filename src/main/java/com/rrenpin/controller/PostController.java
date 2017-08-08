@@ -91,5 +91,10 @@ public class PostController extends ExceptionController{
 		return new JsonResult(result);
 	}
 	
-	
+	@RequestMapping("/interestJob.do")
+	@ResponseBody
+	public JsonResult interestJob(int userId,int page,int pageSize){
+		List<Map<String,Object>> result = postService.interestedJob(userId, page, pageSize);
+		return new JsonResult(result);
+	}
 }

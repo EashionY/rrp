@@ -101,6 +101,11 @@ public interface PostService {
 	 */
 	public List<Map<String, Object>> jobDetail(int postId); 
 	
-	
+	/**
+	 * 感兴趣的职位
+	 * @param userId
+	 * @return
+	 */
+	public List<Map<String,Object>> interestedJob(int userId,int page,int pageSize);
 	
 }
