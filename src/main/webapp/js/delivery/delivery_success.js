@@ -8,7 +8,7 @@ $(function() {
 		   if(data.state==0){
 			   var resumeId=data.data.id;//根据用户id找简历id
 			 //  console.log(resumeId);
-			   $.get(ip+"/rrp/delivery/viewDeliveried.do",{resumeId:resumeId,deliveryStatus:0},function(result){
+			   $.get(ip+"/rrp/delivery/viewDeliveried.do",{resumeId:resumeId,deliveryStatus:0},function(result){//查询投递成功简历
 				   if(result.state==0){
 					   if(result.data.length!=0){
 						   console.log(result.data)
