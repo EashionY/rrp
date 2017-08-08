@@ -38,15 +38,15 @@ public class DeliveryController extends ExceptionController{
 	
 	@RequestMapping("/viewNewResume.do")
 	@ResponseBody
-	public JsonResult viewNewResume(int companyId, String deliveryStatus) throws ParseException {
-		List<Map<String,Object>> result = deliveryService.viewNewResume(companyId, deliveryStatus);
+	public JsonResult viewNewResume(int companyId, String deliveryStatus, int page, int pageSize) throws ParseException {
+		List<Map<String,Object>> result = deliveryService.viewNewResume(companyId, deliveryStatus, page, pageSize);
 		return new JsonResult(result);
 	}
 	
 	@RequestMapping("/dealResume.do")
 	@ResponseBody
-	public JsonResult dealResume(int resumeId, int companyId, String deliveryStatus){
-		deliveryService.dealResume(resumeId, companyId, deliveryStatus);
+	public JsonResult dealResume(int deliveryId, String deliveryStatus){
+		deliveryService.dealResume(deliveryId, deliveryStatus);
 		return new JsonResult(SUCCESS,"","处理成功");
 	}
 	

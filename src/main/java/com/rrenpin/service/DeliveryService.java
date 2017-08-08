@@ -29,12 +29,12 @@ public interface DeliveryService {
 	 * @return
 	 * @throws ParseException 
 	 */
-	public List<Map<String,Object>> viewNewResume(int companyId,String deliveryStatus) throws ParseException;
+	public List<Map<String,Object>> viewNewResume(int companyId,String deliveryStatus,int page,int pageSize) throws ParseException;
 	
 	/**
 	 * ²Ù×÷¼òÀúÍ¶µÝ
-	 * @param resumeId
-	 * @param companyId
+	 * @param deliveryId
+	 * @param deliveryStatus
 	 */
-	public void dealResume(int resumeId,int companyId,String deliveryStatus);
+	public void dealResume(int deliveryId,String deliveryStatus);
 }

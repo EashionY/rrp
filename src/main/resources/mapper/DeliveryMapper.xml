@@ -28,7 +28,7 @@
     where delivery_id = #{deliveryId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.rrenpin.entity.Delivery">
-    <selectKey keyProperty="deliveryId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="deliveryId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into delivery (delivery_id, resume_id, company_id, 
@@ -41,7 +41,7 @@
       #{unfitTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.rrenpin.entity.Delivery">
-    <selectKey keyProperty="deliveryId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="deliveryId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into delivery
@@ -167,10 +167,32 @@
     where resume_id=#{resumeId} and delivery_status=#{deliveryStatus}
   </select>
   
-  <select id="findByCompanyId" resultMap="BaseResultMap">
+  <select id="findByCompanyId" resultType="java.util.Map">
   	select 
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List" />,
+    (select count(*) from delivery where company_id=#{companyId} and delivery_status=#{deliveryStatus}) as totalnum
     from delivery
     where company_id=#{companyId} and delivery_status=#{deliveryStatus}
+    limit #{offset},#{pageSize}
   </select>
+  
+  <update id="dealResume">
+  	update delivery
+  	<set>
+  	delivery_status=#{deliveryStatus},
+  	<if test="deliveryStatus == '1'.toString()">
+  	check_time=current_timestamp(),
+  	</if>
+  	<if test="deliveryStatus == '2'.toString()">
+  	intend_time=current_timestamp(),
+  	</if>
+  	<if test="deliveryStatus == '3'.toString()">
+  	invite_time=current_timestamp(),
+  	</if>
+  	<if test="deliveryStatus == '4'.toString()">
+  	unfit_time=current_timestamp()
+  	</if>
+  	</set>
+  	where delivery_id=#{deliveryId}
+  </update>
 </mapper>

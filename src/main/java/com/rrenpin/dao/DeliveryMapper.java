@@ -1,6 +1,7 @@
 package com.rrenpin.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -42,7 +43,8 @@ public interface DeliveryMapper {
 	 * @param deliveryStatus
 	 * @return
 	 */
-	List<Delivery> findByCompanyId(@Param("companyId")int companyId,@Param("deliveryStatus")String deliveryStatus);
+	List<Map<String,Object>> findByCompanyId(@Param("companyId")int companyId,@Param("deliveryStatus")String deliveryStatus,
+			@Param("offset")int offset,@Param("pageSize")int pageSize);
 	
 	/**
 	 * (企业)处理简历投递
@@ -51,5 +53,5 @@ public interface DeliveryMapper {
 	 * @param deliveryStatus
 	 * @return
 	 */
-	int dealResume(@Param("resumeId")int resumeId,@Param("companyId")int companyId,@Param("deliveryStatus")String deliveryStatus);
+	int dealResume(@Param("deliveryId")int deliveryId,@Param("deliveryStatus")String deliveryStatus);
 }

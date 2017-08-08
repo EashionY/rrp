@@ -96,28 +96,16 @@ public class DeliveryServiceImpl implements DeliveryService {
 		return result;
 	}
 
-	public List<Map<String, Object>> viewNewResume(int companyId, String deliveryStatus) throws ParseException {
-		List<Delivery> list = deliveryMapper.findByCompanyId(companyId, deliveryStatus);
+	public List<Map<String, Object>> viewNewResume(int companyId, String deliveryStatus,int page,int pageSize) throws ParseException {
+		int offset = (page-1)*pageSize;
+		List<Map<String, Object>> list = deliveryMapper.findByCompanyId(companyId, deliveryStatus,offset,pageSize);
 		if(list==null){
 			throw new DeliveryException("未找到相关的投递记录");
 		}
 		List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
-		for(Delivery delivery : list){
-			Map<String,Object> map = new HashMap<String, Object>();
-			//投递时间
-			map.put("deliveyTime", delivery.getDeliveryTime());
-			//查看时间
-			map.put("checkTime", delivery.getCheckTime());
-			//有意时间
-			map.put("intendTime", delivery.getIntendTime());
-			//邀面时间
-			map.put("inviteTime", delivery.getInviteTime());
-			//不合适时间
-			map.put("unfitTime", delivery.getUnfitTime());
-			//投递状态
-			map.put("deliveryStatus", delivery.getDeliveryStatus());
+		for(Map<String, Object> map : list){
 			//获得对应的简历
-			Resume resume = resumeMapper.selectByPrimaryKey(delivery.getResumeId());
+			Resume resume = resumeMapper.selectByPrimaryKey((Integer)map.get("resume_id"));
 			map.put("empName", resume.getEmpName());
 			map.put("salary", resume.getSalary());
 			map.put("sex", resume.getSex());
@@ -127,20 +115,20 @@ public class DeliveryServiceImpl implements DeliveryService {
 			map.put("workExp", resume.getWorkExp());
 			//期望职位
 			map.put("job", resume.getJob());
-			Post post = postMapper.selectByPrimaryKey(delivery.getPostId());
+			map.put("headImg", resume.getHeadImg());
+			Post post = postMapper.selectByPrimaryKey((Integer)map.get("post_id"));
 			//应聘职位
 			map.put("postName", post.getPostName());
 			map.put("userId", resume.getUserId());
-			map.put("deliveryId", delivery.getDeliveryId());
 			result.add(map);
 		}
 		return result;
 	}
 
-	public void dealResume(int resumeId, int companyId, String deliveryStatus) {
+	public void dealResume(int deliveryId, String deliveryStatus) {
 		int i;
 		try {
-			i = deliveryMapper.dealResume(resumeId, companyId, deliveryStatus);
+			i = deliveryMapper.dealResume(deliveryId, deliveryStatus);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DataBaseException("连接服务器超时");
