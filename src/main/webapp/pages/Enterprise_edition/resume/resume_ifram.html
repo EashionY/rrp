@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>简历预览</title>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../../../css/share/base.css"/>
+    <link rel="stylesheet" href="../../../css/share/header.css"/>
+    <link rel="stylesheet" href="../../../css/share/footer.css"/>
+    <link rel="stylesheet" href="../../../css/share/commen.css"/>
+    <link rel="stylesheet" href="../../../css/resume/resume.css"/>
+    <link rel="stylesheet" href="../../../css/resume/resume_preview.css"/>
+    <style>
+    .resumepre_body{
+	    width: 920px;
+	    margin: 0 auto;
+	    margin-top: 0px;
+	    margin-bottom: 0px;
+	}
+	.resume_main {width: 100%;background-color: #EEEEEE; }
+	.resumepre_rdiv1,.resumepre_rdiv2  {width: 100%;}
+    .jinengpre  {width: 95%;}
+    .detailpre_span {width: 90%;}
+    .pingjia_text {margin-left: 0px}
+   
+    </style>
+</head>
+<body>
+<section class="resumepre_body"  id="resumepre_body">
+    <div class="resume_main">
+        <!--基本信息-->
+        <div class="resumepre_rdiv1" id="xinxibox">
+            <div class="resume_rdiv1_left">
+                <div class="resume_rdiv1_name">
+                    <span id="uName"></span>
+                </div>
+                <div class="resume_rdiv1_addre">
+                   
+                </div>
+                <div class="resume_rdiv1_phone">
+                    <div>
+                        <span class="myfont phone_font">&#xe615;</span>
+                        <span id='phone'></span>
+                    </div>
+                    <div>
+                        <span class="myfont email_font">&#xe60d;</span>
+                        <span id='email'></span>
+                    </div>
+                </div>
+            </div>
+            <div class="resume_rdiv1_right">
+                <div class="resume_touxiang ">
+                    <img id='re_headImg' src="" alt=""/>
+                </div>
+            </div>
+        </div>
+        <!--求职意向-->
+        <div class="resumepre_rdiv2" id="yixiangbox">
+            <div class="job_title">求职意向</div>
+            
+        </div>
+        <!--工作经验-->
+        <div class="resumepre_rdiv2" id="workjlbox">
+            <div class="job_title">工作经历</div>
+        </div>
+        <!--项目经验-->
+        <div class="resumepre_rdiv2" id="projectjlbox">
+            <div class="job_title">项目经验</div>
+        </div>
+        <!--技能评价-->
+        <div class="resumepre_rdiv2" id="pingjiabox">
+            <div class="job_title">技能评价</div>
+        </div>
+        <!--教育经历-->
+        <div class="resumepre_rdiv2" id="jiaoyubox">
+            <div class="job_title">教育经历</div>
+        </div>
+        <!--自我描述-->
+        <div class="resumepre_rdiv2" id="zipingbox">
+            <div class="job_title">自我描述</div>
+        </div>
+    </div>
+</section>
+
+</body>
+<script src="../../../js/jquery-1.11.3.js"></script>
+<script src="../../../js/ip.js"></script>
+<script src="../../../js/enter_resume/resume_iframe.js"></script>
+<script>
+function setHeight(){
+    var h = $(document).height();
+    window.parent.test(h);
+}
+setHeight();
+</script>
+</html>
