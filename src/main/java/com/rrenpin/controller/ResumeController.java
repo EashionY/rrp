@@ -167,8 +167,10 @@ public class ResumeController extends ExceptionController {
 	
 	@RequestMapping("/searchResume.do")
 	@ResponseBody
-	public JsonResult searchResume(String keyword,int page,int pageSize){
-		List<Map<String, Object>> result = resumeService.searchResume(keyword, page, pageSize);
+	public JsonResult searchResume(int companyId,String keyword,int page,int pageSize){
+		List<Map<String, Object>> result = resumeService.searchResume(companyId, keyword, page, pageSize);
 		return new JsonResult(result);
 	}
+	
+	
 }

@@ -232,7 +232,7 @@ public interface ResumeService {
 	 * @param keyword
 	 * @return
 	 */
-	public List<Map<String,Object>> searchResume(String keyword,int page,int pageSize);
+	public List<Map<String,Object>> searchResume(int companyId,String keyword,int page,int pageSize);
 	
 	
 }

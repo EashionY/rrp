@@ -268,9 +268,19 @@
   
   <select id="searchResume" resultType="java.util.Map">
     select 
-    *,(select count(*) from resume where emp_name like #{keyword} or job like #{keyword}) as totalnum
+      *,(select count(*) from resume where 
+      (emp_name like #{keyword} or job like #{keyword})
+      and id not in
+      <foreach collection="resumeIds" item="resumeId" open="(" close=")" separator=",">
+    	  #{resumeId}
+      </foreach>) as totalnum
     from resume
-    where emp_name like #{keyword} or job like #{keyword}
+    where (emp_name like #{keyword} or job like #{keyword})
+    and id not in
+    <!-- 因为dao中添加了@Param("resumeIds")，所以此处collection="resumeIds" -->
+    <foreach collection="resumeIds" item="resumeId" open="(" close=")" separator=",">
+    	#{resumeId}
+    </foreach>
     limit #{offset},#{pageSize}
   </select>
   

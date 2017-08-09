@@ -27,7 +27,7 @@ public interface ResumeMapper {
 	 * @param keyword
 	 * @return
 	 */
-	List<Map<String,Object>> searchResume(@Param("keyword")String keyword,@Param("offset")int offset,@Param("pageSize")int pageSize);
+	List<Map<String,Object>> searchResume(@Param("resumeIds")List<Integer> resumeIds,@Param("keyword")String keyword,@Param("offset")int offset,@Param("pageSize")int pageSize);
 	
 	
 }
