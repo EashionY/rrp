@@ -61,6 +61,8 @@ public class CompanyServiceImpl implements CompanyService {
 			authcodeMapper.insert(authcode);
 		}else{
 			authcode.setAuthCode(authCode);
+			//置空时间，让数据库自动更新到最新时间
+			authcode.setAuthTime(null);
 			authcodeMapper.updateByPrimaryKeySelective(authcode);
 		}
 		///邮件的内容  
@@ -93,11 +95,11 @@ public class CompanyServiceImpl implements CompanyService {
 				}
 				//获取激活码
 				String code = authcode.getAuthCode();
-				System.out.println(code);
+//				System.out.println(code);
 				//获取激活码发送时间
 				Date authTime = authcode.getAuthTime();
 				long day = (System.currentTimeMillis()-authTime.getTime())/(24*60*60*1000);
-				System.out.println("day:"+day);
+//				System.out.println("day:"+day);
 				if(code==null || day>=1){
 					throw new EmailException("激活码已过期");
 				}
