@@ -482,7 +482,6 @@ public class ResumeServiceImpl implements ResumeService {
 //			map.put("educationExp", educationExp);
 //		}
 		return list;
-	}
-	
+	}	
 	
 }
