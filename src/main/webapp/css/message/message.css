@@ -117,3 +117,8 @@
     color: #3eb39d;
 }
 .mesfeed_span:hover{cursor: pointer}
+
+.mesfee_pagesBox{ 
+	text-align: center;
+	margin-top: 50px;
+}
