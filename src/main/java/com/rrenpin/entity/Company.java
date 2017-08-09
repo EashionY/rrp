@@ -4,11 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Company implements Serializable{
-	
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 9054408472169567154L;
+	private static final long serialVersionUID = -8040701762805791659L;
 
 	private Integer id;
 
@@ -35,6 +34,8 @@ public class Company implements Serializable{
     private String tel;
 
     private String intro;
+
+    private String license;
 
     private Date regTime;
 
@@ -144,6 +145,14 @@ public class Company implements Serializable{
         this.intro = intro;
     }
 
+    public String getLicense() {
+        return license;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
     public Date getRegTime() {
         return regTime;
     }
@@ -164,8 +173,8 @@ public class Company implements Serializable{
 	public String toString() {
 		return "Company [id=" + id + ", name=" + name + ", logo=" + logo + ", email=" + email + ", info=" + info
 				+ ", address=" + address + ", industry=" + industry + ", scale=" + scale + ", website=" + website
-				+ ", financing=" + financing + ", userId=" + userId + ", tel=" + tel + ", intro=" + intro + ", regTime="
-				+ regTime + ", status=" + status + "]";
+				+ ", financing=" + financing + ", userId=" + userId + ", tel=" + tel + ", intro=" + intro + ", license="
+				+ license + ", regTime=" + regTime + ", status=" + status + "]";
 	}
 
 	@Override
@@ -192,6 +201,5 @@ public class Company implements Serializable{
 			return false;
 		return true;
 	}
-    
     
 }

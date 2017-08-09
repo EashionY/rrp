@@ -1,8 +1,9 @@
 package com.rrenpin.service;
 
 import java.io.File;
-import java.io.UnsupportedEncodingException;
+import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.mail.MessagingException;
@@ -14,15 +15,14 @@ import com.rrenpin.dao.AuthcodeMapper;
 import com.rrenpin.dao.CompanyMapper;
 import com.rrenpin.entity.Authcode;
 import com.rrenpin.entity.Company;
-
 import com.rrenpin.exception.CompanyException;
 import com.rrenpin.exception.DataBaseException;
 import com.rrenpin.exception.EmailException;
 import com.rrenpin.exception.ImgUploadException;
 import com.rrenpin.exception.NoCompanyFindException;
 import com.rrenpin.util.Image;
-
 import com.rrenpin.util.SendEmail;
+import com.rrenpin.util.Upload;
 import com.rrenpin.util.Util;
 
 @Service("companyService")
@@ -40,7 +40,13 @@ public class CompanyServiceImpl implements CompanyService {
 			company = new Company();
 			company.setEmail(email);
 			company.setUserId(userId);
-			companyMapper.insertSelective(company);
+			try {
+				//若出现异常，则为userId重复，不唯一
+				companyMapper.insertSelective(company);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new EmailException("请使用验证通过后的邮箱");
+			}
 		}else{
 			int existUserId = company.getUserId();
 			if(existUserId != userId){
@@ -154,7 +160,7 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	public Company addCompanyInfo(HttpServletRequest request, int id, String name, String logo, String address, String industry, String website, String scale,
-			String financing, String intro, String tel, String info) throws UnsupportedEncodingException {
+			String financing, String intro, String tel, String info) throws IOException {
 		request.setCharacterEncoding("UTF-8");
 		Company company = companyMapper.selectByPrimaryKey(id);
 		if(company==null){
@@ -186,6 +192,12 @@ public class CompanyServiceImpl implements CompanyService {
 		company.setScale(scale);
 		company.setFinancing(financing);
 		company.setIntro(intro);
+		//上传营业执照
+		List<String> paths = Upload.uploadImg(request, ""+userId);
+		if(paths == null){
+			throw new ImgUploadException("营业执照上传失败");
+		}
+		company.setLicense(paths.get(0));
 		company.setTel(tel);
 		company.setInfo(info);
 		int i;

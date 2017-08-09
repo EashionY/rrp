@@ -14,8 +14,9 @@ public interface CompanyMapper {
     int updateByPrimaryKeySelective(Company record);
 
     int updateByPrimaryKey(Company record);
-    
-    Company findByUserId(int userId);
-    
-    Company findByEmail(String email);
+
+	Company findByEmail(String email);
+
+	Company findByUserId(int userId);
+	
 }

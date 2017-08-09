@@ -1,5 +1,6 @@
 package com.rrenpin.service;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,9 +56,10 @@ public interface CompanyService {
 	 * @param intro
 	 * @return 
 	 * @throws UnsupportedEncodingException 
+	 * @throws IOException 
 	 */
 	public Company addCompanyInfo(HttpServletRequest request,int id,String name,String logo,String address,String industry,String website,
-			String scale,String financing,String intro,String tel,String info) throws UnsupportedEncodingException;
+			String scale,String financing,String intro,String tel,String info) throws UnsupportedEncodingException, IOException;
 	
 	/**
 	 * ¹«Ë¾ÏêÇé
