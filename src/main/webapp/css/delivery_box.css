@@ -191,6 +191,7 @@
     border-top: 1px #dddddd solid;
     padding:20px 0;
 }
+.delivery_xsmain:hover{cursor: pointer}
 .delivery_xs_zhiwei{
     font-size: 16px;
     color: #333333;
@@ -216,3 +217,7 @@
     background-color: #fafafa;
 }
 .delivery_morezhiwei:hover{cursor: pointer}
+
+.de_mainBox{
+	margin-bottom: 50px;
+}

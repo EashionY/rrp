@@ -8,6 +8,19 @@ $(function() {
 		Request = GetRequest(); 
 		var userId2=Request['userId']; //获取参数
 		var deliveryId=Request['deliveryId']; //获取参数
+		var prevUrl= Request['prevUrl'];
+		var state= Request['state'];
+		if(state==0){//设置当前状态
+			$("#resu_state").html("新简历")
+		}else if(state==1){
+			$("#resu_state").html("已查看")
+		}else if(state==2){
+			$("#resu_state").html("有意向")
+		}else if(state==3){
+			$("#resu_state").html("邀请面试")
+		}else if(state==4){
+			$("#resu_state").html("不合适")
+		}
 		$("#uId").val(userId2);
 		$.get(ip+'/rrp/resume/findByUserId.do',{userId:userId2},function(data){
 			if(data.state==0){
@@ -35,7 +48,7 @@ $(function() {
 				                	   icon: 1,
 				                	   time: 1000 
 				                  	}, function(){
-				                  	   window.location.href="resume_new.html";
+				                  	   window.location.href=prevUrl;//返回之前页面
 				                  	}); 
 				    			}else{
 				    				layer.msg(data.message)
@@ -51,7 +64,7 @@ $(function() {
 					                	   icon: 1,
 					                	   time: 1000 
 					                  	}, function(){
-					                  	   window.location.href="resume_new.html";
+					                  	   window.location.href=prevUrl;//返回之前页面
 					                  	}); 
 				    			}else{
 				    				layer.msg(data.message)

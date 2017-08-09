@@ -4,6 +4,7 @@ $(function() {
 	if(userId==""){//未登录，请先登录
 	   window.location.href="../login.html";
 	}else{
+		//加载投递简历状态
 	   $.get(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
 		   if(data.state==0){
 			   var resumeId=data.data.id;//根据用户id找简历id
@@ -11,7 +12,7 @@ $(function() {
 			   $.get(ip+"/rrp/delivery/viewDeliveried.do",{resumeId:resumeId,deliveryStatus:0},function(result){//查询投递成功简历
 				   if(result.state==0){
 					   if(result.data.length!=0){
-						   console.log(result.data)
+						   //console.log(result.data)
 						   var str="";
 						   $.each(result.data,function(k,v){
 							   str+='<div class="delivery_leftcontbox"><div class="delivery_leftcontmain">'+
@@ -51,6 +52,7 @@ $(function() {
 		   }else{
 			  layer.msg(data.message)
 		   }
-	   },"json")
+	   },"json");
+	   
 	}
 })

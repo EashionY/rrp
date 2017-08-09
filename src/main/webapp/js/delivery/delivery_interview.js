@@ -14,6 +14,12 @@ $(function() {
 						   console.log(result.data)
 						   var str="";
 						   $.each(result.data,function(k,v){
+							   if(v.checkTime==null){
+								   v.checkTime=v.inviteTime;
+							   }
+							   if(v.intendTime==null){
+								   v.intendTime=v.inviteTime;
+							   }
 							   str+='<div class="delivery_leftcontbox"><div class="delivery_leftcontmain">'+
 			                    '<div class="delivery_leftcontdiv1"><div class="delivery_leftcomname">'+v.companyName+'</div><div>'+v.postName+'<span class="delivery_leftadd">['+v.region+']</span></div>'+
 			                    '<div class="delivery_leftsala">'+v.salary+'</div></div>'+
