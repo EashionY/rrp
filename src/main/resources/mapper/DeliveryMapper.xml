@@ -214,4 +214,8 @@
     and (r.emp_name like #{keyword} or r.job like #{keyword})
     limit #{offset},#{pageSize}
   </select>
+  
+  <select id="findResumeIdByCompanyId" resultType="java.lang.Integer">
+  	select resume_id from delivery where company_id=#{company_id}
+  </select>
 </mapper>

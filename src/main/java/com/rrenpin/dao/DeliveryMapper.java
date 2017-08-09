@@ -67,4 +67,11 @@ public interface DeliveryMapper {
 	 */
 	List<Map<String,Object>> searchDelivery(@Param("companyId")int companyId,@Param("deliveryStatus")String deliveryStatus,
 			@Param("keyword")String keyword,@Param("offset")int offset,@Param("pageSize")int pageSize);
+	
+	/**
+	 * 通过公司id查找简历id
+	 * @param companyId
+	 * @return
+	 */
+	List<Integer> findResumeIdByCompanyId(int companyId);
 }
