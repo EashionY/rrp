@@ -2,7 +2,6 @@ package com.rrenpin.service;
 
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -60,31 +59,19 @@ public class DeliveryServiceImpl implements DeliveryService {
 		}
 	}
 
-	public List<Map<String, Object>> viewDeliveried(int resumeId, String deliveryStatus) {
-		List<Delivery> list = deliveryMapper.findByResumeId(resumeId, deliveryStatus);
+	public List<Map<String, Object>> viewDeliveried(int resumeId, String deliveryStatus, int page, int pageSize) {
+		int offset = (page-1)*pageSize;
+		List<Map<String, Object>> list = deliveryMapper.findByResumeId(resumeId, deliveryStatus, offset, pageSize);
 		if(list==null){
 			throw new DeliveryException("未找到相关的投递记录");
 		}
 		List<Map<String,Object>> result = new ArrayList<Map<String,Object>>();
-		for(Delivery delivery : list){
-			Map<String,Object> map = new HashMap<String, Object>();
-			//投递时间
-			map.put("deliveyTime", delivery.getDeliveryTime());
-			//查看时间
-			map.put("checkTime", delivery.getCheckTime());
-			//有意时间
-			map.put("intendTime", delivery.getIntendTime());
-			//邀面时间
-			map.put("inviteTime", delivery.getInviteTime());
-			//不合适时间
-			map.put("unfitTime", delivery.getUnfitTime());
-			//投递状态
-			map.put("deliveryStatus", delivery.getDeliveryStatus());
+		for(Map<String, Object> map : list){
 			//获取公司名
-			Company company = companyMapper.selectByPrimaryKey(delivery.getCompanyId());
+			Company company = companyMapper.selectByPrimaryKey((Integer)map.get("company_id"));
 			map.put("companyName", company.getName());
 			//获取职位名、工作地点、薪资
-			Post post = postMapper.selectByPrimaryKey(delivery.getPostId());
+			Post post = postMapper.selectByPrimaryKey((Integer)map.get("post_id"));
 			map.put("postName", post.getPostName());
 			map.put("region", post.getRegion());
 			map.put("salary", post.getSalary());
@@ -138,4 +125,24 @@ public class DeliveryServiceImpl implements DeliveryService {
 		}
 	}
 
+	public List<Map<String, Object>> searchDelivery(int companyId, String deliveryStatus, String keyword, int page,
+			int pageSize) {
+		keyword = "%"+keyword+"%";
+		int offset = (page-1)*pageSize;
+		List<Map<String, Object>> list;
+		try {
+			list = deliveryMapper.searchDelivery(companyId, deliveryStatus, keyword, offset, pageSize);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		for(Map<String, Object> map : list){
+			Post post = postMapper.selectByPrimaryKey((Integer)map.get("post_id"));
+			//应聘职位
+			map.put("postName", post.getPostName());
+		}
+		return list;
+	}
+
+	
 }

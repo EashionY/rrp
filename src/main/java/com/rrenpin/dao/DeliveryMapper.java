@@ -35,7 +35,8 @@ public interface DeliveryMapper {
 	 * @param deliveryStatus
 	 * @return
 	 */
-	List<Delivery> findByResumeId(@Param("resumeId")int resumeId,@Param("deliveryStatus")String deliveryStatus);
+	List<Map<String,Object>> findByResumeId(@Param("resumeId")int resumeId,@Param("deliveryStatus")String deliveryStatus,@Param("offset")int offset,
+			@Param("pageSize")int pageSize);
 	
 	/**
 	 * (企业)查看收到的简历状态
@@ -54,4 +55,16 @@ public interface DeliveryMapper {
 	 * @return
 	 */
 	int dealResume(@Param("deliveryId")int deliveryId,@Param("deliveryStatus")String deliveryStatus);
+	
+	/**
+	 * 简历管理中筛选简历
+	 * @param companyId
+	 * @param deliveryStatus
+	 * @param keyword
+	 * @param offset
+	 * @param pageSize
+	 * @return
+	 */
+	List<Map<String,Object>> searchDelivery(@Param("companyId")int companyId,@Param("deliveryStatus")String deliveryStatus,
+			@Param("keyword")String keyword,@Param("offset")int offset,@Param("pageSize")int pageSize);
 }

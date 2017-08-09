@@ -20,7 +20,7 @@ public interface DeliveryService {
 	 * @param deliveryStatus
 	 * @return
 	 */
-	public List<Map<String,Object>> viewDeliveried(int resumeId,String deliveryStatus);
+	public List<Map<String,Object>> viewDeliveried(int resumeId,String deliveryStatus,int page,int pageSize);
 	
 	/**
 	 * (企业)查看收到的简历的状态
@@ -37,4 +37,15 @@ public interface DeliveryService {
 	 * @param deliveryStatus
 	 */
 	public void dealResume(int deliveryId,String deliveryStatus);
+	
+	/**
+	 * 简历管理搜索框
+	 * @param companyId
+	 * @param deliveryStatus
+	 * @param keyword
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+	public List<Map<String,Object>> searchDelivery(int companyId,String deliveryStatus,String keyword,int page,int pageSize);
 }

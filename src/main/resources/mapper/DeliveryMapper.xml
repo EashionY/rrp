@@ -160,11 +160,13 @@
     where resume_id=#{resumeId} and company_id=#{companyId} and post_id=#{postId}
   </select>
   
-  <select id="findByResumeId" resultMap="BaseResultMap">
+  <select id="findByResumeId" resultType="java.util.Map">
   	select 
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List" />,
+    (select count(*) from delivery where resume_id=#{resumeId} and delivery_status=#{deliveryStatus}) as totalnum
     from delivery
     where resume_id=#{resumeId} and delivery_status=#{deliveryStatus}
+    limit #{offset},#{pageSize}
   </select>
   
   <select id="findByCompanyId" resultType="java.util.Map">
@@ -195,4 +197,15 @@
   	</set>
   	where delivery_id=#{deliveryId}
   </update>
+  
+  <select id="searchDelivery" resultType="java.util.Map">
+    select d.*,r.*,
+      (select count(*) from delivery d join resume r on d.resume_id=r.id
+      where d.company_id=#{companyId} and d.delivery_status=#{deliveryStatus} 
+      and (r.emp_name like #{keyword} or r.job like #{keyword})) as totalnum
+    from delivery d join resume r on d.resume_id=r.id
+    where d.company_id=#{companyId} and d.delivery_status=#{deliveryStatus} 
+    and (r.emp_name like #{keyword} or r.job like #{keyword})
+    limit #{offset},#{pageSize}
+  </select>
 </mapper>

@@ -31,8 +31,8 @@ public class DeliveryController extends ExceptionController{
 	
 	@RequestMapping("/viewDeliveried.do")
 	@ResponseBody
-	public JsonResult viewDeliveried(int resumeId, String deliveryStatus){
-		List<Map<String,Object>> result = deliveryService.viewDeliveried(resumeId, deliveryStatus);
+	public JsonResult viewDeliveried(int resumeId, String deliveryStatus, int page, int pageSize){
+		List<Map<String,Object>> result = deliveryService.viewDeliveried(resumeId, deliveryStatus, page, pageSize);
 		return new JsonResult(result);
 	}
 	
@@ -48,6 +48,13 @@ public class DeliveryController extends ExceptionController{
 	public JsonResult dealResume(int deliveryId, String deliveryStatus){
 		deliveryService.dealResume(deliveryId, deliveryStatus);
 		return new JsonResult(SUCCESS,"","处理成功");
+	}
+	
+	@RequestMapping("/searchDelivery.do")
+	@ResponseBody
+	public JsonResult searchDelivery(int companyId, String deliveryStatus, String keyword, int page,int pageSize){
+		List<Map<String,Object>> result = deliveryService.searchDelivery(companyId, deliveryStatus, keyword, page, pageSize);
+		return new JsonResult(result);
 	}
 	
 	
