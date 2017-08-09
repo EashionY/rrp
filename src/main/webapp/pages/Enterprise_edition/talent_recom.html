@@ -40,75 +40,12 @@
     <div class="talent_divtop">
         <div class="talent_title"><span class="job_title ">人才推荐</span></div>
         <div class="talent_topleft">
-            <div>职位：</div>
-            <div id="divselect_talent" class="divselect">
-                <cite><span class="input_text"></span>
-                    <span class="myfont input_icon">&#xe681;</span>
-                </cite>
-                <ul>
-                    <li><a href="javascript:;" selectid="1">ios开发</a></li>
-                    <li><a href="javascript:;" selectid="2">java前端</a></li>
-                    <li><a href="javascript:;" selectid="3">web前端</a></li>
-                </ul>
-            </div>
-            <input name="zhiwei" type="hidden" value="" id="inputselect_talent" class="inputselect"/>
+            <!-- 去掉职位搜索 -->
         </div>
     </div>
     <div class="talent_contbox">
-        <div class="talent_main">
-            <div class="talent_mainbox">
-                <div class="talent_mainleft">
-                    <div class="resu_img"><img src="" alt=""/></div>
-                    <div class="resu_imgnext">
-                        <div class="resu_name">二狗子</div>
-                        <div class="resu_sex"><span class="talent_zw">JAVA前端</span><span class="talent_xz">10K-20K</span></div>
-                        <div class="resu_sex"><span>男/22岁</span><span>大专</span><span>1-2年</span></div>
-                    </div>
-                </div>
-                <div class="talent_mainright">
-                    “做过游戏的ios程序员 有责任心自学能力强有一定团队领导能力</br>
-                    能够独立完成项目开发</br>
-                    熟练使用SQLite、MySQL查询简单信息”
-                </div>
-            </div>
-            <div class="talent_btnbox"><span>查看简历</span></div>
-        </div>
-        <div class="talent_main">
-            <div class="talent_mainbox">
-                <div class="talent_mainleft">
-                    <div class="resu_img"><img src="" alt=""/></div>
-                    <div class="resu_imgnext">
-                        <div class="resu_name">二狗子</div>
-                        <div class="resu_sex"><span class="talent_zw">JAVA前端</span><span class="talent_xz">10K-20K</span></div>
-                        <div class="resu_sex"><span>男/22岁</span><span>大专</span><span>1-2年</span></div>
-                    </div>
-                </div>
-                <div class="talent_mainright">
-                    “做过游戏的ios程序员 有责任心自学能力强有一定团队领导能力</br>
-                    能够独立完成项目开发</br>
-                    熟练使用SQLite、MySQL查询简单信息”
-                </div>
-            </div>
-            <div class="talent_btnbox"><span>查看简历</span></div>
-        </div>
-        <div class="talent_main">
-            <div class="talent_mainbox">
-                <div class="talent_mainleft">
-                    <div class="resu_img"><img src="" alt=""/></div>
-                    <div class="resu_imgnext">
-                        <div class="resu_name">二狗子</div>
-                        <div class="resu_sex"><span class="talent_zw">JAVA前端</span><span class="talent_xz">10K-20K</span></div>
-                        <div class="resu_sex"><span>男/22岁</span><span>大专</span><span>1-2年</span></div>
-                    </div>
-                </div>
-                <div class="talent_mainright">
-                    “做过游戏的ios程序员 有责任心自学能力强有一定团队领导能力</br>
-                    能够独立完成项目开发</br>
-                    熟练使用SQLite、MySQL查询简单信息”
-                </div>
-            </div>
-            <div class="talent_btnbox"><span>查看简历</span></div>
-        </div>
+    	<div id="talent_Box"></div>
+        
         <!--分页-->
         <div class="appJob_pagesBox">
             <div id="appJob_pages"></div>
@@ -138,29 +75,11 @@
 </footer>
 </body>
 <script src="../../js/jquery-1.11.3.js"></script>
+<script src="../../js/ip.js"></script>
+<script src="../../plug/layer/layer.js"></script>
 <script src="../../plug/jquery.js"></script>
 <script src="../../plug/divselect.js"></script>
 <script src="../../plug/layui-v1.0.9_rls/layui/layui.js" charset="utf-8"></script>
-
-<script>
-    //    选择
-    $(function(){
-        $.divselect("#divselect_talent","#inputselect_talent");
-    });
-    //    分页
-    layui.use(['laypage', 'layer'], function(){
-        var laypage = layui.laypage,
-                layer = layui.layer;
-        laypage({
-            cont: 'appJob_pages',
-            pages: 20,
-            first: 1,
-            last: 20,
-            prev: '<em><</em>',
-            next: '<em>></em>',
-            groups: 3,//连续显示分页数
-            skin: '#3eb39d'
-        });
-    });
-</script>
+<script src="../../js/dataMa.js"></script>
+<script src="../../js/talent_recom.js"></script>
 </html>

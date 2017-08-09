@@ -31,7 +31,7 @@
 .talent_mainbox{width: 944px;border-bottom: 1px #dddddd solid;margin: 0 auto;
     display: flex;justify-content: space-between;padding-top: 30px;padding-bottom: 30px;}
 .talent_mainleft{display: flex;}
-.talent_mainleft .resu_img{width: 100px;height: 100px;border-radius: 50%;overflow: hidden;border: 1px red solid}
+.talent_mainleft .resu_img{width: 100px;height: 100px;border-radius: 50%;overflow: hidden;}
 .talent_mainleft .resu_img>img{width: 100%;height: 100%;}
 .talent_mainleft .resu_imgnext{margin-left: 20px;color: #333333;font-size: 14px}
 .talent_mainleft .resu_imgnext>div{margin-top: 15px}
