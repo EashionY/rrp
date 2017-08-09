@@ -17,17 +17,14 @@ public class Upload {
 	/**
 	 * 上传多张图片
 	 * @param request
-	 * @param phone 上传用户的手机号
-	 * @param folder 上传图片保存的文件夹
+	 * @param userId 上传用户的id
 	 * @return 图片路径集合
 	 * @throws IOException
 	 */
-	public static List<String> uploadImg(HttpServletRequest request,String userId,String folder) throws IOException{
+	public static List<String> uploadImg(HttpServletRequest request,String userId) throws IOException{
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());  
-//      String imgpath = request.getSession().getServletContext().getRealPath("/");
-        String imgpath = "/root/rrpUpload/";
-//      System.out.println(imgpath);
-        imgpath += userId+File.separator+folder+File.separator;
+        String imgpath = "D:\\rrpUpload\\";
+        imgpath += userId+File.separator;
         List<String> paths = new ArrayList<String>();
         //判断request是否有文件上传，即多部分请求 
         if(multipartResolver.isMultipart(request)){
@@ -36,7 +33,7 @@ public class Upload {
             //取得request中的所有文件名
             Iterator<String> ite = multiRequest.getFileNames(); 
             while(ite.hasNext()){
-            	String displayImgpath = "http://119.23.254.54/img/"+userId+File.separator+folder+File.separator;
+            	String displayImgpath = "images/"+userId+File.separator;
             	//取得上传文件
                 MultipartFile file = multiRequest.getFile(ite.next());  
                 if(!file.isEmpty()){
