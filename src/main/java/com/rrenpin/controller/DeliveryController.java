@@ -57,5 +57,10 @@ public class DeliveryController extends ExceptionController{
 		return new JsonResult(result);
 	}
 	
-	
+	@RequestMapping("/viewFeedback.do")
+	@ResponseBody
+	public JsonResult viewFeedback(int resumeId, int page, int pageSize){
+		List<Map<String,Object>> result = deliveryService.viewFeedback(resumeId, page, pageSize);
+		return new JsonResult(result);
+	}
 }

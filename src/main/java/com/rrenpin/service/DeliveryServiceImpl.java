@@ -19,6 +19,8 @@ import com.rrenpin.entity.Post;
 import com.rrenpin.entity.Resume;
 import com.rrenpin.exception.DataBaseException;
 import com.rrenpin.exception.DeliveryException;
+import com.rrenpin.exception.NoCompanyFindException;
+import com.rrenpin.exception.NoPostFindException;
 import com.rrenpin.util.Util;
 
 @Service("deliveryService")
@@ -139,6 +141,33 @@ public class DeliveryServiceImpl implements DeliveryService {
 		for(Map<String, Object> map : list){
 			Post post = postMapper.selectByPrimaryKey((Integer)map.get("post_id"));
 			//应聘职位
+			map.put("postName", post.getPostName());
+		}
+		return list;
+	}
+
+	public List<Map<String, Object>> viewFeedback(int resumeId, int page, int pageSize) {
+		int offset = (page-1)*pageSize;
+		List<Map<String, Object>> list;
+		try {
+			list = deliveryMapper.findByResumeId(resumeId, null, offset, pageSize);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		for(Map<String,Object> map : list){
+			int companyId = (Integer) map.get("company_id");
+			int postId = (Integer)map.get("post_id");
+			Company company = companyMapper.selectByPrimaryKey(companyId);
+			if(company==null){
+				throw new NoCompanyFindException("未找到对应公司");
+			}
+			map.put("companyName", company.getName());
+			map.put("logo", company.getLogo());
+			Post post = postMapper.selectByPrimaryKey(postId);
+			if(post==null){
+				throw new NoPostFindException("未找到对应职位");
+			}
 			map.put("postName", post.getPostName());
 		}
 		return list;

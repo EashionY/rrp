@@ -48,4 +48,13 @@ public interface DeliveryService {
 	 * @return
 	 */
 	public List<Map<String,Object>> searchDelivery(int companyId,String deliveryStatus,String keyword,int page,int pageSize);
+	
+	/**
+	 * 用户查看投递反馈
+	 * @param resumeId
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+	public List<Map<String,Object>> viewFeedback(int resumeId,int page,int pageSize);
 }

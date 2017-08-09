@@ -163,9 +163,15 @@
   <select id="findByResumeId" resultType="java.util.Map">
   	select 
     <include refid="Base_Column_List" />,
-    (select count(*) from delivery where resume_id=#{resumeId} and delivery_status=#{deliveryStatus}) as totalnum
+    (select count(*) from delivery where resume_id=#{resumeId} 
+    <if test="deliveryStatus != null">
+    and delivery_status=#{deliveryStatus}
+    </if>) as totalnum
     from delivery
-    where resume_id=#{resumeId} and delivery_status=#{deliveryStatus}
+    where resume_id=#{resumeId} 
+    <if test="deliveryStatus != null">
+    and delivery_status=#{deliveryStatus}
+    </if>
     limit #{offset},#{pageSize}
   </select>
   
