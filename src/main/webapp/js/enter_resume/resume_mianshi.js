@@ -5,7 +5,7 @@ $(function() {
 	if(userId==""){//未登录，请先登录
 	     window.location.href="../../Personal_edition/login.html";
 	}else{
-		var mydata={companyId:getCookieValue("companyId"),deliveryStatus:0,page:1,pageSize:1}
+		var mydata={companyId:getCookieValue("companyId"),deliveryStatus:3,page:1,pageSize:1}
 		add_page(mydata,nowUrl);
 		menu_num();
 	}

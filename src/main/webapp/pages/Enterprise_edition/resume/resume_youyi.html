@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>查看简历</title>
+    <title>新简历</title>
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="../../../css/share/base.css"/>
     <link rel="stylesheet" href="../../../css/share/header.css"/>
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
     <link rel="stylesheet" href="../../../css/share/commen.css"/>
-    <link rel="stylesheet" href="../../../css/enter_resume/resu_view.css"/>
+    <link rel="stylesheet" href="../../../css/apply_job/pages.css"/>
+    <link rel="stylesheet" href="../../../css/enter_resume/resume_fenlei.css"/>
 </head>
 <body>
 <header>
@@ -17,7 +18,7 @@
         <div class="nav_div1">
             <div class="logo_imgbox"><img src="../../../images/index/ic_home_logo.png" alt=""/></div>
             <ul class="left_ul">
-               <a href="../position/position_manage.html"><li>职位管理</li></a>
+                <a href="../position/position_manage.html"><li>职位管理</li></a>
                 <a href="../talent_recom.html"><li>人才</li></a>
                 <a href="resume_new.html" class="activ"><li>简历管理</li></a>
                 <a href="../../Personal_edition/index.html"><li>个人版</li></a>
@@ -32,37 +33,24 @@
     </nav>
 </header>
 <section class="mybody">
-    <div class="resu_top">
-        <div class="resu_topdiv1">应聘：<span id="revi_job"></span></div>
-        <div class="resu_topdiv2">
-            <div class="resu_topdiv2_left">
-                <div class="resu_img"><img id="revi_head" src="" alt=""/></div>
-                <div class="resu_imgnext">
-                    <div class="resu_name"></div>
-                    <div class="resu_sex" id="revi_sex"></div>
-                    <div class="resu_sex"><span>手机：<span id="revi_tel"></span></span><span>邮箱：<span id="revi_email"></span></span></div>
-                </div>
-            </div>
-            <div id="divselect_re" class="divselect">
-                <cite><span class="input_text" id="resu_state"></span>
-                    <span class="myfont input_icon">&#xe681;</span>
-                </cite>
-                <ul>
-                    <li><a href="javascript:;" selectid="1">已查看</a></li>
-                    <li><a href="javascript:;" selectid="2">有意向</a></li>
-                    <li><a href="javascript:;" selectid="3">邀请面试</a></li>
-                    <li><a href="javascript:;" selectid="4">不合适</a></li>
-                </ul>
-            </div>
-            <input name="zhuangtai" type="hidden" value="" id="inputselect_re" class="inputselect"/>
-        </div>
+    <div class="serch_Box resuNew_ser">
+        <div class="serch_inputbox"><input class="serch_input" type="text" placeholder="搜索职位/公司"/></div>
+        <div class="serch_tubox"><span class="myfont font_30">&#xe636;</span></div>
     </div>
-    <div class="resu_down">
-        <div class="resu_downdiv1"><div class="job_title">简历预览</div></div>
-        <div class="resu_downmain" id="test">
-        	<input id="uId" type="text" value="" class="myinput"/>
-        	<iframe src="resume_ifram.html" name="ifr" id="ifr" frameborder="none" scrolling="auto" style="width: 944px; height: 100%;"></iframe>
+    <div class="resuNew_contbox">
+        <div class="resuNew_menudiv">
+            <span id="new_btn">新简历（<span id="new_num"></span>）</span>
+            <span id="view_btn">已查看（<span id="view_num"></span>）</span>
+            <span id="youyi_btn" class="resuNew_menuactiv">有意向（<span id="youyi_num"></span>）</span>
+            <span id="inter_btn">邀请面试（<span id="interview_num"></span>）</span>
+            <span id="nopass_btn">不合适（<span id="nopass_num"></span>）</span>
         </div>
+        <div id="new_Box"></div>
+    	
+    </div>
+    <!--分页-->
+    <div class="rene_pagesBox">
+    	<div id="rene_pages"></div>
     </div>
 </section>
 <footer>
@@ -90,14 +78,8 @@
 <script src="../../../js/jquery-1.11.3.js"></script>
 <script src="../../../js/ip.js"></script>
 <script src="../../../plug/layer/layer.js"></script>
+<script src="../../../plug/layui-v1.0.9_rls/layui/layui.js" charset="utf-8"></script>
 <script src="../../../js/dataMa.js"></script>
-<script src="../../../plug/jquery.js"></script>
-<script src="../../../plug/divselect.js"></script>
-<script src="../../../js/request_url.js"></script>
-<script src="../../../js/enter_resume/resume_view.js"></script>
-<script>
-function test(h){
-    $("#test").css("height",h+"px")
-}
-</script>
+<script src="../../../js/enter_resume/enter_resume_main.js"></script>
+<script src="../../../js/enter_resume/resume_youyi.js"></script>
 </html>
