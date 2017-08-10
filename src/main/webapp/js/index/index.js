@@ -127,7 +127,9 @@ $(function() {
             		addjob3(leftMenu,j,parentarr[j].length);
             	}
             	//========左侧菜单栏结束===========
-            	
+            	$(".left_menubox li").click(function(){//点击菜单栏搜索职位
+            		window.location.href="job/apply_job.html?keyword="+$(this).html();
+            	})
             }else{
             	layer.msg(data.message);
             }

@@ -5,7 +5,7 @@ function addDom(mydata){
 			var result=data.data;
 			$(".zhiwei_Box").html("");
 			if(result.length==0){
-				layer.msg("对不起，没有符合所选条件的结果！");
+				//layer.msg("对不起，没有符合所选条件的结果！");
 			}else{
 				var str="";
 				var myDate = new Date();
@@ -89,7 +89,7 @@ function xunhuan(tjArr,obj,num){
 			}else{
 				tjArr.splice(num,1,tj);//替换元素
 			}
-			//console.log(tjArr);
+			console.log(tjArr);
 			var mydata={keyword:tjArr[0],region:tjArr[1],workExp:tjArr[2],degree:tjArr[3],scale:tjArr[4],salary:tjArr[5],industry:tjArr[6],financing:tjArr[7],page:1,pageSize:3}
 			add_page(mydata);
 		})
@@ -135,8 +135,18 @@ function add_page(mydata){
 $(function() { 
 	myonload2("../my/pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
 	shijian($("#app_jyul li"),$("#app_xlul li"),$("#app_gmul li"),$("#app_xzul li"),$("#app_hyul li"),$("#app_rzul li"));
-	var mydata={keyword:null,region:null,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:3}
-	add_page(mydata);
+	var Request = new Object(); 
+	Request = GetRequest(); 
+	var keyword=Request['keyword']; //获取参数
+	console.log(keyword)
+	if(keyword==undefined){
+		var mydata={keyword:null,region:null,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:3}
+		add_page(mydata);
+	}else{
+		$(".appJob_serInp").val(keyword);
+		var mydata={keyword:keyword,region:null,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:3}
+		add_page(mydata);
+	}
 });
 
 
@@ -165,4 +175,17 @@ $(".cond_ul>li").on("click",function(){//样式转换
             }
         });
  })
+ 
+$(".more_indu").click(function(){//展开全部行业
+        if(parseInt($(".hangye_ul").css("height"))<100){
+            $(".hangye_ul").css({
+                "height": "360px"
+            })
+        }else{
+            $(".hangye_ul").css({
+                "height": "50px"
+            })
+        }
+    });
+
    
