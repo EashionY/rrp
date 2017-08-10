@@ -14,7 +14,6 @@ $(function() {
 			$(".company_jianjie").html(result.intro)
 			$(".company_addresstext").html(result.address);
 			$("#addname").val(result.address)
-			
 		}else{
 			layer.msg(data.message)
 		}
