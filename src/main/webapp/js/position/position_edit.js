@@ -1,14 +1,12 @@
 $(function() {
 	myonload1("../com_informa/com_xinxi.html","../com_informa/com_psd.html","../../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
-	var companyId=getCookieValue("companyId");
+	var comStatus=getCookieValue("comStatus");
 	if(userId==""){//未登录，请先登录
 	     window.location.href="../../Personal_edition/login.html";
 	}else{
-		if(companyId=="undefined"){//判断是否开通企业版
-			 //前去开通企业版
-			 window.location.href="../../Personal_edition/enterprise/enterprise1.html";
-		}else{
+		if(comStatus==3){//判断是否开通企业版
+
 			var Request = new Object(); 
 			Request = GetRequest(); 
 			var postId=Request['postId']; //获取参数
@@ -50,9 +48,9 @@ $(function() {
 					layer.msg(data.message)
 				}
 			},'json')
+		}else{
+			to_open_inner(comStatus);//判断跳转页面
 		}
-		
-		
 	}
 })
 

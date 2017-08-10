@@ -48,7 +48,7 @@
                 <a href="../index.html"><li>首页</li></a>
                 <a href="../job/apply_job.html"><li>求职</li></a>
                 <a href="../news/newsList.html"><li>新闻</li></a>
-                <a href="../enterprise/enterprise1.html"><li>企业版</li></a>
+                <a href="../../Enterprise_edition/talent_recom.html"><li>企业版</li></a>
             </ul>
         </div>
         <ul class="nav_div2">
@@ -160,13 +160,13 @@
 	$(function() { 
 		myonload2("pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
 		var userIdValue = getCookieValue("userId"); 
-		console.log(userIdValue)
+		//console.log(userIdValue)
 		if(userIdValue==""){//未登录，请先登录
 		    window.location.href="../login.html";
 		}else{
 		    $.get(ip+"/rrp/user/findUserInfo.do",{userId:userIdValue},function(data){
 		    	if(data.state==0){
-		    		console.log(data.data);
+		    		//console.log(data.data);
 		    		$("#my_headimg").attr("src",'../../../../'+data.data.headImg)
 		    		$("#uname1").html(data.data.nickname)
 		    		$(".my_zhiye").html(data.data.job)
@@ -210,7 +210,7 @@
 			            }else{
 			                $.post(ip+"/rrp/user/modifyHeadImg.do",{userId:userIdValue,base64:imgMain},function(res){
 			                	if(res.state==0){
-			                		layer.msg("上传成功")//TO-DO
+			                		layer.msg("上传成功")
 			                		$("#my_headImg2").attr("src",'../../../../'+res.data.headImg);
 			                		$("#img_mask").css("display","none");
 			                	}else{
@@ -233,7 +233,7 @@
 		
 	});
 	
-	$(".myedit_savebtn").click(function () {
+	$(".myedit_savebtn").click(function () {//修改个人信息
 		var uid = getCookieValue("userId");
 		var uname=$("#uname").val();
 		var usex=$(".mysex").html();
@@ -249,7 +249,14 @@
             success: function(data){
           	    console.log(data);
                 if(data.state==0){
-                	window.location.href="pers_infor.html";
+                	layer.msg(data.message,{
+                		  icon: 1,
+                		  time: 1000 
+                  	}, function(){
+                  		deleteCookie("userName","/");
+                  	    addCookie("userName",uname,1,"/"); 
+                    	window.location.href="pers_infor.html";
+                  	}); 
                 }else{
                 	layer.msg(data.message)
                 }

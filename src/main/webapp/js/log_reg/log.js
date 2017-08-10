@@ -23,12 +23,13 @@ $("#log_btn").on("click",function(){
                 	addCookie("companyName",data.data.name,1,"/"); 
                 	addCookie("companyId",data.data.companyId,1,"/"); 
                 	addCookie("email",data.data.email,1,"/"); 
+                	addCookie("comStatus",data.data.status,1,"/");
                 	layer.msg(data.message,{
               		  icon: 1,
               		  time: 1000 
                 	}, function(){
                 		var oldUrl=document.referrer;//获取之前的url
-                		//console.log(oldUrl);
+                		console.log(oldUrl);
                 		if(oldUrl==""){
                 			window.location.href="index.html";
                 		}else{
