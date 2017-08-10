@@ -2,29 +2,18 @@
  * Created by Administrator on 2017/7/17.
  */
 //    平滑滚动
-$(function(){
-    $("#xinxi_btn").click(function(){
-        $.scrollTo('#xinxibox',300);
-    });
-    $("#qiuzhi_btn").click(function(){
-        $.scrollTo('#yixiangbox',300);
-    });
-    $("#work_btn").click(function(){
-        $.scrollTo('#workjlbox',300);
-    });
-    $("#project_btn").click(function(){
-        $.scrollTo('#projectjlbox',300);
-    });
-    $("#pingjia_btn").click(function(){
-        $.scrollTo('#pingjiabox',400);
-    });
-    $("#jiaoyu_btn").click(function(){
-        $.scrollTo('#jiaoyubox',500);
-    });
-    $("#ziping_btn").click(function(){
-        $.scrollTo('#zipingbox',600);
-    });
-});
+$.each($(".resume_lmenu"),function(k,v){
+	$(v).click(function(){
+		var num=k;
+		$.each($(".resume_lmenu"),function(i,m){
+			if(i==num){
+				$(m).addClass("resume_lmenu_activ")
+			}else{
+				$(m).removeClass("resume_lmenu_activ")
+			}
+		})
+	})
+})
 function divselect(divselectid,inputselectid) {//下拉
 	var inputselect = $(inputselectid);
 	$(divselectid+" cite").click(function(){
