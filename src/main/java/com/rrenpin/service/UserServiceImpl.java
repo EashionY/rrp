@@ -310,7 +310,7 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
-	public void modifyPhone(int userId, String newPhone, String code, HttpServletRequest request) {
+	public void modifyPhone(int userId, String phone, String code, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String phoneCode = (String) session.getAttribute("psdCode");
 		if(phoneCode==null){
@@ -319,7 +319,7 @@ public class UserServiceImpl implements UserService {
 			throw new CodeErrorException("验证码错误");
 		}
 		User user = new User();
-		user.setPhone(newPhone);
+		user.setPhone(phone);
 		user.setId(userId);
 		int i;
 		try {
@@ -333,8 +333,8 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
-	public boolean sendPhoneCode(HttpServletRequest request, String newPhone) {
-		User user = userMapper.findByPhone(newPhone);
+	public boolean sendPhoneCode(HttpServletRequest request, String phone) {
+		User user = userMapper.findByPhone(phone);
 		if(user!=null){
 			throw new PhoneException("该手机号已存在");
 		}
@@ -348,7 +348,7 @@ public class UserServiceImpl implements UserService {
         String templateCode = "SMS_84515025";
         //短信签名
         String signName = "变更验证";
-        boolean success = AliSms.sendCode(newPhone, code, templateCode, signName);
+        boolean success = AliSms.sendCode(phone, code, templateCode, signName);
         if(success){
         	HttpSession session = request.getSession();	
         	session.setAttribute("phoneCode", code);

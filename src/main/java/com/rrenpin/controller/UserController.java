@@ -96,16 +96,15 @@ public class UserController extends ExceptionController{
 	
 	@RequestMapping("/sendPhoneCode.do")
 	@ResponseBody
-	public JsonResult sendPhoneCode(HttpServletRequest request, String newPhone){
-		boolean result = userService.sendPhoneCode(request, newPhone);
-		return new JsonResult(SUCCESS,result,"发送验证码成功");
+	public JsonResult sendPhoneCode(HttpServletRequest request, String phone){
+		boolean result = userService.sendPhoneCode(request, phone);
+		return new JsonResult(SUCCESS,result,"验证码发送成功");
 	}
 	
 	@RequestMapping("/modifyPhone.do")
 	@ResponseBody
-	public JsonResult modifyPhone(int userId, String newPhone, String code, HttpServletRequest request){
-		userService.modifyPhone(userId, newPhone, code, request);
+	public JsonResult modifyPhone(int userId, String phone, String code, HttpServletRequest request){
+		userService.modifyPhone(userId, phone, code, request);
 		return new JsonResult(SUCCESS,"","更换手机号成功");
 	}
-	
 }
