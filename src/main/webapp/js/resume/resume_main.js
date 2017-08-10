@@ -77,9 +77,7 @@
 				                })
 				            }
 				        })
-				        $("#imgbtn_quit").click(function(){
-				            $("#img_mask").css("display","none");
-				        })
+				        
 	                	//个人信息板块
 	                	$("#uName").html(data.data.emp_name);
 	                	$("#resume_modixinxi").css("display","inline-block")
@@ -295,7 +293,14 @@
 	                	}) 	
 	    		 }else{//无简历
 	    			 $(".resume_lname").html("暂无简历");
+	    			// 预览简历
+	                $("#to_preview_resume").click(function(){
+	                	layer.msg("暂无简历可预览，请先完善简历")
+	                })
 	    		 }
+	    		 $("#imgbtn_quit").click(function(){
+			            $("#img_mask").css("display","none");
+			        })
 	    	  },'json');
 	    }
 	});

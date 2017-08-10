@@ -1,10 +1,17 @@
 $(function() {
 	myonload1("com_xinxi.html","com_psd.html","../../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
+	var companyId=getCookieValue("companyId");
 	if(userId==""){//未登录，请先登录
 	     window.location.href="../../Personal_edition/login.html";
 	}else{
-		$("#com_account").html(getCookieValue("userPhone"))
+		if(companyId=="undefined"){//判断是否开通企业版
+			 //前去开通企业版
+			 window.location.href="../../Personal_edition/enterprise/enterprise1.html";
+		}else{
+			$("#com_account").html(getCookieValue("userPhone"))
+		}
+		
 	}
 })
 $(".psd_btn").click(function(){

@@ -1,47 +1,53 @@
 $(function() {
 	myonload1("com_xinxi.html","com_psd.html","../../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
+	var companyId=getCookieValue("companyId");
 	if(userId==""){//未登录，请先登录
 	     window.location.href="../../Personal_edition/login.html";
 	}else{
-		$("#com_name").val(getCookieValue("companyName"));
-		//logo处理
-		var options =
-        {
-            thumbBox: '.thumbBox',
-            spinner: '.spinner',
-            imgSrc: ''
-        };
-        var cropper = $('.imageBox').cropbox(options);
-        $('#upload-file').on('change', function(){
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                options.imgSrc = e.target.result;
-                cropper = $('.imageBox').cropbox(options);
-            }
-            reader.readAsDataURL(this.files[0]);
-           // this.files = [];
-        })
-        var imgMain
-        $('#btnCrop').on('click', function(){
-            imgMain= cropper.getDataURL();
-            $('#imgDiv').html('');
-            $('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:180px;box-shadow:0px 0px 12px #7E7E7E;" ><p>180px*180px</p>');
-        })
-        $('#btnZoomIn').on('click', function(){
-            cropper.zoomIn();
-        })
-        $('#btnZoomOut').on('click', function(){
-            cropper.zoomOut();
-        })
-        $("#imgbtn").click(function(){
-        	if(imgMain==undefined){
-                layer.msg("没有剪切图片")
-            }else{
-            	$(".comInfo_logo").html('<img id="com_logo" style="position:relative;z-index:800" src="'+imgMain+'">')
-            	$("#img_mask").css("display","none")
-            }
-        })
+		if(companyId=="undefined"){//判断是否开通企业版
+			 //前去开通企业版
+			 window.location.href="../../Personal_edition/enterprise/enterprise1.html";
+		}else{
+			$("#com_name").val(getCookieValue("companyName"));
+			//logo处理
+			var options =
+	        {
+	            thumbBox: '.thumbBox',
+	            spinner: '.spinner',
+	            imgSrc: ''
+	        };
+	        var cropper = $('.imageBox').cropbox(options);
+	        $('#upload-file').on('change', function(){
+	            var reader = new FileReader();
+	            reader.onload = function(e) {
+	                options.imgSrc = e.target.result;
+	                cropper = $('.imageBox').cropbox(options);
+	            }
+	            reader.readAsDataURL(this.files[0]);
+	           // this.files = [];
+	        })
+	        var imgMain
+	        $('#btnCrop').on('click', function(){
+	            imgMain= cropper.getDataURL();
+	            $('#imgDiv').html('');
+	            $('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:180px;box-shadow:0px 0px 12px #7E7E7E;" ><p>180px*180px</p>');
+	        })
+	        $('#btnZoomIn').on('click', function(){
+	            cropper.zoomIn();
+	        })
+	        $('#btnZoomOut').on('click', function(){
+	            cropper.zoomOut();
+	        })
+	        $("#imgbtn").click(function(){
+	        	if(imgMain==undefined){
+	                layer.msg("没有剪切图片")
+	            }else{
+	            	$(".comInfo_logo").html('<img id="com_logo" style="position:relative;z-index:800" src="'+imgMain+'">')
+	            	$("#img_mask").css("display","none")
+	            }
+	        })
+		}
 	}
 })
 $("#commit_btn").click(function(){
