@@ -2,6 +2,8 @@ package com.rrenpin.service;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -67,4 +69,21 @@ public interface CompanyService {
 	 * @return
 	 */
 	public Company companyDetail(int companyId);
+	
+	/**
+	 * 查询所有的公司信息  
+	 * @param status
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
+	public List<Map<String,Object>> listAllCompany(String status,int page,int pageSize);
+	
+	/**
+	 * 审核公司
+	 * @param companyId
+	 * @param status
+	 * @return
+	 */
+	public String dealCompany(int companyId,String status);
 }

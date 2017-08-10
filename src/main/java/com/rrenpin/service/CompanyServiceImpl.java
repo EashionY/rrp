@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.mail.MessagingException;
@@ -195,11 +196,13 @@ public class CompanyServiceImpl implements CompanyService {
 		//上传营业执照
 		List<String> paths = Upload.uploadImg(request, ""+userId);
 		if(paths == null){
-			throw new ImgUploadException("营业执照上传失败");
+			company.setLicense(null);
+		}else{
+			company.setLicense(paths.get(0));
 		}
-		company.setLicense(paths.get(0));
 		company.setTel(tel);
 		company.setInfo(info);
+		company.setStatus("2");
 		int i;
 		try {
 			i = companyMapper.updateByPrimaryKeySelective(company);
@@ -222,6 +225,28 @@ public class CompanyServiceImpl implements CompanyService {
 			throw new DataBaseException("连接服务器超时");
 		}
 		return company;
+	}
+
+	public List<Map<String, Object>> listAllCompany(String status, int page, int pageSize) {
+		List<Map<String, Object>> result;
+		try {
+			result = companyMapper.listAllCompany(status, page, pageSize);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		return result;
+	}
+
+	public String dealCompany(int companyId, String status) {
+		Company company = new Company();
+		company.setId(companyId);
+		company.setStatus(status);
+		int i = companyMapper.updateByPrimaryKeySelective(company);
+		if(i!=1){
+			throw new CompanyException("审核处理失败"); 
+		}
+		return status;
 	}
 
 	

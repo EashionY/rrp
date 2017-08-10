@@ -230,4 +230,16 @@
   <select id="findByEmail" resultMap="BaseResultMap">
   	select * from company where email=#{email}
   </select>
+  
+  <select id="listAllCompany" resultType="java.util.Map">
+  	select *,
+  	  (select count(*) from company
+  	  <if test="status != null">
+  	  where status=#{status}
+  	  </if>) as totalnum
+  	from company
+  	<if test="status != null">
+  	where status=#{status}
+  	</if>
+  </select>
 </mapper>

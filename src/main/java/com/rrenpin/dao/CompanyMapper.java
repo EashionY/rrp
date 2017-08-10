@@ -1,5 +1,10 @@
 package com.rrenpin.dao;
 
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.rrenpin.entity.Company;
 
 public interface CompanyMapper {
@@ -19,4 +24,5 @@ public interface CompanyMapper {
 
 	Company findByUserId(int userId);
 	
+	List<Map<String,Object>> listAllCompany(@Param("status")String status,@Param("page")int page,@Param("pageSize")int pageSize);
 }
