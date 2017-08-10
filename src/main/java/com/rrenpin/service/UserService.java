@@ -94,4 +94,21 @@ public interface UserService {
 	 * @throws UnsupportedEncodingException 
 	 */
 	public User modifyHeadImg(HttpServletRequest request,String base64,int userId) throws UnsupportedEncodingException;
+	
+	/**
+	 * 用户更换手机号
+	 * @param userId
+	 * @param newPhone
+	 * @param code
+	 */
+	public void modifyPhone(int userId,String newPhone,String code,HttpServletRequest request);
+	
+	/**
+	 * 发送更换手机验证码
+	 * @param request
+	 * @param newPhone
+	 * @return
+	 */
+	public boolean sendPhoneCode(HttpServletRequest request,String newPhone);
+	
 }

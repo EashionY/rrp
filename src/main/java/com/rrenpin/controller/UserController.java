@@ -93,4 +93,19 @@ public class UserController extends ExceptionController{
 		User user = userService.modifyHeadImg(request, base64, userId);
 		return new JsonResult(SUCCESS,user,"头像修改成功");
 	}
+	
+	@RequestMapping("/sendPhoneCode.do")
+	@ResponseBody
+	public JsonResult sendPhoneCode(HttpServletRequest request, String newPhone){
+		boolean result = userService.sendPhoneCode(request, newPhone);
+		return new JsonResult(SUCCESS,result,"发送验证码成功");
+	}
+	
+	@RequestMapping("/modifyPhone.do")
+	@ResponseBody
+	public JsonResult modifyPhone(int userId, String newPhone, String code, HttpServletRequest request){
+		userService.modifyPhone(userId, newPhone, code, request);
+		return new JsonResult(SUCCESS,"","更换手机号成功");
+	}
+	
 }
