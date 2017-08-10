@@ -309,6 +309,54 @@ public class UserServiceImpl implements UserService {
 			throw new ImgUploadException("图片上传失败");
 		}
 	}
+
+	public void modifyPhone(int userId, String newPhone, String code, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String phoneCode = (String) session.getAttribute("psdCode");
+		if(phoneCode==null){
+			throw new CodeErrorException("验证码超时，请重新发送");
+		}else if(!code.equals(phoneCode)){
+			throw new CodeErrorException("验证码错误");
+		}
+		User user = new User();
+		user.setPhone(newPhone);
+		user.setId(userId);
+		int i;
+		try {
+			i = userMapper.updateByPrimaryKeySelective(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DataBaseException("连接服务器超时");
+		}
+		if(i != 1){
+			throw new ModifyUserInfoException("更换手机号失败");
+		}
+	}
+
+	public boolean sendPhoneCode(HttpServletRequest request, String newPhone) {
+		User user = userMapper.findByPhone(newPhone);
+		if(user!=null){
+			throw new PhoneException("该手机号已存在");
+		}
+		//随机生成验证码
+		String code = "";
+		Random r = new Random(new Date().getTime());
+        for(int i=0;i<NUM;i++){
+            code = code+r.nextInt(10);
+        }
+        //注册码发送短信模板id
+        String templateCode = "SMS_84515025";
+        //短信签名
+        String signName = "变更验证";
+        boolean success = AliSms.sendCode(newPhone, code, templateCode, signName);
+        if(success){
+        	HttpSession session = request.getSession();	
+        	session.setAttribute("phoneCode", code);
+        	return success;
+        }else{
+        	throw new SendCodeException("验证码发送失败");
+        }
+	}
 	
 	
 
