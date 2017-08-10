@@ -1,8 +1,12 @@
 $(function() { 
-		myonload2("pers_infor.html","../index.html");
-	    var uPhoneValue = getCookieValue("userPhone"); 
-	    console.log(uPhoneValue)
-	    $(".psd_div1 span").html(uPhoneValue)
+	myonload2("pers_infor.html","../index.html");
+	var userId=getCookieValue("userId");
+	var uPhoneValue = getCookieValue("userPhone");
+	if(userId==""){//未登录，请先登录
+		window.location.href="../login.html";
+	}else{
+		$(".psd_div1 span").html(uPhoneValue)
+	}
 });
 	$(".psd_btn").click(function () {
 		var uid = getCookieValue("userId");
