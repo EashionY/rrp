@@ -1,5 +1,5 @@
 $(function() { 
-		myonload2("pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
+		myonload2("pers_infor.html","../index.html");
 	    var uPhoneValue = getCookieValue("userPhone"); 
 	    console.log(uPhoneValue)
 	    $(".psd_div1 span").html(uPhoneValue)

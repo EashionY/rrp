@@ -24,7 +24,7 @@ function parent(arrName,data,grandNo,parentMenu){
 	leftMenu.push(arrName);
 }
 $(function() { 
-	myonload2("my/pers_infor.html","../Enterprise_edition/talent_recom.html","index.html");
+	myonload2("my/pers_infor.html","index.html");
 	$.ajax({
         type: "get",
         url: ip+"/rrp/job/listAllJobs.do",//左侧菜单

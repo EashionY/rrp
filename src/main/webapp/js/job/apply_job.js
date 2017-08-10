@@ -133,7 +133,7 @@ function add_page(mydata){
 	});
 }
 $(function() { 
-	myonload2("../my/pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
+	myonload2("../my/pers_infor.html","../index.html");
 	shijian($("#app_jyul li"),$("#app_xlul li"),$("#app_gmul li"),$("#app_xzul li"),$("#app_hyul li"),$("#app_rzul li"));
 	var Request = new Object(); 
 	Request = GetRequest(); 

@@ -127,11 +127,18 @@ function posMaAdd_page(mydata){
 $(function() {
 	myonload1("../com_informa/com_xinxi.html","../com_informa/com_psd.html","../../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
+	var companyId=getCookieValue("companyId");
 	if(userId==""){//未登录，请先登录
 	     window.location.href="../../Personal_edition/login.html";
 	}else{
-		 var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:3};
-		 posMaAdd_page(mydata);
+		if(companyId=="undefined"){//判断是否开通企业版
+			 //前去开通企业版
+			 window.location.href="../../Personal_edition/enterprise/enterprise1.html";
+		}else{
+			 var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:3};
+			 posMaAdd_page(mydata);
+		}
+		
 	}
 })
 
