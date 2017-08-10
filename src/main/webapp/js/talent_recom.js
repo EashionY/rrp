@@ -84,14 +84,14 @@ $(function() {
 	if(userId==""){//未登录，请先登录
 	     window.location.href="../Personal_edition/login.html";
 	}else{
-		 var mydata={keyword:"",page:1,pageSize:2};
+		 var mydata={companyId:getCookieValue("companyId"),keyword:"",page:1,pageSize:2};
 		 add_page(mydata);
 	}
 })
 
 $(".serch_tubox").click(function(){
 	if($(".serch_input").val()!=""){
-		var mydata={keyword:$(".serch_input").val(),page:1,pageSize:2};
+		var mydata={companyId:getCookieValue("companyId"),keyword:$(".serch_input").val(),page:1,pageSize:2};
 		add_page(mydata);
 	}else{
 		layer.msg("请先填写搜素条件")
