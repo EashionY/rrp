@@ -312,7 +312,7 @@ public class UserServiceImpl implements UserService {
 
 	public void modifyPhone(int userId, String phone, String code, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		String phoneCode = (String) session.getAttribute("psdCode");
+		String phoneCode = (String) session.getAttribute("phoneCode");
 		if(phoneCode==null){
 			throw new CodeErrorException("验证码超时，请重新发送");
 		}else if(!code.equals(phoneCode)){
