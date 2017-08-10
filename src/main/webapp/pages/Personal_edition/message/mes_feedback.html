@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../css/share/header.css"/>
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
     <link rel="stylesheet" href="../../../css/share/commen.css"/>
+    <link rel="stylesheet" href="../../../css/apply_job/pages.css"/>
     <link rel="stylesheet" href="../../../css/message/message.css"/>
 </head>
 <body>
@@ -24,10 +25,10 @@
             </ul>
         </div>
         <ul class="nav_div2">
-            <a href="message.html" class="activ"><li class="xx">消息 <div class="xxNum">1</div></li></a>
+            <a href="message.html" class="activ"><li class="xx">消息</li></a>
             <a href="../resume/resume.html"><li>我的简历</li></a>
             <a href="../delivery_box/delivery_success.html"><li>投递箱</li></a>
-            <a href="../my/pers_infor.html"><li>二狗子<span class="myfont myfont_xia">&#xe60b;</span></li></a>
+            <a href="#" id="header_last"><li><span id="head_logbtn">登录</span>&nbsp;/&nbsp;<span id="head_regbtn">注册</span></li></a>   
         </ul>
     </nav>
 </header>
@@ -39,53 +40,10 @@
             <span class="message_menu message_menu2 message_menuactive">投递反馈</span>
         </div>
         <div class="message_contBox">
-            <div class="message_contmainbox">
-                <div class="mesfeed_contmain">
-                    <div class="mesfeed_contleft">
-                        <div class="mesfeed_imgbox"><img src="" alt="图片"/></div>
-                        <div class="mesfeed_contdiv2">
-                            <div>好好住</div>
-                            <div>ios开发工程师</div>
-                            <div>最新状态：<span class="mesfeed_span">被查看</span></div>
-                        </div>
-                    </div>
-                    <div class="mesfeed_contright">
-                        <div>2017-07-03</div>
-                        <div class="mesfeed_span">去查看</div>
-                    </div>
-                </div>
-            </div>
-            <div class="message_contmainbox">
-                <div class="mesfeed_contmain">
-                    <div class="mesfeed_contleft">
-                        <div class="mesfeed_imgbox"><img src="" alt="图片"/></div>
-                        <div class="mesfeed_contdiv2">
-                            <div>好好住</div>
-                            <div>ios开发工程师</div>
-                            <div>最新状态：<span class="mesfeed_span">被查看</span></div>
-                        </div>
-                    </div>
-                    <div class="mesfeed_contright">
-                        <div>2017-07-03</div>
-                        <div class="mesfeed_span">去查看</div>
-                    </div>
-                </div>
-            </div>
-            <div class="message_contmainbox">
-                <div class="mesfeed_contmain">
-                    <div class="mesfeed_contleft">
-                        <div class="mesfeed_imgbox"><img src="" alt="图片"/></div>
-                        <div class="mesfeed_contdiv2">
-                            <div>好好住</div>
-                            <div>ios开发工程师</div>
-                            <div>最新状态：<span class="mesfeed_span">被查看</span></div>
-                        </div>
-                    </div>
-                    <div class="mesfeed_contright">
-                        <div>2017-07-03</div>
-                        <div class="mesfeed_span">去查看</div>
-                    </div>
-                </div>
+        	<div id="mes_feedBox"></div>
+        	<!--分页-->
+            <div class="mesfee_pagesBox">
+                <div id="mesfee_pages"></div>
             </div>
         </div>
     </div>
@@ -113,5 +71,9 @@
 </footer>
 </body>
 <script src="../../../js/jquery-1.11.3.js"></script>
-<script src="../../../js/message.js"></script>
+<script src="../../../js/ip.js"></script>
+<script src="../../../js/dataMa.js"></script>
+<script src="../../../plug/layui-v1.0.9_rls/layui/layui.js" charset="utf-8"></script>
+<script src="../../../js/message/message.js"></script>
+<script src="../../../js/message/mes_feedback.js"></script>
 </html>
