@@ -5,11 +5,22 @@
 		if(userId==""){//未登录，请先登录
 		     window.location.href="../login.html";
 		}else{
-			if(getCookieValue("email")==""){
-				window.location.href="enterprise1.html"
+			var comStatus=getStatus();
+			console.log(comStatus)
+			if(comStatus==0){
+				if(getCookieValue("email")==""){
+					window.location.href="enterprise1.html"
+				}else{
+					email=getCookieValue("email"); 
+					$("#enterp_contentbox2_email").html(email)
+				}
 			}else{
-				email=getCookieValue("email"); 
-				$("#enterp_contentbox2_email").html(email)
+				layer.msg("已经验证邮箱",{
+		    	    icon: 7,
+		    		time: 3000 
+		      	}, function(){
+		      		window.location.href="../../Enterprise_edition/com_informa/com_informa.html";
+		      	});
 			}
 		}
 	})
@@ -20,7 +31,7 @@
 					if(data.data==true){
 						window.location.href="enterprise3.html"
 					}else{
-						layer.msg("请先前往邮箱验证")
+						layer.msg("邮箱验证未通过")
 					}	
 				}else{
 					layer.msg(data.message)

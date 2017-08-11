@@ -81,12 +81,12 @@ function add_page(mydata){
 $(function() {
 	myonload1("com_informa/com_xinxi.html","com_informa/com_psd.html","../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
-	var comStatus=getCookieValue("comStatus");
 	if(userId==""){//判断是否登录
 	     window.location.href="../Personal_edition/login.html";
 	}else{
+		var comStatus=getStatus();
+		console.log(comStatus)
 		if(comStatus==3){//判断是否开通企业版(3--开通成功);
-			console.log("0")
 			var mydata={companyId:getCookieValue("companyId"),keyword:"",page:1,pageSize:2};
 			add_page(mydata);
 		}else{

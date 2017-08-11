@@ -1,12 +1,11 @@
 $(function() {
 	myonload1("../com_informa/com_xinxi.html","../com_informa/com_psd.html","../../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
-	var comStatus=getCookieValue("comStatus");
 	if(userId==""){//未登录，请先登录
 	     window.location.href="../../Personal_edition/login.html";
 	}else{
+		var comStatus=getStatus();
 		if(comStatus==3){//判断是否开通企业版
-
 			var Request = new Object(); 
 			Request = GetRequest(); 
 			var postId=Request['postId']; //获取参数

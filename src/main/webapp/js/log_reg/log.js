@@ -23,7 +23,6 @@ $("#log_btn").on("click",function(){
                 	addCookie("companyName",data.data.name,1,"/"); 
                 	addCookie("companyId",data.data.companyId,1,"/"); 
                 	addCookie("email",data.data.email,1,"/"); 
-                	addCookie("comStatus",data.data.status,1,"/");
                 	layer.msg(data.message,{
               		  icon: 1,
               		  time: 1000 

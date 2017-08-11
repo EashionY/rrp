@@ -1,10 +1,10 @@
 $(function() {
 	myonload1("com_xinxi.html","com_psd.html","../../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
-	var comStatus=getCookieValue("comStatus");
 	if(userId==""){//未登录，请先登录
 	     window.location.href="../../Personal_edition/login.html";
 	}else{
+		var comStatus=getStatus();
 		if(comStatus==3){//判断是否开通企业版
 			$("#com_account").html(getCookieValue("userPhone"))
 		}else{
