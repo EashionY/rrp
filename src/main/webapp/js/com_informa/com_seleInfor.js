@@ -15,7 +15,8 @@ $(function() {
 					 $("#com_hy").html(data.data.industry)
 					 $("#com_wz").html(data.data.website);
 					 $("#com_dz").html(data.data.address);
-					 $(".comxx_detail").html('<p>'+data.data.intro+'</p>')
+					 $(".comxx_detail").html('<p>'+data.data.intro+'</p>');
+					 searchByStationName(data.data.address,data.data.name,data.data.tel);//加载地图
 				 }else{
 					 layer.msg(data.message)
 				 }

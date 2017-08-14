@@ -154,12 +154,7 @@
     font-size: 14px;
     margin-top: 20px;
 }
-.job_mapbox{
-    width: 670px;
-    height:215px;
-    margin-top: 20px;
-    /*display: none;*/
-}
+
 .job_addressleft{color: #333333}
 .job_addressright{color: #3eb39d}
 .job_addressright:hover{cursor: pointer}

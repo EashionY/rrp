@@ -74,11 +74,11 @@ public class CompanyServiceImpl implements CompanyService {
 		}
 		///邮件的内容  
         StringBuffer sb = new StringBuffer("点击下面链接验证邮箱即可开通招聘，当天有效，链接只能使用一次，请尽快验证邮箱！</br>");  
-        sb.append("<a href=\"http://192.168.0.20:8080/rrp/company/verifyEmail.do?email=");
+        sb.append("<a href=\"http://192.168.0.103:8080/rrp/company/verifyEmail.do?email=");
         sb.append(email);
         sb.append("&authCode=");
         sb.append(authCode);
-        sb.append("\">http://192.168.0.20:8080/rrp/company/verifyEmail.do?email=");  
+        sb.append("\">http://192.168.0.103:8080/rrp/company/verifyEmail.do?email=");  
         sb.append(email);
         sb.append("&authCode=");
         sb.append(authCode);

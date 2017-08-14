@@ -6,6 +6,7 @@ $(function() {
 	$.get(ip+"/rrp/company/companyDetail.do",{companyId:companyId},function(data){
 		if(data.state==0){
 			var result=data.data;
+			//console.log(result)
 			$(".comtop_logbox img").attr("src","../../../../"+result.logo);
 			$(".company_name").html(result.name);
 			$("#com_ul").html('<li>'+result.financing+'</li><li>'+result.scale+'</li><li>'+result.industry+'</li>')
@@ -13,7 +14,7 @@ $(function() {
 			$("#com_dz").html(result.address);
 			$(".company_jianjie").html(result.intro)
 			$(".company_addresstext").html(result.address);
-			$("#addname").val(result.address)
+			searchByStationName(result.address,result.name,result.tel)
 		}else{
 			layer.msg(data.message)
 		}
@@ -22,21 +23,21 @@ $(function() {
 		if(data.state==0){
 			var result=data.data;
 			$(".company_zhiweiBox").html("");
-			console.log(result);
+			//console.log(result);
 			var str='';
 			var myDate = new Date();
 			var nowDate=new Date(myDate.toLocaleDateString()).format("yyyy/MM/dd");
 			$.each(result,function(k,v){
-				var postDate=new Date(result[k].postTime).format("yyyy/MM/dd");
+				var postDate=new Date(result[k].post_time).format("yyyy/MM/dd");
 				var showDate=''
 				if(nowDate==postDate){//当天发布
-					showDate=new Date(result[k].postTime).format("hh:mm")
+					showDate=new Date(result[k].post_time).format("hh:mm")
 				}else{
-					showDate=new Date(result[k].postTime).format("yy年MM月dd日")
+					showDate=new Date(result[k].post_time).format("yy年MM月dd日")
 				}
 				str+='<div class="company_zhiweibox"><input value="'+result[k].postId+'" class="myinput"/><div class="com_zhiwei">'+
-                     '<div>'+result[k].postName+'<span>['+result[k].region+']</span></div><div>'+showDate+'  发布</div>'+
-                     '</div><ul><li>'+result[k].salary+'</li><li>经验'+result[k].workExp+'</li><li>'+result[k].degree+'</li></ul></div>'
+                     '<div>'+result[k].post_name+'<span>['+result[k].region+']</span></div><div>'+showDate+'  发布</div>'+
+                     '</div><ul><li>'+result[k].salary+'</li><li>经验'+result[k].work_exp+'</li><li>'+result[k].degree+'</li></ul></div>'
 			})
 			$(".company_zhiweiBox").html(str);
 			$(".company_zhiweibox").click(function(){

@@ -20,8 +20,7 @@ $(function() {
 			$("#job_yaoqiu").html(result.requirement);
 			$("#job_duty").html(result.duty)
 			$(".job_comdetail").html(result.info);
-			$("#name").val(result.name);
-			$("#phone").val(result.tel);
+			searchByStationName(result.address,result.name,result.tel);//加载地图
 			$(".job_addressleft").html(result.address);
 			$(".job_rightcomname").html(result.name);
 			$(".job_rightcomlogo img").attr("src","../../../../"+result.logo);
@@ -70,4 +69,27 @@ $(function() {
 		}
 	},'json')
 })
+
+    $(".job_morezhiwei").on("click",function(){
+        window.location.href="../recom_position.html";
+    })
+    $(".job_companyBox").on("click",function(){
+        var comId=$("#job_comid").val()
+        window.location.href="../company/company.html?companyId="+comId;
+    });
+
+    $(".job_addressright").on("click",function(){
+        var map=$(this).parent().next();
+        if(map.css("display")=="block"){
+            map.css({
+                "display":"none"
+            });
+            $(this).html("查看地图")
+        }else{
+            map.css({
+                "display":"block"
+            });
+            $(this).html("关闭地图")
+        }
+    });
 

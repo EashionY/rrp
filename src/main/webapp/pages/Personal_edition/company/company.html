@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
     <link rel="stylesheet" href="../../../css/share/commen.css"/>
     <link rel="stylesheet" href="../../../css/company.css"/>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
 </head>
 <body>
 <header>
@@ -58,8 +59,7 @@
             </div>
             <div class="company_mapbox">
                 <div class="company_map" id="company_map">
-                    <input id="addname" type="text" value="" class="myinput"/>
-                    <iframe src="map2.html" frameborder="0" width="944px" height="270px" style="overflow: hidden"></iframe>
+                    <div id="map" style="width: 944px;height: 270px; border: 1px solid gray;overflow:hidden;"></div>
                 </div>
             </div>
             <div class="job_title">招聘职位</div>
@@ -97,5 +97,7 @@
 <script src="../../../plug/layer/layer.js"></script>
 <script src="../../../js/dataMa.js"></script>
 <script src="../../../js/request_url.js"></script>
+<script src="../../../js/map.js"></script>
 <script src="../../../js/com_informa/com_detail.js"></script>
+
 </html>
