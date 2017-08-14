@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../../plug/city-picker-master/src/css/city-picker.css"/>
     <link rel="stylesheet" href="../../../css/enter_company/com_infor.css"/>
     <link rel="stylesheet" href="../../../css/enter_company/com_xinxi.css"/>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
 </head>
 <body>
 <header>
@@ -67,8 +68,7 @@
             </div>
             <div class="comxx_mapbox">
                 <div class="comxx_map" id="company_map">
-                    <input id="addname" type="text" value="成都市航空路" style="display: none"/>
-                    <iframe src="map3.html" frameborder="0" width="643px" height="270px" style="overflow: hidden"></iframe>
+                    <div id="map" style="width: 643px;height: 270px; border: 1px solid gray;overflow:hidden;margin-top: 20px"></div>
                 </div>
             </div>
         </div>
@@ -99,6 +99,7 @@
 </body>
 <script src="../../../js/jquery-1.11.3.js"></script>
 <script src ="../../../js/ip.js"></script>
+<script src="../../../plug/layer/layer.js"></script>
 <script src="../../../js/enterprise_bool.js"></script>
 <script src="../../../js/com_informa/com_infor.js"></script>
 <script src="../../../js/com_informa/com_seleInfor.js"></script>

@@ -1,12 +1,15 @@
 $(function() {
-	myonload1("com_xinxi.html","com_psd.html","../../Personal_edition/index.html");
+	myonload2("../../Personal_edition/my/pers_infor.html","../../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
-	var comStatus=getCookieValue("comStatus");
 	if(userId==""){//未登录，请先登录
 	     window.location.href="../../Personal_edition/login.html";
 	}else{
-		if(comStatus==3){//判断是否开通企业版
-			$("#com_name").val(getCookieValue("companyName"));
+		var comStatus=getStatus();
+		console.log(comStatus)
+		if(comStatus!=0 && comStatus!=2){//判断是否开通企业版
+			if(getCookieValue("companyName")!="undefined"){
+				$("#com_name").val(getCookieValue("companyName"));
+			}			
 			//logo处理
 			var options =
 	        {
@@ -44,15 +47,19 @@ $(function() {
 	            	$("#img_mask").css("display","none")
 	            }
 	        })
-		}else{
-			to_open_inner(comStatus);//判断跳转页面
+		}else if(comStatus==2){//审核中
+			window.location.href="../../Personal_edition/enterprise/enterprise_status.html"
+		}else{//未验证邮箱
+			window.location.href="../../Personal_edition/enterprise/enterprise1.html"
 		}
 	}
 })
 $("#commit_btn").click(function(){
+	
 	var list=new Array();
 	list.push($("#com_name").val());//名字
 	list.push($("#com_logo").attr("src"));//logo
+	list.push($("#com_zhizhao").val());//营业执照
 	list.push($("#com_phone").val());//电话
 	list.push($("#com_address").val());//地区
 	list.push($("#com_address2").val());//详细地址
@@ -76,16 +83,30 @@ $("#commit_btn").click(function(){
 		$.get(ip+'/rrp/company/findCompanyInfo.do',{email:getCookieValue("email")},function(data){
 			if(data.state==0){
 				var com_id=data.data.id;
+				var form=document.getElementById("myform");
+				var formData = new FormData(form);
+				formData.append("id",com_id);
+				formData.append("name",$("#com_name").val());
+				formData.append("logo",$("#com_logo").attr("src"));
+				formData.append("address",$("#com_address").val()+$("#com_address2").val());
+				formData.append("industry",$("#com_industry").val());
+				formData.append("website",$("#com_website").val());
+				formData.append("scale",$("#com_scale").html());
+				formData.append("financing",$(".comInfo_rzactiv").html());
+				formData.append("intro",$("#work_content").val());
+				formData.append("info",$("#work_content2").val());
+				formData.append("tel",$("#com_phone").val());
 				$.ajax({
 					type:"post",
 					url:ip+'/rrp/company/addCompanyInfo.do',
-					data:{id:com_id,name:$("#com_name").val(),logo:$("#com_logo").attr("src"),address:$("#com_address").val()+$("#com_address2").val(),industry:$("#com_industry").val(),website:$("#com_website").val(),scale:$("#com_scale").html(),financing:$(".comInfo_rzactiv").html(),intro:$("#work_content").val(),info:$("#work_content2").val(),tel:$("#com_phone").val()},
-					contentType:'application/x-www-form-urlencoded; charset=UTF-8',
-					dataType:'json',
+					data:formData,
+					contentType: false,
+	                processData: false,
 					success:function(result){
 						console.log(result);
 						if(result.state==0){
 							addCookie("companyId",result.data.id,1,"/"); 
+							addCookie("companyName",result.data.name,1,"/");
 							layer.msg("信息完善成功",{
 			              		  icon: 1,
 			              		  time: 1000 
@@ -101,10 +122,6 @@ $("#commit_btn").click(function(){
 			}else{layer.msg(data.message)}
 		},'json')
 	}
-	
-	
-	
-	
 })
 			        
 $(".comInfo_logo").click(function(){

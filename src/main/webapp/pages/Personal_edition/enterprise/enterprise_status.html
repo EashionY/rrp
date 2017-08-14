@@ -10,7 +10,27 @@
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
     <link rel="stylesheet" href="../../../css/share/commen.css"/>
     <link rel="stylesheet" href="../../../css/enterprise.css"/>
-
+    <style>
+    #btn_box{
+    	text-align: center;
+    	margin-top: 20px;
+    }
+    #btn_box:hover{
+        cursor: pointer;
+    }
+    #btn_box span{
+        display: inline-block;
+	    width: 112px;
+	    height: 43px;
+	    line-height: 43px;
+	    text-align: center;
+	    font-size: 14px;
+	    background-color: #3eb39d;
+	    color: #ffffff;
+	    border: 1px #3eb39d solid;
+    }
+    
+    </style>
 </head>
 <body>
 <header>
@@ -39,31 +59,10 @@
         <span class="enterp_title_span1">开通招聘</span>
         <span class="enterp_title_span2">Open recruitment service</span>
     </div>
-
-    <div class="enterp_contentbox" id="enterp_contentbox2">
-        <div class="enterp_conmainbox">
-            <div class="enterp_shunxuBtn">
-                <div class="enterp_sxBtn_div1 enterp_sxBtn_activ"><span>01</span><span class="span2">填写联系方式</span></div>
-                <div class="enterp_sxBtn_div2 enterp_sxBtn_div22 enterp_sxBtn_activ"><span>02</span><span class="span2">验证公司邮箱</span></div>
-                <div class="enterp_sxBtn_div3"><span>03</span><span class="span2">填写公司名称</span></div>
-            </div>
-            <div class="enterp_yzdiv1">
-                <div>验证邮件已发送至：<span class="enterp_yztips" id="enterp_contentbox2_email"></span></div>
-                <div>请登录邮箱点击邮件内的链接，即可开通招聘</div>
-                <div id="email_nextBtn">继续下一步</div>
-            </div>
-            <div class="enterp_yzdiv2">
-                <div>没有收到验证邮件？</div>
-                <ul>
-                    <li>1.邮箱地址填写错误？<span class="enterp_yztips" id="prev_btn">重新填写邮箱地址</span></li>
-                    <li>2.邮件有时会调皮进入垃圾信箱、广告信箱，请留意</li>
-                    <li>3.稍等几分钟，若还未收到验证邮件，<span class="enterp_yztips" id="again_btn">重新发送验证邮件</span></li>
-                    <li>4.还未收到验证邮件，请联系我们：028-65231120</li>
-                </ul>
-            </div>
-        </div>
+    <div class="enterp_contentbox" id="enterp_status">
+        <div id="status_Box"></div><!-- 提示信息 -->
+        <div id="btn_box"></div><!-- 按钮 -->
     </div>
-
 </section>
 <footer>
     <div class="footer_mainBox">
@@ -93,5 +92,5 @@
 <script src="../../../js/head/header2.js"></script>
 <script src="../../../js/enterprise_bool.js"></script>
 <script src="../../../js/enterprise/enterprise.js"></script>
-<script src="../../../js/enterprise/enterprise2.js"></script>
+<script src="../../../js/enterprise/enterprise_status.js"></script>
 </html>

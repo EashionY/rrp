@@ -179,3 +179,13 @@
 #email_nextBtn:hover{
 	cursor: pointer
 }
+
+ #enterp_status{
+     height: 300px !important;
+     margin-bottom:50px !important;
+}
+#status_Box{
+    text-align: center;
+    padding-top: 50px;
+    font-size: 18px;
+}

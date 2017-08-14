@@ -5,7 +5,18 @@
 		if(userId==""){//未登录，请先登录
 		      window.location.href="../login.html";
 		}else{
-			$("#enterp_phone").val(getCookieValue("userPhone"))
+			var comStatus=getStatus();
+			console.log(comStatus)
+			if(comStatus==0){
+				$("#enterp_phone").val(getCookieValue("userPhone"));
+			}else{
+				layer.msg("已经验证邮箱",{
+		    	    icon: 7,
+		    		time: 3000 
+		      	}, function(){
+		      		window.location.href="../../Enterprise_edition/com_informa/com_informa.html";
+		      	});
+			}
 		}
 	})
 	$("#enterp_nextBtn").on("click",function(){

@@ -47,15 +47,17 @@
         <div class="nav_div1">
             <div class="logo_imgbox"><img src="../../../images/index/ic_home_logo.png" alt=""/></div>
             <ul class="left_ul">
-                <a href="../position/position_manage.html"><li>职位管理</li></a>
-                <a href="../talent_recom.html"><li>人才</li></a>
-                <a href="../resume/resume_new.html"><li>简历管理</li></a>
-                <a href="../../Personal_edition/index.html"><li>个人版</li></a>
+                <a href="../../Personal_edition/index.html"><li>首页</li></a>
+                <a href="../../Personal_edition/job/apply_job.html"><li>求职</li></a>
+                <a href="../../Personal_edition/news/newsList.html"><li>新闻</li></a>
+                <a href="../talent_recom.html"  class="activ"><li>企业版</li></a>
             </ul>
         </div>
         <ul class="nav_div2">
-            <a href="../enter_message.html"><li class="xx">消息</li></a>
-            <a href="#" id="header_last" class="activ">
+            <a href="../../Personal_edition/message/message.html"><li class="xx">消息</li></a>
+            <a href="../../Personal_edition/resume/resume.html"><li>我的简历</li></a>
+            <a href="../../Personal_edition/delivery_box/delivery_success.html"><li>投递箱</li></a>
+            <a href="#" id="header_last">
             	<li><span id="head_logbtn">登录</span>&nbsp;/&nbsp;<span id="head_regbtn">注册</span></li>
             </a> 
         </ul>
@@ -63,30 +65,35 @@
 </header>
 <section class="mybody">
     <div class="comInfo_contbox">
-        <div class="comInfo_contdiv">
-            <div>公司名称：</div><div><input type="text" id="com_name"/></div>
+    	<div class="comInfo_contdiv">
+            <div>公司名称：</div><div><input type="text" id="com_name" name="com_name"/></div>
         </div>
+        <form action=""  method="post" id="myform">
+	        <div class="comInfo_contdiv">
+		        <div>营业执照：</div><div><input type="file" id="com_zhizhao" name="license"/></div>
+		    </div>
+        </form>
         <div class="comInfo_contdiv">
             <div>公司logo：</div><div class="comInfo_logo"><span class="logo_tips">180*180 小于10M</span></div>
         </div>
         <div class="comInfo_contdiv">
-            <div>公司网址：</div><div><input type="text" id="com_website"/></div>
+            <div>公司网址：</div><div><input type="text" id="com_website" name="com_website"/></div>
         </div>
         <div class="comInfo_contdiv">
-            <div>公司电话：</div><div><input type="text" id="com_phone"/></div>
+            <div>公司电话：</div><div><input type="text" id="com_phone" name="com_phone"/></div>
         </div>
         <div class="comInfo_contdiv">
             <div>所在地区：</div>
             <div class="comInfo_addre">
-                <input readonly id="com_address" type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
+                <input readonly id="com_address" name="com_address" type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
                 <span class="myfont input_icon input_icon2">&#xe681;</span>
             </div>
         </div>
         <div class="comInfo_contdiv">
-            <div>详细地址：</div><div class="comInfo_addre"><input id="com_address2" type="text"/><span class="myfont input_icon input_icon2">&#xe681;</span></div>
+            <div>详细地址：</div><div class="comInfo_addre"><input name="com_address2" id="com_address2" type="text"/><span class="myfont input_icon input_icon2">&#xe681;</span></div>
         </div>
         <div class="comInfo_contdiv">
-            <div>行业领域：</div><div class="comInfo_addre"><input id="com_industry" type="text"/><span class="myfont input_icon input_icon2">&#xe681;</span></div>
+            <div>行业领域：</div><div class="comInfo_addre"><input name="com_industry" id="com_industry" type="text"/><span class="myfont input_icon input_icon2">&#xe681;</span></div>
         </div>
         <div class="comInfo_contdiv">
             <div>公司规模：</div>
@@ -103,7 +110,7 @@
                     <li><a href="javascript:;" selectid="6">10000人以上</a></li>
                 </ul>
             </div>
-            <input name="zhuangtai" type="hidden" value="" id="inputselect" class="inputselect"/>
+            <input name="com_scale" type="hidden" value="" id="inputselect" class="inputselect"/>
         </div>
         <div class="comInfo_contdiv">
             <div>公司融资：</div>
@@ -128,7 +135,7 @@
                 <div class="texterea_tips"><span class="red" id="cost_tpl_title_length2">0</span>/1000字</div>
             </div>
         </div>
-        <div class="comInfo_btnbox" id="commit_btn"><span>提交</span></div>
+        <div class="comInfo_btnbox"><span id="commit_btn">提交</span></div>
     </div>
 </section>
 <footer>

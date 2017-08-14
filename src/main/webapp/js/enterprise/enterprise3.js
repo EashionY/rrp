@@ -9,12 +9,18 @@ $(function() {
 			}else{
 				$.get(ip+"/rrp/company/checkStatus.do",{email:getCookieValue("email")},function(data){
 					if(data.data==false){
-					 	window.location.href="enterprise1.html"
+						layer.msg("未通过邮箱验证",{
+				    	    icon: 7,
+				    		time: 2000 
+				      	}, function(){
+				      		window.location.href="enterprise1.html"
+				      	}); 
+					 	
 					}
 				},"json");
 			}
-		}
-	})
+	}
+})
     
     $("#enterp_nextBtn2").on("click",function(){
         var compaName=$(".enterp_contentbox3_input input").val();
