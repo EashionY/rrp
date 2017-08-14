@@ -131,3 +131,25 @@
 	line-height:50px;
 	
 }
+#com_zhizhao{
+	margin-left: 5px;
+    border: none;
+    line-height: 6px;
+    margin-bottom: -25px;
+    margin-top: 10px;
+}
+#license_img{
+	width: 540px;
+	margin-left: 5px;
+	display: none
+}
+#lice_check{
+	display: inline-block;
+    padding: 5px 10px;
+    background-color: #3eb39d;
+    color: #ffffff;
+    cursor: pointer;
+    margin-left: 6px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

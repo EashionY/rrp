@@ -1,3 +1,4 @@
+var boollogo=false;
 $(function() {
 	myonload1("com_xinxi.html","com_psd.html","../../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
@@ -37,10 +38,12 @@ $(function() {
 				        $('#btnZoomOut').on('click', function(){
 				            cropper.zoomOut();
 				        })
+				        
 				        $("#imgbtn").click(function(){
 				        	if(imgMain==undefined){
 				                layer.msg("没有剪切图片")
 				            }else{
+				            	boollogo=true;
 				            	$(".comInfo_logo").html('<img id="com_logo" style="position:relative;z-index:800" src="'+imgMain+'">')
 				            	$("#img_mask").css("display","none")
 				            }
@@ -51,6 +54,7 @@ $(function() {
 					 $("#com_moName").val(data.data.name);
 					 $("#com_moPhone").val(data.data.tel);
 					 $("#com_moWz").val(data.data.website);
+					 $("#license_img").attr("src",'../../../../'+data.data.license)
 					 var address=data.data.address;
 					 $("#com_moDq").val(address.slice(0,7))//地区
 					 $("#com_moDz").val(address.slice(7,address.length))//地址
@@ -83,36 +87,62 @@ $(function() {
 	}
 })
 $("#com_commit").click(function(){
-	
-     $.get(ip+'/rrp/company/findCompanyInfo.do',{email:getCookieValue("email")},function(data){
-			if(data.state==0){
-				var com_id=data.data.id;
-				$.ajax({
-					type:"post",
-					url:ip+'/rrp/company/addCompanyInfo.do',
-					data:{id:com_id,name:$("#com_moName").val(),logo:$("#com_logo").attr("src"),address:$("#com_moDq").val()+$("#com_moDz").val(),industry:$("#com_moLy").val(),website:$("#com_moWz").val(),scale:$("#com_moGm").html(),financing:$(".comInfo_rzactiv").html(),intro:$("#work_content").val(),info:$("#work_content2").val(),tel:$("#com_moPhone").val()},
-					contentType:'application/x-www-form-urlencoded; charset=UTF-8',
-					dataType:'json',
-					success:function(result){
-						if(result.state==0){
-							layer.msg("信息修改成功",{
-			              		  icon: 1,
-			              		  time: 1000 
-			                	}, function(){
-			                	  window.location.href="com_xinxi.html";
-			                }); 
-						}else{
-							layer.msg(result.message)
-						}
+	 layer.confirm("修改资料后，须重新进行审核，是否继续？", {icon: 3, title:'提示'},function(index){
+		 $.get(ip+'/rrp/company/findCompanyInfo.do',{email:getCookieValue("email")},function(data){
+				if(data.state==0){
+					var com_id=data.data.id;
+					var form=document.getElementById("myform");
+					var formData = new FormData(form);
+					formData.append("id",com_id);
+					formData.append("name",$("#com_moName").val());
+					if(boollogo==true){
+						formData.append("logo",$("#com_logo").attr("src"));
 					}
-				})
-			}else{layer.msg(data.message)}
-		},'json')
+					formData.append("address",$("#com_moDq").val()+$("#com_moDz").val());
+					formData.append("industry",$("#com_moLy").val());
+					formData.append("website",$("#com_moWz").val());
+					formData.append("scale",$("#com_moGm").html());
+					formData.append("financing",$(".comInfo_rzactiv").html());
+					formData.append("intro",$("#work_content").val());
+					formData.append("info",$("#work_content2").val());
+					formData.append("tel",$("#com_moPhone").val());
+					$.ajax({
+						type:"post",
+						url:ip+'/rrp/company/addCompanyInfo.do',
+						data:formData,
+						contentType: false,
+		                processData: false,
+						success:function(result){
+							console.log(result)
+							if(result.state==0){
+								layer.msg("信息修改成功",{
+				              		  icon: 1,
+				              		  time: 1000 
+				                	}, function(){
+				                	  window.location.href="com_xinxi.html";
+				                }); 
+							}else{
+								layer.msg(result.message)
+							}
+						}
+					})
+				}else{layer.msg(data.message)}
+			},'json')
+	 })
+     
 })
 $(".comInfo_logo").click(function(){
 	$(".mymask").css("display","block")
 })
  $("#imgbtn_quit").click(function(){
 	$("#img_mask").css("display","none")
+})
+$("#lice_check").click(function() {
+	$(this).css("display","none");
+	$("#license_img").css("display","block")
+});
+$("#license_img").click(function() {
+	$(this).css("display","none");
+	$("#lice_check").css("display","inline-block")
 })
 
