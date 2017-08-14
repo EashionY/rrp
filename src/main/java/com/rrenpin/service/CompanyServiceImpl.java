@@ -195,7 +195,7 @@ public class CompanyServiceImpl implements CompanyService {
 		company.setIntro(intro);
 		//上传营业执照
 		List<String> paths = Upload.uploadImg(request, ""+userId);
-		if(paths == null){
+		if(paths == null || paths.size() == 0){
 			company.setLicense(null);
 		}else{
 			company.setLicense(paths.get(0));
