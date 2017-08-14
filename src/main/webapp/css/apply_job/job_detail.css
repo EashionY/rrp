@@ -223,6 +223,9 @@
     border-top: 1px #dddddd solid;
     padding:20px 0;
 }
+.job_xsmain:hover{
+	cursor:pointer;
+}
 .xs_zhiwei{
     font-size: 16px;
     color: #333333;
@@ -246,5 +249,6 @@
     color: #333333;
     border: 1px #dddddd solid;
     background-color: #fafafa;
+    display:none;
 }
 .job_morezhiwei:hover{cursor: pointer}

@@ -16,7 +16,7 @@ function addDom(mydata){
 					   if(nowDate==postDate){//当天发布
 						   showDate=new Date(result[k].post_time).format("hh:mm")
 					   }else{
-						   showDate=new Date(result[k].post_time).format("yy年MM月dd日")
+						   showDate=new Date(result[k].post_time).format("yyyy-MM-dd")
 					   }
 					str+='<div class="zhiwei_box"><input class="myinput" value="'+result[k].post_id+'"/><div class="zhiwei_mainbox">'+
 	                '<div class="top"><div><ul><li>'+result[k].post_name+'</li><li>['+result[k].region+']</li><li>'+showDate+'  发布</li></ul>'+

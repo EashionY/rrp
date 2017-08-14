@@ -30,8 +30,34 @@ $(function() {
 			$("#job_wz").html(result.website)
 			$("#job_dz").html(result.address)
 			$("#job_comid").val(result.company_id);
+			//相似职位
+			$.get(ip+'/rrp/post/searchPostCompany.do',{keyword:result.post_name,page:1,pageSize:2},function(data){
+				if(data.state==0){
+					console.log(data.data);
+					var str="";
+					$.each(data.data,function(k,v){
+						str+='<div class="job_xsmain"><input value="'+v.post_id+'" class="myinput"/>'+
+		                     '<div class="xs_zhiwei">'+v.post_name+'</div>'+
+		                     '<div class="xs_salary">'+v.salary+'</div>'+
+		                     '<div class="xs_comname">'+v.name+'</div></div>';
+					});
+					$("#job_xszwBox").html(str);
+					$(".job_xsmain").click(function() {
+						window.location.href="job_detail.html?postId="+$(this).children().eq(0).val();
+					});
+					if(data.data[0].totalnum>2){
+						$(".job_morezhiwei").css("display","block");
+						$(".job_morezhiwei").on("click",function(){
+					        window.location.href="recom_position.html?keyword="+result.post_name;
+					    })
+					}
+				}else{
+					
+				}
+			},'json')
 			
-			$(".send").click(function(){//投递简历
+			//投递简历
+			$(".send").click(function(){
 				var nowUrl = window.location.href;//当前url地址
 				//判断是否登录
 				var userId = getCookieValue("userId"); 
@@ -67,12 +93,11 @@ $(function() {
 		}else{
 			layer.msg(data.message)
 		}
-	},'json')
+	},'json');
+	
 })
 
-    $(".job_morezhiwei").on("click",function(){
-        window.location.href="../recom_position.html";
-    })
+    
     $(".job_companyBox").on("click",function(){
         var comId=$("#job_comid").val()
         window.location.href="../company/company.html?companyId="+comId;
