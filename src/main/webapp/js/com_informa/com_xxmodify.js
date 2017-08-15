@@ -12,7 +12,7 @@ var xinxi1= UE.getEditor('com_xinxi1',{
 });
 
 $(function() {
-	myonload1("com_xinxi.html","com_psd.html","../../Personal_edition/index.html");
+	myonload1("com_xinxi.html","com_psd.html","../../../index.html");
 	var userId=getCookieValue("userId");
 	if(userId==""){//未登录，请先登录
 	    window.location.href="../../Personal_edition/login.html";

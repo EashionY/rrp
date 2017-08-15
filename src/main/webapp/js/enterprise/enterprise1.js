@@ -1,6 +1,6 @@
     var userId="";
 	$(function() { 
-		myonload2("../my/pers_infor.html","../index.html");
+		myonload2("../my/pers_infor.html","../../../index.html");
 		userId=getCookieValue("userId");
 		if(userId==""){//未登录，请先登录
 		      window.location.href="../login.html";

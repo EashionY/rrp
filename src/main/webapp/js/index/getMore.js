@@ -58,10 +58,10 @@ function getData(offset,size){
                 $('#zhiwei_main').append(result);
                 
                 $(".zhiwei_box").click(function(){
-                	window.location.href="job/job_detail.html?postId="+$(this).children("input").val();
+                	window.location.href="pages/Personal_edition/job/job_detail.html?postId="+$(this).children("input").val();
                 })
                 $(".comName").click(function(event){
-                	window.location.href="company/company.html?companyId="+$(this).next().val();
+                	window.location.href="pages/Personal_edition/company/company.html?companyId="+$(this).next().val();
                 	event.stopPropagation();//阻止事件冒泡
                 })
 
@@ -147,10 +147,10 @@ function getData2(key,offset,size){//搜索后更多
                 $('#zhiwei_main').append(result);
                 
                 $(".zhiwei_box").click(function(){
-                	window.location.href="job/job_detail.html?postId="+$(this).children("input").val();
+                	window.location.href="pages/Personal_edition/job/job_detail.html?postId="+$(this).children("input").val();
                 })
                 $(".comName").click(function(event){
-                	window.location.href="company/company.html?companyId="+$(this).next().val();
+                	window.location.href="pages/Personal_edition/company/company.html?companyId="+$(this).next().val();
                 	event.stopPropagation();//阻止事件冒泡
                 })
                 /*******************************************/

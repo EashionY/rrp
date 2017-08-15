@@ -1,5 +1,5 @@
 $(function() { 
-	myonload2("pers_infor.html","../index.html");
+	myonload2("pers_infor.html","../../../index.html");
 	var userId=getCookieValue("userId");
 	var uPhoneValue = getCookieValue("userPhone");
 	if(userId==""){//未登录，请先登录

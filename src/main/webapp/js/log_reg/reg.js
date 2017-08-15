@@ -41,7 +41,7 @@ $("#reg_Btn").on("click",function(){
             		  icon: 1,
             		  time: 1000 
             	}, function(){
-            		window.location.href="index.html";
+            		window.location.href="../../index.html";
             	}); 
             }else{
             	if(data.message=='验证码错误'||data.message=='验证码超时，请重新发送'){

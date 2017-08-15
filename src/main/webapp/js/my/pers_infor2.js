@@ -1,5 +1,5 @@
 $(function() { 
-		myonload2("pers_infor.html","../../Enterprise_edition/talent_recom.html","../index.html");
+		myonload2("pers_infor.html","../../../index.html");
 		var userIdValue = getCookieValue("userId"); 
 		//console.log(userIdValue)
 		if(userIdValue==""){//未登录，请先登录

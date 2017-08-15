@@ -1,3 +1,7 @@
+$(function(){
+	myonload1("../com_informa/com_xinxi.html","../com_informa/com_psd.html","../../../index.html");
+})
+
 function getNum(mydata){//利用同步获取总条数
 	var totalNum=0;
 	$.ajax({

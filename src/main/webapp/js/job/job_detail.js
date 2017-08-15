@@ -1,5 +1,5 @@
 $(function() { 
-	myonload2("../my/pers_infor.html","../index.html");
+	myonload2("../my/pers_infor.html","../../../index.html");
 	var Request = new Object(); 
 	Request = GetRequest(); 
 	var postId=Request['postId']; //获取参数

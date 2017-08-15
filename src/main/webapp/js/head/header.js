@@ -4,9 +4,9 @@
 
 //登录注册跳转
 $("#head_logbtn").click(function(){
-    window.location.href="login.html"
+    window.location.href="pages/Personal_edition/login.html"
 });
 $("#head_regbtn").click(function(){
-    window.location.href="reg.html"
+    window.location.href="pages/Personal_edition/reg.html"
 });
 

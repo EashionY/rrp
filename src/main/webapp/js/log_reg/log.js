@@ -30,7 +30,7 @@ $("#log_btn").on("click",function(){
                 		var oldUrl=document.referrer;//获取之前的url
                 		console.log(oldUrl);
                 		if(oldUrl==""){
-                			window.location.href="index.html";
+                			window.location.href="../../index.html";
                 		}else{
                 			window.location.href=oldUrl;//登录成功回到之前页面
                 		}

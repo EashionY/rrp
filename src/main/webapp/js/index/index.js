@@ -24,7 +24,7 @@ function parent(arrName,data,grandNo,parentMenu){
 	leftMenu.push(arrName);
 }
 $(function() { 
-	myonload2("my/pers_infor.html","index.html");
+	myonload2("pages/Personal_edition/my/pers_infor.html","index.html");
 	$.ajax({
         type: "get",
         url: ip+"/rrp/job/listAllJobs.do",//左侧菜单
@@ -128,7 +128,7 @@ $(function() {
             	}
             	//========左侧菜单栏结束===========
             	$(".left_menubox li").click(function(){//点击菜单栏搜索职位
-            		window.location.href="job/apply_job.html?keyword="+$(this).html();
+            		window.location.href="pages/Personal_edition/job/apply_job.html?keyword="+$(this).html();
             	})
             }else{
             	layer.msg(data.message);
@@ -148,7 +148,7 @@ var comNameList=$(".comName");
 $.each(comNameList,function(key,val){
     $(val).on("click",function(){
         console.log(key);
-        window.location.href="company/company.html";
+        window.location.href="pages/Personal_edition/company/company.html";
     })
 })
 

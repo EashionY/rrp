@@ -1,5 +1,5 @@
 $(function() {
-	myonload2("../../Personal_edition/my/pers_infor.html","../../Personal_edition/index.html");
+	myonload2("../../Personal_edition/my/pers_infor.html","../../../index.html");
 	var userId=getCookieValue("userId");
 	if(userId==""){//未登录，请先登录
 	     window.location.href="../../Personal_edition/login.html";
