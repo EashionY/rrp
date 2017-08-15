@@ -36,33 +36,53 @@ function divselect(divselectid,inputselectid) {//下拉
 };
 //console.log($(document).scrollTop())
 //    日期
+var myDate = new Date();
+var nowDate=new Date(myDate.toLocaleDateString()).format("yyyy-MM-dd");
 laydate({
     elem: '#birthday', //目标元素。
-    event: 'focus' //响应事件。
+    event: 'focus', //响应事件。
+    max: nowDate	
 });
 laydate({
     elem: '#zizhitime1',
-    event: 'focus'
+    event: 'focus',
+    max: nowDate,
+    choose: function(dates){ //选择好日期的回调
+    	laydate({
+    	    elem: '#zizhitime2',
+    	    event: 'focus',
+    	    min:dates,
+    	    max: nowDate,
+    	});
+    }
 });
-laydate({
-    elem: '#zizhitime2',
-    event: 'focus'
-});
+
 laydate({
     elem: '#xiangmutime1',
-    event: 'focus'
+    event: 'focus',
+    max: nowDate,
+    choose: function(dates){ //选择好日期的回调
+    	laydate({
+    	    elem: '#xiangmutime2',
+    	    event: 'focus',
+    	    min:dates,
+    	    max: nowDate,
+    	});
+    }
 });
-laydate({
-    elem: '#xiangmutime2',
-    event: 'focus'
-});
+
 laydate({
     elem: '#jiaoyutime1',
-    event: 'focus'
-});
-laydate({
-    elem: '#jiaoyutime2',
-    event: 'focus'
+    event: 'focus',
+    max: nowDate,
+    choose: function(dates){ //选择好日期的回调
+    	laydate({
+    	    elem: '#jiaoyutime2',
+    	    event: 'focus',
+    	    min:dates,
+    	    max: nowDate,
+    	});
+    }
 });
 
 //    字数提示
