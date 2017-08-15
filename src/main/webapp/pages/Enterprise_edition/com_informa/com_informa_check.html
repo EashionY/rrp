@@ -66,72 +66,47 @@
 <section class="mybody">
     <div class="comInfo_contbox">
     	<div class="comInfo_contdiv">
-            <div>公司名称：</div><div><input type="text" id="com_name" name="com_name"/></div>
+            <div>公司名称：</div><div id="com_name" class="com_info_check"></div>
         </div>
         <form action=""  method="post" id="myform">
 	        <div class="comInfo_contdiv">
-		        <div>营业执照：</div><div><input type="file" id="com_zhizhao" name="license"/></div>
+		        <div>营业执照：</div>
+		        <div>
+		        	<span id="check_zhizhao">点击查看</span>
+		        	<img src="" id="com_zhizhao_check" title="点击隐藏"/>
+		        </div>
 		    </div>
         </form>
         <div class="comInfo_contdiv">
-            <div>公司logo：</div><div class="comInfo_logo"><span class="logo_tips">180*180 小于10M</span></div>
+            <div>公司logo：</div><div class="comInfo_logo_check"><img src="" id="com_logo"/></div>
         </div>
         <div class="comInfo_contdiv">
-            <div>公司网址：</div><div><input type="text" id="com_website" name="com_website"/></div>
+            <div>公司网址：</div><div id="com_website" class="com_info_check"></div>
         </div>
         <div class="comInfo_contdiv">
-            <div>公司电话：</div><div><input type="text" id="com_phone" name="com_phone" maxlength="12"/></div>
+            <div>公司电话：</div><div id="com_phone" class="com_info_check"></div>
         </div>
         <div class="comInfo_contdiv">
-            <div>所在地区：</div>
-            <div class="comInfo_addre">
-                <input readonly id="com_address" name="com_address" type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
-                <span class="myfont input_icon input_icon2">&#xe681;</span>
-            </div>
+            <div>公司地址：</div>
+            <div id="com_address" class="com_info_check">  </div>
         </div>
         <div class="comInfo_contdiv">
-            <div>详细地址：</div><div class="comInfo_addre"><input name="com_address2" id="com_address2" type="text"/></div>
+            <div>行业领域：</div><div id="com_industry" class="com_info_check"></div>
         </div>
         <div class="comInfo_contdiv">
-            <div>行业领域：</div><div class="comInfo_addre"><input name="com_industry" id="com_industry" type="text"/></div>
+            <div>公司规模：</div><div id="com_scale" class="com_info_check"></div>
         </div>
         <div class="comInfo_contdiv">
-            <div>公司规模：</div>
-            <div id="divselect" class="divselect">
-                <cite><span class="input_text" id="com_scale"></span>
-                    <span class="myfont input_icon">&#xe681;</span>
-                </cite>
-                <ul>
-                    <li><a href="javascript:;" selectid="1">1-20人</a></li>
-                    <li><a href="javascript:;" selectid="2">20-99人</a></li>
-                    <li><a href="javascript:;" selectid="3">100-499人</a></li>
-                    <li><a href="javascript:;" selectid="4">500-999人</a></li>
-                    <li><a href="javascript:;" selectid="5">1000-9999人</a></li>
-                    <li><a href="javascript:;" selectid="6">10000人以上</a></li>
-                </ul>
-            </div>
-            <input name="com_scale" type="hidden" value="" id="inputselect" class="inputselect"/>
-        </div>
-        <div class="comInfo_contdiv">
-            <div>公司融资：</div>
-            <div>
-                <div class="comInfo_rongzi"><span class="comInfo_rzactiv">未融资</span><span>天使轮</span><span>A轮</span><span>B轮</span><span>C轮</span></div>
-                <div class="comInfo_rongzi comInfo_rongzi2"><span>D轮及以上</span><span>上市公司</span><span>不需要融资</span></div>
-            </div>
+            <div>公司融资：</div><div id="com_financing" class="com_info_check"></div>
         </div>
         <div class="comInfo_contdiv">
             <div>公司简介：</div>
-            <div class="comInfo_textarea">
-               <textarea name="" id="com_jianjie"></textarea>
-            </div>
+            <div class="com_info_check2" id="com_jianjie"></div>
         </div>
          <div class="comInfo_contdiv">
             <div>公司信息：</div>
-            <div class="comInfo_textarea">
-               <textarea name="" id="com_xinxi" ></textarea>
-            </div>
+            <div class="com_info_check2" id="com_xinxi"></div>
         </div>
-        <div class="comInfo_btnbox"><span id="commit_btn">提交</span></div>
     </div>
 </section>
 <footer>
@@ -156,16 +131,9 @@
     </div>
 </footer>
 </body>
-<script src ="../../../js/jquery-1.11.3.js"></script>
-<script src ="../../../js/ip.js"></script>
-<script src ="../../../plug/layer/layer.js"></script>
-<script src ="../../../plug/city-picker-master/src/city-picker.data.js"></script>
-<script src ="../../../plug/city-picker-master/src/city-picker.js"></script>
-<script type="text/javascript" src="../../../plug/utf8-jsp/ueditor.config.js"></script>
-<script type="text/javascript" src="../../../plug/utf8-jsp/ueditor.all.js"></script>
-<script src ="../../../js/com_informa/ue.js"></script>
-<script src ="../../../js/com_informa/com_infor.js"></script>
-<script src="../../../plug/touxiang/js/cropbox.js"></script>
+<script src="../../../js/jquery-1.11.3.js"></script>
+<script src="../../../js/ip.js"></script>
+<script src="../../../plug/layer/layer.js"></script>
 <script src="../../../js/enterprise_bool.js"></script>
-<script src ="../../../js/com_informa/com_addInfor.js"></script>
+<script src="../../../js/com_informa/com_informa_check.js"></script>
 </html>

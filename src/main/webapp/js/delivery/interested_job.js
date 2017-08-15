@@ -72,7 +72,7 @@
              
          },
          error: function(xhr, type){
-             alert('Ajax error!');
+             layer.msg('Ajax error!');
          }
      });
  }

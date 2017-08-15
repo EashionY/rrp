@@ -69,9 +69,14 @@
             <div>公司名称：</div><div><input type="text" id="com_name" name="com_name"/></div>
         </div>
         <form action=""  method="post" id="myform">
-	        <div class="comInfo_contdiv">
-		        <div>营业执照：</div><div><input type="file" id="com_zhizhao" name="license"/></div>
-		    </div>
+		     <div class="comInfo_contdiv">
+			       <div style="white-space: nowrap;">营业执照：</div>
+			       <div>
+			         <span id="lice_check">查看</span>
+			         <img src="" id="license_img"/>
+			         <input type="file" id="com_zhizhao" name="license"/>
+			       </div>
+			</div>
         </form>
         <div class="comInfo_contdiv">
             <div>公司logo：</div><div class="comInfo_logo"><span class="logo_tips">180*180 小于10M</span></div>
@@ -115,8 +120,8 @@
         <div class="comInfo_contdiv">
             <div>公司融资：</div>
             <div>
-                <div class="comInfo_rongzi"><span class="comInfo_rzactiv">未融资</span><span>天使轮</span><span>A轮</span><span>B轮</span><span>C轮</span></div>
-                <div class="comInfo_rongzi comInfo_rongzi2"><span>D轮及以上</span><span>上市公司</span><span>不需要融资</span></div>
+                <div class="comInfo_rongzi"><span class="rz comInfo_rzactiv">未融资</span><span class="rz">天使轮</span><span class="rz">A轮</span><span class="rz">B轮</span><span class="rz">C轮</span></div>
+                <div class="comInfo_rongzi comInfo_rongzi2"><span class="rz">D轮及以上</span><span class="rz">上市公司</span><span class="rz">不需要融资</span></div>
             </div>
         </div>
         <div class="comInfo_contdiv">
@@ -131,7 +136,7 @@
                <textarea name="" id="com_xinxi" ></textarea>
             </div>
         </div>
-        <div class="comInfo_btnbox"><span id="commit_btn">提交</span></div>
+        <div class="comInfo_btnbox"><span id="modify_btn">修改</span></div>
     </div>
 </section>
 <footer>
@@ -167,5 +172,5 @@
 <script src ="../../../js/com_informa/com_infor.js"></script>
 <script src="../../../plug/touxiang/js/cropbox.js"></script>
 <script src="../../../js/enterprise_bool.js"></script>
-<script src ="../../../js/com_informa/com_addInfor.js"></script>
+<script src ="../../../js/com_informa/com_modifyInfor.js"></script>
 </html>

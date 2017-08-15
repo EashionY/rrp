@@ -66,8 +66,8 @@ $("#commit_btn").click(function(){
 	list.push($("#com_industry").val());//行业
 	list.push($("#com_scale").html());//规模
 	list.push($(".comInfo_rzactiv").html());//融资
-	list.push($("#work_content").val());//简介
-	list.push($("#work_content2").val());//公司信息
+	list.push(jianjie.getContent());//简介
+	list.push(xinxi.getContent());//公司信息
 	console.log($("#com_address").val()+$("#com_address2").val())
 	var bool=false;
 	$.each(list,function(k,v){
@@ -93,8 +93,8 @@ $("#commit_btn").click(function(){
 				formData.append("website",$("#com_website").val());
 				formData.append("scale",$("#com_scale").html());
 				formData.append("financing",$(".comInfo_rzactiv").html());
-				formData.append("intro",$("#work_content").val());
-				formData.append("info",$("#work_content2").val());
+				formData.append("intro",jianjie.getContent());
+				formData.append("info",xinxi.getContent());
 				formData.append("tel",$("#com_phone").val());
 				$.ajax({
 					type:"post",

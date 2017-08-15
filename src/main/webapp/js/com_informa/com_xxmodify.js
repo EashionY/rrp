@@ -1,4 +1,16 @@
 var boollogo=false;
+
+var jianjie1= UE.getEditor('com_jianjie1',{
+	toolbars: [
+	    ['undo', 'redo'],
+	],initialFrameHeight:200,initialFrameWidth:542
+});
+var xinxi1= UE.getEditor('com_xinxi1',{
+	toolbars: [
+	    ['undo', 'redo'],
+	],initialFrameHeight:200,initialFrameWidth:542
+});
+
 $(function() {
 	myonload1("com_xinxi.html","com_psd.html","../../Personal_edition/index.html");
 	var userId=getCookieValue("userId");
@@ -75,8 +87,12 @@ $(function() {
 							 })
 						 }
 					 }
-					 $("#work_content").val(data.data.intro);
-					 $("#work_content2").val(data.data.info);
+					 jianjie1.addListener("ready", function () { 
+							jianjie1.setContent(data.data.intro);
+						});
+					 xinxi1.addListener("ready", function () { 
+						 xinxi1.setContent(data.data.info);
+					 });
 				 }else{
 					 layer.msg(data.message)
 				 }
@@ -103,8 +119,8 @@ $("#com_commit").click(function(){
 					formData.append("website",$("#com_moWz").val());
 					formData.append("scale",$("#com_moGm").html());
 					formData.append("financing",$(".comInfo_rzactiv").html());
-					formData.append("intro",$("#work_content").val());
-					formData.append("info",$("#work_content2").val());
+					formData.append("intro",jianjie1.getContent());
+					formData.append("info",xinxi1.getContent());
 					formData.append("tel",$("#com_moPhone").val());
 					$.ajax({
 						type:"post",

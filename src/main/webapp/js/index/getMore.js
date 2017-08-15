@@ -73,7 +73,7 @@ function getData(offset,size){
                 }
             },
             error: function(xhr, type){
-                alert('Ajax error!');
+                layer.msg('Ajax error!');
             }
         });
     }
@@ -161,7 +161,7 @@ function getData2(key,offset,size){//搜索后更多
                 }
             },
             error: function(xhr, type){
-                alert('Ajax error!');
+                layer.msg('Ajax error!');
             }
         });
     }

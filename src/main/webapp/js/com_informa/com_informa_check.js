@@ -1,0 +1,40 @@
+$(function() {
+	myonload2("../../Personal_edition/my/pers_infor.html","../../Personal_edition/index.html");
+	var userId=getCookieValue("userId");
+	if(userId==""){//未登录，请先登录
+	     window.location.href="../../Personal_edition/login.html";
+	}else{
+		var comStatus=getStatus();
+		//console.log(comStatus)
+		if(comStatus==2){
+			$.get(ip+"/rrp/company/findCompanyInfo.do",{email:getCookieValue("email")},function(data){
+				if(data.state==0){
+					$("#com_name").html(data.data.name);
+					$("#com_zhizhao_check").attr("src","../../../../"+data.data.license);
+					$("#com_logo").attr("src","../../../../"+data.data.logo);
+					$("#com_logo").css({"position":"relative","z-index":"800"});
+					$("#com_website").html(data.data.website);
+					$("#com_phone").html(data.data.tel);
+					$("#com_address").html(data.data.address);
+					$("#com_industry").html(data.data.industry);
+					$("#com_scale").html(data.data.scale);
+					$("#com_financing").html(data.data.financing);
+					$("#com_jianjie").html(data.data.intro);
+					$("#com_xinxi").html(data.data.info);
+					$("#check_zhizhao").click(function(){
+						$(this).css("display","none");
+						$("#com_zhizhao_check").css("display","block");
+					});
+					$("#com_zhizhao_check").click(function(){
+						$(this).css("display","none");
+						$("#check_zhizhao").css("display","inline-block");
+					})
+				}else{
+					layer.msg(data.message)
+				}
+			},'json')
+		}else{
+			window.location.href="../../Personal_edition/enterprise/enterprise_status.html";
+		}
+	}
+})

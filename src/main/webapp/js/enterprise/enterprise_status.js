@@ -11,13 +11,13 @@ $(function() {
 			$("#status_Box").html("资料审核中......");
 			$("#btn_box").html('<span id="to_check">查看资料</span>');
 			$("#to_check").click(function(){
-				window.location.href="";//查看资料
+				window.location.href="../../Enterprise_edition/com_informa/com_informa_check.html";;//查看资料
 			})
 		}else if(comStatus==-1){
 			$("#status_Box").html("资料未审核通过");
 			$("#btn_box").html('<span id="to_modify">重新修改资料</span>');
 			$("#to_modify").click(function(){
-				window.location.href="../../Enterprise_edition/com_informa/com_informa.html";
+				window.location.href="../../Enterprise_edition/com_informa/com_informa_modify.html";
 			})
 		}else{
 			if(comStatus==0){//邮箱未验证
