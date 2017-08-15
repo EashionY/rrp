@@ -1,8 +1,36 @@
 /**
  * Created by Administrator on 2017/7/13.
  */
-
-
+function divselect(divselectid,inputselectid) {//下拉
+	var inputselect = $(inputselectid);
+	$(divselectid+" cite").click(function(){
+		var ul = $(divselectid+" ul");
+		//console.log(ul.css("display")=="none")
+		if(ul.css("display")=="none"){
+			ul.css("display","inline-block")
+		}else{
+			ul.css("display","none")
+		}
+	});
+	$(divselectid+" ul li a").click(function(){
+		var txt = $(this).text();
+		$(divselectid+" cite").children(".input_text").html(txt);
+		var value = $(this).attr("selectid");
+		console.log(value)
+		inputselect.val(value);
+		$(divselectid+" ul").css("display","none");
+	});
+};
+//选择求职状态
+$(function(){
+	divselect("#udegree","#inputselect");
+});
+//编辑器
+var myintro= UE.getEditor('myintro',{
+	toolbars: [
+	    ['undo', 'redo'],
+	],initialFrameHeight:100
+});
 $(".my_edit").on("click",function(){
     $(".my_rightmain1").css("display","none");
     $(".my_rightmain2").css("display","block");
@@ -18,8 +46,8 @@ $(".my_edit").on("click",function(){
      		$("#myedit_nan").removeClass("mysex")
       	 }
     	$("#ujob").val(data.data.job);
-    	$("#udegree").val(data.data.degree);
-    	$("#work_content").val(data.data.selfIntro);
+    	$("#uhighxl").html(data.data.degree);
+    	myintro.setContent(data.data.selfIntro);
     },"json")
     
 });

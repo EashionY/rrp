@@ -79,8 +79,8 @@ $(function() {
 		var uname=$("#uname").val();
 		var usex=$(".mysex").html();
 		var ujob=$("#ujob").val();
-		var udegree=$("#udegree").val();
-		var uselfIntro=$("#work_content").val();
+		var udegree=$("#uhighxl").html();
+		var uselfIntro=myintro.getContent();
 		console.log(uid,uname,usex,ujob,udegree,uselfIntro);
 		$.ajax({
             type: "post",
