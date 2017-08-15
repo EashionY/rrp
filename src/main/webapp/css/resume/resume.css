@@ -452,7 +452,7 @@
 .divselect ul li a{display:block; height:43px; color:#333333; text-decoration:none;
     padding-left:10px; padding-right:10px;}
 .divselect ul li a:hover{background-color:#CCC;}
-.texterea_box{position: relative;width: 640px;}
+.texterea_box{position: relative;width: 640px; margin-top: 10px;}
 .texterea_tips{
     position: absolute;
     right: 10px;

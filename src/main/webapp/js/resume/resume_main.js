@@ -17,6 +17,8 @@
 	    if(userId==""){//未登录，请先登录
 	       window.location.href="../login.html";
 	    }else{
+	    	
+	    
 	    	 $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
 	    		 console.log(data.data)
 	    		 if(data.state==0){//有简历
@@ -178,15 +180,15 @@
 	                			$("#projectName").val($(this).parent().prev().html());
 	                		    $("#xiangmutime1").val(arr[0]);
 	                		    $("#xiangmutime2").val(arr[1]);
-	                		    $("#xiangmu_content").val($(this).parent().parent().next().next().children(".detail_span").html());
-	                		    $("#zeren_content").val($(this).parent().parent().next().next().next().children(".detail_span").html());
+	                		    xiangmu.setContent($(this).parent().parent().next().next().children(".detail_span").html());
+	                		    zeren.setContent($(this).parent().parent().next().next().next().children(".detail_span").html());
 	                		    $("#resume_modiproject").css("display","inline-block");
 	                			$("#resume_saveproject").css("display","none");
 	                		    $("#resume_modiproject").click(function(){
 	                				 $.ajax({
 	                						type: "post",
 	                			            url: ip+"/rrp/resume/modifyProjectExp.do",
-	                			            data:{userId:getCookieValue("userId"),projectexpId:projectID,project:$("#projectName").val(),projectTime:$("#xiangmutime1").val()+'至'+$("#xiangmutime2").val(),projectDescription:$("#zeren_content").val(),duty:$("#zeren_content").val()},
+	                			            data:{userId:getCookieValue("userId"),projectexpId:projectID,project:$("#projectName").val(),projectTime:$("#xiangmutime1").val()+'至'+$("#xiangmutime2").val(),projectDescription:xiangmu.getContent(),duty:zeren.getContent()},
 	                			            dataType: "json",
 	                			            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 	                			            success: function(data){
@@ -268,12 +270,12 @@
 	                			 $("#re_work").val($(this).parent().parent().next().children().eq(0).html());
 	                			 $("#zizhitime1").val(arr[0]);
 	                			 $("#zizhitime2").val(arr[1]);
-	                			 $("#work_content").val($(this).parent().parent().next().next().html());
+	                			 workJy.setContent($(this).parent().parent().next().next().html());
 	                			 $("#resume_modiwork").click(function(){
 	                				 $.ajax({
 	                						type: "post",
 	                			            url: ip+"/rrp/resume/modifyWorkExp.do",
-	                			            data:{userId:getCookieValue("userId"),workexpId:workexpId,company:$("#re_company").val(),work:$("#re_work").val(),workTime:$("#zizhitime1").val()+"至"+$("#zizhitime2").val(),workDescription:$("#work_content").val()},
+	                			            data:{userId:getCookieValue("userId"),workexpId:workexpId,company:$("#re_company").val(),work:$("#re_work").val(),workTime:$("#zizhitime1").val()+"至"+$("#zizhitime2").val(),workDescription:workJy.getContent()},
 	                			            dataType: "json",
 	                			            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 	                			            success: function(data){
@@ -327,8 +329,8 @@
 	$("#resume_saveproject").click(function(){//添加项目经验
 		var projectName=$("#projectName").val();
 		var xiangmutime=$("#xiangmutime1").val()+" 至 "+$("#xiangmutime2").val();
-		var xiangmu_content=$("#xiangmu_content").val();
-		var zeren_content=$("#zeren_content").val();
+		var xiangmu_content=xiangmu.getContent();
+		var zeren_content=zeren.getContent();
 		$.ajax({
 			type: "post",
             url: ip+"/rrp/resume/addProjectExp.do",
@@ -348,7 +350,7 @@
 		var re_company=$("#re_company").val();
 		var re_work=$("#re_work").val();
 		var zizhitime=$("#zizhitime1").val()+" 至 "+$("#zizhitime2").val();
-		var work_content=$("#work_content").val();
+		var work_content=workJy.getContent();
 		$.ajax({
 			type: "post",
             url: ip+"/rrp/resume/addWorkExp.do",
@@ -386,7 +388,7 @@
 		$.ajax({
 			type: "post",
             url: ip+"/rrp/resume/modifySelfEvaluation.do",
-            data: {id:resumeId,userId:getCookieValue("userId"),selfEvaluation:$("#ziping_content").val()},
+            data: {id:resumeId,userId:getCookieValue("userId"),selfEvaluation:ziping.getContent()},
             dataType: "json",
             contentType:'application/x-www-form-urlencoded; charset=UTF-8',
             success: function(data){

@@ -84,16 +84,29 @@ laydate({
     	});
     }
 });
+//编辑器
+var workJy= UE.getEditor('work_content',{
+	toolbars: [
+	    ['undo', 'redo'],
+	],initialFrameHeight:200
+});
+var xiangmu= UE.getEditor('xiangmu_content',{
+	toolbars: [
+	    ['undo', 'redo'],
+	],initialFrameHeight:200
+});
+var zeren= UE.getEditor('zeren_content',{
+	toolbars: [
+	    ['undo', 'redo'],
+	],initialFrameHeight:200
+});
+var ziping= UE.getEditor('ziping_content',{
+	toolbars: [
+	    ['undo', 'redo'],
+	],initialFrameHeight:200
+});
 
-//    字数提示
-function setShowLength(obj, maxlength, id) {
-    var rem = maxlength - obj.value.length;
-    var wid = id;
-    if (rem < 0){
-        rem = 0;
-    }
-    document.getElementById(wid).innerHTML = obj.value.length;
-}
+
 
 //    选择求职状态
 $(function(){
@@ -150,7 +163,7 @@ $("#editzipingbtn").click(function(){
     var userId = getCookieValue("userId"); 
     $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
     	if(data.data!=null){
-    		$("#ziping_content").val(data.data.self_evaluation)
+    		ziping.setContent(data.data.self_evaluation);
     	}
     },'json')
 });
@@ -160,6 +173,8 @@ $("#resume_quitziping").click(function(){
 //    添加项目经验
 $("#editprojectjlbtn").click(function(){
     limit(this,3,$("#project_mask"), $("#projectjlbox"));
+    xiangmu.setContent("");
+    zeren.setContent("");
 });
 $("#resume_quitproject").click(function(){
     mydisplay($("#project_mask"),$("#projectjlbox"));
@@ -174,6 +189,7 @@ $("#resume_quitproject").click(function(){
 //    添加工作经历
 $("#editworkjlbtn").click(function(){
     limit(this,3,$("#workjl_mask"), $("#workjlbox"));
+    workJy.setContent("");
 });
 $("#resume_quitwork").click(function(){
     mydisplay($("#workjl_mask"),$("#workjlbox"));
