@@ -70,8 +70,6 @@ function add_page(mydata){
 	        jump: function(obj,first){
 	        	if(!first){
 	        		mydata.page=obj.curr;
-	        		//console.log(mydata.page);
-	        		//console.log(mydata)
 	        		addDom(mydata);
 	        	}
 	        }
@@ -83,7 +81,6 @@ $(function() {
 	var Request = new Object(); 
 	Request = GetRequest(); 
 	var keyword=Request['keyword']; //获取参数
-	console.log(keyword);
 	var mydata={keyword:keyword,page:1,pageSize:2};
 	add_page(mydata)
 });

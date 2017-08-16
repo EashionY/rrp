@@ -5,7 +5,7 @@ $(function() {
 	     window.location.href="../../Personal_edition/login.html";
 	}else{
 		var comStatus=getStatus();
-		console.log(comStatus)
+		//console.log(comStatus)
 		if(comStatus!=0 && comStatus!=2){//判断是否开通企业版
 			if(getCookieValue("companyName")!="undefined"){
 				$("#com_name").val(getCookieValue("companyName"));
@@ -68,7 +68,7 @@ $("#commit_btn").click(function(){
 	list.push($(".comInfo_rzactiv").html());//融资
 	list.push(jianjie.getContent());//简介
 	list.push(xinxi.getContent());//公司信息
-	console.log($("#com_address").val()+$("#com_address2").val())
+	//console.log($("#com_address").val()+$("#com_address2").val())
 	var bool=false;
 	$.each(list,function(k,v){
 		if(list[k]==""||list[k]==undefined){
@@ -103,7 +103,7 @@ $("#commit_btn").click(function(){
 					contentType: false,
 	                processData: false,
 					success:function(result){
-						console.log(result);
+						//console.log(result);
 						if(result.state==0){
 							addCookie("companyId",result.data.id,1,"/"); 
 							addCookie("companyName",result.data.name,1,"/");

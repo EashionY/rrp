@@ -42,8 +42,6 @@ function add_page(mydata){
 	        jump: function(obj,first){
 	        	if(!first){
 	        		mydata.page=obj.curr;
-	        		console.log(mydata.page);
-	        		console.log(mydata)
 	        		addDom(mydata);
 	        	}
 	        }

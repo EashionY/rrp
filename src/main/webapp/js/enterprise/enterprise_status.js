@@ -6,7 +6,7 @@ $(function() {
 		window.location.href="../login.html";
 	}else{
 		var comStatus=getStatus();
-		console.log(comStatus);
+		
 		if(comStatus==2){
 			$("#status_Box").html("资料审核中......");
 			$("#btn_box").html('<span id="to_check">查看资料</span>');

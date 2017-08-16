@@ -6,7 +6,6 @@
 		      window.location.href="../login.html";
 		}else{
 			var comStatus=getStatus();
-			console.log(comStatus)
 			if(comStatus==0){
 				$("#enterp_phone").val(getCookieValue("userPhone"));
 			}else{

@@ -35,7 +35,6 @@ $(function() {
 			            data: {userId:uid,oldPsd:oldpsd,newPsd:newpsd},
 			            dataType: "json",
 			            success: function(data){
-			          	    console.log(data);
 			                if(data.state==0){
 			                	layer.msg('修改成功！请重新登录!', {
 			                		  icon: 1,

@@ -129,7 +129,6 @@ $("#com_commit").click(function(){
 						contentType: false,
 		                processData: false,
 						success:function(result){
-							console.log(result)
 							if(result.state==0){
 								layer.msg("信息修改成功",{
 				              		  icon: 1,

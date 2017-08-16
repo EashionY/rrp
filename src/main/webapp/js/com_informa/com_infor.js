@@ -21,7 +21,6 @@ function divselect(divselectid,inputselectid) {//下拉
 	var inputselect = $(inputselectid);
 	$(divselectid+" cite").click(function(){
 		var ul = $(divselectid+" ul");
-		console.log(ul.css("display")=="none")
 		if(ul.css("display")=="none"){
 			ul.css("display","inline-block")
 		}else{
@@ -32,7 +31,6 @@ function divselect(divselectid,inputselectid) {//下拉
 		var txt = $(this).text();
 		$(divselectid+" cite").children(".input_text").html(txt);
 		var value = $(this).attr("selectid");
-		console.log(value)
 		inputselect.val(value);
 		$(divselectid+" ul").css("display","none");
 	});

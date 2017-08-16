@@ -89,7 +89,7 @@ function xunhuan(tjArr,obj,num){
 			}else{
 				tjArr.splice(num,1,tj);//替换元素
 			}
-			console.log(tjArr);
+			//console.log(tjArr);
 			var mydata={keyword:tjArr[0],region:tjArr[1],workExp:tjArr[2],degree:tjArr[3],scale:tjArr[4],salary:tjArr[5],industry:tjArr[6],financing:tjArr[7],page:1,pageSize:3}
 			add_page(mydata);
 		})
@@ -124,8 +124,6 @@ function add_page(mydata){
 	        jump: function(obj,first){
 	        	if(!first){
 	        		mydata.page=obj.curr;
-	        		console.log(mydata.page);
-	        		console.log(mydata)
 	        		addDom(mydata);
 	        	}
 	        }
@@ -138,7 +136,7 @@ $(function() {
 	var Request = new Object(); 
 	Request = GetRequest(); 
 	var keyword=Request['keyword']; //获取参数
-	console.log(keyword)
+	
 	if(keyword==undefined){
 		var mydata={keyword:null,region:null,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:3}
 		add_page(mydata);

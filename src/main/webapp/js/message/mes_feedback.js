@@ -2,7 +2,6 @@ function addDom(mydata){
 	$.get(ip+'/rrp/delivery/viewFeedback.do',mydata,function(result){
 		if(result.state==0){
 			if(result.data.length!=0){
-				console.log(result.data)
 				var str="";
 				$.each(result.data,function(k,v){
 					var state="";
@@ -91,8 +90,6 @@ function add_page(mydata){
 	        jump: function(obj,first){
 	        	if(!first){
 	        		mydata.page=obj.curr;
-	        		//console.log(mydata.page);
-	        		//console.log(mydata)
 	        		addDom(mydata);
 	        	}
 	        }

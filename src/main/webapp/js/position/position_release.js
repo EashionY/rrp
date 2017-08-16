@@ -38,7 +38,6 @@ $(".posiEdi_btn").click(function(){
 			contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 			dataType:'json',
 			success:function(result){
-				console.log(result);
 				if(result.state==0){
 					layer.msg(result.message)
 				}else{

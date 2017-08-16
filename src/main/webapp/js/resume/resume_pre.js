@@ -10,7 +10,6 @@ $(function() {
             data: {userId:userId},
             dataType: "json",
             success: function(data){
-            	console.log(data.data)
             	//头像
             	if(data.data.head_img!=null){
             		$("#re_headImg").attr("src","../../../../"+data.data.head_img)

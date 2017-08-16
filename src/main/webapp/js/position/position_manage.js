@@ -2,7 +2,6 @@ function posMa_addDom(mydata){
 	$.get(ip+'/rrp/post/listPostJob.do',mydata,function(data){
 		if(data.state==0){
 			var result=data.data;
-			console.log(result)
 			$(".poma_divdown").html("");
 			if(result.length!=0){
 				var str="";
@@ -114,8 +113,6 @@ function posMaAdd_page(mydata){
 	        jump: function(obj,first){
 	        	if(!first){
 	        		mydata.page=obj.curr;
-	        		//console.log(mydata.page);
-	        		//console.log(mydata)
 	        		posMa_addDom(mydata);
 	        	}
 	        }
@@ -143,11 +140,9 @@ $(function() {
 $("#divselect ul li a").click(function(){//条件查询
 	var mystatus=$(this).attr("selectid");
 	if(mystatus==-1){
-		console.log("1")
 		var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:3};
 		posMaAdd_page(mydata);
 	}else{
-		console.log("2")
 		var mydata={companyId:getCookieValue("companyId"),status:mystatus,page:1,pageSize:3};
 		posMaAdd_page(mydata);
 	}

@@ -81,14 +81,12 @@ $(function() {
 		var ujob=$("#ujob").val();
 		var udegree=$("#uhighxl").html();
 		var uselfIntro=myintro.getContent();
-		console.log(uid,uname,usex,ujob,udegree,uselfIntro);
 		$.ajax({
             type: "post",
             url: ip+"/rrp/user/modifyUserInfo.do",
             data: {userId:uid,nickname:uname,sex:usex,job:ujob,degree:udegree,selfIntro:uselfIntro},
             dataType: "json",
             success: function(data){
-          	    console.log(data);
                 if(data.state==0){
                 	layer.msg(data.message,{
                 		  icon: 1,

@@ -6,7 +6,6 @@
 var sends= {
 	    checked:1,
 	    send:function(phone,url){
-	    	console.log(phone)
 	        var numbers = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
 	        var val =phone; //获取输入手机号码
 	        if(!numbers.test(val) || val.length ==0){
@@ -14,9 +13,7 @@ var sends= {
 	            $(".send1").parent().next().html("*请确认手机号码正确");
 	            return false;
 	        }
-	        console.log($('.div-phone a').attr('class') == 'send1')
 	        if(numbers.test(val) && $('.div-phone a').attr('class') == 'send1'){
-	        	console.log("11")
 	            $.get(url,{phone:val},function(data){
 	            	layer.msg(data.message)
 	            },'json');

@@ -1,5 +1,4 @@
     function mydele(url,mydata){
-		console.log(mydata)
 		layer.confirm('确认删除?', {icon: 3, title:'提示'}, function(index){
 			$.get(url,mydata,function(data){
 				if(data.state==0){
@@ -20,7 +19,6 @@
 	    	
 	    
 	    	 $.post(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
-	    		 console.log(data.data)
 	    		 if(data.state==0){//有简历
 	                	resumeId=data.data.id;
 	                	//简历名称
@@ -368,7 +366,6 @@
 	})
 	
 	$("#resume_savepingjia").click(function(){//添加技能   
-		console.log("保存")
 		$.ajax({
 			type: "post",
             url: ip+"/rrp/resume/addSkill.do",
@@ -456,7 +453,6 @@
 	            dataType: "json",
 	            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 	            success: function(data){
-	          	    console.log(data);
 	                if(data.state==0){
 	                	window.location.href="resume.html";
 	                }else{
@@ -486,7 +482,6 @@
 	            dataType: "json",
 	            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 	            success: function(data){
-	          	    console.log(data);
 	                if(data.state==0){
 	                	window.location.href="resume.html";
 	                }else{

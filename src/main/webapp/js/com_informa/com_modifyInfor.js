@@ -101,8 +101,6 @@ $("#modify_btn").click(function(){
 	list.push($(".comInfo_rzactiv").html());//融资
 	list.push(jianjie.getContent());//简介
 	list.push(xinxi.getContent());//公司信息
-	console.log($("#com_address").val()+$("#com_address2").val());
-	console.log(list)
 	var bool=false;
 	$.each(list,function(k,v){
 		if(list[k]==""||list[k]==undefined){

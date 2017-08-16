@@ -99,7 +99,6 @@ $(function() {
 
 //    弹出层
     $(".reView_savebtn").click(function(){
-        console.log("保存")
         $("#resuView_mask").css("display","none")
     });
     $(".reView_quitbtn").click(function(){

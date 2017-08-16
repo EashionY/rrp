@@ -37,7 +37,6 @@ $("#reg_psd").on("blur",function(){
     }
 });
 $("#reg_psd2").on("blur",function(){
-	console.log("1")
     var psd1=$("#reg_psd").val();
     var psd2=$(this).val();
     if(psd2!=psd1){

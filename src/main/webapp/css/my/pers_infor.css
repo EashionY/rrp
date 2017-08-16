@@ -214,7 +214,7 @@
 
 
 /*ÏÂÀ­*/
-.divselect{width:647px;margin-top: 10px; position:relative; z-index:10000;}
+.divselect{width:647px;margin-top: 10px; position:relative; z-index:2;}
 .divselect cite{width:647px; height:43px;line-height:43px; display:block; cursor:pointer;font-style:normal;
     border:1px solid #dddddd;background-color: #ffffff;text-indent: 10px}
 .divselect ul{width:647px;border:1px solid #dddddd; background-color:#ffffff;

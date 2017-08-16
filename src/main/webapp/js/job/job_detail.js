@@ -33,7 +33,6 @@ $(function() {
 			//相似职位
 			$.get(ip+'/rrp/post/searchPostCompany.do',{keyword:result.post_name,page:1,pageSize:2},function(data){
 				if(data.state==0){
-					console.log(data.data);
 					var str="";
 					$.each(data.data,function(k,v){
 						str+='<div class="job_xsmain"><input value="'+v.post_id+'" class="myinput"/>'+
@@ -66,8 +65,6 @@ $(function() {
 			    		window.location.href="../login.html?url="+nowUrl;
 			    	});
 			    }else{
-			       //console.log(postId);//职位id
-				   //console.log(result.id);//公司id
 				   var resumeId='';
 				   $.get(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
 					   if(data.state==0){

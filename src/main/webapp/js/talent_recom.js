@@ -2,7 +2,6 @@ function addDom(mydata){
 	$.get(ip+"/rrp/resume/searchResume.do",mydata,function(data){
 		 if(data.state==0){
 			 if(data.data.length!=0){
-				 console.log(data.data);
 				 var str="";
 				 var myDate = new Date();
 			     var nowDate=new Date(myDate.toLocaleDateString()).format("yyyy");
@@ -69,8 +68,6 @@ function add_page(mydata){
 	        jump: function(obj,first){
 	        	if(!first){
 	        		mydata.page=obj.curr;
-	        		//console.log(mydata.page);
-	        		//console.log(mydata)
 	        		addDom(mydata);
 	        	}
 	        }
@@ -85,7 +82,6 @@ $(function() {
 	     window.location.href="../Personal_edition/login.html";
 	}else{
 		var comStatus=getStatus();
-		console.log(comStatus)
 		if(comStatus==3){//判断是否开通企业版(3--开通成功);
 			var mydata={companyId:getCookieValue("companyId"),keyword:"",page:1,pageSize:2};
 			add_page(mydata);

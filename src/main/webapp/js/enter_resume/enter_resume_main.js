@@ -174,7 +174,7 @@ function serch_getNum(mydata){//利用同步获取搜索后总条数
 function serch_add_page(mydata,nowUrl){//搜索后分页
 	serch_addDom(mydata,nowUrl)
 	var totalnum=serch_getNum(mydata);//总条数
-	console.log(totalnum)
+	
 	var totalPage=Math.ceil(totalnum/mydata.pageSize);//总页数(向上取整);
 	//console.log(totalPage)
     //分页
@@ -192,8 +192,6 @@ function serch_add_page(mydata,nowUrl){//搜索后分页
 	        jump: function(obj,first){
 	        	if(!first){
 	        		mydata.page=obj.curr;
-	        		//console.log(mydata.page);
-	        		//console.log(mydata)
 	        		serch_addDom(mydata,nowUrl)
 	        	}
 	        }
@@ -205,7 +203,7 @@ function serch_addDom(mydata,nowUrl){//搜索结果
 		if(data.state==0){
 			$("#new_Box").html("");
 			if(data.data.length!=0){
-				console.log(data.data);
+			
 				var mystr='';
 				var myDate = new Date();
 				var nowDate=new Date(myDate.toLocaleDateString()).format("yyyy");

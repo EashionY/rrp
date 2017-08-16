@@ -29,12 +29,10 @@ function divselect(divselectid,inputselectid) {//下拉
 		var txt = $(this).text();
 		$(divselectid+" cite").children(".input_text").html(txt);
 		var value = $(this).attr("selectid");
-		console.log(value)
 		inputselect.val(value);
 		$(divselectid+" ul").css("display","none");
 	});
 };
-//console.log($(document).scrollTop())
 //    日期
 var myDate = new Date();
 var nowDate=new Date(myDate.toLocaleDateString()).format("yyyy-MM-dd");

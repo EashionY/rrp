@@ -11,12 +11,10 @@ $(function() {
 			var postId=Request['postId']; //获取参数
 			$.get(ip+"/rrp/post/jobDetail.do",{postId:postId},function(data){
 				if(data.state==0){
-					console.log(data.data);
 					$("#po_name").val(data.data[0].post_name);//名称
 					$("#po_city").val(data.data[0].region);//城市
 					$("#po_workjy").html(data.data[0].work_exp)//工作经验
 					$("#po_xl").html(data.data[0].degree)//学历
-					console.log(data.data[0].degree)
 					$.each($("#divselect_xl ul li a"),function(k,v){//学历（数字）
 						if($(v).html()==data.data[0].degree){
 							$("#inputselect_xl").val($(v).attr("selectid"))
@@ -80,7 +78,6 @@ $(".posiEdi_btn").click(function(){
 		contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 		dataType:'json',
 		success:function(result){
-			console.log(result);
 			if(result.state==0){
 				layer.msg(result.message)
 			}else{

@@ -57,7 +57,7 @@
         	layer.msg("内容有错")
         }else{
             $.get(ip+"/rrp/user/verifyCode.do",{code:$("#reg_dxyzm").val()},function(data){
-            	console.log(data)
+            	//console.log(data)
             	if(data.state==0){
             		$("#for_mainBox2").css("display","block")
             	    $("#for_mainBox1").css("display","none")

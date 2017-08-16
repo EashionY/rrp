@@ -28,8 +28,9 @@ $("#log_btn").on("click",function(){
               		  time: 1000 
                 	}, function(){
                 		var oldUrl=document.referrer;//获取之前的url
-                		console.log(oldUrl);
-                		if(oldUrl==""){
+                		var strs= new Array();
+                		strs=oldUrl.split("/");
+                		if(oldUrl=="" || strs[strs.length-1]=='reg.html'|| strs[strs.length-1]=='forgot_psd.html'){
                 			window.location.href="../../index.html";
                 		}else{
                 			window.location.href=oldUrl;//登录成功回到之前页面

@@ -8,7 +8,6 @@ $(function() {
 		if(comStatus==3){//判断是否开通企业版
 			$.get(ip+"/rrp/company/findCompanyInfo.do",{email:getCookieValue("email")},function(data){
 				 if(data.state==0){
-					 console.log(data.data.address)
 					 $("#scom_logo").attr("src","../../../../"+data.data.logo);
 					 $(".comxx_name").html(data.data.name);
 					 $("#com_rz").html(data.data.financing)

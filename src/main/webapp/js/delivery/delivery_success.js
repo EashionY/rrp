@@ -3,7 +3,6 @@ function addDom(mydata){
 	$.get(ip+"/rrp/delivery/viewDeliveried.do",mydata,function(result){//查询投递成功简历
 		   if(result.state==0){
 			   if(result.data.length!=0){
-				   console.log(result.data)
 				   var str="";
 				   $.each(result.data,function(k,v){
 					   str+='<div class="delivery_leftcontbox"><div class="delivery_leftcontmain">'+

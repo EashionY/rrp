@@ -6,7 +6,6 @@
 		     window.location.href="../login.html";
 		}else{
 			var comStatus=getStatus();
-			console.log(comStatus)
 			if(comStatus==0){
 				if(getCookieValue("email")==""){
 					window.location.href="enterprise1.html"

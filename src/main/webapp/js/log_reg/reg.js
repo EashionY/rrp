@@ -27,10 +27,6 @@ $("#reg_Btn").on("click",function(){
     }else if(surebtn==false){
         layer.msg("未阅读声明！")
     }else{
-        console.log("发送注册请求")
-        console.log($("#reg_phone").val());
-        console.log($("#reg_psd").val());
-        console.log($("#reg_dxyzm").val());
         $.post(ip+"/rrp/user/regist.do",{phone:$("#reg_phone").val(),password:$("#reg_psd").val(),code:$("#reg_dxyzm").val()},function(data){
         	if(data.state==0){
 //            	注册成功保存昵称到cookie

@@ -14,7 +14,6 @@ $(function() {
 	}
 })
 $(".psd_btn").click(function(){
-	console.log("11")
 	var uid = getCookieValue("userId");
 	var oldpsd=$("#old_psd").val();
 	var newpsd=$("#new_psd").val();
