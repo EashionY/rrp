@@ -30,7 +30,17 @@ $(".posiEdi_inputdiv_xz span").click(function(){
 		}
 	})
 })
-
+//编辑器
+var yaoqiu= UE.getEditor('work_content',{
+	toolbars: [
+	    ['undo', 'redo'],
+	],initialFrameHeight:200,initialFramewidth:825
+});
+var zhize= UE.getEditor('work_content2',{
+	toolbars: [
+	    ['undo', 'redo'],
+	],initialFrameHeight:200
+});
 
 
 $("#po_addld").click(function(){//添加职位亮点

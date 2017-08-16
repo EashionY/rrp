@@ -13,33 +13,25 @@ $(function() {
 	}
 })
 $(".posiEdi_btn").click(function(){
-	//console.log($("#po_name").val());//名称
-	//console.log($("#po_city").val());//城市
-	//console.log($("#po_workjy").html())//工作经验
-	//console.log($("#po_xl").html())//学历
-	//console.log($("#po_yx").html())//职位月薪
-	//console.log($("#work_content").val())//任职要求
-	//console.log($("#work_content2").val())//岗位职责
-	//console.log($(".xz_active").html())//工作性质
 	var ld='';
 	$.each($(".ld_str"),function(k,v){
 		ld+=$(v).html()+'，';
 	});
 	ld = ld.substring(0,ld.length-1)
-	//console.log(ld)//亮点
-	//console.log(getCookieValue("companyId"));
 	if($("#po_name").val()==""){
 		layer.msg("职位名为空");
 	}else{
 		$.ajax({
 			type:"post",
 			url:ip+'/rrp/post/pushJob.do',
-			data:{companyId:getCookieValue("companyId"),name:$("#po_name").val(),salary:$("#po_yx").html(),region:$("#po_city").val(),workExp:$("#po_workjy").html(),degree:$("#po_xl").html(),workType:$(".xz_active").html(),benefits:ld,duty:$("#work_content2").val(),requirement:$("#work_content").val()},
+			data:{companyId:getCookieValue("companyId"),name:$("#po_name").val(),salary:$("#po_yx").html(),region:$("#po_city").val(),workExp:$("#po_workjy").html(),degree:$("#po_xl").html(),workType:$(".xz_active").html(),benefits:ld,duty:zhize.getContent(),requirement:yaoqiu.getContent()},
 			contentType:'application/x-www-form-urlencoded; charset=UTF-8',
 			dataType:'json',
 			success:function(result){
 				if(result.state==0){
-					layer.msg(result.message)
+					layer.msg("发布成功，请前往职位管理开启职位",{icon:1,time:2000},function(){
+						window.location.href="position_manage.html";
+					})
 				}else{
 					layer.msg(result.message)
 				}
