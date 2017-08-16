@@ -69,11 +69,9 @@ function getTotal(mydata){//利用同步获取总条数
 	})
 	return totalNum;
 }
-
 function add_page(mydata){
 	addDom(mydata);//添加节点
 	var totalnum=getTotal(mydata);//总条数
-	//console.log(totalnum)
 	var totalPage=Math.ceil(totalnum/mydata.pageSize);//总页数(向上取整);
     //分页
 	layui.use(['laypage', 'layer'], function(){
@@ -97,10 +95,8 @@ function add_page(mydata){
 	});
 }
 
-
 $(function() { 
-	myonload2("../my/pers_infor.html","../../../index.html");
-	userId=getCookieValue("userId");
+	var userId=getCookieValue("userId");
 	if(userId==""){//未登录，请先登录
 		window.location.href="../login.html";
 	}else{
@@ -117,7 +113,5 @@ $(function() {
 				layer.msg(data.message)
 			}
 		},'json')
-		
-		
 	}
 })

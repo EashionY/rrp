@@ -219,8 +219,8 @@
     border:1px solid #dddddd;background-color: #ffffff;text-indent: 10px}
 .divselect ul{width:647px;border:1px solid #dddddd; background-color:#ffffff;
     position:absolute; z-index:20000; margin-top:-1px;display: none;}
-.divselect ul li{height:43px; line-height:43px;}
-.divselect ul li a{display:block; height:43px; color:#333333; text-decoration:none;
+.divselect ul li{height:30px; line-height:30px;}
+.divselect ul li a{display:block; height:30px; color:#333333; text-decoration:none;
     padding-left:10px; padding-right:10px;}
 .divselect ul li a:hover{background-color:#CCC;}
 .texterea_box{position: relative;width: 640px; margin-top: 10px;}

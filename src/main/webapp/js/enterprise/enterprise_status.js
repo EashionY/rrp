@@ -20,7 +20,7 @@ $(function() {
 				window.location.href="../../Enterprise_edition/com_informa/com_informa_modify.html";
 			})
 		}else{
-			if(comStatus==0){//邮箱未验证
+			if(comStatus==0 || comStatus==null){//邮箱未验证
 				layer.msg("还未开通企业版，先前往开通",{
 		    	    icon: 7,
 		    		time: 3000 

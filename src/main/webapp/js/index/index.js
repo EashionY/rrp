@@ -106,18 +106,18 @@ $(function() {
             	$.each(parentarr,function(key,val){
             		$.each(parentarr[key],function(k,v){
             			var pararr='<div class="deta_mainbox"> <div class="deta_contbox"> <div class="deta_left">'+parentarr[key][k]+'</div> ' +
-                        '<div class="deta_right" id="deta_right'+k+'"><ul><ul></div> </div> </div>'
+                        '<div class="deta_right" id="deta_right'+k+'"><ul></ul></div> </div> </div>'
             			$("#menu_detailBox"+key).append(pararr);
             		})
             	})
             	//处理三级菜单
             	function addjob3(leftMenu,num,panum){
             		$.each(leftMenu[num],function(k,v){
-            			var jobNo=leftMenu[num][k].jobNo.slice(0,4)
+            			var jobNo=leftMenu[num][k].jobNo.slice(0,4);
             			var jobarr='<li>'+leftMenu[num][k].jobName+'</li>';
             			for(var m=0;m<panum;m++){
             				if(parseInt(jobNo)==parseInt((num+1)+'0'+(m+1))){//三级菜单判断编号(必须二级编号<10)
-            	        		$("#menu_detailBox"+num+" #deta_right"+m+" ul").append(jobarr)
+            					$("#menu_detailBox"+num+" #deta_right"+m+" ul").append(jobarr);
             	    		}	
             			}
             			
@@ -125,7 +125,7 @@ $(function() {
             	}
             	for(var j=0;j<parentarr.length;j++){
             		addjob3(leftMenu,j,parentarr[j].length);
-            	}
+            	}          		
             	//========左侧菜单栏结束===========
             	$(".left_menubox li").click(function(){//点击菜单栏搜索职位
             		window.location.href="pages/Personal_edition/job/apply_job.html?keyword="+$(this).html();
