@@ -149,10 +149,15 @@ public class ResumeServiceImpl implements ResumeService {
 		//去除数据头
 		String[] strBase64 = headImg.split(",");
 		String imgBase64 = strBase64[1];
-		//windows系统本地路径
-		String path = "D:\\rrpUpload\\"+userId;
-		//linux系统路径（路径改动之后需要相应的更改server.xml中的context标签）
-//	    String path = "";
+		String os = System.getProperty("os.name");
+		String path;
+		if(os.toLowerCase().startsWith("win")){
+			//windows系统本地路径
+			path = "D:\\rrpUpload\\"+userId;
+		}else{
+			//linux系统路径（路径改动之后需要相应的更改server.xml中的context标签）
+			path = "/usr/rrpUpload/"+userId;
+		}
 		String filename = "resumeHeadImg.png";
 		//上传logo图片
 		boolean success = Image.base64ToImage(imgBase64, path, filename);
@@ -161,7 +166,7 @@ public class ResumeServiceImpl implements ResumeService {
 		}
 		Resume resume = new Resume();
 		resume.setId(id);
-		resume.setHeadImg("images/"+userId+File.separator+filename);
+		resume.setHeadImg("img/"+userId+File.separator+filename);
 		int i;
 		try {
 			i = resumeMapper.updateByPrimaryKeySelective(resume);

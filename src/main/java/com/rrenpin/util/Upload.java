@@ -23,7 +23,15 @@ public class Upload {
 	 */
 	public static List<String> uploadImg(HttpServletRequest request,String userId) throws IOException{
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());  
-        String imgpath = "D:\\rrpUpload\\";
+		String os = System.getProperty("os.name");
+		String imgpath;
+		if(os.toLowerCase().startsWith("win")){
+			//windows系统本地路径
+			imgpath = "D:\\rrpUpload\\";
+		}else{
+			//linux系统路径（路径改动之后需要相应的更改server.xml中的context标签）
+			imgpath = "/usr/rrpUpload/";
+		}
         imgpath += userId+File.separator;
         List<String> paths = new ArrayList<String>();
         //判断request是否有文件上传，即多部分请求 
@@ -33,7 +41,7 @@ public class Upload {
             //取得request中的所有文件名
             Iterator<String> ite = multiRequest.getFileNames(); 
             while(ite.hasNext()){
-            	String displayImgpath = "images/"+userId+File.separator;
+            	String displayImgpath = "img/"+userId+File.separator;
             	//取得上传文件
                 MultipartFile file = multiRequest.getFile(ite.next());  
                 if(!file.isEmpty()){

@@ -74,11 +74,13 @@ public class CompanyServiceImpl implements CompanyService {
 		}
 		///邮件的内容  
         StringBuffer sb = new StringBuffer("点击下面链接验证邮箱即可开通招聘，当天有效，链接只能使用一次，请尽快验证邮箱！</br>");  
-        sb.append("<a href=\"http://192.168.0.103:8080/rrp/company/verifyEmail.do?email=");
+//      sb.append("<a href=\"http://192.168.0.103:8080/rrp/company/verifyEmail.do?email=");
+        sb.append("<a href=\"http://www.rrenpin.com/company/verifyEmail.do?email=");
         sb.append(email);
         sb.append("&authCode=");
         sb.append(authCode);
-        sb.append("\">http://192.168.0.103:8080/rrp/company/verifyEmail.do?email=");  
+//      sb.append("\">http://192.168.0.103:8080/rrp/company/verifyEmail.do?email=");
+        sb.append("\">http://www.rrenpin.com/company/verifyEmail.do?email=");
         sb.append(email);
         sb.append("&authCode=");
         sb.append(authCode);
@@ -173,17 +175,22 @@ public class CompanyServiceImpl implements CompanyService {
 			//去除数据头
 			String[] strBase64 = logo.split(",");
 			String logoImg = strBase64[1];
-			//windows系统本地路径
-			String path = "D:\\rrpUpload\\"+userId;
-			//linux系统路径（路径改动之后需要相应的更改server.xml中的context标签）
-//		    String path = "";
+			String os = System.getProperty("os.name");
+			String path;
+			if(os.toLowerCase().startsWith("win")){
+				//windows系统本地路径
+				path = "D:\\rrpUpload\\"+userId;
+			}else{
+				//linux系统路径（路径改动之后需要相应的更改server.xml中的context标签）
+				path = "/usr/rrpUpload/"+userId;
+			}
 			String filename = "companyLogo.png";
 			//上传logo图片
 			boolean success = Image.base64ToImage(logoImg, path, filename);
 			if(!success){
 				throw new ImgUploadException("Logo上传失败");
 			}
-			company.setLogo("images/"+userId+File.separator+filename);
+			company.setLogo("img/"+userId+File.separator+filename);
 		}else{
 			company.setLogo(null);
 		}

@@ -282,12 +282,15 @@ public class UserServiceImpl implements UserService {
 		//去除数据头
 		String[] strBase64 = base64.split(",");
 		String headImg = strBase64[1];
-		System.out.println(headImg);
-		//windows系统本地路径
-		String path = "D:\\rrpUpload\\"+userId;
-		//linux系统路径（路径改动之后需要相应的更改server.xml中的context标签）
-//		String path = "";
-		System.out.println(path);
+		String os = System.getProperty("os.name");
+		String path;
+		if(os.toLowerCase().startsWith("win")){
+			//windows系统本地路径
+			path = "D:\\rrpUpload\\"+userId;
+		}else{
+			//linux系统路径（路径改动之后需要相应的更改server.xml中的context标签）
+			path = "/usr/rrpUpload/"+userId;
+		}
 		String filename = "userHeadImg.png";
 		boolean tf = Image.base64ToImage(headImg, path, filename);
 		if(tf){
@@ -295,7 +298,7 @@ public class UserServiceImpl implements UserService {
 			User user;
 			try {
 				user = userMapper.selectByPrimaryKey(userId);
-				user.setHeadImg("images/"+userId+File.separator+filename);
+				user.setHeadImg("img/"+userId+File.separator+filename);
 				i = userMapper.updateByPrimaryKeySelective(user);
 			} catch (Exception e) {
 				e.printStackTrace();
