@@ -27,7 +27,7 @@ $(".psd_btn").click(function(){
 	    var zm=false,sz=false,fh=false;
 	    if(newpsd.search(/[A-Za-z]/)!=-1) {num+=1;}else{zm=true}
 	    if(newpsd.search(/[0-9]/)!=-1) {num+=1;}else{sz=true}
-	    if(newpsd.search(/[-+_!@#$%^&*()]/)!=-1) {num+=1;}else{fh=true}
+	    if(newpsd.search(/[-+_!@#$%^&*().]/)!=-1) {num+=1;}else{fh=true}
 	    if(newpsd.length>=6 && newpsd.length<=16){
 	        if(num<3){
 	            if(zm==true){layer.msg("新密码至少有一个字母")}

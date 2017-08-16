@@ -12,7 +12,7 @@ $(function() {
 		}
 	}
 })
-$(".posiEdi_btn").click(function(){
+$("#posiEdi_btn").click(function(){
 	var ld='';
 	$.each($(".ld_str"),function(k,v){
 		ld+=$(v).html()+'，';

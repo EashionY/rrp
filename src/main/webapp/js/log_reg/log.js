@@ -53,7 +53,6 @@ $(".log_inputDiv input").on("focus",function(){
 $(".log_inputDiv input").on("blur",function(){
     $(this).parent().css("border","1px #E3E8EE solid");
     $(this).parent().children(".log_tubiao").css("color", "#dddddd")
-
 });
 //跳转
 $("#to_regBtn span").on("click",function(){

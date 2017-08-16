@@ -23,8 +23,8 @@ function posMa_addDom(mydata){
 	                    ' <span class="poma_salary">'+v.salary+'</span>'+
 	                    ' <span class="poma_jingyan">经验 '+v.work_exp+'</span>'+
 	                    ' <span class="poma_xueli">'+v.degree+'</span></div></div>';
-					 var str4='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><span class="poma_edit">编辑</span><span class="c_o_btn close_btn">关闭</span></div></div>';
-					 var str5='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><span class="poma_edit">编辑</span><span class="c_o_btn open_btn">开启</span></div></div>';
+					 var str4='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><span class="poma_edit">编辑</span><span class="c_o_btn close_btn">关闭</span><span class="delete_btn">删除</span></div></div></div>';
+					 var str5='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><span class="poma_edit">编辑</span><span class="c_o_btn open_btn">开启</span><span class="delete_btn">删除</span></div></div></div>';
 					if(v.post_status==0){
 						str+=str1+str2+str3+str5;
 					}else{
@@ -60,6 +60,21 @@ function posMa_addDom(mydata){
 							}
 						},'json')
 					}
+				});
+				$(".delete_btn").click(function(){//TO-DO
+					var id=$(this).parent().children().eq(0).val();
+					var that=this;
+					layer.confirm("是否确认删除该条职位信息？",{icon:3,title:"提示"},function(index){
+						$.get(ip+"/rrp/post/deleteJob.do",{postId:id},function(data){
+							if(data.state==0){
+								layer.msg(data.message);
+								$(that).parent().parent().remove();
+							}else{
+								layer.msg(data.message)
+							}
+						},'json');
+						layer.close(index)
+					})
 				})
 				
 			}else{

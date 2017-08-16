@@ -67,7 +67,7 @@
     	sends.send($("#acc_phone").val(),ip+"/rrp/user/sendPhoneCode.do")
     });
     $("#acc_phone").on("blur",function(){
-        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        var myreg = /^1[3|4|5|7|8][0-9]{9}$/;
         if(!myreg.test($(this).val())) {
             $(this).parent().next().css("opacity",1);
         }

@@ -10,7 +10,7 @@ $.each(reg_focus,function(key,val){
 });
 
 $("#reg_phone").on("blur",function(){
-    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+	var myreg = /^1[3|4|5|7|8][0-9]{9}$/;
     if(!myreg.test($(this).val())) {
         $(this).parent().next().css("opacity",1);
     }
@@ -21,7 +21,7 @@ $("#reg_psd").on("blur",function(){
     var zm=false,sz=false,fh=false;
     if(psd.search(/[A-Za-z]/)!=-1) {num+=1;}else{zm=true}
     if(psd.search(/[0-9]/)!=-1) {num+=1;}else{sz=true}
-    if(psd.search(/[-+_!@#$%^&*()]/)!=-1) {num+=1;}else{fh=true}
+    if(psd.search(/[-+_!@#$%^&*().]/)!=-1) {num+=1;}else{fh=true}
     if(psd.length>=6 && psd.length<=16){
         if(num<3){
             $(this).parent().next().css("opacity",1);
