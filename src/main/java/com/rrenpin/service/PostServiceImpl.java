@@ -211,7 +211,7 @@ public class PostServiceImpl implements PostService {
 		String job = (String) resume.get("job");
 		//模糊化处理
 		if(job.length()>=4){
-			job = job.substring(0, job.length()/2);
+			job = job.substring(0, job.length()/2-1);
 		}
 		job = "%"+job+"%";
 		List<Map<String, Object>> result;
@@ -222,5 +222,12 @@ public class PostServiceImpl implements PostService {
 			throw new DataBaseException("连接服务器超时");
 		}
 		return result;
+	}
+
+	public void deleteJob(int postId) {
+		int i = postMapper.deleteByPrimaryKey(postId);
+		if(i!=1){
+			throw new PostException("删除职位失败");
+		}
 	}
 }

@@ -108,4 +108,9 @@ public interface PostService {
 	 */
 	public List<Map<String,Object>> interestedJob(int userId,int page,int pageSize);
 	
+	/**
+	 * (公司)删除发布的职位
+	 * @param postId
+	 */
+	public void deleteJob(int postId);
 }

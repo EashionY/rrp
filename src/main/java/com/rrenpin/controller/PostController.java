@@ -97,4 +97,12 @@ public class PostController extends ExceptionController{
 		List<Map<String,Object>> result = postService.interestedJob(userId, page, pageSize);
 		return new JsonResult(result);
 	}
+	
+	@RequestMapping("/deleteJob.do")
+	@ResponseBody
+	public JsonResult deleteJob(int postId){
+		postService.deleteJob(postId);
+		return new JsonResult(SUCCESS,"","删除职位成功");
+	}
+	
 }
