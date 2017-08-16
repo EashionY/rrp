@@ -36,22 +36,26 @@ public class CompanyServiceImpl implements CompanyService {
 	private AuthcodeMapper authcodeMapper;
 	
 	public void sendEmail(HttpServletRequest request,int userId,String email) {
+		if(!email.matches("[\\w\\.\\-]+@([\\w\\-]+\\.)+[\\w\\-]+")){
+			throw new EmailException("邮箱格式不正确");
+		}
 		Company company = companyMapper.findByEmail(email);
 		if(company==null){
-			company = new Company();
-			company.setEmail(email);
-			company.setUserId(userId);
-			try {
-				//若出现异常，则为userId重复，不唯一
+			company = companyMapper.findByUserId(userId);
+			if(company != null){
+				company.setEmail(email);
+				company.setStatus("0");
+				companyMapper.updateByPrimaryKeySelective(company);
+			}else{
+				company = new Company();
+				company.setEmail(email);
+				company.setUserId(userId);
 				companyMapper.insertSelective(company);
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new EmailException("请使用验证通过后的邮箱");
 			}
 		}else{
 			int existUserId = company.getUserId();
 			if(existUserId != userId){
-				throw new EmailException("该邮箱已存在");
+				throw new EmailException("该邮箱已被占用");
 			}
 			company.setStatus("0");
 			companyMapper.updateByPrimaryKeySelective(company);
@@ -73,7 +77,8 @@ public class CompanyServiceImpl implements CompanyService {
 			authcodeMapper.updateByPrimaryKeySelective(authcode);
 		}
 		///邮件的内容  
-        StringBuffer sb = new StringBuffer("点击下面链接验证邮箱即可开通招聘，当天有效，链接只能使用一次，请尽快验证邮箱！</br>");  
+		//点击下面链接验证邮箱，当天有效，链接只能使用一次，请尽快验证邮箱！
+        StringBuffer sb = new StringBuffer("点击下面链接验证邮箱，当天有效，链接只能使用一次，请尽快验证邮箱！</br>");  
 //      sb.append("<a href=\"http://192.168.0.103:8080/rrp/company/verifyEmail.do?email=");
         sb.append("<a href=\"http://www.rrenpin.com/company/verifyEmail.do?email=");
         sb.append(email);
