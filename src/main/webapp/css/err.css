@@ -1,0 +1,28 @@
+	.err_section{
+       margin-top: 50px;
+       margin-bottom: 50px;
+       display: flex;
+       margin-left: 180px;
+       width: 100%;
+    }
+    .err_section2{
+       margin-left: 120px;
+    }
+    .err_left{
+    	margin-right:120px;
+    	margin-top:80px;
+    }
+    .err_tips{
+    	font-size: 20px;
+    	margin: 20px 0;
+    }
+    .err_btn{
+    	display: inline-block;
+	    background-color: #3ebd99;
+	    color: white;
+	    padding: 15px 50px;
+	    font-size: 18px;
+	    letter-spacing: 1px;
+	    border-radius: 5px;
+	    cursor: pointer;
+    }
