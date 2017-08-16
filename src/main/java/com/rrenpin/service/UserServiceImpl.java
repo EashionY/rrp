@@ -282,6 +282,7 @@ public class UserServiceImpl implements UserService {
 		//去除数据头
 		String[] strBase64 = base64.split(",");
 		String headImg = strBase64[1];
+		//获取当前系统的名称
 		String os = System.getProperty("os.name");
 		String path;
 		if(os.toLowerCase().startsWith("win")){
