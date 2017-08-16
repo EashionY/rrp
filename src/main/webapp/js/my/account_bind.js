@@ -88,3 +88,13 @@
             $("#acc_tpyzm").parent().next().css("opacity",1);
         }
     });
+
+    $("#account_qq").click(function(){
+    	layer.msg("暂不支持")
+    });
+    $("#account_wx").click(function(){
+    	layer.msg("暂不支持")
+    });
+    $("#account_sina").click(function(){
+    	layer.msg("暂不支持")
+    });
