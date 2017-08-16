@@ -57,10 +57,12 @@
                         <span class="myfont input_icon">&#xe681;</span>
                     </cite>
                     <ul>
-                        <li><a href="javascript:;" selectid="1">1年以内</a></li>
-                        <li><a href="javascript:;" selectid="2">1-3年</a></li>
-                        <li><a href="javascript:;" selectid="3">3-5年</a></li>
-                        <li><a href="javascript:;" selectid="4">5年以上</a></li>
+                        <li><a href="javascript:;" selectid="1">应届生</a></li>
+                        <li><a href="javascript:;" selectid="2">1年以内</a></li>
+                        <li><a href="javascript:;" selectid="3">1-3年</a></li>
+                        <li><a href="javascript:;" selectid="4">3-5年</a></li>
+                        <li><a href="javascript:;" selectid="5">5-10年</a></li>
+                        <li><a href="javascript:;" selectid="6">10年以上</a></li>
                     </ul>
                 </div>
                 <input name="zhuangtai" type="hidden" value="" id="inputselect_work" class="inputselect"/>
@@ -72,10 +74,12 @@
                         <span class="myfont input_icon">&#xe681;</span>
                     </cite>
                     <ul>
-                        <li><a href="javascript:;" selectid="1">高中</a></li>
-                        <li><a href="javascript:;" selectid="2">大专</a></li>
-                        <li><a href="javascript:;" selectid="3">本科</a></li>
-                        <li><a href="javascript:;" selectid="4">研究生</a></li>
+                        <li><a href="javascript:;" selectid="1">中专及以下</a></li>
+                        <li><a href="javascript:;" selectid="2">高中</a></li>
+                        <li><a href="javascript:;" selectid="3">大专</a></li>
+                        <li><a href="javascript:;" selectid="4">本科</a></li>
+                        <li><a href="javascript:;" selectid="5">硕士</a></li>
+                        <li><a href="javascript:;" selectid="6">博士</a></li>
                     </ul>
                 </div>
                 <input name="zhuangtai" type="hidden" value="" id="inputselect_xl" class="inputselect"/>
@@ -102,17 +106,13 @@
             <div class="posiEdi_inputdiv posiEdi_inputdiv_ms">
                 <div>任职要求：</div>
                 <div class="texterea_box">
-                    <textarea name="" id="work_content" cols="30" rows="10"  maxlength="1000"
-                    onkeyup="javascript:setShowLength(this, 1000, 'cost_tpl_title_length');"></textarea>
-                    <div class="texterea_tips"><span class="red" id="cost_tpl_title_length">0</span>/1000字</div>
+                    <textarea name="" id="work_content"></textarea>
                 </div>
             </div>
             <div class="posiEdi_inputdiv posiEdi_inputdiv_ms">
                 <div>岗位职责：</div>
                 <div class="texterea_box">
-                    <textarea name="" id="work_content2" cols="30" rows="10"  maxlength="1000"
-                    onkeyup="javascript:setShowLength(this, 1000, 'cost_tpl_title_length2');"></textarea>
-                    <div class="texterea_tips"><span class="red" id="cost_tpl_title_length2">0</span>/1000字</div>
+                    <textarea name="" id="work_content2"></textarea>
                 </div>
             </div>
         </div>
@@ -146,6 +146,8 @@
 <script src="../../../plug/layer/layer.js"></script>
 <script src ="../../../plug/city-picker-master/src/city-picker.data.js"></script>
 <script src ="../../../plug/city-picker-master/src/city-picker.js"></script>
+<script type="text/javascript" src="../../../plug/utf8-jsp/ueditor.config.js"></script>
+<script type="text/javascript" src="../../../plug/utf8-jsp/ueditor.all.js"></script>
 <script src="../../../plug/jquery.js"></script>
 <script src="../../../plug/divselect.js"></script>
 <script src="../../../js/request_url.js"></script>
