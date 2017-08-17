@@ -31,7 +31,7 @@ $(function() {
 			$("#job_dz").html(result.address)
 			$("#job_comid").val(result.company_id);
 			//相似职位
-			$.get(ip+'/rrp/post/searchPostCompany.do',{keyword:result.post_name,page:1,pageSize:2},function(data){
+			$.get(ip+'/rrp/post/searchPostCompany.do',{keyword:result.post_name,page:1,pageSize:5},function(data){
 				if(data.state==0){
 					var str="";
 					$.each(data.data,function(k,v){

@@ -54,15 +54,15 @@ function add_page(mydata,nowUrl){//分页
 	});
 }
 function menu_num(){
-	var mydata={companyId:getCookieValue("companyId"),deliveryStatus:0,page:1,pageSize:1}
+	var mydata={companyId:getCookieValue("companyId"),deliveryStatus:0,page:1,pageSize:5}
 	$("#new_num").html(getNum(mydata));
-	var mydata1={companyId:getCookieValue("companyId"),deliveryStatus:1,page:1,pageSize:1}
+	var mydata1={companyId:getCookieValue("companyId"),deliveryStatus:1,page:1,pageSize:5}
 	$("#view_num").html(getNum(mydata1));
-	var mydata2={companyId:getCookieValue("companyId"),deliveryStatus:2,page:1,pageSize:1}
+	var mydata2={companyId:getCookieValue("companyId"),deliveryStatus:2,page:1,pageSize:5}
 	$("#youyi_num").html(getNum(mydata2));
-	var mydata3={companyId:getCookieValue("companyId"),deliveryStatus:3,page:1,pageSize:1}
+	var mydata3={companyId:getCookieValue("companyId"),deliveryStatus:3,page:1,pageSize:5}
 	$("#interview_num").html(getNum(mydata3));
-	var mydata4={companyId:getCookieValue("companyId"),deliveryStatus:4,page:1,pageSize:1}
+	var mydata4={companyId:getCookieValue("companyId"),deliveryStatus:4,page:1,pageSize:5}
 	$("#nopass_num").html(getNum(mydata4));
 }
 function addDom(mydata,nowUrl){//添加节点

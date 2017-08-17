@@ -3,7 +3,7 @@
         /*初始化*/
         var counter = 1; /*计数器*/
         var pageStart = 1; /*offset*/
-        var pageSize = 3; /*size*/
+        var pageSize = 5; /*size*/
 
         /*首次加载*/
         getData(pageStart, pageSize);//开始页，一页条数
@@ -86,7 +86,7 @@ $(".serch_tubox").click(function(){
 		/*初始化*/
         var counter = 1; /*计数器*/
         var pageStart = 1; /*offset*/
-        var pageSize = 3; /*size*/
+        var pageSize = 5; /*size*/
         
         var key=$(".serch_input").val().trim();
         /*首次加载*/

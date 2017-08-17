@@ -144,7 +144,7 @@ $(function() {
 	}else{
 		var comStatus=getStatus();
 		if(comStatus==3){//判断是否开通企业版
-			var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:3};
+			var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:8};
 			posMaAdd_page(mydata);
 		}else{
 			to_open_inner(comStatus);//判断跳转页面
@@ -155,10 +155,10 @@ $(function() {
 $("#divselect ul li a").click(function(){//条件查询
 	var mystatus=$(this).attr("selectid");
 	if(mystatus==-1){
-		var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:3};
+		var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:8};
 		posMaAdd_page(mydata);
 	}else{
-		var mydata={companyId:getCookieValue("companyId"),status:mystatus,page:1,pageSize:3};
+		var mydata={companyId:getCookieValue("companyId"),status:mystatus,page:1,pageSize:8};
 		posMaAdd_page(mydata);
 	}
 })

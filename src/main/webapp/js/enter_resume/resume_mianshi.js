@@ -7,7 +7,7 @@ $(function() {
 		var comStatus=getStatus();
 		if(comStatus==3){//判断是否开通企业版
 			var deliveryStatus=3;
-			var mydata={companyId:getCookieValue("companyId"),deliveryStatus:deliveryStatus,page:1,pageSize:1}
+			var mydata={companyId:getCookieValue("companyId"),deliveryStatus:deliveryStatus,page:1,pageSize:5}
 			add_page(mydata,nowUrl);
 			menu_num();
 			serchBox(mydata,nowUrl);

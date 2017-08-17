@@ -58,7 +58,7 @@ function load(state){
 		 $.get(ip+"/rrp/resume/findByUserId.do",{userId:userId},function(data){
 			   if(data.state==0){
 				   var resumeId=data.data.id;//根据用户id找简历id
-				   var mydata={resumeId:resumeId,deliveryStatus:state,page:1,pageSize:2};
+				   var mydata={resumeId:resumeId,deliveryStatus:state,page:1,pageSize:5};
 				   add_page(mydata)
 			   }else{
 				   layer.msg(data.message)

@@ -19,7 +19,7 @@ $(function() {
 			layer.msg(data.message)
 		}
 	},'json')
-	$.get(ip+"/rrp/post/listPostJob.do",{companyId:companyId,status:1,page:1,pageSize:5},function(data){
+	$.get(ip+"/rrp/post/listPostJob.do",{companyId:companyId,status:1,page:1,pageSize:10},function(data){
 		if(data.state==0){
 			var result=data.data;
 			$(".company_zhiweiBox").html("");

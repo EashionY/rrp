@@ -104,7 +104,7 @@ $(function() {
 			if(data.state==0){
 				if(data.data.length!=0){//根据用户id查找简历id
 					var resumeId=data.data.id;
-					var mydata={resumeId:resumeId,page:1,pageSize:1}
+					var mydata={resumeId:resumeId,page:1,pageSize:8}
 					add_page(mydata);
 				}else{
 					layer.msg("没有对应简历");

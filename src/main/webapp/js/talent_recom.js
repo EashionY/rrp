@@ -83,7 +83,7 @@ $(function() {
 	}else{
 		var comStatus=getStatus();
 		if(comStatus==3){//判断是否开通企业版(3--开通成功);
-			var mydata={companyId:getCookieValue("companyId"),keyword:"",page:1,pageSize:2};
+			var mydata={companyId:getCookieValue("companyId"),keyword:"",page:1,pageSize:5};
 			add_page(mydata);
 		}else{
 			to_open(comStatus);//判断跳转页面
@@ -93,7 +93,7 @@ $(function() {
 
 $(".serch_tubox").click(function(){
 	if($(".serch_input").val()!=""){
-		var mydata={companyId:getCookieValue("companyId"),keyword:$(".serch_input").val(),page:1,pageSize:2};
+		var mydata={companyId:getCookieValue("companyId"),keyword:$(".serch_input").val(),page:1,pageSize:5};
 		add_page(mydata);
 	}else{
 		layer.msg("请先填写搜素条件")

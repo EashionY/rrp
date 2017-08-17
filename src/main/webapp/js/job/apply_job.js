@@ -90,7 +90,7 @@ function xunhuan(tjArr,obj,num){
 				tjArr.splice(num,1,tj);//替换元素
 			}
 			//console.log(tjArr);
-			var mydata={keyword:tjArr[0],region:tjArr[1],workExp:tjArr[2],degree:tjArr[3],scale:tjArr[4],salary:tjArr[5],industry:tjArr[6],financing:tjArr[7],page:1,pageSize:3}
+			var mydata={keyword:tjArr[0],region:tjArr[1],workExp:tjArr[2],degree:tjArr[3],scale:tjArr[4],salary:tjArr[5],industry:tjArr[6],financing:tjArr[7],page:1,pageSize:8}
 			add_page(mydata);
 		})
 	})
@@ -138,11 +138,11 @@ $(function() {
 	var keyword=Request['keyword']; //获取参数
 	
 	if(keyword==undefined){
-		var mydata={keyword:null,region:null,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:3}
+		var mydata={keyword:null,region:null,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:8}
 		add_page(mydata);
 	}else{
 		$(".appJob_serInp").val(keyword);
-		var mydata={keyword:keyword,region:null,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:3}
+		var mydata={keyword:keyword,region:null,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:8}
 		add_page(mydata);
 	}
 });
@@ -156,7 +156,7 @@ $(".appJob_serch_tubox").click(function(){//搜索按钮
 	}else{
 		//console.log(region)
 		//console.log(keyword);
-		var mydata={keyword:keyword,region:region,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:3}
+		var mydata={keyword:keyword,region:region,workExp:null,degree:null,scale:null,salary:null,industry:null,financing:null,page:1,pageSize:8}
 		add_page(mydata);
 	}
 })

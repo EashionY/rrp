@@ -3,7 +3,7 @@
         /*初始化*/
         var counter = 1; /*计数器*/
         var pageStart = 1; /*offset*/
-        var pageSize = 2; /*size*/
+        var pageSize = 5; /*size*/
 
         /*首次加载*/
         getData(pageStart, pageSize);//开始页，一页条数
@@ -31,7 +31,7 @@
                      type: 'get',
                      url: ip+'/rrp/post/latestPostJob.do',
                      dataType: 'json',
-                     data:{page:offset,pageSize:2},
+                     data:{page:offset,pageSize:5},
                      async: false,
                      success: function(reponse2){
                          data = reponse2.data;

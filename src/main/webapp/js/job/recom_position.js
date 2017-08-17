@@ -81,6 +81,6 @@ $(function() {
 	var Request = new Object(); 
 	Request = GetRequest(); 
 	var keyword=Request['keyword']; //获取参数
-	var mydata={keyword:keyword,page:1,pageSize:2};
+	var mydata={keyword:keyword,page:1,pageSize:8};
 	add_page(mydata)
 });
