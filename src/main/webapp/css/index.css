@@ -343,3 +343,122 @@
     width: 100%;
     height: 100%;
 }
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+    #zhiwei_main_mobile{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+    .index_left,.remen_Box,
+    #zhiwei_main,.zhiwei_more{
+        display: none;
+    }
+    .index_body {
+        width: 100%;
+    }
+    .index_right {
+         margin-left: 0;
+         width: 100%;
+    }
+    .serch_Box {
+        width: 28rem;
+        height: 35px;
+        margin: 0 auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .serch_inputbox {
+        width: 25rem;
+        height: 100%;
+    }
+    .serch_input {
+        width: 100%;
+        height: 32px;
+        text-indent: 10px;
+        margin-left: 0;
+    }
+    .serch_tubox {
+        width: 35px;
+        height: 37px;
+        line-height: 37px;
+    }
+    .font_30 {
+        font-size: 20px;
+    }
+    .slider-container {
+        width: 100%;
+        height: 111px;
+    }
+    .slider-control.left,.slider-control.right {
+        height: 100%;
+    }
+    .slider-pagi{
+        width: 54%;
+        bottom: 10px;
+    }
+    .slide>img {
+        width: 100%;
+        height: auto;
+    }
+    .comlogo_Box{
+        width: 28rem;
+        margin: 0 auto;
+        padding: 10px 0;
+        padding-bottom: 15px;
+    }
+    .comlogo_Box>ul>li {
+        width: 52px;
+        height: 52px;
+    }
+    /*Ö°Î»*/
+    #zhiwei_main_mobile{
+        margin-bottom: 135px;
+    }
+    .zhiwei_box {
+        border-bottom: none;
+        margin-bottom: 10px;
+    }
+    .zhiwei_mainbox {
+        padding: 15px 12px;
+    }
+    .top {
+        border-bottom: 1px #dddddd solid;
+    }
+    .salary_text {
+        font-size: 1.2rem !important;
+        margin-top: 3px;
+    }
+    .comName {
+        margin-top: 0;
+        margin-right: 15px;
+    }
+    .ul1>li:nth-of-type(1){
+        font-size: 1.5rem;
+    }
+    .ul1>li:nth-of-type(2){
+        font-size: 1rem;
+        margin-left: 15px !important;
+    }
+    .ul2{
+        color: #666666 !important;
+        font-size: 1rem;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .ul2>li:nth-of-type(2) {
+        color: #666666 !important;
+        margin-left: 25px !important;
+    }
+    .bottom {
+        justify-content: inherit;
+        font-size: 1rem !important;
+        margin-top: 15px;
+    }
+    .time_text{
+        font-size: 1.2rem;
+        margin-top: 15px;
+    }
+}

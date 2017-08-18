@@ -72,3 +72,39 @@ footer{
     color: #FB5B5B;
     cursor: pointer;
 }
+
+/*ÏìÓ¦ÊÖ»ú*/
+@media screen and (min-width: 1024px) {
+    .footer_mobile{
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    body{
+        position: relative;
+    }
+    .footer_mainBox{
+        display: none;
+    }
+    footer {
+        border-top: none;
+    }
+    .footer_mobile{
+        position: fixed;
+        bottom: 75px;
+        left: 0;
+        z-index: 999;
+        background-color: #fafafa;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+    .footer_mobile>div{text-align: center}
+    .footer_mobile .myfont{margin-top: 5px;font-size: 2.5rem}
+    .f_text{font-size: 1rem}
+    .f_active{color: #3eb39d}
+
+
+}
