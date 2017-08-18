@@ -45,11 +45,7 @@ $(".reg_psd2").on("blur",function(){
 });
 
 
-//短信验证码
-$(".reg_dxyzmbtn").on("click",function(){
-    var phone=$(this).parent().parent().parent().children().eq(0).children().eq(2).val();
-	sends.send(phone,ip+"/rrp/user/sendRegCode.do")
-});
+
 
 //阅读声明-样式
 $(".reg_tiptu").on("click",function(){

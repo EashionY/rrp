@@ -1,6 +1,7 @@
 /**
  * Created by Administrator on 2017/7/7.
  */
+
     var verifyCode ="";
     if(window.screen.width<1024){
         verifyCode= new GVerify("v_container2");//图片验证码-手机
@@ -54,6 +55,11 @@ $(".reg_Btn").on("click",function(){
             }
         },'json')
     }
+});
+//短信验证码
+$(".reg_dxyzmbtn").on("click",function(){
+    var phone=$(this).parent().parent().parent().children().eq(0).children().eq(2).val();
+    sends.send(phone,ip+"/rrp/user/sendRegCode.do")
 });
 
 //页面跳转

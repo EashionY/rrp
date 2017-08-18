@@ -1,5 +1,5 @@
 //设置IP地址
-var ip='http://192.168.0.103:8080';
+var ip='http://192.168.0.104:8080';
 
 function addCookie(name,value,days,path){   /**添加设置cookie**/  
     var name = escape(name);  
@@ -46,8 +46,6 @@ function deleteCookie(name,path){   /**根据cookie的键，删除cookie，其�
 function myonload2(zhurl,exiturl){    
     var userNameValue = getCookieValue("userName");  
     var userIdValue = getCookieValue("userId"); 
-	//console.log(userNameValue);
-	//console.log(userIdValue);
 	if(userNameValue!=""){
 	   var str="<li id='head_person'>"+userNameValue+"<span class='myfont myfont_xia'>&#xe60b;</span>" +
        "<ul id='head_person_ul'><li id='head_zh'>&nbsp;账号设置&nbsp;</li> " +
@@ -77,8 +75,6 @@ function myonload1(zhurl,qyurl,exiturl){
     var userNameValue = getCookieValue("userName");  
     var compaNameValue = getCookieValue("companyName");  
     var userIdValue = getCookieValue("userId"); 
-	//console.log(compaNameValue);
-	//console.log(userIdValue);
 	if(userNameValue!=""){
 	   var str="<li id='head_person'>"+compaNameValue+"<span class='myfont myfont_xia'>&#xe60b;</span>" +
        "<ul id='head_person_ul'><li id='head_zh'>&nbsp;公司信息&nbsp;</li> " +

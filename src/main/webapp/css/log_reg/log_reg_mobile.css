@@ -121,7 +121,23 @@
         margin-bottom: 5px;
     }
     #reg_tpyzm {
-        width: 100%;
+        width: 230px;
         height: 35px;
+    }
+    /*Íü¼ÇÃÜÂë*/
+    #for_mainBox2_mobile{
+        display: none;
+    }
+    .for_formBox{
+        margin-bottom: 0;
+    }
+    .for_nextBtn,.for_Btn2{
+        margin-bottom: 15px;
+    }
+    .for_title{
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
     }
 }

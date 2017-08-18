@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/7/7.
  */
 //    登录
-$(".log_btn").on("click",function(){
+$(".log_Btn").on("click",function(){
     var phone=$(this).parent().parent().children().eq(0).children().eq(2).val();
     var psd=$(this).parent().parent().children().eq(1).children().eq(1).val();
     if(phone==""||psd==""){
