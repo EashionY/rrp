@@ -1,23 +1,29 @@
 /**
  * Created by Administrator on 2017/7/7.
  */
-var verifyCode = new GVerify("v_container");//图片验证码
+    var verifyCode ="";
+    if(window.screen.width<1024){
+        verifyCode= new GVerify("v_container2");//图片验证码-手机
+    }else{
+        verifyCode = new GVerify("v_container");//图片验证码
+    }
 //    注册按钮触发事件
-$("#reg_Btn").on("click",function(){
+$(".reg_Btn").on("click",function(){
     var regList=new Array();//输入框
-    var reg_phone=$("#reg_phone");//1手机号
-    var reg_psd=$("#reg_psd");//2密码
-    var reg_psd2=$("#reg_psd2");//3二次密码
-    var reg_tpyzm=$("#reg_tpyzm");//4图形验证码
-    var reg_dxyzm=$("#reg_dxyzm");//5短信验证码
+    var form=$(this).parent().parent();
+    var reg_phone=form.children().eq(0).children().eq(2);//1手机号
+    var reg_psd=form.children().eq(2).children().eq(1);//2密码
+    var reg_psd2=form.children().eq(4).children().eq(1);//3二次密码
+    var reg_tpyzm=form.children().eq(6).children().eq(1);//4图形验证码
+    var reg_dxyzm=form.children().eq(8).children().eq(1);//5短信验证码
     regList.push(reg_phone);regList.push(reg_psd);regList.push(reg_psd2);regList.push(reg_tpyzm);regList.push(reg_dxyzm);
     var surebtn=false;//6声明（flase-未阅读  true-已阅读）
 //  是否阅读声明
-    if($("#reg_last").css("color")=="rgb(51, 51, 51)"){surebtn=false;}else if($("#reg_last").css("color")=="rgb(62, 180, 158)"){surebtn=true;};
+    if($(".reg_tiptu").css("color")=="rgb(51, 51, 51)"){surebtn=false;}else if($(".reg_tiptu").css("color")=="rgb(62, 180, 158)"){surebtn=true;};
 //  图片验证码
     var tpbool=false;//false-错误 true-正确
-    var res = verifyCode.validate($("#reg_tpyzm").val());
-    if(res){tpbool=true;}else{$("#reg_tpyzm").parent().next().css("opacity",1);}
+    var res = verifyCode.validate(form.children().eq(6).children().eq(1).val());
+    if(res){tpbool=true;}else{form.children().eq(6).children().eq(1).parent().next().css("opacity",1);}
     var kongbool=kong(regList);//空
     var errbool=err(regList);//错误
     if(kongbool==false){
@@ -27,7 +33,7 @@ $("#reg_Btn").on("click",function(){
     }else if(surebtn==false){
         layer.msg("未阅读声明！")
     }else{
-        $.post(ip+"/rrp/user/regist.do",{phone:$("#reg_phone").val(),password:$("#reg_psd").val(),code:$("#reg_dxyzm").val()},function(data){
+        $.post(ip+"/rrp/user/regist.do",{phone:reg_phone.val(),password:reg_psd.val(),code:reg_dxyzm.val()},function(data){
         	if(data.state==0){
 //            	注册成功保存昵称到cookie
             	addCookie("userName",data.data.nickname,1,"/");  
@@ -51,7 +57,7 @@ $("#reg_Btn").on("click",function(){
 });
 
 //页面跳转
-$("#to_logBtn").on("click",function(){
+$("#to_logBtn span").on("click",function(){
     window.location.href="login.html"
 })
 

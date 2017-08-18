@@ -19,7 +19,7 @@
         padding-top: 15px;
     }
     .log_inputDiv {
-        width: 90%;
+        width: 28rem;
         margin: 0 auto;
         height: 35px;
         margin-bottom: 25px;
@@ -49,7 +49,7 @@
         color: #3eb39d;
     }
     #log_btn_div{
-        width: 90%;
+        width: 28rem;
         margin: 0 auto;
     }
     .log_btn {
@@ -60,7 +60,7 @@
     .log_or {
         font-size: 2rem;
         color: #3eb39d;
-        width: 90%;
+        width: 28rem;
         margin: 0 auto;
         margin-bottom: 25px;
     }
@@ -82,46 +82,5 @@
     }
     .log_tips2 >span:nth-of-type(2){
         color: #3eb39d;
-    }
-
-    /*зЂВс*/
-    .reg_formBox{
-        margin-bottom: 25px;
-    }
-    .reg_tipsBox {
-        font-size: 1.2rem;
-        width: 90%;
-        margin: 0 auto;
-        margin-bottom: 25px;
-    }
-    #reg_last {
-        font-size: 1.5rem;
-        margin-right: 5px;
-    }
-    .fuwu{color: #3eb39d}
-    .dx_font {
-        margin-top: 5px;
-    }
-
-    .div-phone a.send1 {
-        height: 35px;
-        line-height: 35px;
-        font-size: 1.4rem;
-        width: 40%;
-        padding-right: 20px;
-    }
-    .div-phone a.send1:before {
-        top: 10px;
-        height: 16px;
-    }
-    .err_tips {
-        width: 90%;
-        margin: 0 auto;
-        margin-top: -20px;
-        margin-bottom: 5px;
-    }
-    #reg_tpyzm {
-        width: 100%;
-        height: 35px;
     }
 }

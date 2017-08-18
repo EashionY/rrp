@@ -45,15 +45,7 @@ $(".log_btn").on("click",function(){
     }
 });
 
-//样式
-$(".log_inputDiv input").on("focus",function(){
-    $(this).parent().css("border","1px #3EB49E solid");
-    $(this).parent().children(".log_tubiao").css("color", "#3EB49E")
-});
-$(".log_inputDiv input").on("blur",function(){
-    $(this).parent().css("border","1px #E3E8EE solid");
-    $(this).parent().children(".log_tubiao").css("color", "#dddddd")
-});
+
 //跳转
 $("#to_regBtn span").on("click",function(){
     window.location.href="reg.html"
