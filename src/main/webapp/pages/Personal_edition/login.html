@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="../../plug/layer/skin/default/layer.css"/>
     <link rel="stylesheet" href="../../css/share/base.css"/>
-    <link rel="stylesheet" href="../../css/log_reg.css"/>
-
+    <link rel="stylesheet" href="../../css/share/header.css"/>
+    <link rel="stylesheet" href="../../css/log_reg/log_reg.css"/>
+    <link rel="stylesheet" href="../../css/log_reg/log_reg_mobile.css"/>
 </head>
 <body>
+    <!--pc版-->
     <section class="log_body">
         <div class="log_bgbox"><img src="../../images/login/img_bg_login.png" alt=""/></div>
-        <!--登录-->
         <div id="log_Box" class="log_mainBox">
             <div class="log_logo">
                 <div><img src="../../images/login/logo_login.png" alt="logo"/></div>
@@ -31,8 +32,8 @@
                             <div class="log_tubiao"><span class="myfont log_font">&#xe6ca;</span></div>
                             <input id="log_psd" type="password" name="psd" placeholder="密码"/>
                         </div>
-                        <div class="log_tips"><span id="to_forgotBtn">忘记密码？</span></div>
-                        <input id="log_btn" class="log_btn" type="button" value="登录"/>
+                        <div class="log_tips"><span class="to_forgotBtn">忘记密码？</span></div>
+                        <div><input id="log_btn" class="log_btn" type="button" value="登录"/></div>
                     </form>
                 </div>
                 <div class="log_or">or</div>
@@ -43,6 +44,39 @@
                 </div>
                 <div id="to_regBtn" class="log_tips2"><span class="log_tips2_text">没有账号？</span><span>立即注册>></span></div>
             </div>
+        </div>
+    </section>
+    <!--手机版-->
+    <section class="log_body_mobile">
+        <nav class="nav_mobile">
+        	<div class="nav_div">
+        		<span class="head_left myfont">&#xe601;</span>
+        		<span class="header_title">登录</span>
+        	</div>
+        </nav>
+        <div class="log_box_mobile">
+            <div class="log_formBox">
+                <form action="" method="get">
+                    <div class="log_inputDiv">
+                        <div class="log_tubiao"><span class="myfont log_font">&#xe627;</span></div>
+                        <div class="log_qh">+86</div>
+                        <input id="log_phone" type="text" name="phone" placeholder="手机号" maxlength="11"/>
+                    </div>
+                    <div class="log_inputDiv">
+                        <div class="log_tubiao"><span class="myfont log_font">&#xe6ca;</span></div>
+                        <input id="log_psd" type="password" name="psd" placeholder="密码"/>
+                    </div>
+                    <div class="log_tips"><span class="to_forgotBtn">忘记密码？</span></div>
+                    <div id="log_btn_div"><input id="log_btn" class="log_btn" type="button" value="登录"/></div>
+                </form>
+            </div>
+            <div class="log_or">or</div>
+            <div class="log_otherBox">
+                <div class="sina"><span class="myfont myfont_30">&#xe650;</span></div>
+                <div class="wx"><span class="myfont myfont_30">&#xe607;</span></div>
+                <div class="qq"><span class="myfont myfont_30">&#xe600;</span></div>
+            </div>
+            <div id="to_regBtn" class="log_tips2"><span class="log_tips2_text">没有账号？</span><span>立即注册>></span></div>
         </div>
     </section>
 </body>

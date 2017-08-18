@@ -2,9 +2,9 @@
  * Created by Administrator on 2017/7/7.
  */
 //    登录
-$("#log_btn").on("click",function(){
-    var phone=$("#log_phone").val();
-    var psd=$("#log_psd").val();
+$(".log_btn").on("click",function(){
+    var phone=$(this).parent().parent().children().eq(0).children().eq(2).val();
+    var psd=$(this).parent().parent().children().eq(1).children().eq(1).val();
     if(phone==""||psd==""){
         layer.msg("内容为空")
     }else{
@@ -58,7 +58,7 @@ $(".log_inputDiv input").on("blur",function(){
 $("#to_regBtn span").on("click",function(){
     window.location.href="reg.html"
 });
-$("#to_forgotBtn").on("click",function(){
+$(".to_forgotBtn").on("click",function(){
     window.location.href="forgot_psd.html"
 });
 

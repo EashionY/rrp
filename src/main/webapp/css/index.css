@@ -358,20 +358,21 @@
     }
     .index_body {
         width: 100%;
+        margin-bottom: 50px;
     }
     .index_right {
          margin-left: 0;
          width: 100%;
     }
     .serch_Box {
-        width: 28rem;
+        width: 90%;
         height: 35px;
         margin: 0 auto;
         margin-top: 15px;
         margin-bottom: 15px;
     }
     .serch_inputbox {
-        width: 25rem;
+        width: 91%;
         height: 100%;
     }
     .serch_input {
@@ -396,7 +397,8 @@
         height: 100%;
     }
     .slider-pagi{
-        width: 54%;
+      	width:90%;
+      	text-align:center;
         bottom: 10px;
     }
     .slide>img {
@@ -404,7 +406,7 @@
         height: auto;
     }
     .comlogo_Box{
-        width: 28rem;
+        width: 90%;
         margin: 0 auto;
         padding: 10px 0;
         padding-bottom: 15px;
@@ -413,10 +415,10 @@
         width: 52px;
         height: 52px;
     }
-    /*ְλ*/
+    /*ְλ
     #zhiwei_main_mobile{
         margin-bottom: 135px;
-    }
+    }*/
     .zhiwei_box {
         border-bottom: none;
         margin-bottom: 10px;
@@ -441,6 +443,7 @@
     .ul1>li:nth-of-type(2){
         font-size: 1rem;
         margin-left: 15px !important;
+        line-height: 20px;
     }
     .ul2{
         color: #666666 !important;

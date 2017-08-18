@@ -1,0 +1,86 @@
+@media screen and (min-width: 1024px) {
+    .log_body_mobile{
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .log_body{
+        display: none;
+    }
+    .log_body_mobile{
+        width: 100%;
+    }
+    .log_box_mobile{
+        background-color: white;
+    }
+    .log_formBox {
+        margin-top: 0;
+        margin-bottom: 50px;
+        padding-top: 15px;
+    }
+    .log_inputDiv {
+        width: 90%;
+        margin: 0 auto;
+        height: 35px;
+        margin-bottom: 25px;
+    }
+    .log_font {
+        font-size: 2rem;
+    }
+    .log_tubiao {
+        margin-left: 10px;
+        margin-top: 8px;
+    }
+    .log_qh {
+        line-height: 37px;
+        margin-left: 10px;
+        font-size: 1.4rem;
+    }
+    .log_inputDiv>input {
+        height: 35px;
+        line-height: 35px;
+        margin-left: 10px;
+        font-size: 1.4rem;
+    }
+    .log_tips {
+        margin-bottom: 25px;
+        font-size: 1.2rem;
+        margin-right: 1.5rem;
+        color: #3eb39d;
+    }
+    #log_btn_div{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .log_btn {
+        height: 35px;
+        line-height: 35px;
+        font-size: 1.2rem;
+    }
+    .log_or {
+        font-size: 2rem;
+        color: #3eb39d;
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 25px;
+    }
+    .log_otherBox {
+        margin-bottom: 25px;
+    }
+    .myfont_30 {
+        font-size: 3rem;
+    }
+    .qq>span {
+        font-size: 3rem;
+    }
+    .wx>span {
+        font-size: 3.5rem;
+    }
+    .log_tips2 {
+        font-size: 1.2rem;
+        padding-bottom: 15px;
+    }
+    .log_tips2 >span:nth-of-type(2){
+        color: #3eb39d;
+    }
+}
