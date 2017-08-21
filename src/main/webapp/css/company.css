@@ -139,3 +139,110 @@
 .company_zhiweiBox>.company_zhiweibox:nth-of-type(1){
     margin-top: 30px;
 }
+
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+    .company_wz{
+        display: none;
+    }
+    .company_body {
+        width: 100%;
+    }
+    .company_topBox {
+        margin-top: 0;
+        border-top: none;
+    }
+    .comtop_main {
+        width: 90%;
+        margin: 25px auto;
+    }
+    .comtop_logbox {
+        width: 40px;
+        height: 40px;
+    }
+    .comtop_right {
+        margin-left: 10px;
+    }
+    .company_name {
+        font-size: 1.2rem;
+    }
+    .comtop_right>ul {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    .comtop_right>ul>li {
+        margin-left: 20px;
+    }
+    .comtop_right>ul>li:before {
+        left: -10px;
+        top: 15%;
+    }
+    .company_downBox {
+        margin-top: 15px;
+        margin-bottom: 25px;
+        background-color: #ffffff;
+    }
+    .comdown_main {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .job_title {
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    .company_jianjie {
+        font-size: 1.2rem;
+        margin-top: 15px;
+        padding-bottom: 25px;
+    }
+    .company_address {
+        margin-top: 15px;
+        font-size: 1.2rem;
+    }
+    .company_mapbox {
+        margin-top: 10px;
+        height: 170px;
+        padding-bottom: 15px;
+    }
+    .company_zhiweibox{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+    }
+    .company_zhiweiBox>.company_zhiweibox:nth-of-type(1) {
+        margin-top: 25px;
+        padding: 15px 0;
+        padding-top: 0;
+    }
+    .com_zhiwei>div:nth-last-of-type(1) {
+        font-size: 1.5rem;
+    }
+    .com_zhiwei span {
+        margin-left: 15px;
+        font-size: 1rem;
+    }
+    .com_zhiwei {
+        display: block;
+        margin-top: 0;
+        font-size: 1rem;
+    }
+    .salary_color{
+        color:#fa6041 ;
+        font-size: 1.5rem;
+        text-align: right;
+    }
+    .down{
+        margin-top: 15px;
+        font-size: 1rem;
+    }
+    .com_zhiwei ul{
+        display: flex;
+    }
+    .li2{
+        margin-left: 25px;
+    }
+}

@@ -35,9 +35,17 @@ $(function() {
 				}else{
 					showDate=new Date(result[k].post_time).format("yy年MM月dd日")
 				}
-				str+='<div class="company_zhiweibox"><input value="'+result[k].postId+'" class="myinput"/><div class="com_zhiwei">'+
-                     '<div>'+result[k].post_name+'<span>['+result[k].region+']</span></div><div>'+showDate+'  发布</div>'+
-                     '</div><ul><li>'+result[k].salary+'</li><li>经验'+result[k].work_exp+'</li><li>'+result[k].degree+'</li></ul></div>'
+				if(window.screen.width<1024){
+					str+='<div class="company_zhiweibox"><input value="'+result[k].post_id+'" class="myinput"/><div class="com_zhiwei"> ' +
+					'<div>'+result[k].post_name+'<span>['+result[k].region+']</span></div> ' +
+					'<ul class="down"> <li>经验'+result[k].work_exp+'</li> <li class="li2">'+result[k].degree+'</li> </ul> </div> <div> ' +
+					'<div class="salary_color">'+result[k].salary+'</div><div class="down">'+showDate+' 发布</div> </div> </div>'
+				}else{
+					str+='<div class="company_zhiweibox"><input value="'+result[k].post_id+'" class="myinput"/><div class="com_zhiwei">'+
+                    '<div>'+result[k].post_name+'<span>['+result[k].region+']</span></div><div>'+showDate+'  发布</div>'+
+                    '</div><ul><li>'+result[k].salary+'</li><li>经验'+result[k].work_exp+'</li><li>'+result[k].degree+'</li></ul></div>'
+				}
+				
 			})
 			$(".company_zhiweiBox").html(str);
 			$(".company_zhiweibox").click(function(){
