@@ -87,7 +87,7 @@ function addDom(mydata,nowUrl){//添加节点
 				    var str1='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.check_time).format("yyyy-MM-dd")+'</div></div></div>';
 				    var str2='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.intend_time).format("yyyy-MM-dd")+'</div></div></div>';
 				    var str3='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.invite_time).format("yyyy-MM-dd")+'</div></div></div>';
-				    var str4='<div class="resuNew_time">'+new Date(v.unfit_time).format("yyyy-MM-dd")+'</div></div></div>';
+				    var str4='<div class="resuNew_time">'+new Date(v.unfit_time).format("yyyy-MM-dd")+'</div></div></div></div>';
 					if(mydata.deliveryStatus==0){
 						mystr+=str+str0;
 					}else if(mydata.deliveryStatus==1){
