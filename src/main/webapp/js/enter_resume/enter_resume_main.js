@@ -11,6 +11,7 @@ function getNum(mydata){//利用同步获取总条数
 		async: false,
 		dataType:'json',
 		success:function(data) {
+			//console.log(data)
 			if(data.state==0){
 				var result=data.data;
 				if(result.length==0){
