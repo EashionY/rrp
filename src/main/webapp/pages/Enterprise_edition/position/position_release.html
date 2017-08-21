@@ -14,7 +14,8 @@
 </head>
 <body>
 <header>
-    <nav>
+    <!--pc版-->
+    <nav class="nav_pc">
         <div class="nav_div1">
             <div class="logo_imgbox"><img src="../../../images/index/ic_home_logo.png" alt=""/></div>
             <ul class="left_ul">
@@ -31,29 +32,37 @@
             </a>
         </ul>
     </nav>
+    <!--手机端-->
+    <nav class="nav_mobile">
+        <div class="nav_div">
+            <span class="head_left myfont">&#xe601;</span>
+            <span class="header_title">发布职位</span>
+            <span class="head_right right_text posiEdi_Btn">发布</span>
+        </div>
+    </nav>
 </header>
 <section class="mybody posiEdi_body ">
     <div class="job_title">发布职位</div>
     <div class="posiEdi_mainbox">
         <div class="posiEdi_divbox">
             <div class="job_title posiEdi_title">职位描述</div>
-            <div class="posiEdi_inputdiv">职位名称：<input type="text" id="po_name"/></div>
+            <div class="posiEdi_inputdiv posiEdi_inputdiv2"><div class="input_prev">职位名称：</div><input type="text" class="po_name"/></div>
             <div class="posiEdi_inputdiv posiEdi_inputdiv_cs">
-                <div>工作城市：</div>
+                <div class="input_prev">工作城市：</div>
                 <div  class="city_input">
-                    <input readonly id="po_city" type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
+                    <input readonly class="po_city" type ="text" data-toggle ="city-picker" placeholder="请选择" data-level="city">
                     <span class="myfont input_icon input_icon2">&#xe681;</span>
                 </div>
             </div>
-            <div class="posiEdi_inputdiv posiEdi_inputdiv_ld">职位亮点：<span id="po_ldBox"></span><span id="po_addld">+添加标签</span></div>
+            <div class="posiEdi_inputdiv posiEdi_inputdiv_ld "><div class="input_prev">职位亮点：</div><span id="po_ldBox"></span><span id="po_addld">+添加标签</span></div>
         </div>
         <div class="posiEdi_divbox posiEdi_divbox2">
             <div class="job_title posiEdi_title">职位要求</div>
-            <div class="posiEdi_inputdiv posiEdi_inputdiv_xz">工作性质：<span class="xz_active">全职</span><span>兼职</span><span>实习</span></div>
+            <div class="posiEdi_inputdiv posiEdi_inputdiv_xz posiEdi_inputdiv2"><div class="input_prev">工作性质：</div><span class="xz_active">全职</span><span>兼职</span><span>实习</span></div>
             <div class="posiEdi_inputdiv posiEdi_inputdiv_cs">
-                <div>工作经验：</div>
+                <div class="input_prev">工作经验：</div>
                 <div id="divselect_work" class="divselect">
-                    <cite><span class="input_text" id="po_workjy"></span>
+                    <cite><span class="input_text po_workjy" id="po_workjy"></span>
                         <span class="myfont input_icon">&#xe681;</span>
                     </cite>
                     <ul>
@@ -68,9 +77,9 @@
                 <input name="zhuangtai" type="hidden" value="" id="inputselect_work" class="inputselect"/>
             </div>
             <div class="posiEdi_inputdiv posiEdi_inputdiv_cs">
-                <div>学历要求：</div>
+                <div  class="input_prev">学历要求：</div>
                 <div id="divselect_xl" class="divselect">
-                    <cite><span class="input_text" id="po_xl"></span>
+                    <cite><span class="input_text po_xl" id="po_xl"></span>
                         <span class="myfont input_icon">&#xe681;</span>
                     </cite>
                     <ul>
@@ -85,9 +94,9 @@
                 <input name="zhuangtai" type="hidden" value="" id="inputselect_xl" class="inputselect"/>
             </div>
             <div class="posiEdi_inputdiv posiEdi_inputdiv_cs">
-                <div>月薪范围：</div>
+                <div  class="input_prev">月薪范围：</div>
                 <div id="divselect_yx" class="divselect">
-                    <cite><span class="input_text" id="po_yx"></span>
+                    <cite><span class="input_text po_yx" id="po_yx"></span>
                         <span class="myfont input_icon">&#xe681;</span>
                     </cite>
                     <ul>
@@ -104,19 +113,19 @@
                 <input name="zhuangtai" type="hidden" value="" id="inputselect_yx" class="inputselect"/>
             </div>
             <div class="posiEdi_inputdiv posiEdi_inputdiv_ms">
-                <div>任职要求：</div>
+                <div  class="input_prev">任职要求：</div>
                 <div class="texterea_box">
                     <textarea name="" id="work_content"></textarea>
                 </div>
             </div>
             <div class="posiEdi_inputdiv posiEdi_inputdiv_ms">
-                <div>岗位职责：</div>
+                <div  class="input_prev">岗位职责：</div>
                 <div class="texterea_box">
                     <textarea name="" id="work_content2"></textarea>
                 </div>
             </div>
         </div>
-        <div class="posiEdi_btn"><span id="posiEdi_btn">发布</span></div>
+        <div class="posiEdi_btn posiEdi_Btn"><span id="posiEdi_btn">发布</span></div>
     </div>
 </section>
 <footer>

@@ -12,6 +12,10 @@
     margin-top: 30px;
     font-size: 18px;
     color: #333333;
+    display: flex;
+}
+.posiEdi_inputdiv2{
+    line-height: 50px;
 }
 .posiEdi_inputdiv>input{
     margin-left: 20px;
@@ -169,7 +173,120 @@
 .city-picker-dropdown {
 	width:500px !important;
 }
-.layui-layer-btn .layui-layer-btn0 {
-    border-color: #3eb39d !important;
-    background-color: #3eb39d !important;
+
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+
+}
+@media screen and (max-width: 1024px) {
+    .job_title,.posiEdi_btn{
+        display: none;
+    }
+    .posiEdi_title{
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+    .posiEdi_body{
+       width: 100%;
+    }
+    .posiEdi_mainbox {
+        margin-top: 0;
+        padding: 0 0;
+        border-top: 1px #fafafa solid;
+    }
+    .posiEdi_divbox{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .posiEdi_inputdiv {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .posiEdi_inputdiv>input {
+        margin-left: 0;
+        width: 100%;
+        height: 35px;
+        text-indent: 10px;
+        font-size: 1.2rem;
+    }
+    .input_prev{
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+    .posiEdi_inputdiv2 {
+        line-height: 35px;
+    }
+    .posiEdi_inputdiv ,
+    .posiEdi_inputdiv_cs {
+         display: inherit;
+    }
+    .posiEdi_inputdiv_cs>div:nth-of-type(1) {
+         width: auto;
+         margin-right: 0;
+         line-height: inherit;
+         margin-bottom: 10px;
+    }
+    .posiEdi_body .city-picker-span {
+        text-indent: 10px;
+        height: 35px !important;
+        width: 100% !important;
+        line-height: 35px !important;
+        font-size: 1.2rem;
+    }
+    .posiEdi_body .input_icon2 {
+        top: 10px;
+        right: 10px;
+    }
+    #po_ldBox>span, #po_addld {
+        font-size: 1rem;
+        padding: 0 15px;
+        padding-left: 10px;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    #po_ldBox>span{
+    	margin-right:10px;
+    }
+    .ld_dele {
+	    right: 5px;
+	    display: block;
+	}
+    .posiEdi_inputdiv_xz>span {
+        width: 68px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 1.2rem;
+        margin-left: 15px;
+    }
+    .posiEdi_inputdiv_xz>span:nth-of-type(1) {
+         margin-left: 0;
+    }
+    .posiEdi_body .divselect {
+        width: 100%;
+    }
+    .posiEdi_body .divselect cite {
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+        text-indent: 10px;
+        font-size:1.2rem;
+    }
+    .divselect .input_icon {
+        right: 10px;
+    }
+    .texterea_box {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+        font-size:1.2rem;
+    }
+    .city-picker-dropdown {
+         width: 100% !important;
+    }
+    .posiEdi_body .divselect ul {
+	    width: 100%;
+	    font-size:1.2rem;
+	}
 }
