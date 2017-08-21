@@ -1,0 +1,251 @@
+.log_body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: #3EB49E;
+    background-color: #EEEEEE;
+}
+.log_bgbox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+}
+.log_bgbox>img{width: 100%;height: 100%}
+.log_mainBox{
+    width:520px;
+    height:740px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-260px;
+    margin-top:145px;
+    margin-bottom: 195px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+}
+.log_logo{
+    position: absolute;
+    top: -75px;
+    left: 0;
+}
+.log_box{
+    margin: 50px 50px;
+}
+.log_text{
+    font-size: 24px;
+}
+.log_formBox{
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+.log_inputDiv{
+    width: 100%;
+    height:58px;
+    margin-bottom: 30px;
+    border: 1px #E3E8EE solid;
+    display: flex;
+    overflow: hidden;
+}
+.log_inputDiv>input{
+    outline: none;
+    border: none;
+    height: 58px;
+    line-height: 58px;
+    margin-left: 20px;
+    font-size: 18px;
+    color: #888888;
+    width: 100%;
+}
+.log_qh{
+    line-height: 58px;
+    margin-left: 20px;
+    font-size: 18px;
+    color: #333333;
+}
+.log_tubiao{
+    margin-left: 20px;
+    margin-top: 13px;
+    color: #dddddd;
+}
+.log_font{
+    font-size: 30px;
+}
+.log_tips{
+    text-align: right;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+.to_forgotBtn:hover{cursor: pointer}
+
+.log_btn{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-align: center;
+    background-color: #3EB49E;
+    outline: none;
+    border: none;
+    -webkit-transition: all .3s linear;
+}
+.log_btn:hover{
+    cursor: pointer;
+    background-color: #3ea690;
+}
+.log_or{
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+.log_or:before{
+    content: "";
+    position: absolute;
+    background-color: #3EB49E;
+    left: 0;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+}
+.log_or:after{
+    content: "";
+    position: absolute;
+    background-color: #3EB49E;
+    right: 0;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+}
+.log_otherBox{
+    display: flex;
+    justify-content: space-around;
+    color: #AAAAAA;
+    -webkit-transition: all .3s linear;
+    margin-bottom: 50px;
+}
+.sina:hover,.wx:hover,.qq:hover{
+    color: #FB5B5B;
+    cursor: pointer;
+}
+.sina{
+    margin-top: -3px;
+}
+.myfont_30{
+    font-size: 40px;
+}
+.wx>span{
+    font-size: 48px;
+}
+.qq>span{
+    font-size: 38px;
+}
+.log_tips2{
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 18px;
+}
+.log_tips2_text{
+    color: #333333;
+}
+.log_tips2>span:hover{
+    cursor: pointer;
+}
+
+
+/*娉ㄥ唽*/
+.reg_mainBox{
+    height: 845px;
+}
+.dx_font{
+    margin-top: 12px;
+}
+.reg_tipsBox{
+    display: flex;
+    margin-bottom: 25px;
+    margin-top: -8px;
+    font-size: 18px;
+}
+.reg_tipsBox:hover{cursor: pointer}
+.reg_tip{  color: #333333;  }
+#reg_last{font-weight: bold;font-size: 20px;margin-right: 10px;}
+.err_tips {
+    color: red;
+    margin-top:-25px;
+    opacity: 0;
+    margin-bottom: 5px;
+}
+
+/*楠岃瘉鐮�*/
+.div-phone a.send1{
+    height: 58px;
+    line-height: 58px;
+    width: 180px;
+    padding: 0 20px;
+    padding-right: 30px;
+    font-size: 18px;
+    color: #3eb39d;
+    text-align: center;
+    display: block;
+    float: left;
+    -webkit-transition:all 0.2s linear;
+    -moz-transition:all 0.2s linear;
+    -ms-transition:all 0.2s linear;
+    -o-transition:all 0.2s linear;
+    transition:all 0.2s linear;
+    position: relative;
+}
+.div-phone a.send1:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 1px;
+    height: 30px;
+    background-color: #dddddd;
+}
+.div-phone a.send1:hover {
+    text-decoration: none;
+}
+.div-phone a.send0{color: #a1a1a1}
+
+#reg_tpyzm{width: 230px;height: 60px;}
+
+
+/*蹇樿瀵嗙爜*/
+.for_menubox{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #333333;
+}
+.for_menubox>div{
+    width: 210px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-image: url("../../images/login/bg_02.png");
+}
+.for_menubox_div1:hover,.for_menubox_div2:hover{cursor: pointer}
+.for_menubox_div1{
+    background-image: url("../../images/login/bg_01.png") !important;
+}
+.for_menubox_activ{
+    color: #ffffff;
+}
+.for_menubox_div22{
+    background-image: url("../../images/login/bg_03.png") !important;
+}
+#for_mainBox1{
+    height: 645px !important;
+}
+#for_mainBox2{
+    height: 540px !important;
+}
+#for_mainBox2{display: none}

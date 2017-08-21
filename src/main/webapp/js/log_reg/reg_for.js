@@ -9,13 +9,13 @@ $.each(reg_focus,function(key,val){
     });
 });
 
-$("#reg_phone").on("blur",function(){
+$(".reg_phone").on("blur",function(){
 	var myreg = /^1[3|4|5|7|8][0-9]{9}$/;
     if(!myreg.test($(this).val())) {
         $(this).parent().next().css("opacity",1);
     }
 });
-$("#reg_psd").on("blur",function(){
+$(".reg_psd").on("blur",function(){
     var psd=$(this).val();
     var num=0;
     var zm=false,sz=false,fh=false;
@@ -36,21 +36,19 @@ $("#reg_psd").on("blur",function(){
         $(this).parent().next().css("opacity",1);
     }
 });
-$("#reg_psd2").on("blur",function(){
-    var psd1=$("#reg_psd").val();
+$(".reg_psd2").on("blur",function(){
+    var psd1=$(this).parent().prev().prev().children().eq(1).val();
     var psd2=$(this).val();
     if(psd2!=psd1){
         $(this).parent().next().css("opacity",1);
     }
 });
 
-//短信验证码
-$("#reg_dxyzmbtn").on("click",function(){
-	sends.send($("#reg_phone").val(),ip+"/rrp/user/sendRegCode.do")
-});
+
+
 
 //阅读声明-样式
-$("#reg_tip").on("click",function(){
+$(".reg_tiptu").on("click",function(){
     if($(this).children().css("color")=="rgb(51, 51, 51)"){
         $(this).children().css("color","#3EB49E")
     }else{
@@ -84,3 +82,12 @@ $("#reg_tip").on("click",function(){
 		return errbool;
 	}
 
+//样式
+$(".log_inputDiv input").on("focus",function(){
+    $(this).parent().css("border","1px #3EB49E solid");
+    $(this).parent().children(".log_tubiao").css("color", "#3EB49E")
+});
+$(".log_inputDiv input").on("blur",function(){
+    $(this).parent().css("border","1px #E3E8EE solid");
+    $(this).parent().children(".log_tubiao").css("color", "#dddddd")
+});

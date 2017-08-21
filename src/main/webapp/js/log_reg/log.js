@@ -2,9 +2,9 @@
  * Created by Administrator on 2017/7/7.
  */
 //    登录
-$("#log_btn").on("click",function(){
-    var phone=$("#log_phone").val();
-    var psd=$("#log_psd").val();
+$(".log_Btn").on("click",function(){
+    var phone=$(this).parent().parent().children().eq(0).children().eq(2).val();
+    var psd=$(this).parent().parent().children().eq(1).children().eq(1).val();
     if(phone==""||psd==""){
         layer.msg("内容为空")
     }else{
@@ -45,20 +45,12 @@ $("#log_btn").on("click",function(){
     }
 });
 
-//样式
-$(".log_inputDiv input").on("focus",function(){
-    $(this).parent().css("border","1px #3EB49E solid");
-    $(this).parent().children(".log_tubiao").css("color", "#3EB49E")
-});
-$(".log_inputDiv input").on("blur",function(){
-    $(this).parent().css("border","1px #E3E8EE solid");
-    $(this).parent().children(".log_tubiao").css("color", "#dddddd")
-});
+
 //跳转
 $("#to_regBtn span").on("click",function(){
     window.location.href="reg.html"
 });
-$("#to_forgotBtn").on("click",function(){
+$(".to_forgotBtn").on("click",function(){
     window.location.href="forgot_psd.html"
 });
 

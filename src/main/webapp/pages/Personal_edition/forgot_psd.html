@@ -6,9 +6,13 @@
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="../../css/share/base.css"/>
-    <link rel="stylesheet" href="../../css/log_reg.css"/>
+    <link rel="stylesheet" href="../../css/share/header.css"/>
+    <link rel="stylesheet" href="../../css/log_reg/log_reg.css"/>
+    <link rel="stylesheet" href="../../css/log_reg/log_reg_mobile.css"/>
+
 </head>
 <body>
+<!--pc版-->
 <section class="log_body">
     <div class="log_bgbox"><img src="../../images/login/img_bg_login.png" alt=""/></div>
     <div id="for_mainBox1" class="log_mainBox for_mainBox">
@@ -26,22 +30,22 @@
                     <div class="log_inputDiv">
                         <div class="log_tubiao"><span class="myfont log_font">&#xe627;</span></div>
                         <div class="log_qh">+86</div>
-                        <input id="reg_phone" class="reg_focus" type="text" name="phone" placeholder="手机号" maxlength="11"/>
+                        <input  class="reg_focus reg_phone" type="text" name="phone" placeholder="手机号" maxlength="11"/>
                     </div>
                     <div class="err_tips">*手机号码有误</div>
                     <div class="log_inputDiv">
                         <div class="log_tubiao"><span class="myfont log_font">&#xe61e;</span></div>
-                        <input id="reg_tpyzm" class="reg_focus" type="text" name="tpyzm" placeholder="验证码"/>
-                        <div id="v_container2" style="width: 120px;height: 60px;"></div>
+                        <input  class="reg_focus reg_tpyzm" type="text" name="tpyzm" placeholder="验证码"/>
+                        <div id="f_container" style="width: 120px;height: 60px;"></div>
                     </div>
                     <div class="err_tips">*验证码不正确</div>
                     <div class="log_inputDiv div-phone">
                         <div class="log_tubiao dx_font"><span class="myfont log_font ">&#xe67f;</span></div>
-                        <input id="reg_dxyzm" class="reg_focus" type="text" name="dxyzm" placeholder="短信验证码"/>
-                        <a href="javascript:;" class="send1" id="for_dxyzmbtn">发送验证码</a>
+                        <input  class="reg_focus reg_dxyzm" type="text" name="dxyzm" placeholder="短信验证码"/>
+                        <a href="javascript:;" class="send1"><span class="for_dxyzmbtn">发送验证码</span></a>
                     </div>
                     <div class="err_tips">*验证码不正确</div>
-                    <input id="for_nextBtn" class="log_btn" type="button" value="下一步"/>
+                    <div><input class="log_btn for_nextBtn" type="button" value="下一步"/></div>
                 </form>
             </div>
         </div>
@@ -61,17 +65,71 @@
                 <form action="" method="get">
                     <div class="log_inputDiv">
                         <div class="log_tubiao"><span class="myfont log_font">&#xe6ca;</span></div>
-                        <input id="reg_psd" class="reg_focus" type="password" name="psd" placeholder="输入新密码" maxlength="16"/>
+                        <input class="reg_focus reg_psd" type="password" name="psd" placeholder="输入新密码" maxlength="16"/>
                     </div>
                     <div class="err_tips">*6-16位字母/数字/符号组合</div>
                     <div class="log_inputDiv">
                         <div class="log_tubiao"><span class="myfont log_font">&#xe6ca;</span></div>
-                        <input id="reg_psd2" class="reg_focus" type="password" name="psd2" placeholder="请输入和上面相同的密码"/>
+                        <input class="reg_focus reg_psd2" type="password" name="psd2" placeholder="请输入和上面相同的密码"/>
                     </div>
                     <div class="err_tips">*两次密码不一致</div>
-                    <input id="for_Btn2" class="log_btn" type="button" value="完成"/>
+                    <div><input class="log_btn for_Btn2" type="button" value="完成"/></div>
                 </form>
             </div>
+        </div>
+    </div>
+</section>
+<!--手机版-->
+<section class="log_body_mobile">
+    <nav class="nav_mobile">
+        <div class="nav_div">
+            <span class="head_left myfont">&#xe601;</span>
+            <span class="header_title">忘记密码</span>
+        </div>
+    </nav>
+    <div id="for_mainBox1_mobile" class="log_box_mobile">
+        <div class="log_formBox for_formBox">
+            <div class="for_title">验证手机号</div>
+            <form action="" method="get">
+                <div class="log_inputDiv">
+                    <div class="log_tubiao"><span class="myfont log_font">&#xe627;</span></div>
+                    <div class="log_qh">+86</div>
+                    <input  class="reg_focus reg_phone" type="text" name="phone" placeholder="手机号" maxlength="11"/>
+                </div>
+                <div class="err_tips">*手机号码有误</div>
+                <div class="log_inputDiv">
+                    <div class="log_tubiao"><span class="myfont log_font">&#xe61e;</span></div>
+                    <input  class="reg_focus reg_tpyzm" type="text" name="tpyzm" placeholder="验证码"/>
+                    <div id="f_container2" style="width: 120px;height: 35px;"></div>
+                </div>
+                <div class="err_tips">*验证码不正确</div>
+                <div class="log_inputDiv div-phone">
+                    <div class="log_tubiao dx_font"><span class="myfont log_font ">&#xe67f;</span></div>
+                    <input  class="reg_focus reg_dxyzm" type="text" name="dxyzm" placeholder="短信验证码"/>
+                    <a href="javascript:;" class="send1"><span class="for_dxyzmbtn">发送验证码</span></a>
+                </div>
+                <div class="err_tips">*验证码不正确</div>
+                <div id="log_btn_div"><input  class="log_btn for_nextBtn" type="button" value="下一步"/></div>
+            </form>
+        </div>
+    </div>
+
+    <div id="for_mainBox2_mobile" class="log_box_mobile">
+        <div class="log_formBox">
+            <div class="for_title">设置新密码</div>
+            <form action="" method="get">
+                <div class="log_inputDiv">
+                    <div class="log_tubiao"><span class="myfont log_font">&#xe6ca;</span></div>
+                    <input class="reg_focus reg_psd" type="password" name="psd" placeholder="输入新密码" maxlength="16"/>
+                </div>
+                <div class="err_tips">*6-16位字母/数字/符号组合</div>
+                <div class="log_inputDiv">
+                    <div class="log_tubiao"><span class="myfont log_font">&#xe6ca;</span></div>
+                    <input class="reg_focus reg_psd2" type="password" name="psd2" placeholder="请输入和上面相同的密码"/>
+                </div>
+                <div class="err_tips">*两次密码不一致</div>
+                <div id="log_btn_div"><input class="log_btn for_Btn2" type="button" value="完成"/></div>
+            </form>
         </div>
     </div>
 </section>

@@ -1,7 +1,7 @@
 $(function() { 
 	 var uIdDom=window.top.document.getElementById("uId")
 	 var userId=$(uIdDom).val();
-	 //console.log(userId)
+//	 console.log(userId)
     	$.ajax({
             type: "post",
             url: ip+"/rrp/resume/findByUserId.do",

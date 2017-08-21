@@ -168,9 +168,6 @@ $(function(){
 				str+='<li>'+list[k].post_name+'</li>'
 			})
 			$(".remen_ul").html(str)
-			
-			
-			
 			var li=$(".remen_ul li");//判断第几个超出范围
 			var length=30;
 			var num=0;
@@ -183,15 +180,22 @@ $(function(){
 					num=10;
 				}
 			})
-		//	console.log(num)
 			$.each(li,function(k,v){//删除超出的节点
 				if(k>=num){
 					$(".remen_ul li:eq("+k+")").remove();
-					
 				}
+			});
+			//热门点击事件
+			$.each($(".remen_ul li"),function(k,v){
+				$(v).click(function(){
+					 $(".zhiwei_more1").css("display","none")
+					 $(".zhiwei_more2").css("display","block");
+					 var url=ip+"/rrp/post/searchPostCompany.do";
+					 var word=$(this).html();
+					 var obj=$('.zhiwei_more2')
+				     getMore(url,word,obj,5);
+				})
 			})
-			
-			
 		}else{
 			layer.msg(data.message)
 		}

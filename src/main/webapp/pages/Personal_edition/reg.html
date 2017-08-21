@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="../../plug/layer/skin/default/layer.css"/>
     <link rel="stylesheet" href="../../css/share/base.css"/>
-    <link rel="stylesheet" href="../../css/log_reg.css"/>
+    <link rel="stylesheet" href="../../css/share/header.css"/>
+    <link rel="stylesheet" href="../../css/log_reg/log_reg.css"/>
+    <link rel="stylesheet" href="../../css/log_reg/log_reg_mobile.css"/>
 </head>
 <body>
+<!--pc版-->
 <section class="log_body">
     <div class="log_bgbox"><img src="../../images/login/img_bg_login.png" alt=""/></div>
     <!--注册-->
@@ -24,17 +27,17 @@
                     <div class="log_inputDiv">
                         <div class="log_tubiao"><span class="myfont log_font">&#xe627;</span></div>
                         <div class="log_qh">+86</div>
-                        <input class="reg_focus" id="reg_phone" type="text" name="phone" placeholder="手机号" maxlength="11"/>
+                        <input class="reg_focus reg_phone" id="reg_phone" type="text" name="phone" placeholder="手机号" maxlength="11"/>
                     </div>
                     <div class="err_tips">*手机号码有误</div>
                     <div class="log_inputDiv">
                         <div class="log_tubiao"><span class="myfont log_font">&#xe6ca;</span></div>
-                        <input class="reg_focus" id="reg_psd" type="password" name="psd" placeholder="请输入密码，6-16位字母/数字/符号组合" maxlength="16"/>
+                        <input class="reg_focus reg_psd" id="reg_psd" type="password" name="psd" placeholder="请输入密码，6-16位字母/数字/符号组合" maxlength="16"/>
                     </div>
                     <div class="err_tips">*6-16位字母/数字/符号组合</div>
                     <div class="log_inputDiv">
                         <div class="log_tubiao"><span class="myfont log_font">&#xe6ca;</span></div>
-                        <input class="reg_focus" id="reg_psd2" type="password" name="psd2" placeholder="请输入和上面相同的密码"/>
+                        <input class="reg_focus reg_psd2" id="reg_psd2" type="password" name="psd2" placeholder="请输入和上面相同的密码"/>
                     </div>
                     <div class="err_tips">*两次密码不一致</div>
                     <div class="log_inputDiv">
@@ -46,25 +49,73 @@
                     <div class="log_inputDiv div-phone">
                         <div class="log_tubiao dx_font"><span class="myfont log_font ">&#xe67f;</span></div>
                         <input id="reg_dxyzm" type="text" name="dxyzm" placeholder="短信验证码"/>
-                        <a href="javascript:;" class="send1" id="reg_dxyzmbtn">发送验证码</a>
+                        <a href="javascript:;" class="send1" id="reg_dxyzmbtn"><span class="reg_dxyzmbtn">发送验证码</span></a>
                     </div>
                     <div class="err_tips">*验证码不正确</div>
                     <div class="reg_tipsBox">
-                        <div id="reg_tip"><span class="myfont reg_tip" id="reg_last">&#xe665;</span>
+                        <div class="reg_tiptu"><span class="myfont reg_tip" id="reg_last">&#xe665;</span>
                         </div><span class="reg_tip">我已阅读并同意</span>《服务声明》
                     </div>
-                    <input id="reg_Btn" class="log_btn" type="button" value="注册"/>
+                    <div><input id="reg_Btn" class="log_btn reg_Btn" type="button" value="注册"/></div>
                 </form>
             </div>
             <div id="to_logBtn" class="log_tips2"><span class="log_tips2_text">已有账号？</span><span>直接登录>></span></div>
         </div>
     </div>
 </section>
+<!--手机版-->
+<section class="log_body_mobile">
+    <nav class="nav_mobile">
+        <div class="nav_div">
+            <span class="head_left myfont">&#xe601;</span>
+            <span class="header_title">注册</span>
+        </div>
+    </nav>
+    <div class="log_box_mobile">
+        <div class="log_formBox reg_formBox">
+            <form action="" method="get">
+                <div class="log_inputDiv">
+                    <div class="log_tubiao"><span class="myfont log_font">&#xe627;</span></div>
+                    <div class="log_qh">+86</div>
+                    <input class="reg_focus reg_phone" id="reg_phone" type="text" name="phone" placeholder="手机号" maxlength="11"/>
+                </div>
+                <div class="err_tips">*手机号码有误</div>
+                <div class="log_inputDiv">
+                    <div class="log_tubiao"><span class="myfont log_font">&#xe6ca;</span></div>
+                    <input class="reg_focus reg_psd" id="reg_psd" type="password" name="psd" placeholder="请输入密码，6-16位字母/数字/符号组合" maxlength="16"/>
+                </div>
+                <div class="err_tips">*6-16位字母/数字/符号组合</div>
+                <div class="log_inputDiv">
+                    <div class="log_tubiao"><span class="myfont log_font">&#xe6ca;</span></div>
+                    <input class="reg_focus reg_psd2" id="reg_psd2" type="password" name="psd2" placeholder="请输入和上面相同的密码"/>
+                </div>
+                <div class="err_tips">*两次密码不一致</div>
+                <div class="log_inputDiv">
+                    <div class="log_tubiao"><span class="myfont log_font">&#xe61e;</span></div>
+                    <input class="reg_focus" id="reg_tpyzm" type="text" name="tpyzm" placeholder="验证码"/>
+                    <div id="v_container2" style="width: 120px;height: 35px;"></div>
+                </div>
+                <div class="err_tips">*验证码不正确</div>
+                <div class="log_inputDiv div-phone">
+                    <div class="log_tubiao dx_font"><span class="myfont log_font ">&#xe67f;</span></div>
+                    <input id="reg_dxyzm" type="text" name="dxyzm" placeholder="短信验证码"/>
+                    <a href="javascript:;" class="send1" id="reg_dxyzmbtn"><span class="reg_dxyzmbtn">发送验证码</span></a>
+                </div>
+                <div class="err_tips">*验证码不正确</div>
+                <div class="reg_tipsBox">
+                    <div class="reg_tiptu"><span class="myfont reg_tip" id="reg_last">&#xe665;</span></div>
+                    <span class="reg_tip">我已阅读并同意</span><span class="fuwu">《服务声明》</span>
+                </div>
+                <div id="log_btn_div"><input id="reg_Btn" class="log_btn reg_Btn" type="button" value="注册"/></div>
+            </form>
+        </div>
+        <div id="to_logBtn" class="log_tips2"><span class="log_tips2_text">已有账号？</span><span>直接登录>></span></div>
+    </div>
+</section>
 </body>
 <script src="../../js/jquery-1.11.3.js"></script>
 <script src="../../js/ip.js"></script>
 <script src="../../plug/layer/layer.js"></script>
-<script src="../../js/log_reg/log.js"></script>
 <script src="../../js/log_reg/dxYzm.js"></script>
 <script src="../../js/log_reg/gVerify.js"></script>
 <script src="../../js/log_reg/reg_for.js"></script>

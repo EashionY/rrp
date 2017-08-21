@@ -13,33 +13,31 @@ $(function() {
 			var prevUrl= Request['prevUrl'];
 			var state= Request['state'];
 			if(state==0){//设置当前状态
-				$("#resu_state").html("新简历")
+				$(".resu_state").html("新简历")
 			}else if(state==1){
-				$("#resu_state").html("已查看")
+				$(".resu_state").html("已查看")
 			}else if(state==2){
-				$("#resu_state").html("有意向")
+				$(".resu_state").html("有意向")
 			}else if(state==3){
-				$("#resu_state").html("邀请面试")
+				$(".resu_state").html("邀请面试")
 			}else if(state==4){
-				$("#resu_state").html("不合适")
+				$(".resu_state").html("不合适")
 			}
 			$("#uId").val(userId2);
 			$.get(ip+'/rrp/resume/findByUserId.do',{userId:userId2},function(data){
 				if(data.state==0){
 					//console.log(data.data);
-					$("#revi_job").html(data.data.job);
-					$("#revi_head").attr("src","../../../../"+data.data.head_img);
+					$(".revi_job").html(data.data.job);
+					$(".revi_head").attr("src","../../../../"+data.data.head_img);
 					$(".resu_name").html(data.data.emp_name);
-					$("#re_name").html(data.data.emp_name);
 					var myDate = new Date();
 				    var nowDate=new Date(myDate.toLocaleDateString()).format("yyyy");
 				    var birth=new Date(data.data.birth).format("yyyy");
 				    var year=parseInt(nowDate)-parseInt(birth);//计算年龄
-					$("#revi_sex").html('<span>'+data.data.sex+'/'+year+'岁</span><span>'+data.data.top_degree+'</span><span>'+data.data.work_exp+'</span>')
-					$("#revi_tel").html(data.data.phone);
-					$("#revi_email").html(data.data.email);
-					
-					$("#divselect_re ul li a").click(function(){
+					$(".revi_sex1").html('<span>'+data.data.sex+'/'+year+'岁</span><span>'+data.data.top_degree+'</span><span>'+data.data.work_exp+'</span>')
+					$(".revi_tel").html(data.data.phone);
+					$(".revi_email").html(data.data.email);
+					$(".divselect ul li a").click(function(){
 				    	var state=$(this).attr("selectid");
 				    	if($(this).html()=="邀请面试"){
 				    		layer.confirm('确定向'+data.data.emp_name+'发起面试邀请？', {icon: 3, title:'提示'}, function(index){
@@ -87,23 +85,8 @@ $(function() {
 	}
 })   
 
-
-
-
-
-
 //    选择
     $(function(){
         $.divselect("#divselect_re","#inputselect_re");
-    });
-    
-
-//    弹出层
-    $(".reView_savebtn").click(function(){
-        $("#resuView_mask").css("display","none")
-    });
-    $(".reView_quitbtn").click(function(){
-        $("#resuView_mask").css("display","none");
-        $("#divselect_re cite").children(".input_text").html("")
-        $("#inputselect_re").val("")
+		$.divselect("#divselect_re2","#inputselect_re2");
     });
