@@ -218,4 +218,8 @@
   <select id="findResumeIdByCompanyId" resultType="java.lang.Integer">
   	select resume_id from delivery where company_id=#{company_id}
   </select>
+  
+  <delete id="deleteByPostId" parameterType="java.lang.Integer">
+  	delete from delivery where post_id=#{postId}
+  </delete>
 </mapper>

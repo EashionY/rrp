@@ -74,4 +74,11 @@ public interface DeliveryMapper {
 	 * @return
 	 */
 	List<Integer> findResumeIdByCompanyId(int companyId);
+
+	/**
+	 * 删除对应职位id的投递关系
+	 * @param postId
+	 * @return
+	 */
+	int deleteByPostId(int postId);
 }

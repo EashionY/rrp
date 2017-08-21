@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
+import com.rrenpin.dao.DeliveryMapper;
 import com.rrenpin.dao.PostMapper;
 import com.rrenpin.dao.ResumeMapper;
 import com.rrenpin.entity.Post;
@@ -22,6 +23,9 @@ public class PostServiceImpl implements PostService {
 	
 	@Resource
 	private ResumeMapper resumeMapper;
+	
+	@Resource
+	private DeliveryMapper deliveryMapper;
 	
 	public void pushJob(HttpServletRequest req, int companyId, String name, String salary, String region,
 			String workExp, String degree, String workType, String benefits, String duty, String requirement)
@@ -225,7 +229,10 @@ public class PostServiceImpl implements PostService {
 	}
 
 	public void deleteJob(int postId) {
+		//删除职位表对应id的职位
 		int i = postMapper.deleteByPrimaryKey(postId);
+		//删除投递表对应id的职位
+		deliveryMapper.deleteByPostId(postId);
 		if(i!=1){
 			throw new PostException("删除职位失败");
 		}
