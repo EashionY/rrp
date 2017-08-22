@@ -63,3 +63,93 @@
     width: 100%;
     height: 100%;
 }
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+    .kong_div{
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .com_left{
+        display: none;
+    }
+    .com_body {
+        width: 100%;
+    }
+    .comxx_right {
+        margin-top: 0;
+        background-color: #ffffff;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .comxx_div1 {
+        width: 90%;
+        margin: 0 auto;
+        padding:15px 0;
+        border-bottom: none;
+    }
+    .comxx_div2 {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .comxx_mapbox {
+        margin-top: 15px;
+        height: 170px;
+    }
+    .kong_div{
+        height: 15px;
+        width: 100%;
+        background-color: #fafafa;
+    }
+    .comxx_logbox {
+        width: 80px;
+        height: 80px;
+    }
+    .comxx_name {
+        font-size: 1.2rem;
+    }
+    .comxxtop_right>ul {
+        font-size: 1rem;
+        margin-top: 5px;
+        color: #666666;
+    }
+    .comxxtop_right>ul>li {
+        margin-left: 20px;
+    }
+    .comxxtop_right>ul>li:before {
+        left: -10px;
+        top: 20%;
+        height: 70%;
+    }
+    .comxx_wz {
+        font-size: 1rem;
+        margin-top: 5px;
+        color: #666666;
+    }
+    .comxx_eidtbtn {
+        display: none;
+    }
+    .comxxtop_right {
+        margin-left: 10px;
+    }
+    .job_title {
+        margin-top: 15px;
+        font-size: 1.5rem;
+    }
+    .comxx_detail {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 1.2rem;
+        line-height: 20px;
+    }
+    .comxx_address {
+        margin-top: 15px;
+        font-size: 1.2rem;
+    }
+    .comxx_addresstext {
+        margin-left: 5px;
+    }
+    .comxx_div3 {
+        padding-bottom: 30px;
+    }
+}

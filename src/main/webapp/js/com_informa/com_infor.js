@@ -55,7 +55,7 @@ $("#com_pers").click(function(){
 $("#com_chan").click(function(){
     window.location.href="com_psd.html"
 });
-$("#comxx_eidt").click(function(){
+$(".comxx_eidt").click(function(){
     window.location.href="com_manage.html"
 })
 $("#com_exit").click(function(){
