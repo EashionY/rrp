@@ -147,3 +147,81 @@ a.upload-img:hover{
 
 .tc{text-align:center;}
 
+/*移动版*/
+@media screen and (min-width: 1024px) {
+}
+@media screen and (max-width: 1024px) {
+	.mymask {
+		position: absolute;
+	}
+	#toucontDiv {
+		width: 90%;
+		height: 300px;
+	}
+	.container {
+		width: 97%;
+		height: 97%;
+		font-size: 1.2rem;
+		margin: 12px auto 0 5px;
+	}
+	.imageBox {
+		width: 60%;
+		height: 70%;
+		box-shadow: 2px 2px 10px #B0B0B0;
+    	
+	}
+	.action {
+		width: 60%;
+		height: 35px;
+		margin: 10px 0;
+	}
+	.new-contentarea {
+		width: 26%;
+		height: 35px;
+	}
+	a.upload-img{
+		width: 100%;
+		height: 35px;
+		line-height: 35px;
+		font-size: 1.2rem;
+	}
+
+	.new-contentarea input[type=file] {
+		width: 100%;
+		height: 35px;
+		right: 0;
+		margin-right: 0;
+	}
+	.Btnsty_peyton {
+		width: 22%;
+		height: 35px;
+		line-height: 35px;
+		font-size: 1.2rem;
+	}
+	.cropped {
+		right: 0;
+		width: 35%;
+		height: 90%;
+	}
+	#imgtext {
+		margin-top: 10px;
+		font-size: 1.5rem;
+	}
+	.imageBox .thumbBox {
+		width: 160px;
+		height: 160px;
+		margin-top: -80px;
+		margin-left: -80px;
+	}
+	#imgDiv {
+		height: 120px;
+	}
+	#imgbtn, #imgbtn_quit {
+		width: 80%;
+		height: 35px;
+		line-height: 35px;
+		font-size: 1.2rem;
+	}
+	
+
+}

@@ -21,7 +21,7 @@ $(function() {
 		if(comStatus==3){//判断是否开通企业版
 			$.get(ip+"/rrp/company/findCompanyInfo.do",{email:getCookieValue("email")},function(data){
 				 if(data.state==0){
-					//logo处理
+					    //logo处理
 						var options =
 				        {
 				            thumbBox: '.thumbBox',
@@ -42,7 +42,12 @@ $(function() {
 				        $('#btnCrop').on('click', function(){
 				            imgMain= cropper.getDataURL();
 				            $('#imgDiv').html('');
-				            $('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:180px;box-shadow:0px 0px 12px #7E7E7E;" ><p>180px*180px</p>');
+				            if(window.screen.width<1024){
+				            	$('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:100px;box-shadow:0px 0px 12px #7E7E7E;" ><p>100px*100px</p>');
+				            }else{
+				            	$('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:180px;box-shadow:0px 0px 12px #7E7E7E;" ><p>180px*180px</p>');
+				            }
+				            
 				        })
 				        $('#btnZoomIn').on('click', function(){
 				            cropper.zoomIn();
@@ -102,7 +107,7 @@ $(function() {
 		}
 	}
 })
-$("#com_commit").click(function(){
+$(".com_commit").click(function(){
 	 layer.confirm("修改资料后，须重新进行审核，是否继续？", {icon: 3, title:'提示'},function(index){
 		 $.get(ip+'/rrp/company/findCompanyInfo.do',{email:getCookieValue("email")},function(data){
 				if(data.state==0){

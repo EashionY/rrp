@@ -70,12 +70,6 @@
     }
 }
 @media screen and (max-width: 1024px) {
-    .com_left{
-        display: none;
-    }
-    .com_body {
-        width: 100%;
-    }
     .comxx_right {
         margin-top: 0;
         background-color: #ffffff;

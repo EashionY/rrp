@@ -164,8 +164,13 @@
     color: #333333;
     width: 835px;
 }
-.comInfo_logo_check{width: 180px;height: 180px;border: 1px #dddddd dashed;
-    background-color: #ffffff;overflow:hidden;}
+.comInfo_logo_check{
+	width: 180px;
+	height: 180px;
+	border: 1px #dddddd dashed;
+    background-color: #ffffff;
+    overflow:hidden;
+    }
 #check_zhizhao{
 	display: inline-block;
     width: 112px;
@@ -182,4 +187,123 @@
 	width: 835px;
 	display:none;
 	cursor:pointer;
+}
+/*移动版*/
+@media screen and (min-width: 1024px) {
+
+}
+@media screen and (max-width: 1024px) {
+    .com_left,.comInfo_btnbox{
+        display: none;
+    }
+    .com_body {
+        width: 100%;
+    }
+    .com_right {
+        width: 100%;
+        background-color: #ffffff;
+    }
+    .comInfo_contbox {
+        width: 90%;
+        margin: 0 auto;
+        background-color: #ffffff;
+        margin-bottom: 25px;
+        padding: 0;
+    }
+    .comInfo_contdiv {
+        display: block;
+        margin-top: 15px;
+    }
+    .comInfo_contbox>.comInfo_contdiv:nth-of-type(1) {
+        padding-top: 0;
+    }
+    .comInfo_contdiv>div:nth-of-type(1) {
+        font-size: 1.2rem;
+        line-height: inherit;
+        white-space: nowrap;
+        margin-bottom: 10px;
+    }
+    .com_body .comInfo_contdiv input ,
+    .com_body .comInfo_contdiv .divselect cite,
+    .com_body .comInfo_contdiv .divselect,
+    .com_body .comInfo_contdiv .divselect ul {
+        width: 100%;
+    }
+    .comInfo_contdiv input,
+    .comInfo_contdiv .divselect cite{
+        width: 100%;
+        height: 35px;
+        text-indent: 10px;
+        font-size: 1.2rem;
+        line-height: 35px;
+    }
+    .comInfo_addre .city-picker-span {
+        text-indent: 10px;
+        font-size: 1.2rem;
+    }
+    .comInfo_contdiv .input_icon2 {
+        top: 10px;
+        right: 10px;
+    }
+    .comInfo_contdiv .divselect ul li a {
+        height: 30px;
+        padding-left: 10px;
+    }
+    .edui-default .edui-editor{
+        width: 100% !important;
+    }
+    .com_body .comInfo_rongzi>span {
+        margin-left: 8px;
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+    .comInfo_rongzi2 {
+        margin-top: 10px;
+    }
+    #lice_check {
+        padding: 5px 15px;
+        margin-left:0;
+        margin-bottom: 10px;
+    }
+    #com_zhizhao {
+        margin-left: 0;
+        line-height: 6px;
+    }
+    #license_img {
+        width: 100%;
+        margin-left: 0;
+    }
+    .comInfo_logo {
+        width: 90px;
+        height: 90px;
+    }
+    .comInfo_logo>img {
+   	 	width: 100%;
+    	height: 100%;
+	}
+    .comInfo_logo:after {
+        left: 23px;
+        top: 45px;
+        width: 45px;
+        height: 3px;
+    }
+    .comInfo_logo:before {
+        left: 45px;
+        top: 23px;
+        width: 3px;
+        height: 45px;
+    }
+    .logo_tips {
+        width: 60px;
+        bottom: 0;
+        left: 20px;
+        font-size: 0.8rem;
+    }
+    .comInfo_addre .city-picker-span{
+        width: 100%;
+    }
+    .edui-default .edui-editor-iframeholder {
+	    width:100% !important;
+	}
+
 }
