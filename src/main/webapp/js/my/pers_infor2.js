@@ -36,7 +36,12 @@ $(function() {
 			            imgMain= cropper.getDataURL();
 			
 			            $('#imgDiv').html('');
-			            $('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:100px;margin-top:30px;border-radius:50%;box-shadow:0px 0px 12px #7E7E7E;" ><p>100px*100px</p>');
+			            if(window.screen.width<1024){
+			            	$('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:75px;border-radius:50%;box-shadow:0px 0px 12px #7E7E7E;" ><p>75px*75px</p>');
+			            }else{
+			            	$('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:100px;margin-top:30px;border-radius:50%;box-shadow:0px 0px 12px #7E7E7E;" ><p>100px*100px</p>');
+			            }
+			            
 			        })
 			        $('#btnZoomIn').on('click', function(){
 			            cropper.zoomIn();

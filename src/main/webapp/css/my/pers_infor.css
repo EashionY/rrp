@@ -239,3 +239,159 @@
 	padding-left: 16px;
     font-size: 14px;
 }
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+    .my_mobile,.nav_mobile_mask{
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .my_left,.nav_mobile_mask,
+    .myedit_btnbox{
+        display: none;
+    }
+    .my_body {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    .my_right {
+        width: 100%;
+        height: auto;
+        background-color: #ffffff;
+    }
+    .my_rightmain {
+        width: 100%;
+    }
+    .my_rightmian_div1 {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px #dddddd solid;
+    }
+    .my_touxiang {
+        width: 75px;
+        height: 75px;
+        border: 1px #3eb39d solid;
+    }
+    .my_xinxibox {
+        margin-left:15px;
+        font-size: 1.5rem;
+    }
+    .my_namebox {
+        margin-top: 10px;
+    }
+    .my_zhiye {
+        margin-left: 15px;
+    }
+    .my_sexbox {
+        margin-top: 15px;
+        font-size: 1rem;
+    }
+    .my_rightmian_div2 {
+        width: 90%;
+        margin: 15px auto;
+    }
+    .my_rightmian_div2>p {
+        padding: 0;
+        font-size: 1.2rem;
+        line-height: 20px;
+    }
+    .my_rightmian_div3 {
+       display: none;
+    }
+    .my_mobile{
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1.5rem;
+        color: #333333;
+    }
+    .my_mobile .myfont{
+        float: right;
+    }
+    .my_mobile div{
+        border-bottom: 1px #dddddd solid;
+        padding: 15px 0;
+    }
+    .my_mobile div:nth-last-of-type(1){
+        border-bottom: none;
+    }
+
+    /*.my_rightmain1,.footer_mobile,*/
+    /*.kong,.my_mobile,.nav_mobile{*/
+        /*display: none;*/
+    /*}*/
+    /*.my_rightmain2,.nav_mobile_mask{*/
+        /*display: block;*/
+    /*}*/
+
+    .myedit_touxiang {
+        margin-top: 15px;
+    }
+    .myfont_xj {
+        top: 25px;
+        left: 30%;
+        font-size: 3rem;
+    }
+    .myedit_namebox {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 15px;
+    }
+    .myedit_namebox>div {
+        width: 100%;
+    }
+    .myedit_label {
+        font-size: 1.5rem;
+    }
+    .myedit_input>input {
+        height: 35px;
+        text-indent: 10px;
+        font-size: 1.2rem;
+    }
+    .myedit_namebox_div2{
+        margin-top: 15px;
+    }
+    .myedit_sexbox {
+        display: flex;
+        justify-content: space-between;
+    }
+    .myedit_sexbox>span {
+        font-size: 1.2rem;
+        height: 35px;
+        line-height: 35px;
+        width: 45%;
+    }
+    .myedit_zhiyebox {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 15px;
+    }
+    .divselect ,.divselect ul{
+        width: 100%;
+    }
+    .divselect cite {
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+    }
+    .input_icon {
+        margin-right: 10px;
+    }
+    #uhighxl {
+        padding-left: 0;
+        font-size: 1.2rem;
+    }
+    .myedit_geren{
+        margin-bottom: 20px;
+    }
+    #imgDiv {
+    	height:100px !important;
+	    margin-top: 20px !important;
+	}
+	.myedit_savebtn{
+		border:none;
+	}
+}

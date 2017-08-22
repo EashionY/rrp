@@ -30,10 +30,19 @@ var myintro= UE.getEditor('myintro',{
 	    ['undo', 'redo'],
 	],initialFrameHeight:100
 });
+//返回
+$(".my_back").on("click",function(){
+	window.location.href="pers_infor.html"
+})
 $(".my_edit").on("click",function(){
     $(".my_rightmain1").css("display","none");
+	$(".footer_mobile").css("display","none");
+	$(".kong").css("display","none");
+	$(".my_mobile").css("display","none");
+	$(".nav_mobile").css("display","none");
     $(".my_rightmain2").css("display","block");
-    var userIdValue = getCookieValue("userId"); 
+    $(".nav_mobile_mask").css("display","block");
+    var userIdValue = getCookieValue("userId");
     $.get(ip+"/rrp/user/findUserInfo.do",{userId:userIdValue},function(data){
     	$("#my_headImg2").attr("src",'../../../../'+data.data.headImg)
     	$("#uname").val(data.data.nickname);

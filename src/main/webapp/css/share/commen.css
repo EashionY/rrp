@@ -148,4 +148,16 @@
 .font_30{
     font-size: 26px;
 }
+/*移动版*/
+@media screen and (min-width: 1024px) {
+    .kong{
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .kong{
+        height: 15px;
+        background-color: #fafafa;
+    }
+}
 
