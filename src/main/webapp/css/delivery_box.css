@@ -336,4 +336,7 @@
     .delivery_leftcontdiv2>div:nth-of-type(2){
         white-space: nowrap;
     }
+    .delivery_leftdet_div_0:before {
+    	width: 0;
+	}
 }

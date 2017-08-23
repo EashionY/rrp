@@ -11,15 +11,24 @@ function addDom(mydata){
 					   if(v.intend_time==null){
 						   v.intend_time=v.invite_time;
 					   }
-					   str+='<div class="delivery_leftcontbox"><div class="delivery_leftcontmain">'+
-	                    '<div class="delivery_leftcontdiv1"><div class="delivery_leftcomname">'+v.companyName+'</div><div>'+v.postName+'<span class="delivery_leftadd">['+v.region+']</span></div>'+
-	                    '<div class="delivery_leftsala">'+v.salary+'</div></div>'+
-	                    '<div class="delivery_leftcontdiv2">'+
-	                    '<div>申请：<span class="delivery_div2_span1">'+v.resumeName+'</span></div><div><span>邀请面试 </span>'+
-	                    '<span class="delivery_div2_time">'+new Date(v.invite_time).format("yyyy-MM-dd hh:mm")+'</span><span class="myfont delivery_div2_font">&#xe681;</span></div></div>'+
+					   var str1="";
+					   if(window.screen.width<1024){
+						   str1='<div class="delivery_leftcontbox"><div class="delivery_leftcontmain">'+
+							   '<div class="delivery_leftcontdiv1"><div class="delivery_leftcomname">'+v.companyName+'</div>' +
+							   '<div class="delivery_leftdown"><div>'+v.postName+'<span class="delivery_leftadd">['+v.region+']</span></div> ' +
+							   '<div class="delivery_leftsala">'+v.salary+'</div></div></div>'+
+						       '<div class="delivery_leftcontdiv2"><div><div>申请：</div><span class="delivery_div2_span1">'+v.resumeName+'</span></div><div><div>邀请面试 </div>';
+					   }else{
+						   str1='<div class="delivery_leftcontbox"><div class="delivery_leftcontmain">'+
+		                    '<div class="delivery_leftcontdiv1"><div class="delivery_leftcomname">'+v.companyName+'</div><div>'+v.postName+'<span class="delivery_leftadd">['+v.region+']</span></div>'+
+		                    '<div class="delivery_leftsala">'+v.salary+'</div></div>'+
+		                    '<div class="delivery_leftcontdiv2">'+
+		                    '<div>申请：<span class="delivery_div2_span1">'+v.resumeName+'</span></div><div><span>邀请面试 </span>'; 
+					   }
+	                    var str2='<span class="delivery_div2_time">'+new Date(v.invite_time).format("yyyy-MM-dd hh:mm")+'</span><span class="myfont delivery_div2_font">&#xe681;</span></div></div>'+
 	                    '<div class="delivery_leftcontdetail"><div class="delivery_leftdet_div">'+
 	                    '<div class="delivery_number delivery_numberactive">1</div><div class="delivery_state">投递成功</div>'+
-	                    '<div class="delivery_time">'+new Date(v.delivey_time).format("yyyy-MM-dd hh:mm")+'</div><div class="delivery_time"><span class="delivery_tip"></span>HR已收到你的简历</div></div>'+
+	                    '<div class="delivery_time">'+new Date(v.delivery_time).format("yyyy-MM-dd hh:mm")+'</div><div class="delivery_time"><span class="delivery_tip"></span>HR已收到你的简历</div></div>'+
 	                    '<div class="delivery_leftdet_div delivery_leftdet_divactiv" >'+
 	                    '<div class="delivery_number">2</div><div class="delivery_state">已被查看</div>'+
 	                    '<div class="delivery_time">'+new Date(v.check_time).format("yyyy-MM-dd hh:mm")+'</div>'+
@@ -30,6 +39,7 @@ function addDom(mydata){
 	                    '<div class="delivery_number">4</div><div class="delivery_state">邀请面试</div>'+
 	                    '<div class="delivery_time">'+new Date(v.invite_time).format("yyyy-MM-dd hh:mm")+'</div>'+
 	                    '<div class="delivery_time"><span class="delivery_tip"></span>HR邀请你进行面试</div></div></div> </div></div>';
+	                    str+=(str1+str2);
 				   })
 				   $("#delivery_interviList").html(str);
 				   $(".delivery_div2_font").on("click",function(){
