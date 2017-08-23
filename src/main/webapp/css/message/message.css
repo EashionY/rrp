@@ -122,3 +122,69 @@
 	text-align: center;
 	margin-top: 50px;
 }
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+
+}
+@media screen and (max-width: 1024px) {
+    .message_title {
+        display: none;
+    }
+    .message_body {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 25px;
+        background-color: #fafafa;
+    }
+    .message_mainBox {
+        width: 100%;
+    }
+    .message_menubox {
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 15px;
+        border-bottom: none;
+    }
+    .message_menu {
+        font-size: 1.2rem;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .message_menuactive:after {
+        top: 25px;
+        height: 2px;
+    }
+    .message_contBox {
+        padding-bottom: 25px;
+    }
+    .message_contmainbox {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .message_contmain {
+        width: 90%;
+        padding: 15px 0;
+    }
+    .message_conttitle {
+        font-size: 1.5rem;
+        color: #333333;
+    }
+    .message_contxxbox {
+        margin-top: 15px;
+        font-size: 1.2rem;
+        display: block;
+    }
+    .message_contxxbox>div:nth-of-type(1) {
+        width: 100%;
+        line-height: 20px;
+        border-bottom: 1px #dddddd solid;
+        color: #666666;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+    .message_contxxbox>div:nth-of-type(2) {
+        font-size: 1rem;
+        color: #888888;
+    }
+}
