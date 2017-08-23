@@ -225,3 +225,115 @@
 	text-align:center;
 	margin-bottom: 50px;
 }
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+
+}
+@media screen and (max-width: 1024px) {
+    .delivery_right,.delivery_lefttitle{
+        display: none;
+    }
+    .delivery_body {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
+    .delivery_left {
+        width: 100%;
+    }
+    .delivery_leftmain {
+        width: 100%;
+    }
+    .delivery_menubox {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 15px;
+        border-bottom: none;
+    }
+    .delivery_menu {
+        font-size: 1.2rem;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .delivery_menuactive:after {
+        top: 25px;
+        height: 1px;
+    }
+    .delivery_leftcontbox {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .de_mainBox {
+        margin-bottom: 25px;
+    }
+    .delivery_leftcontmain {
+        width: 90%;
+    }
+    .delivery_leftcontdiv1 {
+        font-size: 1.5rem;
+        padding: 10px 0;
+        justify-content: space-between;
+    }
+    .delivery_leftcomname{
+        font-size: 1.2rem;
+        color: #666666;
+        margin-bottom: 10px;
+    }
+    .delivery_leftadd{
+        font-size: 1.2rem;
+    }
+    .delivery_leftcontdiv1>div {
+        margin-top: 0;
+    }
+    .delivery_leftdown{
+        display: flex;
+        justify-content: space-between;
+    }
+    .delivery_leftcontdiv2 {
+        padding: 10px 0;
+        font-size: 1rem;
+    }
+    .delivery_div2_span1 {
+        margin-left: 0;
+        color: #666666;
+    }
+    .delivery_div2_time {
+        margin-left: 0;
+        color: #888888;
+    }
+    .delivery_div2_font {
+        margin-left: 5px;
+    }
+    .delivery_leftdet_div:before {
+        top: 10px;
+        left: -20px;
+        width: 30px;
+        height: 1px;
+    }
+    .delivery_leftcontdetail {
+        padding-top: 10px;
+        padding-bottom: 15px;
+    }
+    .delivery_number {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+    }
+    .delivery_state {
+        margin-top: 5px;
+        font-size: 1rem;
+        color: #666666;
+    }
+    .delivery_time {
+        margin-top: 5px;
+        font-size:0.9rem;
+        color: #888888;
+    }
+    .delivery_leftdet_div {
+        width: 25%
+    }
+    .delivery_leftcontdiv2>div:nth-of-type(2){
+        white-space: nowrap;
+    }
+}
