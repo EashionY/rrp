@@ -22,14 +22,27 @@ function addDom(mydata){
 						state="不合适";
 						time=new Date(v.unfit_time).format("yyyy-MM-dd");
 					}
-					str+='<div class="message_contmainbox"><div class="mesfeed_contmain"><div class="mesfeed_contleft">'+
-                         '<div class="mesfeed_imgbox"><img src="../../../../'+v.logo+'" alt=""/></div><div class="mesfeed_contdiv2">'+
-                         '<div>'+v.companyName+'</div><div>'+v.postName+'</div><div>最新状态：<span class="mesfeed_span">'+state+'</span></div></div></div>'+
-                         '<div class="mesfeed_contright"><div>'+time+'</div><div class="mesfeed_span">去查看</div></div></div></div>';
+					if(window.screen.width<1024){
+						str+='<div class="message_contmainbox"><div class="mesfeed_contmain"><div class="mesfeed_contleft"> ' +
+							'<div class="mesfeed_imgbox"><img src="../../../../'+v.logo+'" alt=""/> </div> <div class="mesfeed_contdiv2"> ' +
+							'<div>'+v.postName+'</div> <div>'+v.companyName+'</div> </div> </div> <div class="mesfeed_contright "> <div>'+time+'</div> ' +
+							'<div class="mesfeed_span">去查看</div> </div> </div> <div class="mesfeed_down">最新状态：<span class="mesfeed_span">'+state+'</span></div> </div>';
+					}else{
+						str+='<div class="message_contmainbox"><div class="mesfeed_contmain"><div class="mesfeed_contleft">'+
+							'<div class="mesfeed_imgbox"><img src="../../../../'+v.logo+'" alt=""/></div><div class="mesfeed_contdiv2">'+
+							'<div>'+v.companyName+'</div><div>'+v.postName+'</div><div>最新状态：<span class="mesfeed_span">'+state+'</span></div></div></div>'+
+							'<div class="mesfeed_contright"><div>'+time+'</div><div class="mesfeed_span">去查看</div></div></div></div>';
+					}
 				});
 				$("#mes_feedBox").html(str);
 				$(".mesfeed_span").click(function(){
-					var stateTetx=$(this).parent().prev().children().eq(1).children().eq(2).children(".mesfeed_span").html();
+					var stateTetx="";
+					if(window.screen.width<1024){
+						stateTetx=$(this).parent().parent().next().children(".mesfeed_span").html();
+					}else{
+						stateTetx=$(this).parent().prev().children().eq(1).children().eq(2).children(".mesfeed_span").html();
+					}
+					
 					if(stateTetx=='投递成功'){
 						window.location.href="../delivery_box/delivery_success.html"
 					}else if(stateTetx=='被查看'){
@@ -104,7 +117,12 @@ $(function() {
 			if(data.state==0){
 				if(data.data.length!=0){//根据用户id查找简历id
 					var resumeId=data.data.id;
-					var mydata={resumeId:resumeId,page:1,pageSize:8}
+					if(window.screen.width<1024){
+						var mydata={resumeId:resumeId,page:1,pageSize:3}
+					}else{
+						var mydata={resumeId:resumeId,page:1,pageSize:8}
+					}
+					
 					add_page(mydata);
 				}else{
 					layer.msg("没有对应简历");

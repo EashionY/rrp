@@ -115,6 +115,7 @@
 }
 .mesfeed_span{
     color: #3eb39d;
+    text-align: right;
 }
 .mesfeed_span:hover{cursor: pointer}
 
@@ -187,4 +188,41 @@
         font-size: 1rem;
         color: #888888;
     }
+    /*Í¶µÝ*/
+    .mesfeed_contmain {
+        width: 90%;
+        padding: 15px 0;
+        border-bottom: 1px #dddddd solid;
+    }
+    .mesfeed_imgbox {
+        display: none;
+    }
+    .mesfeed_contdiv2 {
+        margin-left: 0;
+        font-size: 1.2rem;
+    }
+    .mesfeed_down{
+        width: 90%;
+        margin: 0 auto;
+        padding: 15px 0;
+    }
+    .mesfeed_contdiv2>div:nth-of-type(1) {
+        font-size: 1.5rem;
+    }
+    .mesfeed_contdiv2>div {
+        margin-top: 15px;
+    }
+    .mesfeed_contright {
+        margin-top: 0;
+        font-size: 1rem;
+    }
+    .mesfeed_contright>div:nth-last-of-type(2) {
+        line-height: 20px;
+    }
+    .mesfeed_contright>div:nth-last-of-type(1) {
+        margin-top: 15px;
+    }
+    .mesfee_pagesBox {
+	    margin-top: 25px;
+	}
 }
