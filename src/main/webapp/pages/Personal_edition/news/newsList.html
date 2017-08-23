@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="../../../css/share/base.css"/>
     <link rel="stylesheet" href="../../../css/share/header.css"/>
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
+    <link rel="stylesheet" href="../../../css/share/commen.css"/>
     <link rel="stylesheet" href="../../../css/news/newsList.css"/>
 </head>
 <body>
 <header>
-    <nav>
+    <nav class="nav_pc">
         <div class="nav_div1">
             <div class="logo_imgbox"><img src="../../../images/index/ic_home_logo.png" alt=""/></div>
             <ul class="left_ul">
@@ -30,6 +31,13 @@
             <a href="#" id="header_last"><li><span id="head_logbtn">登录</span>&nbsp;/&nbsp;<span id="head_regbtn">注册</span></li></a> 
         </ul>
     </nav>
+    <!--手机端-->
+    <nav class="nav_mobile">
+        <div class="nav_div">
+            <span class="header_title">新闻</span>
+            <span class="head_right myfont">&#xe601;</span>
+        </div>
+    </nav>
 </header>
 <section class="newslist_body">
     <div class="newslist_mainBox">
@@ -45,6 +53,7 @@
                     2016年应届生求职季正不断深入，实体经济的下行与新一代大学生求职偏好的“进化”</div>
             </div>
         </div>
+        <div class="kong"></div>
         <div class="newslist_mainboxs">
             <div class="newslist_mainleft">
                 <img src="" alt="图片2"/>
@@ -56,6 +65,7 @@
                     令今年的校招市场呈现出一些不同的景象。移动互联网招聘平台BOSS直聘近日发布的《2016年应届生就业竞争力报告》</div>
             </div>
         </div>
+        <div class="kong"></div>
         <div class="newslist_mainboxs">
             <div class="newslist_mainleft">
                 <img src="" alt="图片3"/>
@@ -67,6 +77,7 @@
                     令今年的校招市场呈现出一些不同的景象。移动互联网招聘平台BOSS直聘近日发布的《2016年应届生就业竞争力报告》</div>
             </div>
         </div>
+        <div class="kong"></div>
         <div class="newslist_mainboxs">
             <div class="newslist_mainleft">
                 <img src="" alt="图片4"/>
@@ -78,6 +89,7 @@
                     令今年的校招市场呈现出一些不同的景象。移动互联网招聘平台BOSS直聘近日发布的《2016年应届生就业竞争力报告》</div>
             </div>
         </div>
+        <div class="kong"></div>
         <div class="newslist_mainboxs">
             <div class="newslist_mainleft">
                 <img src="" alt="图片5"/>
@@ -89,6 +101,7 @@
                     令今年的校招市场呈现出一些不同的景象。移动互联网招聘平台BOSS直聘近日发布的《2016年应届生就业竞争力报告》</div>
             </div>
         </div>
+        <div class="kong"></div>
         <div class="newslist_mainboxs">
             <div class="newslist_mainleft">
                 <img src="" alt="图片6"/>
@@ -100,6 +113,7 @@
                     令今年的校招市场呈现出一些不同的景象。移动互联网招聘平台BOSS直聘近日发布的《2016年应届生就业竞争力报告》</div>
             </div>
         </div>
+        <div class="kong"></div>
         <div class="newslist_mainboxs">
             <div class="newslist_mainleft">
                 <img src="" alt="图片7"/>
@@ -111,6 +125,7 @@
                     令今年的校招市场呈现出一些不同的景象。移动互联网招聘平台BOSS直聘近日发布的《2016年应届生就业竞争力报告》</div>
             </div>
         </div>
+        <div class="kong"></div>
         <div class="newslist_mainboxs">
             <div class="newslist_mainleft">
                 <img src="" alt="图片8"/>
@@ -121,8 +136,8 @@
                 <div class="newslist_details">2016年应届生求职季正不断深入，实体经济的下行与新一代大学生求职偏好的“进化”，
                     令今年的校招市场呈现出一些不同的景象。移动互联网招聘平台BOSS直聘近日发布的《2016年应届生就业竞争力报告》</div>
             </div>
-
         </div>
+        <div class="kong"></div>
         <span class="newslist_morebtn">
             加载更多 <span class="myfont">&#xe681;</span>
         </span>
@@ -148,11 +163,19 @@
         </div>
         <div class="footer_bei">Copyright © 2017 rrenpin.com 成都市赞世文化传播有限责任公司 蜀ICP备15006619号-3</div>
     </div>
+    <!--手机端-->
+    <div class="footer_mobile">
+        <a href="../../../index.html"><div><div class="myfont">&#xe63f;</div><div class="f_text">首页</div></div></a>
+        <a href="../message/message.html"><div><div class="myfont">&#xe63f;</div><div class="f_text">消息</div></div></a>
+        <a href="newsList.html"><div class="f_active"><div class="myfont">&#xe63f;</div><div class="f_text">新闻</div></div></a>
+        <a href="../my/pers_infor.html"><div><div class="myfont">&#xe63f;</div><div class="f_text">我的</div></div></a>
+    </div>
 </footer>
 </body>
 <script src="../../../js/jquery-1.11.3.js"></script>
 <script src="../../../js/ip.js"></script>
 <script src="../../../plug/layer/layer.js"></script>
+<script src="../../../js/head/header2.js"></script>
 <script src="../../../js/news/news_com.js"></script>
 <script>
     var newsList=$(".newslist_mainboxs");

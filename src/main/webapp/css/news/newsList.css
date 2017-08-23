@@ -65,3 +65,52 @@
 }
 .newslist_morebtn:hover{cursor: pointer}
 .newslist_morebtn>.myfont{font-size: 20px}
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+
+}
+@media screen and (max-width: 1024px) {
+    .newslist_details,.newslist_morebtn {
+        display: none;
+    }
+    .newslist_body {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 25px;
+        background-color: #ffffff;
+        overflow: hidden;
+        border: none;
+    }
+    .newslist_mainBox {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 0;
+    }
+    .newslist_mainboxs {
+        border-bottom: none;
+        padding: 15px 0;
+        padding-bottom: 5px;
+    }
+
+    .newslist_mainright {
+        margin-left: 15px;
+        width: auto;
+    }
+    .newslist_title {
+        font-size: 1.5rem;
+    }
+    .newslist_time {
+        font-size: 1rem;
+        margin: 10px 0;
+    }
+    .kong{
+        width: 150%;
+        margin-left: -80px;
+        height: 10px;
+    }
+    .newslist_mainleft {
+        width:120px;
+        height: 65px;
+        overflow: hidden;
+    }
+}
