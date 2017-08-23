@@ -8,7 +8,7 @@ $(function() {
 		$(".psd_div1 span").html(uPhoneValue)
 	}
 });
-	$(".psd_btn").click(function () {
+	$(".psd_Btn").click(function () {
 		var uid = getCookieValue("userId");
 		var oldpsd=$("#oldpsd").val();
 		var newpsd=$("#newpsd").val();

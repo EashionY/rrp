@@ -31,3 +31,40 @@
     font-size: 18px;
 }
 .psd_btn:hover{cursor: pointer}
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+    .my_mobile,.nav_mobile_mask{
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .psd_div1 {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 15px;
+        padding-bottom: 15px;
+        font-size: 1.5rem;
+    }
+    .psd_inputbox {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 10px;
+        height: 35px;
+    }
+    .psd_inputbox>input {
+        font-size: 1.2rem;
+        text-indent: 10px;
+    }
+    .psd_inputbox1{
+        margin-top: 15px;
+    }
+    .psd_inputbox3{
+        padding-bottom: 25px !important;
+    }
+    .psd_btn{
+        display: none;
+    }
+    
+
+}
+
