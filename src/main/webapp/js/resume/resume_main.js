@@ -27,7 +27,7 @@
 	                	$(".resume_left_time").html("更新："+new Date(data.data.update_time).format("yyyy-MM-dd"));
 	                	//头像
 	                	if(data.data.head_img!=null){
-	                		$("#re_headImg").attr("src","../../../../"+data.data.head_img)
+	                		$(".resume_touxiang #re_headImg").attr("src","../../../../"+data.data.head_img)
 	                	}
 	                	//头像处理
 						var options =
