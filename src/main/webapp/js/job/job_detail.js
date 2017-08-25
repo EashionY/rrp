@@ -1,11 +1,16 @@
-$(function() { 
+$(function() {
 	myonload2("../my/pers_infor.html","../../../index.html");
-	var Request = new Object(); 
-	Request = GetRequest(); 
+	var Request = new Object();
+	Request = GetRequest();
 	var postId=Request['postId']; //获取参数
 	$.get(ip+"/rrp/post/jobDetail.do",{postId:postId},function(data){
 		if(data.state==0){
 			var result=data.data[0];
+			if(window.screen.width<1024){
+				$(".left_left img").attr("src","../../../../"+result.logo);
+				$("#left_right_com").html(result.name);
+				$("#left_right_ul").html('<li>'+result.industry+'</li><li>'+result.financing+'</li><li>'+result.scale+'</li>')
+			}
 			$(".job_name").html(result.post_name);
 			$(".job_companyname").html(result.name);
 			$(".job_salary").html(result.salary);
@@ -51,15 +56,15 @@ $(function() {
 					    })
 					}
 				}else{
-					
+
 				}
 			},'json')
-			
+
 			//投递简历
-			$(".send").click(function(){
+			$(".Send").click(function(){
 				var nowUrl = window.location.href;//当前url地址
 				//判断是否登录
-				var userId = getCookieValue("userId"); 
+				var userId = getCookieValue("userId");
 			    if(userId==""){//未登录，请先登录
 			    	layer.confirm('请先完成登录?', {icon: 3, title:'提示'}, function(index){
 			    		window.location.href="../login.html?url="+nowUrl;
@@ -79,19 +84,19 @@ $(function() {
 								   layer.msg(data.message)
 							   }
 						   },'json')
-						   
+
 					   }else{
 						   layer.msg(data.message)
 					   }
 				   },'json');
 			    }
-					
+
 			})
 		}else{
 			layer.msg(data.message)
 		}
 	},'json');
-	
+
 })
 
     

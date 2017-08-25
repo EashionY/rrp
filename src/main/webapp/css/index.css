@@ -353,7 +353,8 @@
 
 @media screen and (max-width: 1024px) {
     .index_left,.remen_Box,
-    #zhiwei_main,.zhiwei_more{
+    #zhiwei_main,.zhiwei_more,
+    .com_name{
         display: none;
     }
     .index_body {

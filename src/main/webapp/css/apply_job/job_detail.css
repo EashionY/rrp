@@ -56,17 +56,17 @@
 .jobdetail_topdiv3{
     padding-bottom: 30px;
 }
-.jobdetail_topdiv2>ul,.jobdetail_topdiv3>ul{display: flex}
-.jobdetail_topdiv2>ul>li,.jobdetail_topdiv3>ul>li{
+.job_ul,.jobdetail_topdiv3>ul{display: flex}
+.job_ul>li,.jobdetail_topdiv3>ul>li{
     font-size: 14px;
     color: #333333;
 }
-.jobdetail_topdiv2>ul>li{
+.job_ul>li{
     margin-left: 40px;
     position: relative;
 }
-.jobdetail_topdiv2>ul>li:nth-of-type(1){margin-left: 0}
-.jobdetail_topdiv2>ul>li:before{
+.job_ul>li:nth-of-type(1){margin-left: 0}
+.job_ul>li:before{
     content: "";
     position: absolute;
     left: -20px;
@@ -75,7 +75,7 @@
     height: 80%;
     background-color: #333333;
 }
-.jobdetail_topdiv2>ul>li:nth-of-type(1):before{height: 0}
+.job_ul>li:nth-of-type(1):before{height: 0}
 .jobdetail_topdiv3>ul>li{
     margin-left: 20px;
     border: 1px #dddddd solid;
@@ -161,6 +161,11 @@
 .job_comdetail{
     margin-top: 20px;
 }
+.job_mapbox{
+    width: 100%;
+    height: 215px;
+}
+
 .job_comdetail>p{
     line-height: 23px;
     text-indent:30px;
@@ -252,3 +257,154 @@
     display:none;
 }
 .job_morezhiwei:hover{cursor: pointer}
+
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+    .jobdetail_compaMo,.toudi_btn{
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .jobdown_rightBox{
+        display: none;
+    }
+    .jobdetail_body {
+        width: 100%;
+    }
+    .jobdetail_topBox {
+        width: 100%;
+        margin-top: 0;
+        border-top: none;
+    }
+    .jobdetail_topBox>div {
+        width: 90%;
+    }
+    .jobdetail_topdiv1 {
+        padding-top: 15px;
+        display: block;
+    }
+    .job_btnsbox {
+        display: none;
+    }
+    .job_name {
+        font-size: 1.5rem;
+    }
+    .job_salary {
+        float: right;
+        font-size: 1.5rem;
+    }
+    .job_companyname {
+       display: none;
+    }
+    .jobdetail_topdiv2, .jobdetail_topdiv3 {
+        padding-top: 15px;
+    }
+    .job_ul>li {
+        margin-left: 20px;
+    }
+
+    .job_ul>li{
+        font-size: 1.1rem;
+    }
+    .job_ul>li:before {
+        left: -10px;
+        top: 2px;
+    }
+    .jobdetail_topdiv3 {
+        padding-bottom: 15px;
+        border-bottom: 1px #dddddd solid;
+    }
+    .jobdetail_topdiv3>ul>li {
+        margin-left: 10px;
+        padding: 2px 5px;
+        font-size: 1rem;
+    }
+    .jobdetail_compaMo{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+    }
+    .comMo_left{
+        display: flex;
+    }
+    .comMo_right{
+        line-height: 50px;
+        color: #666666;
+    }
+    .left_left{
+        width: 50px;
+        height: 50px;
+    }
+    .left_left>img{
+        width: 100%;
+        height: 100%;
+    }
+    .left_right{
+        margin-left: 10px;
+    }
+    .left_right>div:nth-of-type(1){
+        font-size: 1.2rem;
+        color: #333333;
+    }
+    .left_right ul{
+        display: flex;
+        margin-top: 18px;
+    }
+    .jobdetail_downBox {
+        margin-top: 10px;
+        margin-bottom: 0;
+        display: block;
+    }
+    .jobdown_leftBox {
+        width: 100%;
+        background-color: #ffffff;
+    }
+    .job_leftmainbox {
+        width: 90%;
+        padding-top: 15px;
+    }
+    .job_title {
+        margin-top: 0;
+        font-size: 1.5rem;
+        margin-left: 10px;
+    }
+    .job_dutybox ,.job_specibox{
+        margin-top: 15px;
+        color: #666666;
+        line-height: 20px;
+    }
+    .job_dutybox>div:nth-of-type(1),
+    .job_specibox>div:nth-of-type(1){
+        margin-bottom: 10px;
+    }
+    .job_contbox {
+        padding-bottom: 25px;
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+    }
+    .job_address {
+        font-size: 1.2rem;
+        margin-top: 15px;
+    }
+    .job_comdetail {
+        margin-top: 10px;
+        color: #666666;
+        line-height: 20px;
+    }
+    .job_leftmainbox>.job_contbox:nth-last-of-type(1){
+        margin-bottom: 20px;
+    }
+    .toudi_btn{
+        width: 100%;
+        background-color: #3eb39d;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        color: white;
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    .job_mapbox{
+        height: 170px;
+    }
+}
