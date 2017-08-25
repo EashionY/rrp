@@ -46,7 +46,7 @@
 .acc_maskinputbox>select{color: #333333}
 .acc_maskinputbox>input{color: #888888}
 .acc_maskinputbox>#acc_tpyzm{width:255px }
-/*éªŒè¯ç */
+/*ÑéÖ¤Âë*/
 .acc_maskinputbox a.send1{
     height: 48px;
     line-height: 48px;
@@ -124,4 +124,80 @@
     background-color: #fafafa;
     margin-left: 30px;
     border: 1px #dddddd solid;
+}
+
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+
+}
+@media screen and (max-width: 1024px) {
+    .account_div1 {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 15px;
+        padding-bottom: 15px;
+        font-size: 1.5rem;
+    }
+    .account_div2 {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1.2rem;
+    }
+    .account_div2_div {
+        margin-top: 25px;
+    }
+    .account_div2>.account_div2_div:nth-of-type(1){
+        margin-top: 15px;
+    }
+    .account_div2_div>span {
+        margin-left: 10px;
+    }
+    .account_div3 {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1rem;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    /*¸ü»»ÊÖ»úºÅ*/
+    .change_body{
+        background-color: #ffffff;
+    }
+    .change_phonemain{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .acc_maskinputbox {
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+        margin-top: 15px;
+    }
+    .acc_font {
+        font-size: 2rem;
+        margin-left: 10px;
+    }
+    .acc_maskinputbox>input{
+        font-size: 1.2rem;
+        margin-left: 15px;
+        width: 100%;
+    }
+    .accerr_tips {
+        width: 100%;
+    }
+    .acc_maskinputbox a.send1 {
+        height: 35px;
+        line-height: 35px;
+        width:40%;
+        font-size: 1.2rem;
+    }
+    .acc_maskinputbox a.send1:before {
+        top: 12px;
+        height: 13px;
+    }
+    #v_container{
+        width: 120px;
+        height: 35px;
+        float: left
+    }
 }

@@ -1,4 +1,4 @@
-	$(function() { 
+	$(function() {
 		myonload2("pers_infor.html","../../../index.html");
 		var userId=getCookieValue("userId");
 		if(userId==""){//未登录，请先登录
@@ -8,9 +8,13 @@
 		}
 	});
     $("#account_changephone").on("click",function(){
-        $("#acc_mask").css("display","block")
-    })
-    $(".acc_savebtn").on("click",function(){
+        if(window.screen.width<1024){
+            window.location.href="change_phone.html"
+        }else{
+            $("#acc_mask").css("display","block")
+        }
+    });
+    $(".acc_saveBtn").on("click",function(){
     	var accList=new Array();//输入框
     	var phone=$("#acc_phone");
     	var tpyzm=$("#acc_tpyzm");
@@ -87,6 +91,8 @@
         }else{
             $("#acc_tpyzm").parent().next().css("opacity",1);
         }
+        $(this).parent().children().eq(0).children().css("color", "#dddddd");
+        $(this).parent().css("border","1px #E3E8EE solid");
     });
 
     $("#account_qq").click(function(){
