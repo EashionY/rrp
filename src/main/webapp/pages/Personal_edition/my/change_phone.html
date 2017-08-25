@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更换手机号（手机版）</title>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../../../css/share/base.css"/>
+    <link rel="stylesheet" href="../../../css/share/header.css"/>
+    <link rel="stylesheet" href="../../../css/share/footer.css"/>
+    <link rel="stylesheet" href="../../../css/share/commen.css"/>
+    <link rel="stylesheet" href="../../../css/my/pers_infor.css"/>
+    <link rel="stylesheet" href="../../../css/my/account.css"/>
+</head>
+<body>
+<header>
+    <nav class="nav_mobile">
+        <div class="nav_div">
+            <span class="head_left myfont back">&#xe601;</span>
+            <span class="header_title">更换手机号</span>
+            <span class="head_right head_text acc_saveBtn">保存</span>
+        </div>
+    </nav>
+</header>
+<section class="my_body change_body">
+    <div class="change_phonemain">
+        <div class="acc_maskinputbox">
+            <div class=""><span class="myfont acc_font">&#xe627;</span></div>
+            <input id="acc_phone" type="text" name="phone" placeholder="手机号" maxlength="11"/>
+        </div>
+        <div class="accerr_tips">*手机号码不正确</div>
+        <div class="acc_maskinputbox">
+            <div class=""><span class="myfont acc_font">&#xe61e;</span></div>
+            <input id="acc_tpyzm" type="text" name="tpyzm" placeholder="验证码"/>
+            <div id="v_container"></div>
+        </div>
+        <div class="accerr_tips">*验证码不正确</div>
+        <div class="acc_maskinputbox  div-phone">
+            <div class=""><span class="myfont acc_font ">&#xe67f;</span></div>
+            <input id="acc_dxyzm" type="text" name="dxyzm" placeholder="短信验证码"/>
+            <a href="javascript:;" class="send1" id="acc_dxyzmbtn">发送验证码</a>
+        </div>
+        <div class="accerr_tips">*手机号码不正确</div>
+    </div>
+
+</section>
+</body>
+<script src="../../../js/jquery-1.11.3.js"></script>
+<script src="../../../js/ip.js"></script>
+<script src="../../../plug/layer/layer.js"></script>
+<script src="../../../js/my/my.js"></script>
+<script src="../../../js/log_reg/dxYzm.js"></script>
+<script src="../../../js/log_reg/gVerify.js"></script>
+<script src="../../../js/log_reg/reg_for.js"></script>
+<script src="../../../js/my/account_bind.js"></script>
+</html>
