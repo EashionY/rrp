@@ -189,3 +189,135 @@
     padding-top: 50px;
     font-size: 18px;
 }
+/*移动版*/
+@media screen and (min-width: 1024px) {
+    .enterp_title2{
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .enterp_title,.enterp_shunxuBtn{
+        display: none
+    }
+    .enterp_body {
+        width: 100%;
+    }
+    .enterp_contentbox {
+        height: auto;
+        margin-bottom: 0;
+        padding-bottom: 20px;
+        background-color: #ffffff;
+    }
+    .enterp_conmainbox {
+        width: 100%;
+    }
+    .enterp_title2{
+        width: 90%;
+        margin: 0 auto;
+        padding: 15px 0;
+    }
+    .enterp_inputbox {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .enterp_inputDiv {
+        height: 35px;
+        margin-bottom: 25px;
+    }
+    .enterp_inputDiv>input {
+        height: 35px;
+        line-height: 33px;
+        margin-left: 10px;
+        font-size: 1.2rem;
+    }
+    .enter_qh {
+        margin-left: 10px;
+        font-size: 1.2rem;
+        line-height: 35px;
+    }
+    .enterp_tubiao {
+        margin-left: 10px;
+        margin-top: 6px;
+    }
+    .enterp_font {
+        font-size: 2rem;
+    }
+    .enterp_tips {
+        margin-top: 0;
+        margin-bottom: 25px;
+        font-size: 1.2rem;
+    }
+    .enterp_nextBtn {
+        width: 90%;
+        margin: 0 auto;
+        height: 35px;
+        line-height: 35px;
+        font-size: 1.2rem;
+    }
+
+    /*验证邮箱*/
+    .enterp_yzdiv1{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .enterp_yzdiv1>div:nth-of-type(1) {
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+    .enterp_yzdiv1>div:nth-of-type(1)>span {
+        margin-left: 5px;
+    }
+    .enterp_yzdiv1>div:nth-of-type(2) {
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+    #email_nextBtn {
+        margin-top: 15px;
+        width: 30%;
+        height: 35px;
+        line-height: 35px;
+        font-size: 1.2rem;
+    }
+    .enterp_yzdiv2 {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 25px;
+    }
+    .enterp_yzdiv2>div {
+        font-size: 1.2rem;
+    }
+    .enterp_yzdiv2>ul {
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+    .enterp_yzdiv2>ul>li {
+        margin-top: 15px;
+    }
+    .enterp_yztips {
+       margin-left: 5px;
+    }
+    /*公司名称*/
+    .enterp_contentbox3_input {
+        width: 90%;
+        margin: 0 auto;
+        height: 35px;
+        margin-bottom: 25px;
+    }
+    .enterp_contentbox3_input>input {
+        height: 35px;
+        line-height: 35px;
+        margin-left: 15px;
+        font-size: 1.2rem;
+    }
+    /*审核状态*/
+    #status_Box {
+        padding-top: 25px;
+        font-size: 1.5rem;
+    }
+    #btn_box span {
+        width: 30%;
+        height: 35px;
+        line-height: 35px;
+        font-size: 1.2rem;
+    }
+}

@@ -10,31 +10,10 @@
     <link rel="stylesheet" href="../../../css/share/footer.css"/>
     <link rel="stylesheet" href="../../../css/share/commen.css"/>
     <link rel="stylesheet" href="../../../css/enterprise.css"/>
-    <style>
-    #btn_box{
-    	text-align: center;
-    	margin-top: 20px;
-    }
-    #btn_box:hover{
-        cursor: pointer;
-    }
-    #btn_box span{
-        display: inline-block;
-	    width: 112px;
-	    height: 43px;
-	    line-height: 43px;
-	    text-align: center;
-	    font-size: 14px;
-	    background-color: #3eb39d;
-	    color: #ffffff;
-	    border: 1px #3eb39d solid;
-    }
-    
-    </style>
 </head>
 <body>
 <header>
-    <nav>
+    <nav class="nav_pc">
         <div class="nav_div1">
             <div class="logo_imgbox"><img src="../../../images/index/ic_home_logo.png" alt=""/></div>
             <ul class="left_ul">
@@ -53,6 +32,12 @@
             </a> 
         </ul>
     </nav>
+    <nav class="nav_mobile">
+        <div class="nav_div">
+            <span class="head_left myfont my_back">&#xe601;</span>
+            <span class="header_title">开通招聘</span>
+        </div>
+    </nav>
 </header>
 <section class="enterp_body">
     <div class="enterp_title">
@@ -60,8 +45,8 @@
         <span class="enterp_title_span2">Open recruitment service</span>
     </div>
     <div class="enterp_contentbox" id="enterp_status">
-        <div id="status_Box"></div><!-- 提示信息 -->
-        <div id="btn_box"></div><!-- 按钮 -->
+        <div id="status_Box">资料审核中......</div><!-- 提示信息 -->
+        <div id="btn_box"><span id="to_modify">重新修改资料</span></div><!-- 按钮 -->
     </div>
 </section>
 <footer>
