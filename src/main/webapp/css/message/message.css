@@ -128,7 +128,7 @@
 
 }
 @media screen and (max-width: 1024px) {
-    .message_title {
+    .message_title,.message_title2 {
         display: none;
     }
     .message_body {
@@ -222,7 +222,5 @@
     .mesfeed_contright>div:nth-last-of-type(1) {
         margin-top: 15px;
     }
-    .mesfee_pagesBox {
-	    margin-top: 25px;
-	}
+
 }
