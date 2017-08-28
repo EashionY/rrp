@@ -53,7 +53,13 @@ function posMa_addDom(mydata){
 				});
 				$(".poma_divdown").html(str);
 				$(".poma_edit").click(function(){//编辑职位按钮
-			        window.location.href="position_edit.html?postId="+$(this).prev().val();
+					var id='';
+					if(window.screen.width<1024){
+						id=$(this).parent().prev().val();
+					}else{
+						id=$(this).prev().val()
+					}
+			        window.location.href="position_edit.html?postId="+id;
 			    });
 				$(".c_o_btn").click(function(){
 					var that=$(this);
