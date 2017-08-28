@@ -15,44 +15,78 @@ function posMa_addDom(mydata){
 					 }else{
 						 showDate=new Date(v.post_time).format("yyyy/MM/dd")
 					 }
-					 var str1='<div class="poma_contbox"><div><div class="poma_left_div1">';
-					 var str2='<span class="poma_zwstate">已关闭</span>';
-					 var str3='<span class="poma_zwname">'+v.post_name+'</span>'+
-	                    '<span class="poma_fbtime">'+showDate+' 发布</span></div>'+
-	                    '<div class="poma_left_div2">'+
-	                    ' <span class="poma_salary">'+v.salary+'</span>'+
-	                    ' <span class="poma_jingyan">经验 '+v.work_exp+'</span>'+
-	                    ' <span class="poma_xueli">'+v.degree+'</span></div></div>';
-					 var str4='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><span class="poma_edit">编辑</span><span class="c_o_btn close_btn">关闭</span><span class="delete_btn">删除</span></div></div></div>';
-					 var str5='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><span class="poma_edit">编辑</span><span class="c_o_btn open_btn">开启</span><span class="delete_btn">删除</span></div></div></div>';
-					if(v.post_status==0){
-						str+=str1+str2+str3+str5;
+					if(window.screen.width<1024){
+						var strsj1='<div class="poma_contbox"> <div> <div class="poma_left_div1"> <div> ' +
+							'<span class="poma_zwname">'+v.post_name+'</span> </div> <div> ' +
+							'<span class="poma_jingyan">经验 '+v.work_exp+'</span> <span class="poma_xueli">'+v.degree+'</span> </div> </div> ' +
+							'<div class="poma_left_div2"> <div class="poma_salary">'+v.salary+'</div> ' +
+							'<div class="poma_fbtime">'+showDate+' 发布</div> </div> </div> ';
+						var strsj2='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/> <div> ' +
+							'<span class="poma_edit">编辑</span> <span class="c_o_btn open_btn">开启</span> ' +
+							'<span class="delete_btn">删除</span></div> <div> <span class="poma_zwstate">已关闭</span>' +
+							'</div> </div></div><div class="kong"></div>';
+						var strsj3='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><div> ' +
+							'<span class="poma_edit">编辑</span> <span class="c_o_btn close_btn">关闭</span> ' +
+							'<span class="delete_btn">删除</span> </div> </div> </div> <div class="kong"></div>';
+						if(v.post_status==0){
+							str+=(strsj1+strsj2);
+						}else{
+							str+=(strsj1+strsj3);
+						}
 					}else{
-						str+=str1+str3+str4;
+						var str1='<div class="poma_contbox"><div><div class="poma_left_div1">';
+						var str2='<span class="poma_zwstate">已关闭</span>';
+						var str3='<span class="poma_zwname">'+v.post_name+'</span>'+
+							'<span class="poma_fbtime">'+showDate+' 发布</span></div>'+
+							'<div class="poma_left_div2">'+
+							' <span class="poma_salary">'+v.salary+'</span>'+
+							' <span class="poma_jingyan">经验 '+v.work_exp+'</span>'+
+							' <span class="poma_xueli">'+v.degree+'</span></div></div>';
+						var str4='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><span class="poma_edit">编辑</span><span class="c_o_btn close_btn">关闭</span><span class="delete_btn">删除</span></div></div>';
+						var str5='<div class="poma_right"><input class="myinput" value="'+v.post_id+'"/><span class="poma_edit">编辑</span><span class="c_o_btn open_btn">开启</span><span class="delete_btn">删除</span></div></div>';
+						if(v.post_status==0){
+							str+=(str1+str2+str3+str5);
+						}else{
+							str+=(str1+str3+str4);
+						}
 					}
-				})
+				});
 				$(".poma_divdown").html(str);
 				$(".poma_edit").click(function(){//编辑职位按钮
 			        window.location.href="position_edit.html?postId="+$(this).prev().val();
 			    });
 				$(".c_o_btn").click(function(){
 					var that=$(this);
+					var id='';
+					if(window.screen.width<1024){
+						id=$(this).parent().prev().val();
+					}else{
+						id=$(this).prev().prev().val();
+					}
 					if($(this).attr("class")=="c_o_btn close_btn"){//关闭方法
-						$.get(ip+"/rrp/post/closeJob.do",{id:$(this).prev().prev().val()},function(data){
+						$.get(ip+"/rrp/post/closeJob.do",{id:id},function(data){
 							if(data.state==0){
 								that.removeClass("close_btn").addClass("open_btn") 
 								that.html("开启");
-								that.parent().prev().children().eq(0).children(".poma_zwname").before('<span class="poma_zwstate">已关闭</span>');
+								if(window.screen.width<1024){
+									that.parent().parent().append('<div><span class="poma_zwstate">已关闭</span></div>');
+								}else{
+									that.parent().prev().children().eq(0).children(".poma_zwname").before('<span class="poma_zwstate">已关闭</span>');
+								}
 								layer.msg(data.message)
 							}else{
 								layer.msg(data.message)
 							}
 						},'json')
 					}else{//开启方法
-						$.get(ip+"/rrp/post/openJob.do",{id:$(this).prev().prev().val()},function(data){
+						$.get(ip+"/rrp/post/openJob.do",{id:id},function(data){
 							if(data.state==0){
-								that.parent().prev().children().eq(0).children(".poma_zwstate").remove();
 								that.html("关闭");
+								if(window.screen.width<1024){
+									that.parent().next().remove();
+								}else{
+									that.parent().prev().children().eq(0).children(".poma_zwstate").remove();
+								}
 								that.removeClass("open_btn").addClass("close_btn") 
 								layer.msg(data.message)
 							}else{
@@ -144,7 +178,12 @@ $(function() {
 	}else{
 		var comStatus=getStatus();
 		if(comStatus==3){//判断是否开通企业版
-			var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:8};
+			var mydata='';
+			if(window.screen.width<1024){
+				mydata={companyId:getCookieValue("companyId"),page:1,pageSize:3};
+			}else{
+				mydata={companyId:getCookieValue("companyId"),page:1,pageSize:8};
+			}
 			posMaAdd_page(mydata);
 		}else{
 			to_open_inner(comStatus);//判断跳转页面
@@ -155,10 +194,20 @@ $(function() {
 $("#divselect ul li a").click(function(){//条件查询
 	var mystatus=$(this).attr("selectid");
 	if(mystatus==-1){
-		var mydata={companyId:getCookieValue("companyId"),page:1,pageSize:8};
+		var mydata='';
+		if(window.screen.width<1024){
+			mydata={companyId:getCookieValue("companyId"),page:1,pageSize:3};
+		}else{
+			mydata={companyId:getCookieValue("companyId"),page:1,pageSize:8};
+		}
 		posMaAdd_page(mydata);
 	}else{
-		var mydata={companyId:getCookieValue("companyId"),status:mystatus,page:1,pageSize:8};
+		var mydata='';
+		if(window.screen.width<1024){
+			mydata={companyId:getCookieValue("companyId"),status:mystatus,page:1,pageSize:3};
+		}else{
+			mydata={companyId:getCookieValue("companyId"),status:mystatus,page:1,pageSize:8};
+		}
 		posMaAdd_page(mydata);
 	}
 })

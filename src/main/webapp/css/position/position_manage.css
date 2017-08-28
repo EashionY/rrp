@@ -77,3 +77,126 @@
  	margin-bottom: 50px;
 }
 
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+
+}
+@media screen and (max-width: 1024px) {
+    .mybody {
+        width: 100%;
+    }
+    .poma_divtop {
+        width: 90%;
+        margin: 0 auto;
+        padding: 15px 0;
+    }
+    #poma_fabubtn {
+        width: 130px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 1.2rem;
+    }
+    .btn_text:before {
+        top: 9px;
+        left: -30px;
+        width: 15px;
+        height: 1px;
+    }
+    .btn_text:after {
+        top: 2px;
+        left: -23px;
+        height: 15px;
+        width: 1px;
+    }
+    .poma_divtop .divselect {
+        width: 130px;
+        margin-top: 0;
+    }
+    .poma_divtop .divselect cite {
+        width: 130px;
+        height: 33px;
+        line-height: 33px;
+    }
+    .poma_divtop .divselect ul {
+        width: 130px;
+    }
+    .poma_divtop .divselect ul li {
+        height: 30px;
+        line-height: 30px;
+    }
+    .poma_divtop .divselect ul li a {
+        height: 30px;
+        font-size: 1.2rem;
+    }
+    .poma_divtop .input_text {
+        font-size: 1.2rem;
+    }
+    .poma_divtop .input_icon {
+        right: 10px;
+        top: 2px;
+        font-size: 2rem;
+    }
+    .kong{
+        background-color: #EFEFEF;
+    }
+    .poma_divdown {
+        margin-bottom: 15px;
+    }
+    .poma_contbox{
+        width: 90%;
+        display: block;
+        padding: 15px 0;
+        margin: 0 auto;
+        border-bottom: none;
+    }
+    .poma_divdown>.poma_contbox:nth-of-type(1) {
+        padding-top: 15px;
+    }
+    .poma_divdown>.poma_contbox:nth-last-of-type(1) {
+        padding-bottom: 15px;
+    }
+    .poma_contbox>div:nth-of-type(1){
+        border-bottom: 1px #dddddd solid;
+        padding-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .poma_jingyan {
+        font-size: 1rem;
+        margin-left: 0;
+    }
+    .poma_xueli {
+        font-size: 1rem;
+        margin-left: 25px;
+    }
+    .poma_salary {
+        font-size: 1.2rem;
+        margin-top: 5px;
+    }
+    .poma_fbtime {
+        font-size: 1rem;
+        margin-top: 15px;
+    }
+    .poma_left_div2 {
+        margin-top: 0;
+        text-align: right;
+    }
+    .poma_right {
+        margin-top: 15px;
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .poma_zwname {
+         font-size: 1.5rem;
+    }
+    .poma_left_div1>div:nth-last-of-type(1){
+        margin-top: 15px;
+    }
+    .poma_zwstate {
+        font-size: 1rem;
+        margin-top: -5px;
+    }
+
+}
+
