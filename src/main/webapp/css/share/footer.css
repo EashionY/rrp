@@ -106,6 +106,39 @@ footer{
     .footer_mobile .myfont{margin-top: 5px;font-size: 2.5rem}
     .f_text{font-size: 1rem}
     .f_active{color: #3eb39d}
+    
+    .xx_font,.xw_font{
+        font-size: 2rem !important;
+    	margin-top: 8px !important;
+    	margin-bottom: 3px;
+    }
+    .xw_font{
+    	margin-top: 9px !important;
+    	margin-bottom: 2px;
+    }
+    .wd_font{
+        font-size: 2.2rem !important;
+    	margin-top: 8px !important;
+    	
+    }
+    .sy_font{
+     	font-size: 2.6rem !important;
+    	margin-bottom: -1px;
+    }
+    .rc_font{
+        font-size: 2rem !important;
+	    margin-top: 8px !important;
+	    margin-bottom: 3px;
+    }
+    .jl_font{
+	    font-size: 2.1rem !important;
+	    margin-top: 7px !important;
+	    margin-bottom: 3px;
+    }
+    .zw_font{
+	    font-size: 2.3rem !important;
+	    margin-bottom: 3px;
+    }
 
 
 }
