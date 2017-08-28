@@ -48,3 +48,98 @@
 .talent_btnbox>span:hover{cursor: pointer}
 .talent_mainright{width: 310px;font-size: 14px;color: #888888;line-height: 25px;
     display: -webkit-box;  -webkit-line-clamp: 4;  -webkit-box-orient: vertical;  overflow: hidden;}
+
+/*ÒÆ¶¯°æ*/
+@media screen and (min-width: 1024px) {
+
+}
+@media screen and (max-width: 1024px) {
+    .talent_divtop{
+        display: none;
+    }
+    .mybody {
+        width: 100%;
+    }
+    .talent_ser {
+        margin: 15px auto;
+    }
+    .serch_Box {
+        width: 90%;
+        height: 35px;
+        margin: 0 auto;
+        margin-top: 15px;
+    }
+    .serch_inputbox {
+        width: 100%;
+        height: 33px;
+    }
+    .serch_input {
+        width: 100%;
+        height: 30px;
+        margin-left: 0;
+        font-size: 1.2rem;
+        text-indent: 10px;
+    }
+    .serch_tubox {
+        width: 35px;
+        height: 100%;
+        line-height: 35px;
+    }
+    .font_30 {
+        font-size: 2rem;
+    }
+    .talent_contbox {
+        margin-top: 10px;
+    }
+    .talent_main {
+        background-color: #ffffff;
+        margin-top: 10px;
+        padding-bottom: 15px;
+    }
+    .talent_mainright{
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1rem;
+        line-height: 20px;
+        padding-top: 15px;
+        -webkit-line-clamp: 2;
+    }
+    .talent_mainbox {
+        width: 90%;
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+    .talent_mainleft .resu_img {
+        width: 60px;
+        height: 60px;
+    }
+    .talent_mainleft .resu_imgnext {
+        margin-left: 10px;
+        font-size: 1.2rem;
+    }
+    .talent_mainleft .resu_name {
+        font-size: 1.2rem;
+    }
+    .talent_mainleft .resu_imgnext>div {
+        margin-top: 5px;
+    }
+    .talent_zw ,.talent_xz{
+        font-size: 1.2rem;
+    }
+    .talent_mainleft .resu_sex>span {
+        margin-left: 15px;
+    }
+    .resu_sex2>span{
+        font-size: 1rem;
+    }
+    .talent_btnbox {
+        padding: 20px 0;
+        margin-right: 0;
+    }
+    .talent_btnbox>span {
+        width: 73px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 1rem;
+    }
+}

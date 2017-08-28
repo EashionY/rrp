@@ -8,12 +8,22 @@ function addDom(mydata){
 				 $.each(data.data,function(k,v){
 					 var birth=new Date(v.birth).format("yyyy");
 					 var age=parseInt(nowDate)-parseInt(birth);
-					 str+='<div class="talent_main"><div class="talent_mainbox">'+
-		                  '<div class="talent_mainleft"><div class="resu_img"><img src="../../../../'+v.head_img+'" alt=""/></div>'+
-		                  '<div class="resu_imgnext"><div class="resu_name">'+v.emp_name+'</div>'+
-		                  '<div class="resu_sex"><span class="talent_zw">'+v.job+'</span><span class="talent_xz">'+v.salary+'</span></div>'+
-		                  '<div class="resu_sex"><span>'+v.sex+'/'+age+'岁</span><span>'+v.top_degree+'</span><span>'+v.work_exp+'</span></div></div></div>'+
-		                  '<div class="talent_mainright">“'+v.self_evaluation+'”</div></div><div class="talent_btnbox"><input class="myinput" value="'+v.user_id+'"><span class="to_checkBtn">查看简历</span></div></div>';
+					 if(window.screen.width<1024){
+						 str+='<div class="talent_main"><div class="talent_mainbox"><div class="talent_mainleft"> ' +
+							 '<div class="resu_img"><img src="../../../../'+v.head_img+'" alt=""/></div>' +
+							 '<div class="resu_imgnext"><div class="resu_name">'+v.emp_name+'</div><div class="resu_sex">' +
+							 '<span class="talent_zw">'+v.job+'</span><span class="talent_xz">'+v.salary+'</span></div> ' +
+							 '<div class="resu_sex resu_sex2"><span>'+v.sex+'/'+age+'岁</span><span>'+v.top_degree+'</span><span>'+v.work_exp+'</span></div></div></div> ' +
+							 '<div class="talent_btnbox"><input class="myinput" value="'+v.user_id+'"><span class="to_checkBtn">查看简历</span> ' +
+							 '</div></div><div class="talent_mainright">“'+v.self_evaluation+'”</div></div>';
+					 }else{
+						 str+='<div class="talent_main"><div class="talent_mainbox">'+
+							 '<div class="talent_mainleft"><div class="resu_img"><img src="../../../../'+v.head_img+'" alt=""/></div>'+
+							 '<div class="resu_imgnext"><div class="resu_name">'+v.emp_name+'</div>'+
+							 '<div class="resu_sex"><span class="talent_zw">'+v.job+'</span><span class="talent_xz">'+v.salary+'</span></div>'+
+							 '<div class="resu_sex"><span>'+v.sex+'/'+age+'岁</span><span>'+v.top_degree+'</span><span>'+v.work_exp+'</span></div></div></div>'+
+							 '<div class="talent_mainright">“'+v.self_evaluation+'”</div></div><div class="talent_btnbox"><input class="myinput" value="'+v.user_id+'"><span class="to_checkBtn">查看简历</span></div></div>';
+					 }
 				 });
 				 $("#talent_Box").html(str);
 				 $(".to_checkBtn").click(function(){
@@ -96,7 +106,7 @@ $(".serch_tubox").click(function(){
 		var mydata={companyId:getCookieValue("companyId"),keyword:$(".serch_input").val(),page:1,pageSize:5};
 		add_page(mydata);
 	}else{
-		layer.msg("请先填写搜素条件")
+		layer.msg("请先填写搜索条件")
 	}
 })
 
