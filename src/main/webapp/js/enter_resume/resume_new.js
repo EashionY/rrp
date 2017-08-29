@@ -2,7 +2,7 @@ $(function() {
 	var userId=getCookieValue("userId");
 	var nowUrl= window.location.href;
 	if(userId==""){//未登录，请先登录
-	     window.location.href="../../Personal_edition/login.html";
+		window.location.href="../../Personal_edition/login.html";
 	}else{
 		var comStatus=getStatus();
 		if(comStatus==3){//判断是否开通企业版
@@ -16,3 +16,11 @@ $(function() {
 		}
 	}
 })
+$('#wrapper03').navbarscroll({
+	defaultSelect:0,
+	scrollerWidth:6,
+	fingerClick:1,
+	endClickScroll:function(obj){
+		console.log(obj.text())
+	}
+});

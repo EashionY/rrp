@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-    <nav>
+    <nav class="nav_pc">
         <div class="nav_div1">
             <div class="logo_imgbox"><img src="../../../images/index/ic_home_logo.png" alt=""/></div>
             <ul class="left_ul">
@@ -31,6 +31,13 @@
             </a> 
         </ul>
     </nav>
+    <!--手机端-->
+    <nav class="nav_mobile">
+        <div class="nav_div">
+            <span class="header_title">简历管理</span>
+            <a href="../../../index.html"><span class="head_right myfont qiye_font">&#xe99a;</span></a>
+        </div>
+    </nav>
 </header>
 <section class="mybody">
     <div class="serch_Box resuNew_ser">
@@ -39,13 +46,28 @@
     </div>
     <div class="resuNew_contbox">
         <div class="resuNew_menudiv">
-            <span id="new_btn" class="resuNew_menuactiv">新简历（<span id="new_num"></span>）</span>
-            <span id="view_btn">已查看（<span id="view_num"></span>）</span>
-            <span id="youyi_btn" >有意向（<span id="youyi_num"></span>）</span>
-            <span id="inter_btn">邀请面试（<span id="interview_num"></span>）</span>
-            <span id="nopass_btn">不合适（<span id="nopass_num"></span>）</span>
+            <span class="new_btn resuNew_menuactiv">新简历（<span class="new_num">1</span>）</span>
+            <span class="view_btn">已查看（<span class="view_num">1</span>）</span>
+            <span class="youyi_btn" >有意向（<span class="youyi_num">1</span>）</span>
+            <span class="inter_btn">邀请面试（<span class="interview_num">1</span>）</span>
+            <span class="nopass_btn">不合适（<span class="nopass_num">1</span>）</span>
         </div>
-        <div id="new_Box"></div>
+        <!--手机-->
+        <div class="wrapper wrapper03" id="wrapper03">
+            <div class="scroller">
+                <ul class="clearfix">
+                    <li class="new_btn"><a href="javascript:void(0)">新简历（<span class="new_num">1</span>）</a></li>
+                    <li class="view_btn"><a href="javascript:void(0)">已查看（<span class="view_num">1</span>）</a></li>
+                    <li class="youyi_btn"><a href="javascript:void(0)">有意向（<span class="youyi_num">1</span>）</a></li>
+                    <li class="inter_btn"><a href="javascript:void(0)">邀请面试（<span class="interview_num">1</span>）</a></li>
+                    <li class="nopass_btn"><a href="javascript:void(0)">不合适（<span class="nopass_num">1</span>）</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="new_Box">
+
+        </div>
     	
     </div>
     <!--分页-->
@@ -73,6 +95,14 @@
         </div>
         <div class="footer_bei">Copyright © 2017 rrenpin.com 成都市赞世文化传播有限责任公司 蜀ICP备15006619号-3</div>
     </div>
+    <!--手机端-->
+    <div class="footer_mobile">
+        <a href="../position/position_manage.html"><div><div class="myfont zw_font">&#xe672;</div><div class="f_text">职位管理</div></div></a>
+        <a href="../talent_recom.html"><div><div class="myfont rc_font">&#xe613;</div><div class="f_text">人才</div></div></a>
+        <a href="resume_new.html"><div class="f_active"><div class="myfont jl_font">&#xe61f;</div><div class="f_text">简历管理</div></div></a>
+        <a href="../enter_message.html"><div><div class="myfont xx_font">&#xe66e;</div><div class="f_text">消息</div></div></a>
+        <a href="../com_informa/com_my.html"><div><div class="myfont wd_font">&#xe63f;</div><div class="f_text">我的</div></div></a>
+    </div>
 </footer>
 </body>
 <script src="../../../js/jquery-1.11.3.js"></script>
@@ -82,5 +112,8 @@
 <script src="../../../js/dataMa.js"></script>
 <script src="../../../js/enterprise_bool.js"></script>
 <script src="../../../js/enter_resume/enter_resume_main.js"></script>
+<script type="text/javascript" src="../../../plug/menu/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../../plug/menu/js/iscroll.js"></script>
+<script type="text/javascript" src="../../../plug/menu/js/navbarscroll.js"></script>
 <script src="../../../js/enter_resume/resume_new.js"></script>
 </html>

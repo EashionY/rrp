@@ -56,15 +56,15 @@ function add_page(mydata,nowUrl){//分页
 }
 function menu_num(){
 	var mydata={companyId:getCookieValue("companyId"),deliveryStatus:0,page:1,pageSize:5}
-	$("#new_num").html(getNum(mydata));
+	$(".new_num").html(getNum(mydata));
 	var mydata1={companyId:getCookieValue("companyId"),deliveryStatus:1,page:1,pageSize:5}
-	$("#view_num").html(getNum(mydata1));
+	$(".view_num").html(getNum(mydata1));
 	var mydata2={companyId:getCookieValue("companyId"),deliveryStatus:2,page:1,pageSize:5}
-	$("#youyi_num").html(getNum(mydata2));
+	$(".youyi_num").html(getNum(mydata2));
 	var mydata3={companyId:getCookieValue("companyId"),deliveryStatus:3,page:1,pageSize:5}
-	$("#interview_num").html(getNum(mydata3));
+	$(".interview_num").html(getNum(mydata3));
 	var mydata4={companyId:getCookieValue("companyId"),deliveryStatus:4,page:1,pageSize:5}
-	$("#nopass_num").html(getNum(mydata4));
+	$(".nopass_num").html(getNum(mydata4));
 }
 function addDom(mydata,nowUrl){//添加节点
 	$.get(ip+"/rrp/delivery/viewNewResume.do",mydata,function(data){
@@ -74,36 +74,67 @@ function addDom(mydata,nowUrl){//添加节点
 				//console.log(data.data);
 				var mystr='';
 				$.each(data.data,function(k,v){
-					var str='<div class="resuNew_mainbox"><div class="resuNew_mainleft">'+
-				    '<div class="resu_img"><img src="../../../../'+v.headImg+'" alt=""/></div><div class="resu_imgnext">'+
-				    '<div class="resu_name">'+v.empName+'</div><div class="resu_sex">'+
-				    '<span class="resuNew_zw">'+v.postName+'</span><span class="resuNew_xz">'+v.salary+'</span></div>'+
-				    '<div class="resu_sex"><span>'+v.sex+'/'+v.age+'岁</span><span>'+v.topDegree+'</span><span>'+v.workExp+'</span></div></div></div>'+
-				    '<div class="resuNew_mainright"><div class="resuNew_caozuo">'+
-				    '<input class="myinput" value="'+v.userId+'">'+
-				    '<input class="myinput" value="'+v.delivery_id+'">'+
-				    '<span class="resuNew_chakbtn">查看简历</span>';
-				    var str0='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.delivery_time).format("yyyy-MM-dd")+'</div></div></div>';
-				    var str1='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.check_time).format("yyyy-MM-dd")+'</div></div></div>';
-				    var str2='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.intend_time).format("yyyy-MM-dd")+'</div></div></div>';
-				    var str3='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.invite_time).format("yyyy-MM-dd")+'</div></div></div>';
-				    var str4='<div class="resuNew_time">'+new Date(v.unfit_time).format("yyyy-MM-dd")+'</div></div></div></div>';
-					if(mydata.deliveryStatus==0){
-						mystr+=str+str0;
-					}else if(mydata.deliveryStatus==1){
-						mystr+=str+str1
-					}else if(mydata.deliveryStatus==2){
-						mystr+=str+str2
-					}else if(mydata.deliveryStatus==3){
-						mystr+=str+str3
-					}else if(mydata.deliveryStatus==4){
-						mystr+=str+str4
+					if(window.screen.width<1024){
+						var str_1='<div class="resuNew_mainbox"> <div class="resuNew_mainleft"> <div class="left_left"> ' +
+							'<div class="resu_img"><img src="../../../../'+v.headImg+'" alt=""/></div> ' +
+							'<div class="resu_imgnext"> <div class="resu_name">'+v.empName+'</div> <div class="resu_sex"> ' +
+							'<span class="resuNew_zw">'+v.postName+'</span> <span class="resuNew_xz">'+v.salary+'</span> </div> ' +
+							'<div class="resu_sex"> <span>'+v.sex+'/'+v.age+'岁</span><span>'+v.topDegree+'</span><span>'+v.workExp+'</span> </div> </div> </div> ';
+						var str10='<div class="resuNew_time">'+new Date(v.delivery_time).format("yyyy-MM-dd")+'</div>';
+						var str11='<div class="resuNew_time">'+new Date(v.check_time).format("yyyy-MM-dd")+'</div>';
+						var str12='<div class="resuNew_time">'+new Date(v.intend_time).format("yyyy-MM-dd")+'</div>';
+						var str13='<div class="resuNew_time">'+new Date(v.invite_time).format("yyyy-MM-dd")+'</div>';
+						var str14='<div class="resuNew_time">'+new Date(v.unfit_time).format("yyyy-MM-dd")+'</div>';
+						var strend=' </div> <div class="resuNew_mainright"> <div class="resuNew_caozuo"> ' +
+							'<input class="myinput" value="'+v.userId+'"> <input class="myinput" value="'+v.delivery_id+'"> ' +
+							'<span class="resuNew_chakbtn">查看简历</span> ';
+						var strend2='<span class="resuNew_delebtn">删除</span> </div> </div> </div> <div class="kong"></div>';
+						var strend22='</div> </div> </div> <div class="kong"></div>';
+						if(mydata.deliveryStatus==0){
+							mystr+=str_1+str10+strend+strend2;
+						}else if(mydata.deliveryStatus==1){
+							mystr+=str_1+str11+strend+strend2;
+						}else if(mydata.deliveryStatus==2){
+							mystr+=str_1+str12+strend+strend2;
+						}else if(mydata.deliveryStatus==3){
+							mystr+=str_1+str13+strend+strend2;
+						}else if(mydata.deliveryStatus==4){
+							mystr+=str_1+str14+strend+strend22;
+						}
+					}else{
+						var str='<div class="resuNew_mainbox"><div class="resuNew_mainleft">'+
+							'<div class="resu_img"><img src="../../../../'+v.headImg+'" alt=""/></div><div class="resu_imgnext">'+
+							'<div class="resu_name">'+v.empName+'</div><div class="resu_sex">'+
+							'<span class="resuNew_zw">'+v.postName+'</span><span class="resuNew_xz">'+v.salary+'</span></div>'+
+							'<div class="resu_sex"><span>'+v.sex+'/'+v.age+'岁</span><span>'+v.topDegree+'</span><span>'+v.workExp+'</span></div></div></div>'+
+							'<div class="resuNew_mainright"><div class="resuNew_caozuo">'+
+							'<input class="myinput" value="'+v.userId+'">'+
+							'<input class="myinput" value="'+v.delivery_id+'">'+
+							'<span class="resuNew_chakbtn">查看简历</span>';
+						var str0='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.delivery_time).format("yyyy-MM-dd")+'</div></div></div>';
+						var str1='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.check_time).format("yyyy-MM-dd")+'</div></div></div>';
+						var str2='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.intend_time).format("yyyy-MM-dd")+'</div></div></div>';
+						var str3='<span class="resuNew_delebtn">删除</span></div><div class="resuNew_time">'+new Date(v.invite_time).format("yyyy-MM-dd")+'</div></div></div>';
+						var str4='<div class="resuNew_time">'+new Date(v.unfit_time).format("yyyy-MM-dd")+'</div></div></div></div>';
+						if(mydata.deliveryStatus==0){
+							mystr+=str+str0;
+						}else if(mydata.deliveryStatus==1){
+							mystr+=str+str1
+						}else if(mydata.deliveryStatus==2){
+							mystr+=str+str2
+						}else if(mydata.deliveryStatus==3){
+							mystr+=str+str3
+						}else if(mydata.deliveryStatus==4){
+							mystr+=str+str4
+						}
 					}
 				});
 				$("#new_Box").html(mystr);
 				$(".resuNew_chakbtn").click(function(){//查看简历页面跳转
-				    window.location.href="resume_view.html?userId="+$(this).prev().prev().val()+"&deliveryId="+$(this).prev().val()+"&prevUrl="+nowUrl+"&state="+data.data[0].delivery_status;
-				})
+					var uid=$(this).prev().prev().val();
+					var did=$(this).prev().val();
+				    window.location.href="resume_view.html?userId="+uid+"&deliveryId="+did+"&prevUrl="+nowUrl+"&state="+data.data[0].delivery_status;
+				});
 				$(".resuNew_delebtn").click(function(){//删除
 					var deliveryId=$(this).prev().prev().val();
 					var that=$(this);
@@ -130,21 +161,21 @@ function addDom(mydata,nowUrl){//添加节点
 	},'json')
 }
 
-$("#new_btn").click(function(){//新简历按钮
+$(".new_btn").click(function(){//新简历按钮
 	window.location.href="resume_new.html";
 })
 
-$("#view_btn").click(function(){//被查看按钮
+$(".view_btn").click(function(){//被查看按钮
 	window.location.href="resume_checked.html";
 })
 
-$("#youyi_btn").click(function(){//有意向按钮
+$(".youyi_btn").click(function(){//有意向按钮
 	window.location.href="resume_youyi.html";
 })
-$("#inter_btn").click(function(){//邀请面试按钮
+$(".inter_btn").click(function(){//邀请面试按钮
 	window.location.href="resume_mianshi.html";
 })
-$("#nopass_btn").click(function(){//不合适按钮
+$(".nopass_btn").click(function(){//不合适按钮
 	window.location.href="resume_unfit.html";
 })
 

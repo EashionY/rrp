@@ -15,4 +15,12 @@ $(function() {
 			to_open_inner(comStatus);//判断跳转页面
 		}
 	}
-})
+});
+$('#wrapper03').navbarscroll({
+	defaultSelect:4,
+	scrollerWidth:6,
+	fingerClick:1,
+	endClickScroll:function(obj){
+		console.log(obj.text())
+	}
+});
