@@ -57,7 +57,7 @@ $(function() {
 	}
 })
 
-$("#posiEdi_btn").click(function(){
+$(".posiEdi_Btn").click(function(){
 	var Request = new Object(); 
 	Request = GetRequest(); 
 	var postId=Request['postId']; //获取参数

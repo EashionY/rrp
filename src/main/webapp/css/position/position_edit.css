@@ -176,7 +176,9 @@
 
 /*ÒÆ¶¯°æ*/
 @media screen and (min-width: 1024px) {
-
+    .posiEdi_title_mo{
+        display: none;
+    }
 }
 @media screen and (max-width: 1024px) {
     .job_title,.posiEdi_btn{
@@ -189,12 +191,16 @@
         font-size: 1.2rem;
     }
     .posiEdi_body{
-       width: 100%;
+        width: 100%;
+        overflow: hidden;
     }
     .posiEdi_mainbox {
         margin-top: 0;
         padding: 0 0;
         border-top: 1px #fafafa solid;
+        background-color: #ffffff;
+        padding-bottom: 15px;
+        margin-bottom: 0;
     }
     .posiEdi_divbox{
         width: 90%;
@@ -289,4 +295,35 @@
 	    width: 100%;
 	    font-size:1.2rem;
 	}
+    /*Ö°Î»±à¼­*/
+    .posiEdi_inputdiv {
+        font-size: 1.2rem;
+    }
+    .posiEdi_title_pc{
+        display: none;
+    }
+    .posiEdi_title_mo{
+        width: 100%;
+        background-color: #fafafa;
+        padding: 15px 0;
+        position: relative;
+    }
+    .posiEdi_title2{
+        display: block;
+        font-size: 1.2rem;
+        margin-top: 0;
+    }
+    .posiEdi_title_mo:before,
+    .posiEdi_title_mo:after{
+        position: absolute;
+        top: 0;
+        left: -10%;
+        background-color: #fafafa;
+        content: "";
+        width: 10%;
+        height: 100%;
+    }
+    .posiEdi_title_mo:after{
+        left: 100%;
+    }
 }

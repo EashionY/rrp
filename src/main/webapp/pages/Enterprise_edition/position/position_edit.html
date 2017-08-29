@@ -14,7 +14,7 @@
 </head>
 <body>
 <header>
-    <nav>
+    <nav class="nav_pc">
         <div class="nav_div1">
             <div class="logo_imgbox"><img src="../../../images/index/ic_home_logo.png" alt=""/></div>
             <ul class="left_ul">
@@ -31,13 +31,23 @@
             </a> 
         </ul>
     </nav>
+    <nav class="nav_mobile">
+        <div class="nav_div">
+            <span class="head_left myfont back">&#xe60f;</span>
+            <span class="header_title">职位编辑</span>
+            <span class="head_right right_text posiEdi_Btn">保存</span>
+        </div>
+    </nav>
 </header>
 <section class="mybody posiEdi_body ">
     <div class="job_title">编辑职位</div>
     <div class="posiEdi_mainbox">
         <div class="posiEdi_divbox">
-            <div class="job_title posiEdi_title">编辑描述</div>
-            <div class="posiEdi_inputdiv">职位名称：<input type="text" id="po_name"/></div>
+            <div class="job_title posiEdi_title posiEdi_title_pc">编辑描述</div>
+            <div class=" posiEdi_title_mo">
+                <div class="job_title posiEdi_title2">编辑描述</div>
+            </div>
+            <div class="posiEdi_inputdiv posiEdi_inputdiv2"><div class="input_prev">职位名称：</div><input type="text" id="po_name"/></div>
             <div class="posiEdi_inputdiv posiEdi_inputdiv_cs">
                 <div>工作城市：</div>
                 <div  class="city_input">
@@ -45,11 +55,15 @@
                     <span class="myfont input_icon input_icon2">&#xe681;</span>
                 </div>
             </div>
-            <div class="posiEdi_inputdiv posiEdi_inputdiv_ld">职位亮点：<span id="po_ldBox"></span><span id="po_addld">+添加标签</span></div>
+            <div class="posiEdi_inputdiv posiEdi_inputdiv_ld "><div class="input_prev">职位亮点：</div><span id="po_ldBox"></span><span id="po_addld">+添加标签</span></div>
         </div>
         <div class="posiEdi_divbox posiEdi_divbox2">
-            <div class="job_title posiEdi_title">职位要求</div>
-            <div class="posiEdi_inputdiv posiEdi_inputdiv_xz">工作性质：<span>全职</span><span>兼职</span><span>实习</span></div>
+            <div class="job_title posiEdi_title posiEdi_title_pc">职位要求</div>
+            <div class=" posiEdi_title_mo">
+                <div class="job_title posiEdi_title2">职位要求</div>
+            </div>
+            <div class="posiEdi_inputdiv posiEdi_inputdiv_xz posiEdi_inputdiv2"><div class="input_prev">工作性质：</div><span class="xz_active">全职</span><span>兼职</span><span>实习</span></div>
+
             <div class="posiEdi_inputdiv posiEdi_inputdiv_cs">
                 <div>工作经验：</div>
                 <div id="divselect_work" class="divselect">
@@ -116,7 +130,8 @@
                 </div>
             </div>
         </div>
-        <div class="posiEdi_btn"><span id="posiEdi_btn">修改</span></div>
+        <div class="posiEdi_btn"><span id="posiEdi_btn" class="posiEdi_Btn">修改</span></div>
+
     </div>
 </section>
 <footer>
