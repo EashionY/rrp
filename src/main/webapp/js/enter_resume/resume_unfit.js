@@ -7,7 +7,11 @@ $(function() {
 		var comStatus=getStatus();
 		if(comStatus==3){//判断是否开通企业版
 			var deliveryStatus=4;
-			var mydata={companyId:getCookieValue("companyId"),deliveryStatus:deliveryStatus,page:1,pageSize:5}
+			var size=5;
+			if(window.screen.width<1024){
+				size=3;
+			}
+			var mydata={companyId:getCookieValue("companyId"),deliveryStatus:deliveryStatus,page:1,pageSize:size}
 			add_page(mydata,nowUrl);
 			menu_num();
 			serchBox(mydata,nowUrl);
@@ -20,7 +24,5 @@ $('#wrapper03').navbarscroll({
 	defaultSelect:4,
 	scrollerWidth:6,
 	fingerClick:1,
-	endClickScroll:function(obj){
-		console.log(obj.text())
-	}
+	endClickScroll:function(obj){}
 });

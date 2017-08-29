@@ -20,7 +20,5 @@ $('#wrapper03').navbarscroll({
 	defaultSelect:3,
 	scrollerWidth:6,
 	fingerClick:1,
-	endClickScroll:function(obj){
-		console.log(obj.text())
-	}
+	endClickScroll:function(obj){}
 });

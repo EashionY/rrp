@@ -134,8 +134,8 @@
     .message_body {
         width: 100%;
         margin-top: 0;
-        margin-bottom: 25px;
-        background-color: #fafafa;
+        margin-bottom: 50px;
+        background-color: #efefef;
     }
     .message_mainBox {
         width: 100%;
@@ -148,7 +148,7 @@
     }
     .message_menu {
         font-size: 1.2rem;
-        padding-bottom: 10px;
+        padding-bottom: 11px;
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -157,7 +157,7 @@
         height: 2px;
     }
     .message_contBox {
-        padding-bottom: 25px;
+        padding-bottom: 10px;
     }
     .message_contmainbox {
         margin-top: 0;
@@ -222,5 +222,8 @@
     .mesfeed_contright>div:nth-last-of-type(1) {
         margin-top: 15px;
     }
+    .mesfee_pagesBox {
+	    margin-top: 25px;
+	}
 
 }

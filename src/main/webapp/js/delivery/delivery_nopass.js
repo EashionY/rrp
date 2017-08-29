@@ -47,7 +47,8 @@ function addDom(mydata){
 					    }
 					})
 			   }else{
-				   //layer.msg("对不起，没有符合条件的数据！") 
+				   var str='<div class="delivery_leftcontbox"><div class="deli_tips">无记录！!</div></div>'; 
+				   $("#delivery_nopassList").html(str);
 			   }
 		   }else{
 			   layer.msg(result.message) 

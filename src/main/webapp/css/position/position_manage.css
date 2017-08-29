@@ -84,6 +84,7 @@
 @media screen and (max-width: 1024px) {
     .mybody {
         width: 100%;
+        padding-bottom:25px;
     }
     .poma_divtop {
         width: 90%;

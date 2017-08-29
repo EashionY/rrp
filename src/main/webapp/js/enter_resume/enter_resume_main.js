@@ -154,6 +154,9 @@ function addDom(mydata,nowUrl){//添加节点
 			    	});
 					
 				})
+			}else{
+				var str='<div class="enter_tips">空...</div>';
+				$("#new_Box").html(str);
 			}
 		}else{
 			layer.msg(data.message);

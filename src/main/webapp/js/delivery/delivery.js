@@ -1,6 +1,9 @@
 /**
  * Created by Administrator on 2017/7/12.
  */
+$(".deli_back").click(function(){
+	window.location.href="../my/pers_infor.html";
+})
 function getTotal(mydata){//利用同步获取总条数
 	var totalNum=0;
 	$.ajax({

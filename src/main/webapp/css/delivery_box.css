@@ -225,6 +225,13 @@
 	text-align:center;
 	margin-bottom: 50px;
 }
+.deli_tips{
+	margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    padding: 50px 0;
+    font-size: 2rem;
+}
 /*ÒÆ¶¯°æ*/
 @media screen and (min-width: 1024px) {
 
@@ -240,6 +247,7 @@
     }
     .delivery_left {
         width: 100%;
+        background-color: #efefef; 
     }
     .delivery_leftmain {
         width: 100%;
@@ -252,9 +260,9 @@
     }
     .delivery_menu {
         font-size: 1.2rem;
-        padding-bottom: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-bottom: 11px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
     .delivery_menuactive:after {
         top: 25px;
