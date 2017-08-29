@@ -15,7 +15,7 @@
 </head>
 <body>
 <header>
-    <nav>
+    <nav class="nav_pc">
         <div class="nav_div1">
             <div class="logo_imgbox"><img src="../../../images/index/ic_home_logo.png" alt=""/></div>
             <ul class="left_ul">
@@ -32,6 +32,14 @@
             </a> 
         </ul>
     </nav>
+    <!--手机端-->
+    <nav class="nav_mobile">
+        <div class="nav_div">
+            <span class="head_left myfont back">&#xe60f;</span>
+            <span class="header_title">修改密码</span>
+            <span class="head_right right_text psd_Btn">保存</span>
+        </div>
+    </nav>
 </header>
 <section class="mybody com_body">
     <div class="com_left">
@@ -43,8 +51,8 @@
             <div class="psd_div1">账号：<span id="com_account"></span></div>
             <div class="psd_inputbox"><input id="old_psd" type="password" placeholder="请输入当前密码"/></div>
             <div class="psd_inputbox"><input id="new_psd" type="password" placeholder="请输入新密码"/></div>
-            <div class="psd_inputbox"><input id="new_psd2" type="password" placeholder="确认新密码"/></div>
-            <div class="psd_btn">保存</div>
+            <div class="psd_inputbox psd_inputbox3"><input id="new_psd2" type="password" placeholder="确认新密码"/></div>
+            <div class="psd_btn psd_Btn">保存</div>
         </div>
     </div>
 

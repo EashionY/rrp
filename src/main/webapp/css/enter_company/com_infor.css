@@ -305,5 +305,14 @@
     .edui-default .edui-editor-iframeholder {
 	    width:100% !important;
 	}
-
+    /*修改密码*/
+    .com_right2{
+        margin-top: 0;
+        margin-bottom: 15px;
+        height: auto;
+        background-color: #ffffff;
+    }
+    .com_right2 .my_rightmain {
+        width: 100%;
+    }
 }

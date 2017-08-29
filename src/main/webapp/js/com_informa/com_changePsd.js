@@ -13,7 +13,7 @@ $(function() {
 		
 	}
 })
-$(".psd_btn").click(function(){
+$(".psd_Btn").click(function(){
 	var uid = getCookieValue("userId");
 	var oldpsd=$("#old_psd").val();
 	var newpsd=$("#new_psd").val();
