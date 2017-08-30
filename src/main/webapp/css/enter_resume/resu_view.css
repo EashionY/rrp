@@ -77,6 +77,12 @@
     .resu_top,#ifr{
       display: none;
     }
+    .resu_top2{
+    	display: block;
+    }
+    .resu_top {
+	    margin-top: 0;
+	}
     .mybody {
         width: 100%;
     }

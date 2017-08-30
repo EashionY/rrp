@@ -26,7 +26,7 @@ $(function() {
 			$("#uId").val(userId2);
 			$.get(ip+'/rrp/resume/findByUserId.do',{userId:userId2},function(data){
 				if(data.state==0){
-					//console.log(data.data);
+					console.log(data.data);
 					$(".revi_job").html(data.data.job);
 					$(".revi_head").attr("src","../../../../"+data.data.head_img);
 					$(".resu_name").html(data.data.emp_name);
