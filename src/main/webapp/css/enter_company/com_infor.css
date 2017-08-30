@@ -2,7 +2,7 @@
 .comInfo_contdiv{display: flex;margin-top: 30px}
 .comInfo_contbox>.comInfo_contdiv:nth-of-type(1){padding-top: 50px}
 .comInfo_contbox>.comInfo_contdiv:nth-last-of-type(1){padding-bottom: 50px}
-.comInfo_contdiv>div:nth-of-type(1){font-size: 18px;color: #333333;line-height:50px;width: 95px;margin-right: 8px;}
+.comInfo_contdiv>div:nth-of-type(1){font-size: 18px;color: #333333;line-height:50px;margin-right: 8px;}
 .comInfo_contdiv input{width: 835px;height: 50px;border: 1px #dddddd solid;
     text-indent: 23px;font-size: 16px;color: #333333;outline-color:#3eb39d}
 .comInfo_logo{width: 180px;height: 180px;border: 1px #dddddd dashed;
@@ -315,4 +315,5 @@
     .com_right2 .my_rightmain {
         width: 100%;
     }
+    
 }

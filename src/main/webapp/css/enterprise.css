@@ -180,7 +180,7 @@
 	cursor: pointer
 }
 
- #enterp_status{
+#enterp_status{
      height: 300px !important;
      margin-bottom:50px !important;
 }
@@ -188,6 +188,24 @@
     text-align: center;
     padding-top: 50px;
     font-size: 18px;
+}
+#btn_box{
+	text-align: center;
+	margin-top:30px;
+}
+#btn_box:honer{
+	cursor: pointer
+}
+#btn_box>span{
+	display: inline-block;
+	width: 112px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #3eb39d;
+    color: #ffffff;
+    border: 1px #3eb39d solid;
 }
 /*ÒÆ¶¯°æ*/
 @media screen and (min-width: 1024px) {
