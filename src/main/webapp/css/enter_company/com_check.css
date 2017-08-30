@@ -1,0 +1,57 @@
+ @media screen and (max-width: 1024px) {
+.mybody {
+	width: 100%;
+}
+.comInfo_contbox {
+	width: 100%;
+	margin-bottom: 0;
+}
+.comInfo_contdiv {
+    display: flex;
+    margin-top: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+.comInfo_contbox>.comInfo_contdiv:nth-of-type(1) {
+    padding-top: 15px;
+    margin-top: 0;
+}
+.com_info_check {
+    font-size: 1.2rem;
+    color: #333333;
+    line-height: 30px;
+    width: 100%;
+}
+.comInfo_contdiv>div:nth-of-type(1) {
+    font-size: 1.2rem;
+    line-height: 30px;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+.comInfo_logo_check {
+    width: 90px;
+    height: 90px;
+        margin-top: 10px;
+}
+.comInfo_logo_check>img{
+ 	width: 100%;
+    height: 100%;
+}
+.com_info_check2 {
+    font-size: 1.2rem;
+    width: 100%;
+    line-height: 30px;
+}
+#check_zhizhao {
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 1.2rem;
+}
+#com_zhizhao_check {
+    width: 100%;
+    display: none;
+    cursor: pointer;
+}
+    }
+	

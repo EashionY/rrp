@@ -1,0 +1,36 @@
+ @media screen and (max-width: 1024px) {
+ .mybody {
+    width: 100%;
+   
+}
+.comInfo_contdiv {
+    display: block;
+    margin-top: 20px;
+    width: 90%;
+}
+.comInfo_contbox>.comInfo_contdiv:NTH-LAST-OF-TYPE(2){
+	padding-bottom: 15px;
+}
+.comInfo_contdiv {
+    display: block;
+    margin-top: 15px;
+}
+.comInfo_contdiv>div:nth-of-type(1) {
+    margin-bottom: 10px;
+}
+#lice_check {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.comInfo_contdiv .divselect,
+.comInfo_contdiv .divselect ul {
+    width: 100%;
+}
+.comInfo_rongzi {
+    font-size: 1.2rem;
+}
+.comInfo_rongzi>span {
+    padding: 10px 15px;
+    margin-left: 8px;
+}
+ }

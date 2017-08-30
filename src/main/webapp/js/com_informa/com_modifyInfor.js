@@ -89,7 +89,7 @@ $(function() {
 		}
 	}
 })
-$("#modify_btn").click(function(){
+$(".modify_Btn").click(function(){
 	var list=new Array();
 	list.push($("#com_name").val());//名字
 	list.push($("#com_logo").attr("src"));//logo
