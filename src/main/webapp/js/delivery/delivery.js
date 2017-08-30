@@ -2,7 +2,13 @@
  * Created by Administrator on 2017/7/12.
  */
 $(".deli_back").click(function(){
-	window.location.href="../my/pers_infor.html";
+	var prev=document.referrer;
+	if(prev.split("/")[prev.split("/").length-1]=='mes_feedback.html'){
+		window.location.href=prev;
+	}else{
+		window.location.href="../my/pers_infor.html";
+	}
+	
 })
 function getTotal(mydata){//利用同步获取总条数
 	var totalNum=0;

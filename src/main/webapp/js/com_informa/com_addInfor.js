@@ -6,7 +6,7 @@ $(function() {
 	}else{
 		var comStatus=getStatus();
 		//console.log(comStatus)
-		if(comStatus!=0 && comStatus!=2){//判断是否开通企业版
+		if(comStatus!=0 && comStatus!=2 && comStatus!=3){//判断是否开通企业版
 			if(getCookieValue("companyName")!="undefined"){
 				$("#com_name").val(getCookieValue("companyName"));
 			}			
@@ -53,6 +53,8 @@ $(function() {
 	        })
 		}else if(comStatus==2){//审核中
 			window.location.href="../../Personal_edition/enterprise/enterprise_status.html"
+		}else if(comStatus==3){
+			window.location.href="../talent_recom.html"
 		}else{//未验证邮箱
 			window.location.href="../../Personal_edition/enterprise/enterprise1.html"
 		}

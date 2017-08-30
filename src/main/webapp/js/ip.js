@@ -1,5 +1,5 @@
 //设置IP地址
-var ip='http://192.168.0.104:8080';
+var ip='http://192.168.0.102:8080';
 
 function addCookie(name,value,days,path){   /**添加设置cookie**/  
     var name = escape(name);  
@@ -103,5 +103,19 @@ function myonload1(zhurl,qyurl,exiturl){
        });
 	}
 }
+//返回上一页
+$(".back").click(function(){
+    window.location.href=document.referrer
+});
+//退出
+$(".exit").click(function(){
+ 	  deleteCookie("userName","/");
+ 	  deleteCookie("userId","/");
+ 	  deleteCookie("userPhone","/");
+ 	  layer.msg("退出成功",{time:1000},function(){
+ 		 window.location.href='../../../index.html';
+ 	  })
+ });
+
 
 
