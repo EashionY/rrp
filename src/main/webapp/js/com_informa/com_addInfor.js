@@ -31,7 +31,11 @@ $(function() {
 	        $('#btnCrop').on('click', function(){
 	            imgMain= cropper.getDataURL();
 	            $('#imgDiv').html('');
-	            $('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:180px;box-shadow:0px 0px 12px #7E7E7E;" ><p>180px*180px</p>');
+	            if(window.screen.width<1024){
+	            	$('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:100px;box-shadow:0px 0px 12px #7E7E7E;" ><p>100px*100px</p>');
+	            }else{
+	            	$('#imgDiv').append('<img src="'+imgMain+'" align="absmiddle" style="width:180px;box-shadow:0px 0px 12px #7E7E7E;" ><p>180px*180px</p>');
+	            }
 	        })
 	        $('#btnZoomIn').on('click', function(){
 	            cropper.zoomIn();
@@ -54,8 +58,7 @@ $(function() {
 		}
 	}
 })
-$("#commit_btn").click(function(){
-	
+$(".commit_Btn").click(function(){
 	var list=new Array();
 	list.push($("#com_name").val());//名字
 	list.push($("#com_logo").attr("src"));//logo
