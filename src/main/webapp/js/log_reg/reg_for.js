@@ -16,14 +16,16 @@ $(".reg_phone").on("blur",function(){
     }
 });
 $(".reg_psd").on("blur",function(){
+	
     var psd=$(this).val();
+    console.log(psd)
     var num=0;
     var zm=false,sz=false,fh=false;
     if(psd.search(/[A-Za-z]/)!=-1) {num+=1;}else{zm=true}
     if(psd.search(/[0-9]/)!=-1) {num+=1;}else{sz=true}
     if(psd.search(/[-+_!@#$%^&*().]/)!=-1) {num+=1;}else{fh=true}
     if(psd.length>=6 && psd.length<=16){
-        if(num<3){
+        if(num<2){
             $(this).parent().next().css("opacity",1);
             if(zm==true){
                 $(this).parent().next().html("*至少有一个字母")}
