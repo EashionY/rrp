@@ -6,6 +6,7 @@ import com.taobao.api.request.AlibabaAliqinFcSmsNumSendRequest;
 import com.taobao.api.response.AlibabaAliqinFcSmsNumSendResponse;
 
 /**
+ * 阿里大于短信发送接口
  * 给指定手机发送短信
  * @author Eashion
  *

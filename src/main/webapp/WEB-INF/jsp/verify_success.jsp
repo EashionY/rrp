@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+<title>验证结果</title>
 </head>
 <body>
 	邮箱验证成功，请继续完善资料！

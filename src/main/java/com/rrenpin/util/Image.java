@@ -9,7 +9,11 @@ import java.io.OutputStream;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
-
+/**
+ * Base64编码与图片文件的相互转换
+ * @author Eashion
+ *
+ */
 public class Image {
 
 	/**

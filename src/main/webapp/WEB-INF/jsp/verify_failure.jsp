@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="../../js/jquery-1.11.3.js"></script>
-<title>Insert title here</title>
+<title>验证结果</title>
 </head>
 <body>
 	邮箱验证失败，错误消息：${message }
