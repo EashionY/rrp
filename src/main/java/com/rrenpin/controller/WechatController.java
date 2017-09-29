@@ -29,7 +29,7 @@ public class WechatController extends ExceptionController {
 	 * @throws IOException 
 	 */
 	@RequestMapping("/verify.do")
-	public void getOpenID(HttpServletRequest request,HttpServletResponse response) throws IOException{
+	public void verify(HttpServletRequest request,HttpServletResponse response) throws IOException{
 		String signature = request.getParameter("signature");
 		String timestamp = request.getParameter("timestamp");
 		String nonce = request.getParameter("nonce");
@@ -101,10 +101,17 @@ public class WechatController extends ExceptionController {
         return "";
     }
 	
+	/**
+	 * ªÒ»°access_token
+	 * @return
+	 */
 	@RequestMapping("/getToken.do")
 	@ResponseBody
 	public JsonResult getToken(){
 		String token = AccessTokenUtil.getFromCache();
+		if(token == null){
+			token = AccessTokenUtil.getNew();
+		}
 		return new JsonResult(token);
 	}
 }

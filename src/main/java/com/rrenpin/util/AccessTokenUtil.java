@@ -24,13 +24,13 @@ public class AccessTokenUtil {
 	 * @param appScret
 	 */
 	@Scheduled(fixedRate = 3600000)
-	private void getAccessToken(){
+	public void getAccessToken(){
 		// 访问微信服务器
 		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" 
 		           + APPID + "&secret="+ APPSECRET;
 		try {
 			String result = HttpUtil.sendGet(url, "UTF-8");
-			JSONObject json = JSONObject.fromObject(result);
+			   JSONObject json = JSONObject.fromObject(result);
 			ACCESS_TOKEN = json.getString("access_token");
 			System.out.println(ACCESS_TOKEN);
 		} catch (Exception e) {
@@ -46,4 +46,13 @@ public class AccessTokenUtil {
 		return ACCESS_TOKEN;
 	}
 	
+	/**
+	 * 强制获取token
+	 * @return
+	 */
+	public static synchronized String getNew(){
+		AccessTokenUtil util = new AccessTokenUtil();
+		util.getAccessToken();
+		return ACCESS_TOKEN;
+	}
 }

@@ -1,3 +1,3 @@
 $(".err_btn").click(function(){
-		window.location.href="index.html"
+		window.location.href="/rrp/index.html"
 })
